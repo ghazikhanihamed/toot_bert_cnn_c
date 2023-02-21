@@ -3,6 +3,7 @@ BATCH_SIZE = 1
 NUM_EPOCHS = 100
 DATASET_PATH = "./dataset/"
 PLOT_PATH = "./plots/"
+SEQUENCE_IDS_DICT_PATH = "./dataset/sequence_ids_dict.jsn"
 FROZEN = "frozen"
 FINETUNED = "finetuned"
 MAX_LENGTH_FINETUNED = 1024
