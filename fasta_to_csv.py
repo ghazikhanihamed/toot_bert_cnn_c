@@ -84,21 +84,23 @@ iontransporter_membrane_test_df.to_csv(settings.DATASET_PATH + settings.IONTRANS
 ionchannel_iontransporter_train_df.to_csv(settings.DATASET_PATH + settings.IONCHANNELS_IONTRANSPORTERS + "_" + settings.TRAIN + ".csv", index=False)
 ionchannel_iontransporter_test_df.to_csv(settings.DATASET_PATH + settings.IONCHANNELS_IONTRANSPORTERS + "_" + settings.TEST + ".csv", index=False)
 
-# We randomly take 280 sequences from membrane_proteins_train_df and 70 sequences from membrane_proteins_test_df to balance the dataset
-membrane_proteins_train_balanced_df = membrane_proteins_train_df.sample(n=280, random_state=settings.SEED)
-membrane_proteins_test_balanced_df = membrane_proteins_test_df.sample(n=70, random_state=settings.SEED)
+# We randomly take 280 sequences from membrane_proteins_train_df and 70 sequences from membrane_proteins_test_df to balance the dataset with 10 different random states
+random_states = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for random_state in random_states:
+    membrane_proteins_train_balanced_df = membrane_proteins_train_df.sample(n=280, random_state=random_state)
+    membrane_proteins_test_balanced_df = membrane_proteins_test_df.sample(n=70, random_state=random_state)
 
-# We concatenate the dataframes ionchannels_train_df and membrane_proteins_train_balanced_df
-ionchannel_membrane_train_balanced_df = pd.concat([ionchannels_train_df, membrane_proteins_train_balanced_df], ignore_index=True)
-ionchannel_membrane_test_balanced_df = pd.concat([ionchannels_test_df, membrane_proteins_test_balanced_df], ignore_index=True)
+    # We concatenate the dataframes ionchannels_train_df and membrane_proteins_train_balanced_df
+    ionchannel_membrane_train_balanced_df = pd.concat([ionchannels_train_df, membrane_proteins_train_balanced_df], ignore_index=True)
+    ionchannel_membrane_test_balanced_df = pd.concat([ionchannels_test_df, membrane_proteins_test_balanced_df], ignore_index=True)
 
-# We concatenate the dataframes iontransporters_train_df and membrane_proteins_train_balanced_df
-iontransporter_membrane_train_balanced_df = pd.concat([iontransporters_train_df, membrane_proteins_train_balanced_df], ignore_index=True)
-iontransporter_membrane_test_balanced_df = pd.concat([iontransporters_test_df, membrane_proteins_test_balanced_df], ignore_index=True)
+    # We concatenate the dataframes iontransporters_train_df and membrane_proteins_train_balanced_df
+    iontransporter_membrane_train_balanced_df = pd.concat([iontransporters_train_df, membrane_proteins_train_balanced_df], ignore_index=True)
+    iontransporter_membrane_test_balanced_df = pd.concat([iontransporters_test_df, membrane_proteins_test_balanced_df], ignore_index=True)
 
-# We save the dataframes in csv files
-ionchannel_membrane_train_balanced_df.to_csv(settings.DATASET_PATH + settings.IONCHANNELS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TRAIN + ".csv", index=False)
-ionchannel_membrane_test_balanced_df.to_csv(settings.DATASET_PATH + settings.IONCHANNELS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TEST + ".csv", index=False)
+    # We save the dataframes in csv files
+    ionchannel_membrane_train_balanced_df.to_csv(settings.DATASET_PATH + settings.IONCHANNELS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TRAIN + "_" + str(random_state) + ".csv", index=False)
+    ionchannel_membrane_test_balanced_df.to_csv(settings.DATASET_PATH + settings.IONCHANNELS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TEST + "_" + str(random_state) + ".csv", index=False)
 
-iontransporter_membrane_train_balanced_df.to_csv(settings.DATASET_PATH + settings.IONTRANSPORTERS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TRAIN + ".csv", index=False)
-iontransporter_membrane_test_balanced_df.to_csv(settings.DATASET_PATH + settings.IONTRANSPORTERS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TEST + ".csv", index=False)
+    iontransporter_membrane_train_balanced_df.to_csv(settings.DATASET_PATH + settings.IONTRANSPORTERS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TRAIN + "_" + str(random_state) + ".csv", index=False)
+    iontransporter_membrane_test_balanced_df.to_csv(settings.DATASET_PATH + settings.IONTRANSPORTERS_MEMBRANEPROTEINS + "_" + "balanced" + "_" + settings.TEST + "_" + str(random_state) + ".csv", index=False)
