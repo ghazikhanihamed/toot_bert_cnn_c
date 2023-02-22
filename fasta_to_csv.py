@@ -80,6 +80,12 @@ for file in membrane_proteins_test_fasta_files:
     for record in SeqIO.parse(file, "fasta"):
         membrane_proteins_test_df = membrane_proteins_test_df.append({"sequence": str(
             record.seq), "label": settings.MEMBRANE_PROTEINS, "id": record.id}, ignore_index=True)
+        
+# We make a file with all the sequences, sequence ids and labels
+all_sequences_df = pd.concat(
+    [ionchannels_train_df, ionchannels_test_df, iontransporters_train_df, iontransporters_test_df, membrane_proteins_train_df, membrane_proteins_test_df], ignore_index=True)
+all_sequences_df.to_csv(settings.ALL_SEQUENCES_PATH, index=False)
+
 
 # We make a list of all the sequence ids and map them to a unique id and save the mapping in a dictionary as a json file
 sequence_ids = list(ionchannels_train_df["id"]) + list(ionchannels_test_df["id"]) + list(iontransporters_train_df["id"]) + list(
