@@ -1,19 +1,18 @@
 #!/bin/bash -l
 
-#$ -N evolbert_frzn
+#$ -N plm_frzn
 #$ -cwd
 #$ -m bea
-#$ -l m_mem_free=32G,g=3
+#$ -l m_mem_free=300G,g=2
 
 export TMPDIR=~/tmp
+export TRANSFORMERS_CACHE=~/tmp
 
 module load python/3.7.3/default
 
-module load cuda/9.2/default
+source ~/python_path_gpu/bin/activate
 
-source ~/python_path/bin/activate
-
-python evol_bert_frozen.py 
+python save_representations.py 
 
 deactivate
 

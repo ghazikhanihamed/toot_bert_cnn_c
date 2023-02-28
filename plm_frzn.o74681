@@ -1,0 +1,9 @@
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:14<01:29, 14.97s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:27<01:06, 13.38s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:39<00:51, 12.88s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:51<00:37, 12.46s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [01:03<00:24, 12.49s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [01:14<00:11, 11.76s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:15<00:00,  8.46s/it]Loading checkpoint shards: 100%|██████████| 7/7 [01:15<00:00, 10.84s/it]
+Some weights of the model checkpoint at facebook/esm2_t48_15B_UR50D were not used when initializing EsmModel: ['lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.layer_norm.bias', 'lm_head.bias']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t48_15B_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Model:  ESM-2_15B
+Using GPU
+Using  2  GPUs.
