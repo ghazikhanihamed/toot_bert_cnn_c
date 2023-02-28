@@ -53,7 +53,6 @@ for rep in settings.REPRESENTATIONS:
 
     # For each sequence, label and id in the dataframe we take frozen representations from each rep
     for sequence, label, id in zip(sequences["sequence"], sequences["label"], sequences["id"]):
-        torch.cuda.empty_cache()
         if rep["name"] == "ProtBERT" or rep["name"] == "ProtBERT-BFD" or rep["name"] == "ProtT5":
             # We put a space between each amino acid
             sequence = " ".join(sequence)
@@ -65,7 +64,10 @@ for rep in settings.REPRESENTATIONS:
         sequence = sequence.replace("B", "X")
 
         # Tokenize the sequence
-        inputs = tokenizer(sequence, add_special_tokens=False, return_tensors="pt", truncation=True, max_length=1024)
+        if rep["name"] == "ProtBERT" or rep["name"] == "ProtBERT-BFD" or rep["name"] == "ProtT5":
+            inputs = tokenizer(sequence, add_special_tokens=False, return_tensors="pt")
+        else:
+            inputs = tokenizer(sequence, add_special_tokens=False, return_tensors="pt", truncation=True, max_length=1024)
         
         # Obtain frozen representations
         with torch.no_grad():
