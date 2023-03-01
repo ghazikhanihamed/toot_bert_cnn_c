@@ -29,12 +29,14 @@ for finetuned_representation in finetuned_representations:
 datasets = [f for f in os.listdir(settings.DATASET_PATH) if os.path.isfile(os.path.join(
     settings.DATASET_PATH, f)) and f != "all_sequences.csv" and f != "sequence_ids_dict.jsn"]
 
+datasets = ["ionchannels_membraneproteins_imbalanced_test.csv", "ionchannels_membraneproteins_balanced_test_10.csv"]
+
 # For each dataset and each frozen representation we create a new h5 dataset with the frozen representations, labels and ids
 for dataset in datasets:
     for frozen_representation in frozen_representations:
         # We create a new h5 file with the name of the dataset and frozen representation
         new_dataset = h5py.File(
-            settings.PLM_REPRESENTATIONS_PATH + dataset[:-4] + "_" + frozen_representation, "w")
+            settings.REPRESENTATIONS_PATH + dataset[:-4] + "_" + frozen_representation, "w")
 
         # The saved format is: f.create_dataset(str(id), data=representation) \ f[str(id)].attrs["label"] = label
 
@@ -47,26 +49,24 @@ for dataset in datasets:
             csv_id = row["id"]
             # We get the label from the csv file
             label = row["label"]
-            # We get the id from the h5 file
-            h5_id = frozen_representations_dict[frozen_representation][str(csv_id)].attrs["id"]
+            # We get the representation from the h5 file where the id is the same
+            representation = frozen_representations_dict[frozen_representation][str(csv_id)][:]
+            # We save the representation in the new h5 file
+            new_dataset.create_dataset(str(csv_id), data=representation)
+            # We save the label in the new h5 file
+            new_dataset[str(csv_id)].attrs["label"] = label
 
-            # We create a new dataset with the id from the h5 file
-            new_dataset.create_dataset(str(h5_id), data=frozen_representations_dict[frozen_representation][str(csv_id)])
-            # We add the label to the new dataset
-            new_dataset[str(h5_id)].attrs["label"] = label
-
-        # We close the new dataset
+        # We close the new h5 file
         new_dataset.close()
 
 # For each finetuned representation we create datasets with the names in dataset folder with finetuned at the end, by mapping the id in h5 file to the id in the csv dataset. So for each new finetuned datasets,
 # there are finetuned representations for each dataset in the dataset folder
 
-# For each dataset and each finetuned representation we create a new h5 dataset with the finetuned representations, labels and ids
 for dataset in datasets:
     for finetuned_representation in finetuned_representations:
         # We create a new h5 file with the name of the dataset and finetuned representation
         new_dataset = h5py.File(
-            settings.PLM_REPRESENTATIONS_PATH + dataset[:-4] + "_" + finetuned_representation, "w")
+            settings.REPRESENTATIONS_PATH + dataset[:-4] + "_" + finetuned_representation, "w")
 
         # The saved format is: f.create_dataset(str(id), data=representation) \ f[str(id)].attrs["label"] = label
 
@@ -79,23 +79,22 @@ for dataset in datasets:
             csv_id = row["id"]
             # We get the label from the csv file
             label = row["label"]
-            # We get the id from the h5 file
-            h5_id = finetuned_representations_dict[finetuned_representation][str(csv_id)].attrs["id"]
+            # We get the representation from the h5 file where the id is the same
+            representation = finetuned_representations_dict[finetuned_representation][str(csv_id)][:]
+            # We save the representation in the new h5 file
+            new_dataset.create_dataset(str(csv_id), data=representation)
+            # We save the label in the new h5 file
+            new_dataset[str(csv_id)].attrs["label"] = label
 
-            # We create a new dataset with the id from the h5 file
-            new_dataset.create_dataset(str(h5_id), data=finetuned_representations_dict[finetuned_representation][str(csv_id)])
-            # We add the label to the new dataset
-            new_dataset[str(h5_id)].attrs["label"] = label
-
-        # We close the new dataset
+        # We close the new h5 file
         new_dataset.close()
 
-# We close all the frozen representations
+# We close all the frozen representations h5 files
 for frozen_representation in frozen_representations:
     frozen_representations_dict[frozen_representation].close()
 
-# We close all the finetuned representations
+# We close all the finetuned representations h5 files
 for finetuned_representation in finetuned_representations:
     finetuned_representations_dict[finetuned_representation].close()
 
-# Path: map_representations_dataset.py
+
