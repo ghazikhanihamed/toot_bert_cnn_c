@@ -29,7 +29,7 @@ for finetuned_representation in finetuned_representations:
 datasets = [f for f in os.listdir(settings.DATASET_PATH) if os.path.isfile(os.path.join(
     settings.DATASET_PATH, f)) and f != "all_sequences.csv" and f != "sequence_ids_dict.jsn"]
 
-datasets = ["ionchannels_membraneproteins_imbalanced_test.csv", "ionchannels_membraneproteins_balanced_test_10.csv"]
+datasets = ["ionchannels_membraneproteins_imbalanced_train.csv", "ionchannels_membraneproteins_balanced_test_10.csv"]
 
 # For each dataset and each frozen representation we create a new h5 dataset with the frozen representations, labels and ids
 for dataset in datasets:

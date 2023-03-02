@@ -3,6 +3,7 @@ BATCH_SIZE = 1
 NUM_EPOCHS = 100
 DATASET_PATH = "./dataset/"
 PLOT_PATH = "./plots/"
+RESULTS_PATH = "./results/"
 SEQUENCE_IDS_DICT_PATH = "./dataset/sequence_ids_dict.jsn"
 ALL_SEQUENCES_PATH = "./dataset/all_sequences.csv"
 FROZEN_REPRESENTATIONS_PATH = "./plm_representations/frozen_representations"
