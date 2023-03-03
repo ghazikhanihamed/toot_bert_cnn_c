@@ -12,9 +12,11 @@ import os
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import GridSearchCV, train_test_split
 from skorch import NeuralNetClassifier
 from sklearn.metrics import make_scorer, matthews_corrcoef, accuracy_score, recall_score
+
+from scipy.stats import fisher_exact
 
 # We set the random seed for reproducibility
 import random
@@ -172,6 +174,8 @@ for representation in representations:
         }
 
         results_dict = {}
+        best_models = {}
+        best_params = {}
         # Perform the grid search for each model
         for name, (model, param_grid) in models.items():
             if name == "cnn":
@@ -185,18 +189,57 @@ for representation in representations:
 
             grid_search.fit(x_train, y_train)
 
-            # We save a table of results for each model as rows and the different metrics (mean +- std) as columns
+            # We save the best parameters
+            best_params[name] = grid_search.best_params_
+
+            # We save the best model
+            best_models[name] = grid_search.best_estimator_
+
+            # We save the results of the grid search in a csv file
+            results = pd.DataFrame(grid_search.cv_results_)
+            results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + "_" + name + ".csv", index=False)
+
+            # We save a table of results for each model as rows and the different metrics as columns. Each metric has two columns which are train (mean +- std) and test (mean +- std) scores
             results_dict[name] = {
-                "Sensitivity": str(round(grid_search.best_score_["Sensitivity"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_Sensitivity"][grid_search.best_index_], 2)),
-                "Specificity": str(round(grid_search.best_score_["Specificity"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_Specificity"][grid_search.best_index_], 2)),
-                "Accuracy": str(round(grid_search.best_score_["Accuracy"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_Accuracy"][grid_search.best_index_], 2)),
-                "MCC": str(round(grid_search.best_score_["MCC"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_MCC"][grid_search.best_index_], 2))
+                "Sensitivity": {"Train": str(round(grid_search.best_score_["train_Sensitivity"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_train_Sensitivity"][grid_search.best_index_], 2)), "Val": str(round(grid_search.best_score_["test_Sensitivity"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_Sensitivity"][grid_search.best_index_], 2))},
+                "Specificity": {"Train": str(round(grid_search.best_score_["train_Specificity"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_train_Specificity"][grid_search.best_index_], 2)), "Val": str(round(grid_search.best_score_["test_Specificity"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_Specificity"][grid_search.best_index_], 2))},
+                "Accuracy": {"Train": str(round(grid_search.best_score_["train_Accuracy"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_train_Accuracy"][grid_search.best_index_], 2)), "Val": str(round(grid_search.best_score_["test_Accuracy"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_Accuracy"][grid_search.best_index_], 2))},
+                "MCC": {"Train": str(round(grid_search.best_score_["train_MCC"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_train_MCC"][grid_search.best_index_], 2)), "Val": str(round(grid_search.best_score_["test_MCC"], 2)) + u"\u00B1" + str(round(grid_search.cv_results_["std_test_MCC"][grid_search.best_index_], 2))},
             }
+        
+        # We save the best parameters for each model in a csv file
+        best_params_df = pd.DataFrame(best_params)
+        best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
+
+        # We apply Fisher's exact test to the best models and report the p-values in a matrix with rows and columns corresponding to the models
+        train_data, val_data, train_labels, val_labels = train_test_split(X_train, y_train, test_size=0.2, random_state=settings.SEED, stratify=y_train)
+        p_values = np.zeros((len(models), len(models)))
+        for i, (name1, model1) in enumerate(best_models.items()):
+            for j, (name2, model2) in enumerate(best_models.items()):
+                if i == j:
+                    p_values[i, j] = 1
+                else:
+                    if name1 == "cnn" or name2 == "cnn":
+                        x_train = torch.tensor(train_data, dtype=torch.float32)
+                        y_train = torch.tensor(train_labels, dtype=torch.long)
+                        x_val = torch.tensor(val_data, dtype=torch.float32)
+                        y_val = torch.tensor(val_labels, dtype=torch.long)
+                    else:
+                        x_train = train_data
+                        y_train = train_labels
+                        x_val = val_data
+                        y_val = val_labels
+                    model1.fit(x_train, y_train)
+                    model2.fit(x_train, y_train)
+                    y_pred1 = model1.predict(x_val)
+                    y_pred2 = model2.predict(x_val)
+                    p_values[i, j] = fisher_exact([y_pred1, y_pred2])[1]
+
+        # We save the p-values in a csv file with rows and columns corresponding to the models
+        p_values_df = pd.DataFrame(p_values, index=best_models.keys(), columns=best_models.keys())
+        p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv")
+
 
         # We save the results in a csv file
         results_df = pd.DataFrame(results_dict)
         results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
-
-            # We save the best parameters, best score, best index
-
-
