@@ -60,3 +60,16 @@ class PLMDataset(Dataset):
         sample["labels"] = torch.tensor(self.labels[idx])
 
         return sample
+
+
+
+class GridDataset(Dataset):
+    def __init__(self, X, y):
+        self.X = X
+        self.y = y
+
+    def __len__(self):
+        return len(self.y)
+
+    def __getitem__(self, idx):
+        return self.X[idx], self.y[idx]

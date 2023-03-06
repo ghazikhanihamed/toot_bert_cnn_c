@@ -1,3 +1,5 @@
+
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -5,41 +7,49 @@ import numpy as np
 from sklearn.model_selection import GridSearchCV
 from skorch import NeuralNetClassifier
 from sklearn.metrics import make_scorer, matthews_corrcoef
+from torch.functional import F
 
 # Define the CNN model
+
+
 class CNN(nn.Module):
-    def __init__(self, input_dim, output_dim, kernel_sizes=[3, 5, 7, 9], hidden_layers=[100, 50], filters=[32, 64]):
+    def __init__(self, kernel_sizes=[3, 5, 7], out_channels=[512, 256, 128, 64, 32], input_size=1024, output_size=2, dropout_prob=0.3):
         super(CNN, self).__init__()
-        self.input_dim = input_dim
-        self.output_dim = output_dim
-        self.kernel_sizes = kernel_sizes
-        self.hidden_layers = hidden_layers
-        self.filters = filters
-        
-        # Create the convolutional layers
+
+        # Define the input channel
+        input_channel = 1
+
+        # Convolutional layers
         self.conv_layers = nn.ModuleList()
-        for kernel_size in kernel_sizes:
-            for n_filters in filters:
-                padding = (kernel_size - 1) // 2
-                conv_layer = nn.Conv1d(in_channels=input_dim, out_channels=n_filters, kernel_size=kernel_size, padding=padding)
-                self.conv_layers.append(conv_layer)
-        
-        # Create the fully connected layers
-        self.fc_layers = nn.ModuleList()
-        for i in range(len(hidden_layers)-1):
-            fc_layer = nn.Linear(hidden_layers[i], hidden_layers[i+1])
-            self.fc_layers.append(fc_layer)
-        self.output_layer = nn.Linear(hidden_layers[-1], output_dim)
+        output_dim = 0
+        for i in range(len(kernel_sizes)):
+            for j in range(len(out_channels)):
+                output_dim += out_channels[j]
+                padding = (kernel_sizes[i] - 1) // 2
+                self.conv_layers.append(nn.Conv2d(
+                    input_channel, out_channels[j], (kernel_sizes[i], input_size), padding=(padding, 0)))
+                
+        # Dropout layer
+        self.dropout = nn.Dropout(dropout_prob)
+
+        # Fully connected layer
+        self.fc1 = nn.Linear(output_dim, output_size)
 
     def forward(self, x):
-        x = x.permute(0, 2, 1)
-        conv_outputs = []
-        for conv_layer in self.conv_layers:
-            conv_output = nn.functional.relu(conv_layer(x))
-            conv_output = nn.functional.max_pool1d(conv_output, kernel_size=conv_output.size()[2])
-            conv_outputs.append(conv_output.squeeze())
-        x = torch.cat(conv_outputs, dim=1)
-        for fc_layer in self.fc_layers:
-            x = nn.functional.relu(fc_layer(x))
-        output = self.output_layer(x)
-        return output
+        x = x.unsqueeze(1)
+        # Convolutional layers
+        x = [F.relu(conv(x)).squeeze(3) for conv in self.conv_layers]
+
+        # Max pooling
+        x = [F.max_pool1d(i, i.size(2)).squeeze(2) for i in x]
+
+        # Concatenate the outputs of the convolutional layers
+        x = torch.cat(x, 1)
+
+        # Dropout
+        x = self.dropout(x)
+
+        # Fully connected layer
+        x = self.fc1(x)
+
+        return x
