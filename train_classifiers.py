@@ -83,6 +83,7 @@ for representation in representations:
             model_name = representation.split("_")[7] + "_" + representation.split("_")[8][:-3]
         else:
             model_name = representation.split("_")[7][:-3]
+        
     else:
         # We get the type of the representations which is the fifth word in the name of the representation separated by _
         representation_type = representation.split("_")[4]
@@ -91,6 +92,12 @@ for representation in representations:
             model_name = representation.split("_")[6] + "_" + representation.split("_")[7][:-3]
         else:
             model_name = representation.split("_")[6][:-3]
+
+    print("Dataset name: ", dataset_name)
+    print("Dataset type: ", dataset_type)
+    print("Dataset split: ", dataset_split)
+    print("Model name: ", model_name)
+
     # We open the h5 file
     with h5py.File(settings.REPRESENTATIONS_PATH + representation, "r") as f:
         # We put the id, representation and label together in a list. The saved data is : (str(csv_id), data=representation), [str(csv_id)].attrs["label"] = label. And the representation is a numpy array
@@ -134,7 +141,8 @@ for representation in representations:
             batch_size=1,
             device=device,
             module__input_size=input_dim,
-            train_split=None
+            train_split=None,
+            error_score="raise"
         )
 
         # Define the parameter grids for each model
@@ -236,8 +244,8 @@ for representation in representations:
         # Perform the grid search for each model
         for name, (model, param_grid) in models.items():
             if name == "cnn":
-                x_train = [torch.tensor(representation, dtype=torch.float).to(device).to(device) for representation in X_train]
-                y_train = torch.tensor(y_train, dtype=torch.long).to(device)
+                x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in X_train]
+                y_train = torch.tensor(y_train, dtype=torch.long)
                 train_dataset = GridDataset(x_train, y_train)
                 grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC")
                 grid_search.fit(train_dataset, y_train)
@@ -259,7 +267,7 @@ for representation in representations:
             if dataset_type == "balanced":
                 results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + "_" + name + ".csv", index=False)
             else:
-                results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + name + ".csv", index=False)
+                results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + "_" + name + ".csv", index=False)
 
             # We save a table of results for each model as rows and the different metrics as columns. Each metric has two columns which are train (mean +- std) and test (mean +- std) scores
             results_dict[name] = {
@@ -274,7 +282,7 @@ for representation in representations:
         if dataset_type == "balanced":
             best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
         else:
-            best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_type + "_" + dataset_split + "_" + representation_type + ".csv", index=False)
+            best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv", index=False)
 
         # We apply Fisher's exact test to the best models and report the p-values in a matrix with rows and columns corresponding to the models
         train_data, val_data, train_labels, val_labels = train_test_split(X_train, y_train, test_size=0.2, random_state=settings.SEED, stratify=y_train)
@@ -284,20 +292,39 @@ for representation in representations:
                 if i == j:
                     p_values[i, j] = 1
                 else:
-                    if name1 == "cnn" or name2 == "cnn":
-                        x_train = torch.tensor(train_data, dtype=torch.float32)
+                    if name1 == "cnn":
+                        x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in train_data]
                         y_train = torch.tensor(train_labels, dtype=torch.long)
-                        x_val = torch.tensor(val_data, dtype=torch.float32)
+                        x_val = [torch.tensor(representation, dtype=torch.float).to(device) for representation in val_data]
                         y_val = torch.tensor(val_labels, dtype=torch.long)
+                        train_dataset = GridDataset(x_train, y_train)
+                        val_dataset = GridDataset(x_val, y_val)
+                        model1.fit(train_dataset, val_dataset)
+                        y_pred1 = model1.predict(x_val)
                     else:
-                        x_train = train_data
-                        y_train = train_labels
-                        x_val = val_data
-                        y_val = val_labels
-                    model1.fit(x_train, y_train)
-                    model2.fit(x_train, y_train)
-                    y_pred1 = model1.predict(x_val)
-                    y_pred2 = model2.predict(x_val)
+                        x_train = np.array([np.mean(representation, axis=0) for representation in train_data])
+                        y_train = np.array(train_labels)
+                        x_val = np.array([np.mean(representation, axis=0) for representation in val_data])
+                        y_val = np.array(val_labels)
+                        model1.fit(x_train, y_train)
+                        y_pred1 = model1.predict(x_val)
+                    if name2 == "cnn":
+                        x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in train_data]
+                        y_train = torch.tensor(train_labels, dtype=torch.long)
+                        x_val = [torch.tensor(representation, dtype=torch.float).to(device) for representation in val_data]
+                        y_val = torch.tensor(val_labels, dtype=torch.long)
+                        train_dataset = GridDataset(x_train, y_train)
+                        val_dataset = GridDataset(x_val, y_val)
+                        model2.fit(train_dataset, val_dataset)
+                        y_pred2 = model2.predict(x_val)
+                    else:
+                        x_train = np.array([np.mean(representation, axis=0) for representation in train_data])
+                        y_train = np.array(train_labels)
+                        x_val = np.array([np.mean(representation, axis=0) for representation in val_data])
+                        y_val = np.array(val_labels)
+                        model2.fit(x_train, y_train)
+                        y_pred2 = model2.predict(x_val)
+
                     p_values[i, j] = fisher_exact([y_pred1, y_pred2])[1]
 
         # We save the p-values in a csv file with rows and columns corresponding to the models
@@ -305,7 +332,7 @@ for representation in representations:
         if dataset_type == "balanced":
             p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv")
         else:
-            p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_type + "_" + dataset_split + "_" + representation_type + ".csv")
+            p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv")
 
 
         # We save the results in a csv file
@@ -313,4 +340,4 @@ for representation in representations:
         if dataset_type == "balanced":
             results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
         else:
-            results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + ".csv", index=False)
+            results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv", index=False)
