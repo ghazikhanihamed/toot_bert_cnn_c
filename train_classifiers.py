@@ -96,7 +96,7 @@ for representation in representations:
         # We put the id, representation and label together in a list. The saved data is : (str(csv_id), data=representation), [str(csv_id)].attrs["label"] = label. And the representation is a numpy array
         train_data = [(id, representation, label) for id, representation in zip(f.keys(), f.values()) for label in f[id].attrs.values()]
 
-        # We convert the representation to a numpy array
+        # We convert the representations to a numpy array
         for i in range(len(train_data)):
             train_data[i] = (train_data[i][0], np.array(train_data[i][1]), train_data[i][2])
 
@@ -109,7 +109,10 @@ for representation in representations:
             y_train.append(label)
         
         # We convert labels to 0 and 1. 0 for membrane_proteins and 1 for ionchannels
-        y_train = [0 if label == "membrane_proteins" else 1 for label in y_train]
+        y_train = [0 if label == "membrane_proteins" or label == "iontransporters" else 1 for label in y_train]
+
+        X_train = [np.array(x) for x in X_train]
+        y_train = np.array(y_train)
 
         # Create the models
         svm_model = SVC(random_state=settings.SEED)
@@ -121,17 +124,17 @@ for representation in representations:
         # We take the dimension of the representation
         input_dim = X_train[0].shape[1]
 
-
         # Create the neural net classifier with scorch
         cnn = NeuralNetClassifier(
             module=CNN,
-            max_epochs=10,
+            max_epochs=20,
             criterion=nn.CrossEntropyLoss,
             optimizer=optim.Adam,
             verbose=0,
             batch_size=1,
             device=device,
             module__input_size=input_dim,
+            train_split=None
         )
 
         # Define the parameter grids for each model
@@ -140,12 +143,22 @@ for representation in representations:
             'gamma': [0.1, 1, 10],
             'kernel': ['linear', 'rbf', 'sigmoid']
         }
+        # svm_param_grid = {
+        #     'C': [0.1],
+        #     'gamma': [0.1],
+        #     'kernel': ['linear']
+        # }
 
         rf_param_grid = {
             'n_estimators': [50, 100, 200],
             'max_depth': [5, 10, None],
             'min_samples_split': [2, 5, 10]
         }
+        # rf_param_grid = {
+        #     'n_estimators': [50],
+        #     'max_depth': [5],
+        #     'min_samples_split': [2]
+        # }
 
         mlp_param_grid = {
             'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 100)],
@@ -153,17 +166,36 @@ for representation in representations:
             'alpha': [0.0001, 0.001, 0.01]
         }
 
+        # mlp_param_grid = {
+        #     'hidden_layer_sizes': [(50,)],
+        #     'activation': ['relu'],
+        #     'alpha': [0.0001]
+        # }
+
         knn_param_grid = {
             'n_neighbors': [3, 5, 7, 9],
             'weights': ['uniform', 'distance'],
             'algorithm': ['ball_tree', 'kd_tree', 'brute']
         }
 
+        # knn_param_grid = {
+        #     'n_neighbors': [3],
+        #     'weights': ['uniform'],
+        #     'algorithm': ['ball_tree']
+        # }
+
         lr_param_grid = {
             'penalty': ['l1', 'l2'],
             'C': [0.1, 1, 10, 100],
             'solver': ['liblinear', 'saga']
         }
+
+        # lr_param_grid = {
+        #     'penalty': ['l1'],
+        #     'C': [0.1],
+        #     'solver': ['liblinear']
+        # }
+
 
         cnn_param_grid = {
             'module__kernel_sizes': [[3, 5, 7], [3, 5], [3, 7], [5, 7]],
@@ -172,14 +204,22 @@ for representation in representations:
             'module__dropout_prob': [0.1, 0.2, 0.3, 0.4, 0.5]
         }
 
+        # cnn_param_grid = {
+        #     'module__kernel_sizes': [[3, 5, 7]],
+        #     'module__out_channels': [[64, 32]],
+        #     'lr': [0.001],
+        #     'module__dropout_prob': [0.1]
+        # }
+
+
         # Create a dictionary of models and their corresponding parameter grids
         models = {
+            'cnn': (cnn, cnn_param_grid),
             'svm': (svm_model, svm_param_grid),
             'rf': (rf_model, rf_param_grid),
             'mlp': (mlp_model, mlp_param_grid),
             'knn': (knn_model, knn_param_grid),
-            'lr': (lr_model, lr_param_grid),
-            'cnn': (cnn, cnn_param_grid)
+            'lr': (lr_model, lr_param_grid)
         }
 
         # We make a dictionary of scores
@@ -196,16 +236,15 @@ for representation in representations:
         # Perform the grid search for each model
         for name, (model, param_grid) in models.items():
             if name == "cnn":
-                x_train = [torch.tensor(representation, dtype=torch.float) for representation in X_train]
-                y_train = torch.tensor(y_train, dtype=torch.long)
-
+                x_train = [torch.tensor(representation, dtype=torch.float).to(device).to(device) for representation in X_train]
+                y_train = torch.tensor(y_train, dtype=torch.long).to(device)
                 train_dataset = GridDataset(x_train, y_train)
-                grid_search = GridSearchCV(model, param_grid, cv=2, scoring=scores, return_train_score=True, n_jobs=-1, refit="MCC")
+                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC")
                 grid_search.fit(train_dataset, y_train)
             else:
                 # We make one array of the representations by taking the mean of each representation in the list
                 x_train = np.array([np.mean(representation, axis=0) for representation in X_train])
-                grid_search = GridSearchCV(model, param_grid, cv=2, scoring=scores, return_train_score=True, n_jobs=-1, refit="MCC")
+                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC")
                 grid_search.fit(x_train, y_train)
 
             
