@@ -61,8 +61,8 @@ def pytorch_scorer(estimator, X, y):
     return scores
 
 
-# we make a list of only h5 files in the representations folder
-representations = [f for f in os.listdir(settings.REPRESENTATIONS_PATH) if os.path.isfile(os.path.join(settings.REPRESENTATIONS_PATH, f)) and f.endswith(".h5") and "train" in f]
+# we make a list of only h5 files that contains only train in the representations folder
+representations = [representation for representation in os.listdir(settings.REPRESENTATIONS_PATH) if representation.endswith(".h5") and "train" in representation]
 
 # For each representation we take id, representation and label
 for representation in representations:
@@ -141,8 +141,7 @@ for representation in representations:
             batch_size=1,
             device=device,
             module__input_size=input_dim,
-            train_split=None,
-            error_score="raise"
+            train_split=None
         )
 
         # Define the parameter grids for each model
@@ -247,12 +246,12 @@ for representation in representations:
                 x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in X_train]
                 y_train = torch.tensor(y_train, dtype=torch.long)
                 train_dataset = GridDataset(x_train, y_train)
-                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC")
+                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC", error_score='raise')
                 grid_search.fit(train_dataset, y_train)
             else:
                 # We make one array of the representations by taking the mean of each representation in the list
                 x_train = np.array([np.mean(representation, axis=0) for representation in X_train])
-                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC")
+                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC", error_score='raise')
                 grid_search.fit(x_train, y_train)
 
             
