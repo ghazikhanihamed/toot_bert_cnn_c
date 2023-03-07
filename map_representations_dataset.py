@@ -29,7 +29,7 @@ for finetuned_representation in finetuned_representations:
 datasets = [f for f in os.listdir(settings.DATASET_PATH) if os.path.isfile(os.path.join(
     settings.DATASET_PATH, f)) and f != "all_sequences.csv" and f != "sequence_ids_dict.jsn"]
 
-datasets = ["ionchannels_membraneproteins_imbalanced_train.csv", "ionchannels_membraneproteins_balanced_test_10.csv"]
+print(datasets)
 
 # For each dataset and each frozen representation we create a new h5 dataset with the frozen representations, labels and ids
 for dataset in datasets:
@@ -65,8 +65,9 @@ for dataset in datasets:
 for dataset in datasets:
     for finetuned_representation in finetuned_representations:
         # We create a new h5 file with the name of the dataset and finetuned representation
+        finetuned_name = "_".join(finetuned_representation.split("_")[:-2])
         new_dataset = h5py.File(
-            settings.REPRESENTATIONS_PATH + dataset[:-4] + "_" + finetuned_representation, "w")
+            settings.REPRESENTATIONS_PATH + dataset[:-4] + "_" + finetuned_name, "w")
 
         # The saved format is: f.create_dataset(str(id), data=representation) \ f[str(id)].attrs["label"] = label
 
