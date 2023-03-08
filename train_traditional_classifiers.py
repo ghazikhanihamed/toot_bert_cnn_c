@@ -191,7 +191,7 @@ for representation in representations:
             x_train = np.array([np.mean(representation, axis=0) for representation in X_train])
 
             # We perform the grid search
-            grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC", error_score='raise')
+            grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=5, refit="MCC", error_score='raise')
             grid_search.fit(x_train, y_train)
 
             # We save the best parameters
