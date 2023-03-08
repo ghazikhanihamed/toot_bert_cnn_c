@@ -1,0 +1,345 @@
+['ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_finetuned_representations_ProtBERT_ionchannels_iontransporters_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ESM-2.h5', 'ionchannels_iontransporters_train_finetuned_representations_ProtBERT-BFD_ionchannels_iontransporters_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ESM-1b_ionchannels_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT_iontransporters_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_frozen_representations_ESM-1b.h5', 'ionchannels_iontransporters_train_finetuned_representations_ESM-2_ionchannels_iontransporters_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ESM-2_ionchannels_membraneproteins_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT_ionchannels_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_frozen_representations_ProtBERT.h5', 'ionchannels_iontransporters_train_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ESM-2.h5', 'ionchannels_iontransporters_train_frozen_representations_ProtT5.h5', 'ionchannels_iontransporters_train_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ESM-2_iontransporters_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ESM-2_15B.h5', 'ionchannels_iontransporters_train_finetuned_representations_ESM-1b_ionchannels_iontransporters_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ESM-1b_iontransporters_membraneproteins_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ESM-1b.h5']
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Performing grid search for model:  svm
+Performing grid search for model:  rf
+Performing grid search for model:  mlp
+Performing grid search for model:  knn
+Performing grid search for model:  lr
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/neural_network/_multilayer_perceptron.py:696: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+Traceback (most recent call last):
+  File "train_traditional_classifiers.py", line 242, in <module>
+    p_values[i, j] = fisher_exact([y_pred1, y_pred2])[1]
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/scipy/stats/stats.py", line 4233, in fisher_exact
+    raise ValueError("The input `table` must be of shape (2, 2).")
+ValueError: The input `table` must be of shape (2, 2).
