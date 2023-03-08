@@ -64,6 +64,8 @@ def pytorch_scorer(estimator, X, y):
 # we make a list of only h5 files that contains only train in the representations folder
 representations = [representation for representation in os.listdir(settings.REPRESENTATIONS_PATH) if representation.endswith(".h5") and "train" in representation]
 
+print(representations)
+
 # For each representation we take id, representation and label
 for representation in representations:
     # We separate the information from the name of the representation

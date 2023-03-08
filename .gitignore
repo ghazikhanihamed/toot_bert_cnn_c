@@ -1,3 +1,5 @@
 *.h5
 finetuned_models/
 *.zip
+representations/
+plm_representations/

@@ -1,0 +1,4 @@
+  File "fix_names.py", line 13
+    os.rename(settings.REPRESENTATIONS_PATH + f, settings.REPRESENTATIONS_PATH + f[:-16] + "membraneproteins.h5")"
+                                                                                                                 ^
+SyntaxError: EOL while scanning string literal

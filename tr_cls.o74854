@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "train_classifiers.py", line 243, in <module>
+    grid_search.fit(train_dataset, y_train)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_search.py", line 802, in fit
+    cv_orig = check_cv(self.cv, y, classifier=is_classifier(estimator))
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_split.py", line 2303, in check_cv
+    and (type_of_target(y) in ("binary", "multiclass"))
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/utils/multiclass.py", line 278, in type_of_target
+    if is_multilabel(y):
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/utils/multiclass.py", line 150, in is_multilabel
+    y = np.asarray(y)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/_tensor.py", line 956, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
