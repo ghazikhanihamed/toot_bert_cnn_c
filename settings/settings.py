@@ -12,6 +12,7 @@ PLM_REPRESENTATIONS_PATH = "./plm_representations/"
 FINETUNED_RESULTS_PATH = "./finetuned_results"
 FINETUNED_MODELS_PATH = "./finetuned_models/"
 REPRESENTATIONS_PATH = "./representations/"
+REPRESENTATIONS_FILTERED_PATH = REPRESENTATIONS_PATH + "representations_filtered/"
 FROZEN = "frozen"
 FINETUNED = "finetuned"
 MAX_LENGTH_FINETUNED = 1024

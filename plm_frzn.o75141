@@ -1,21 +1,0 @@
-Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:03<00:23,  3.97s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:07<00:19,  3.96s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:11<00:15,  3.99s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:15<00:12,  4.00s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:20<00:08,  4.01s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:24<00:04,  4.02s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:24<00:00,  2.99s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:24<00:00,  3.52s/it]
-Some weights of the model checkpoint at facebook/esm2_t48_15B_UR50D were not used when initializing EsmModel: ['lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.decoder.weight']
-- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t48_15B_UR50D and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-here
-Traceback (most recent call last):
-  File "/nfs/speed-scratch/h_ghazik/toot_bert_cnn_c/save_frozen_representations.py", line 78, in <module>
-    outputs = model(input_ids, attention_mask=attention_mask)
-  File "/encs/pkg/pytorch-1.10.0/root/python/GPU/torch/nn/modules/module.py", line 1102, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/nfs/speed-scratch/h_ghazik/python_gpu_path/lib/python3.9/site-packages/fairscale/nn/data_parallel/fully_sharded_data_parallel.py", line 1416, in forward
-    self._lazy_init()
-  File "/nfs/speed-scratch/h_ghazik/python_gpu_path/lib/python3.9/site-packages/fairscale/nn/data_parallel/fully_sharded_data_parallel.py", line 1226, in _lazy_init
-    self._init_param_attributes(p)
-  File "/encs/pkg/pytorch-1.10.0/root/python/GPU/torch/autograd/grad_mode.py", line 28, in decorate_context
-    return func(*args, **kwargs)
-  File "/nfs/speed-scratch/h_ghazik/python_gpu_path/lib/python3.9/site-packages/fairscale/nn/data_parallel/fully_sharded_data_parallel.py", line 1301, in _init_param_attributes
-    p._fp16_shard = torch.zeros_like(p._fp32_shard, device=self.compute_device, dtype=self.compute_dtype)
-RuntimeError: CUDA out of memory. Tried to allocate 28.19 GiB (GPU 0; 14.90 GiB total capacity; 13.00 KiB already allocated; 14.06 GiB free; 2.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

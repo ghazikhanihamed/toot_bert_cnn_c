@@ -62,43 +62,47 @@ def pytorch_scorer(estimator, X, y):
 
 
 # we make a list of only h5 files that contains only train in the representations folder
-representations = [representation for representation in os.listdir(settings.REPRESENTATIONS_PATH) if representation.endswith(".h5") and "train" in representation]
+representations = [representation for representation in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation]
 
 print(representations)
 
 # For each representation we take id, representation and label
 for representation in representations:
+    information = representation.split("_")
     # We separate the information from the name of the representation
     # We get the name of the dataset which is the two first words in the name of the representation separated by _
-    dataset_name = representation.split("_")[0] + "_" + representation.split("_")[1]
-    # We get the name of the type of dataset which is the third word in the name of the representation separated by _
-    dataset_type = representation.split("_")[2]
-    # We get the split of the dataset which is the fourth word in the name of the representation separated by _
-    dataset_split = representation.split("_")[3]
-    # We get the number of the dataset if the type is "balanced" which is the fifth word in the name of the representation separated by _
-    if dataset_type == "balanced":
-        dataset_number = representation.split("_")[4]
-        # We get the type of the representations which is the sixth word in the name of the representation separated by _
-        representation_type = representation.split("_")[5]
-        # And we get the name of the model which is the eighth word in the name of the representation separated by _ + 9th word if exists without the .h5
-        if len(representation.split("_")) == 9:
-            model_name = representation.split("_")[7] + "_" + representation.split("_")[8][:-3]
+    dataset_name = information[0] + "_" + information[1] # ionchannels_membraneproteins or ionchannels_iontransporters or iontrasnporters_membraneproteins
+    # If frozen is in the name of the representation, then the dataset is frozen
+    if "frozen" in representation:
+        representation_type = "frozen"
+        if information[1] == "membraneproteins":
+            dataset_type = information[2] # Balanced or imbalanced
+            dataset_split = information[3] # train or test
+            if dataset_type == "balanced":
+                dataset_number = information[4] # 1-10
+                if len(information) == 8:
+                    representer_model = information[7]
+                else:
+                    representer_model = information[7] + "_" + information[8]
+            else:
+                if len(information) == 7:
+                    representer_model = information[6]
+                else:
+                    representer_model = information[6] + "_" + information[7]
         else:
-            model_name = representation.split("_")[7][:-3]
-        
+            dataset_split = information[2] # train or test
+            if len(information) == 6:
+                representer_model = information[5]
+            else:
+                representer_model = information[5] + "_" + information[6]
     else:
-        # We get the type of the representations which is the fifth word in the name of the representation separated by _
-        representation_type = representation.split("_")[4]
-        # And we get the name of the model which is the seventh word in the name of the representation separated by _
-        if len(representation.split("_")) == 8:
-            model_name = representation.split("_")[6] + "_" + representation.split("_")[7][:-3]
-        else:
-            model_name = representation.split("_")[6][:-3]
-
-    print("Dataset name: ", dataset_name)
-    print("Dataset type: ", dataset_type)
-    print("Dataset split: ", dataset_split)
-    print("Model name: ", model_name)
+        representation_type = "finetuned"
+        if information[1] == "membraneproteins":
+            dataset_type = information[2] # Balanced or imbalanced
+            dataset_split = information[3] # train or test
+            if dataset_type == "balanced":
+                dataset_number = information[4] # 1-10
+                representer_model = information[7]
 
     # We open the h5 file
     with h5py.File(settings.REPRESENTATIONS_PATH + representation, "r") as f:
