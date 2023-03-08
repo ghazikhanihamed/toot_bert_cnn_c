@@ -103,6 +103,23 @@ for representation in representations:
             if dataset_type == "balanced":
                 dataset_number = information[4] # 1-10
                 representer_model = information[7]
+            else:
+                representer_model = information[6]
+        else:
+            dataset_split = information[2]
+            representer_model = information[5]
+
+    # Print the information
+    print("-"*50)
+    print("-"*50)
+    print("Dataset name: ", dataset_name)
+    print("Dataset type: ", dataset_type) if information[1] == "membraneproteins"
+    print("Dataset split: ", dataset_split)
+    print("Dataset number: ", dataset_number) if dataset_type == "balanced" and information[1] == "membraneproteins"
+    print("Representation type: ", representation_type)
+    print("Representer model: ", representer_model)
+
+
 
     # We open the h5 file
     with h5py.File(settings.REPRESENTATIONS_PATH + representation, "r") as f:
@@ -346,3 +363,10 @@ for representation in representations:
             results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
         else:
             results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv", index=False)
+
+    dataset_name = ""
+    dataset_type = ""
+    dataset_split = ""
+    dataset_number = ""
+    representation_type = ""
+    representer_model = ""
