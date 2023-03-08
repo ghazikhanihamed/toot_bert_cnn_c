@@ -1,0 +1,15 @@
+svm,rf,mlp,knn,lr
+10,,,,100
+0.1,,,,
+rbf,,,,
+,10.0,,,
+,2.0,,,
+,50.0,,,
+,,relu,,
+,,"(50, 50)",,
+,,constant,,
+,,,ball_tree,
+,,,3,
+,,,distance,
+,,,,l2
+,,,,liblinear
