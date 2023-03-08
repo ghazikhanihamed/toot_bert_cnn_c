@@ -1,0 +1,351 @@
+['ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_finetuned_representations_ProtBERT_ionchannels_iontransporters_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ESM-2.h5', 'ionchannels_iontransporters_train_finetuned_representations_ProtBERT-BFD_ionchannels_iontransporters_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ESM-1b_ionchannels_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT_iontransporters_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_frozen_representations_ESM-1b.h5', 'ionchannels_iontransporters_train_finetuned_representations_ESM-2_ionchannels_iontransporters_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ESM-2_ionchannels_membraneproteins_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT_ionchannels_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_frozen_representations_ProtBERT.h5', 'ionchannels_iontransporters_train_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ESM-2.h5', 'ionchannels_iontransporters_train_frozen_representations_ProtT5.h5', 'ionchannels_iontransporters_train_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_4_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ESM-2_iontransporters_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_3_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_iontransporters_train_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_1_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_5_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_1_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_6_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_3_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_2_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_3_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_finetuned_representations_ESM-1b_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ProtBERT.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_imbalanced_train_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ESM-2_15B.h5', 'ionchannels_iontransporters_train_finetuned_representations_ESM-1b_ionchannels_iontransporters_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_6_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_imbalanced_train_finetuned_representations_ESM-1b_iontransporters_membraneproteins_imbalanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_7_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ESM-2.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_9_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_8_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_imbalanced_train_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_imbalanced.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT-BFD_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ProtT5.h5', 'iontransporters_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_4_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_8_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ProtBERT-BFD.h5', 'ionchannels_membraneproteins_balanced_train_6_frozen_representations_ESM-2_15B.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_4_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ESM-2.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_5_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_4_frozen_representations_ESM-1b.h5', 'iontransporters_membraneproteins_balanced_train_2_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_3_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_2_frozen_representations_ESM-2_15B.h5', 'ionchannels_membraneproteins_balanced_train_1_finetuned_representations_ProtBERT_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_5_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_5_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_8_finetuned_representations_ProtBERT-BFD_ionchannels_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_9_frozen_representations_ESM-1b.h5', 'ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtBERT-BFD.h5', 'iontransporters_membraneproteins_balanced_train_8_finetuned_representations_ESM-1b_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_2_finetuned_representations_ESM-2_iontransporters_membraneproteins_balanced.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_7_frozen_representations_ProtT5.h5', 'ionchannels_membraneproteins_balanced_train_7_finetuned_representations_ESM-2_ionchannels_membraneproteins_balanced.h5', 'ionchannels_membraneproteins_balanced_train_10_frozen_representations_ProtBERT.h5', 'iontransporters_membraneproteins_balanced_train_10_frozen_representations_ESM-1b.h5']
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Performing grid search for model:  svm
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_validation.py:372: FitFailedWarning: 
+180 fits failed out of a total of 180.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+180 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_validation.py", line 680, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/svm/_base.py", line 199, in fit
+    y = self._validate_targets(y)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/svm/_base.py", line 722, in _validate_targets
+    % len(cls)
+ValueError: The number of classes has to be greater than one; got 1 class
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_search.py:972: UserWarning: One or more of the test scores are non-finite: [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan]
+  category=UserWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_search.py:972: UserWarning: One or more of the train scores are non-finite: [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan]
+  category=UserWarning,
+Performing grid search for model:  rf
+Performing grid search for model:  knn
+Performing grid search for model:  lr
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_iontransporters
+Dataset type:  N/A
+Dataset number:  N/A
+Representation type:  finetuned
+Representer model:  ProtBERT
+Performing grid search for model:  svm
+Performing grid search for model:  rf
+Performing grid search for model:  knn
+Performing grid search for model:  lr
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  8
+Representation type:  frozen
+Representer model:  ProtBERT.h5
+Performing grid search for model:  svm
+Performing grid search for model:  rf
+Performing grid search for model:  knn
+Performing grid search for model:  lr
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  3
+Representation type:  finetuned
+Representer model:  ESM-1b
+Performing grid search for model:  svm
+Performing grid search for model:  rf
+Performing grid search for model:  knn
+Performing grid search for model:  lr
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  iontransporters_membraneproteins
+Dataset type:  balanced
+Dataset number:  6
+Representation type:  frozen
+Representer model:  ESM-1b.h5
+Performing grid search for model:  svm
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+Traceback (most recent call last):
+  File "train_traditional_classifiers.py", line 178, in <module>
+    grid_search.fit(x_train, y_train)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/model_selection/_search.py", line 926, in fit
+    self.best_estimator_.fit(X, y, **fit_params)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/svm/_base.py", line 199, in fit
+    y = self._validate_targets(y)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/svm/_base.py", line 722, in _validate_targets
+    % len(cls)
+ValueError: The number of classes has to be greater than one; got 1 class
