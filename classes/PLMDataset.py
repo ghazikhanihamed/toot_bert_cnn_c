@@ -3,7 +3,6 @@ from transformers import AutoTokenizer
 from torch.utils.data import Dataset
 import os
 import pandas as pd
-import requests
 from tqdm.auto import tqdm
 import numpy as np
 from sklearn.metrics import accuracy_score, recall_score, matthews_corrcoef

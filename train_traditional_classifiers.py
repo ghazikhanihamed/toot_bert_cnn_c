@@ -35,30 +35,6 @@ torch.manual_seed(settings.SEED)
 torch.cuda.manual_seed(settings.SEED)
 sklearn.utils.check_random_state(settings.SEED)
 
-# Check if CUDA is available
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-# Define a custom scorer that converts data to CUDA tensors
-def pytorch_scorer(estimator, X, y):
-    # Convert model to CUDA tensor
-    estimator.to(device)
-    
-    # Convert data to CUDA tensors
-    X = X.to(device)
-    y = y.to(device)
-    
-    # Make predictions
-    y_pred = estimator.predict(X)
-    
-    # Calculate and return multiple scores as a dictionary
-    scores = {
-        "Sensitivity": make_scorer(recall_score, pos_label=1),
-        "Specificity": make_scorer(recall_score, pos_label=0),
-        "Accuracy": make_scorer(accuracy_score),
-        "MCC": make_scorer(matthews_corrcoef)
-    }
-    return scores
-
 
 # we make a list of only h5 files that contains only train in the representations folder
 representations = [representation for representation in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation]
@@ -67,6 +43,13 @@ print(representations)
 
 # For each representation we take id, representation and label
 for representation in representations:
+    dataset_name = ""
+    dataset_type = "na"
+    # dataset_split = ""
+    dataset_number = "na"
+    representation_type = ""
+    representer_model = ""
+
     information = representation.split("_")
     # We separate the information from the name of the representation
     # We get the name of the dataset which is the two first words in the name of the representation separated by _
@@ -150,56 +133,18 @@ for representation in representations:
         mlp_model = MLPClassifier(random_state=settings.SEED)
         lr_model = LogisticRegression(random_state=settings.SEED)
 
-        # We take the dimension of the representation
-        input_dim = X_train[0].shape[1]
-
-        # Create the neural net classifier with scorch
-        cnn = NeuralNetClassifier(
-            module=CNN,
-            max_epochs=20,
-            criterion=nn.CrossEntropyLoss,
-            optimizer=optim.Adam,
-            verbose=0,
-            batch_size=1,
-            device=device,
-            module__input_size=input_dim,
-            train_split=None
-        )
-
         # Define the parameter grids for each model
         svm_param_grid = {
             'C': [0.1, 1, 10, 100],
             'gamma': [0.1, 1, 10],
             'kernel': ['linear', 'rbf', 'sigmoid']
         }
-        # svm_param_grid = {
-        #     'C': [0.1],
-        #     'gamma': [0.1],
-        #     'kernel': ['linear']
-        # }
 
         rf_param_grid = {
             'n_estimators': [50, 100, 200],
             'max_depth': [5, 10, None],
             'min_samples_split': [2, 5, 10]
         }
-        # rf_param_grid = {
-        #     'n_estimators': [50],
-        #     'max_depth': [5],
-        #     'min_samples_split': [2]
-        # }
-
-        mlp_param_grid = {
-            'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 100)],
-            'activation': ['relu', 'tanh', 'logistic'],
-            'alpha': [0.0001, 0.001, 0.01]
-        }
-
-        # mlp_param_grid = {
-        #     'hidden_layer_sizes': [(50,)],
-        #     'activation': ['relu'],
-        #     'alpha': [0.0001]
-        # }
 
         knn_param_grid = {
             'n_neighbors': [3, 5, 7, 9],
@@ -207,43 +152,19 @@ for representation in representations:
             'algorithm': ['ball_tree', 'kd_tree', 'brute']
         }
 
-        # knn_param_grid = {
-        #     'n_neighbors': [3],
-        #     'weights': ['uniform'],
-        #     'algorithm': ['ball_tree']
-        # }
-
         lr_param_grid = {
             'penalty': ['l1', 'l2'],
             'C': [0.1, 1, 10, 100],
             'solver': ['liblinear', 'saga']
         }
 
-        # lr_param_grid = {
-        #     'penalty': ['l1'],
-        #     'C': [0.1],
-        #     'solver': ['liblinear']
-        # }
-
-
-        cnn_param_grid = {
-            'module__kernel_sizes': [[3, 5, 7], [3, 5], [3, 7], [5, 7]],
-            'module__out_channels': [[64, 32], [64, 32, 16], [64, 32, 16, 8]],
-            'lr': [0.001, 0.0001, 0.00001, 0.000001],
-            'module__dropout_prob': [0.1, 0.2, 0.3, 0.4, 0.5]
+        mlp_param_grid = {
+            'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 100)],
+            'activation': ['relu', 'tanh', 'logistic'],
+            'learning_rate': ['constant', 'invscaling', 'adaptive']
         }
 
-        # cnn_param_grid = {
-        #     'module__kernel_sizes': [[3, 5, 7]],
-        #     'module__out_channels': [[64, 32]],
-        #     'lr': [0.001],
-        #     'module__dropout_prob': [0.1]
-        # }
-
-
-        # Create a dictionary of models and their corresponding parameter grids
         models = {
-            'cnn': (cnn, cnn_param_grid),
             'svm': (svm_model, svm_param_grid),
             'rf': (rf_model, rf_param_grid),
             'mlp': (mlp_model, mlp_param_grid),
@@ -251,7 +172,6 @@ for representation in representations:
             'lr': (lr_model, lr_param_grid)
         }
 
-        # We make a dictionary of scores
         scores = {
             "Sensitivity": make_scorer(recall_score, pos_label=1),
             "Specificity": make_scorer(recall_score, pos_label=0),
@@ -262,21 +182,18 @@ for representation in representations:
         results_dict = {}
         best_models = {}
         best_params = {}
+
         # Perform the grid search for each model
         for name, (model, param_grid) in models.items():
-            if name == "cnn":
-                x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in X_train]
-                train_dataset = GridDataset(x_train, y_train)
-                sliced_train = SliceDataset(train_dataset)
-                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC", error_score='raise')
-                grid_search.fit(sliced_train, y_train)
-            else:
-                # We make one array of the representations by taking the mean of each representation in the list
-                x_train = np.array([np.mean(representation, axis=0) for representation in X_train])
-                grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC", error_score='raise')
-                grid_search.fit(x_train, y_train)
-
+            print("Performing grid search for model: ", name)
             
+            # We make one array of the representations by taking the mean of each representation in the list
+            x_train = np.array([np.mean(representation, axis=0) for representation in X_train])
+
+            # We perform the grid search
+            grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores, return_train_score=True, n_jobs=1, refit="MCC", error_score='raise')
+            grid_search.fit(x_train, y_train)
+
             # We save the best parameters
             best_params[name] = grid_search.best_params_
 
@@ -285,10 +202,7 @@ for representation in representations:
 
             # We save the results of the grid search in a csv file
             results = pd.DataFrame(grid_search.cv_results_)
-            if dataset_type == "balanced":
-                results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + "_" + name + ".csv", index=False)
-            else:
-                results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + "_" + name + ".csv", index=False)
+            results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + name + "_" + dataset_name + "_" + dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv", index=False)
 
             # We save a table of results for each model as rows and the different metrics as columns. Each metric has two columns which are train (mean +- std) and test (mean +- std) scores
             results_dict[name] = {
@@ -297,13 +211,11 @@ for representation in representations:
                 "Accuracy": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Accuracy"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Accuracy"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Accuracy"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Accuracy"][grid_search.best_index_], 2) * 100)},
                 "MCC": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_MCC"][grid_search.best_index_], 2)) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_MCC"][grid_search.best_index_], 2)), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_MCC"][grid_search.best_index_], 2)) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_MCC"][grid_search.best_index_], 2))}
             }
-        
+
+
         # We save the best parameters for each model in a csv file
         best_params_df = pd.DataFrame(best_params)
-        if dataset_type == "balanced":
-            best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
-        else:
-            best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv", index=False)
+        best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_name + "_" + dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv", index=False)
 
         # We apply Fisher's exact test to the best models and report the p-values in a matrix with rows and columns corresponding to the models
         train_data, val_data, train_labels, val_labels = train_test_split(X_train, y_train, test_size=0.2, random_state=settings.SEED, stratify=y_train)
@@ -313,59 +225,28 @@ for representation in representations:
                 if i == j:
                     p_values[i, j] = 1
                 else:
-                    if name1 == "cnn":
-                        x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in train_data]
-                        y_train = torch.tensor(train_labels, dtype=torch.long)
-                        x_val = [torch.tensor(representation, dtype=torch.float).to(device) for representation in val_data]
-                        y_val = torch.tensor(val_labels, dtype=torch.long)
-                        train_dataset = GridDataset(x_train, y_train)
-                        val_dataset = GridDataset(x_val, y_val)
-                        model1.fit(train_dataset, val_dataset)
-                        y_pred1 = model1.predict(x_val)
-                    else:
-                        x_train = np.array([np.mean(representation, axis=0) for representation in train_data])
-                        y_train = np.array(train_labels)
-                        x_val = np.array([np.mean(representation, axis=0) for representation in val_data])
-                        y_val = np.array(val_labels)
-                        model1.fit(x_train, y_train)
-                        y_pred1 = model1.predict(x_val)
-                    if name2 == "cnn":
-                        x_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in train_data]
-                        y_train = torch.tensor(train_labels, dtype=torch.long)
-                        x_val = [torch.tensor(representation, dtype=torch.float).to(device) for representation in val_data]
-                        y_val = torch.tensor(val_labels, dtype=torch.long)
-                        train_dataset = GridDataset(x_train, y_train)
-                        val_dataset = GridDataset(x_val, y_val)
-                        model2.fit(train_dataset, val_dataset)
-                        y_pred2 = model2.predict(x_val)
-                    else:
-                        x_train = np.array([np.mean(representation, axis=0) for representation in train_data])
-                        y_train = np.array(train_labels)
-                        x_val = np.array([np.mean(representation, axis=0) for representation in val_data])
-                        y_val = np.array(val_labels)
-                        model2.fit(x_train, y_train)
-                        y_pred2 = model2.predict(x_val)
+                    x_train = np.array([np.mean(representation, axis=0) for representation in train_data])
+                    y_train = np.array(train_labels)
+                    x_val = np.array([np.mean(representation, axis=0) for representation in val_data])
+                    y_val = np.array(val_labels)
+                    model1.fit(x_train, y_train)
+                    y_pred1 = model1.predict(x_val)
+                
+                    x_train = np.array([np.mean(representation, axis=0) for representation in train_data])
+                    y_train = np.array(train_labels)
+                    x_val = np.array([np.mean(representation, axis=0) for representation in val_data])
+                    y_val = np.array(val_labels)
+                    model2.fit(x_train, y_train)
+                    y_pred2 = model2.predict(x_val)
 
                     p_values[i, j] = fisher_exact([y_pred1, y_pred2])[1]
 
         # We save the p-values in a csv file with rows and columns corresponding to the models
         p_values_df = pd.DataFrame(p_values, index=best_models.keys(), columns=best_models.keys())
-        if dataset_type == "balanced":
-            p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv")
-        else:
-            p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv")
+        p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_name + "_" + dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv")
 
 
-        # We save the results in a csv file
+        
+        # We save the results of the grid search in a csv file
         results_df = pd.DataFrame(results_dict)
-        if dataset_type == "balanced":
-            results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + dataset_number + "_" + representation_type + "_" + model_name + ".csv", index=False)
-        else:
-            results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_type + "_" + dataset_split + "_" + representation_type + "_" + model_name + ".csv", index=False)
-
-    dataset_name = ""
-    dataset_type = ""
-    # dataset_split = ""
-    dataset_number = ""
-    representation_type = ""
-    representer_model = ""
+        results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_name + "_" + dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv")
