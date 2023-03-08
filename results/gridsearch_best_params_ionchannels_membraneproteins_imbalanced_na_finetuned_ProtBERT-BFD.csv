@@ -1,0 +1,12 @@
+svm,rf,knn,lr
+0.1,,,0.1
+0.1,,,
+linear,,,
+,5.0,,
+,2.0,,
+,50.0,,
+,,ball_tree,
+,,3,
+,,uniform,
+,,,l1
+,,,liblinear
