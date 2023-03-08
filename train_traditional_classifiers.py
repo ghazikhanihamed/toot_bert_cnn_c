@@ -11,6 +11,7 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 import pandas as pd
 import h5py
 
@@ -50,20 +51,20 @@ for representation in representations:
             if dataset_type == "balanced":
                 dataset_number = information[4]  # 1-10
                 if len(information) == 8:
-                    representer_model = information[7]
+                    representer_model = information[7][:-3]
                 else:
-                    representer_model = information[7] + "_" + information[8]
+                    representer_model = information[7] + "_" + information[8][:-3]
             else:
                 if len(information) == 7:
-                    representer_model = information[6]
+                    representer_model = information[6][:-3]
                 else:
-                    representer_model = information[6] + "_" + information[7]
+                    representer_model = information[6] + "_" + information[7][:-3]
         else:
             # dataset_split = information[2] # train or test
             if len(information) == 6:
-                representer_model = information[5]
+                representer_model = information[5][:-3]
             else:
-                representer_model = information[5] + "_" + information[6]
+                representer_model = information[5] + "_" + information[6][:-3]
     else:
         representation_type = "finetuned"
         if information[1] == "membraneproteins":
@@ -71,12 +72,12 @@ for representation in representations:
             # dataset_split = information[3] # train or test
             if dataset_type == "balanced":
                 dataset_number = information[4]  # 1-10
-                representer_model = information[7]
+                representer_model = information[7][:-3]
             else:
-                representer_model = information[6]
+                representer_model = information[6][:-3]
         else:
             # dataset_split = information[2]
-            representer_model = information[5]
+            representer_model = information[5][:-3]
 
     # Print the information
     print("-"*50)
@@ -120,6 +121,7 @@ for representation in representations:
         rf_model = RandomForestClassifier(random_state=settings.SEED)
         knn_model = KNeighborsClassifier()
         lr_model = LogisticRegression(random_state=settings.SEED)
+        mlp_model = MLPClassifier(random_state=settings.SEED)
 
         #  Define the parameter grids for each model
         svm_param_grid = {
@@ -144,6 +146,12 @@ for representation in representations:
             'penalty': ['l1', 'l2'],
             'C': [0.1, 1, 10, 100],
             'solver': ['liblinear', 'saga']
+        }
+
+        mlp_param_grid = {
+            'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 100)],
+            'activation': ['relu', 'tanh', 'logistic'],
+            'alpha': [0.0001, 0.001, 0.01]
         }
 
         models = {
@@ -174,7 +182,7 @@ for representation in representations:
 
             # We perform the grid search
             grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores,
-                                       return_train_score=True, n_jobs=5, refit="MCC")
+                                       return_train_score=True, n_jobs=5, refit="MCC", error_score='raise')
             grid_search.fit(x_train, y_train)
 
             # We save the best parameters
