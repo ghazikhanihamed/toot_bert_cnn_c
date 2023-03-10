@@ -106,13 +106,20 @@ for representation in representations:
         X_train = []
         y_train = []
         # We separate the id, representation and label in different lists
-        for id, representation, label in train_data:
-            X_train.append(representation)
+        for id, rep, label in train_data:
+            X_train.append(rep)
             y_train.append(label)
 
-        # We convert labels to 0 and 1. 0 for membrane_proteins and 1 for ionchannels
-        y_train = [0 if label == settings.MEMBRANE_PROTEINS or label ==
-                   settings.IONTRANSPORTERS else 1 for label in y_train]
+        if dataset_name == "ionchannels_membraneproteins":
+            # We convert labels to 0 and 1. 0 for ionchannels and 1 for membraneproteins
+            y_train = [1 if label == settings.IONCHANNELS else 0 for label in y_train]
+        elif dataset_name == "ionchannels_iontransporters":
+            # We convert labels to 0 and 1. 0 for ionchannels and 1 for iontransporters
+            y_train = [1 if label == settings.IONCHANNELS else 0 for label in y_train]
+        elif dataset_name == "iontransporters_membraneproteins":
+            # We convert labels to 0 and 1. 0 for iontransporters and 1 for membraneproteins
+            y_train = [1 if label == settings.IONTRANSPORTERS else 0 for label in y_train]
+
 
         X_train = [np.array(x) for x in X_train]
         # We take the mean of the representation for each protein
@@ -125,4 +132,3 @@ for representation in representations:
         print("Number of samples: ", len(X_train))
         print("Number of labels: ", len(y_train))
         print("Number of different labels: ", len(set(y_train)))
-
