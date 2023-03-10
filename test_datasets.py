@@ -25,7 +25,7 @@ skf = StratifiedKFold(n_splits=n_splits, shuffle=True,
 representations = [representation for representation in os.listdir(
     settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation]
 
-print(representations)
+print("Number of representations: ", len(representations))
 
 # For each representation we take id, representation and label
 for representation in representations:
