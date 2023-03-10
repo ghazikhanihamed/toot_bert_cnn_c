@@ -12,6 +12,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn.model_selection import StratifiedKFold
 import pandas as pd
 import h5py
 
@@ -21,6 +22,8 @@ random.seed(settings.SEED)
 np.random.seed(settings.SEED)
 sklearn.utils.check_random_state(settings.SEED)
 
+n_splits = 5
+skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=settings.SEED)
 
 # we make a list of only h5 files that contains only train in the representations folder
 representations = [representation for representation in os.listdir(
@@ -181,7 +184,7 @@ for representation in representations:
                                for representation in X_train])
 
             # We perform the grid search
-            grid_search = GridSearchCV(model, param_grid, cv=5, scoring=scores,
+            grid_search = GridSearchCV(model, param_grid, cv=skf, scoring=scores,
                                        return_train_score=True, n_jobs=5, refit="MCC", error_score='raise')
             grid_search.fit(x_train, y_train)
 
