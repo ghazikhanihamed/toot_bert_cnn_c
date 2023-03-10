@@ -116,21 +116,13 @@ for representation in representations:
 
         X_train = [np.array(x) for x in X_train]
         # We take the mean of the representation for each protein
-        X_train = [np.mean(x, axis=0) for x in X_train]
+        # X_train = [np.mean(x, axis=0) for x in X_train]
         
         y_train = np.array(y_train)
 
         # We print the information about the dataset
+        print("Dataset name: ", representation)
         print("Number of samples: ", len(X_train))
         print("Number of labels: ", len(y_train))
         print("Number of different labels: ", len(set(y_train)))
 
-        x_train, x_test, y_train, y_test = train_test_split(
-            X_train, y_train, test_size=0.2, random_state=settings.SEED, stratify=y_train)
-        
-        lr = LogisticRegression(random_state=settings.SEED)
-        lr.fit(x_train, y_train)
-        y_pred = lr.predict(x_test)
-        print("Accuracy: ", accuracy_score(y_test, y_pred))
-
-        print("-"*50)
