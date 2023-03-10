@@ -73,12 +73,12 @@ for representation in representations:
             # dataset_split = information[3] # train or test
             if dataset_type == "balanced":
                 dataset_number = information[4]  # 1-10
-                representer_model = information[7][:-3]
+                representer_model = information[7]
             else:
-                representer_model = information[6][:-3]
+                representer_model = information[6]
         else:
             # dataset_split = information[2]
-            representer_model = information[5][:-3]
+            representer_model = information[5]
 
     # Print the information
     print("-"*50)
@@ -115,6 +115,9 @@ for representation in representations:
                    settings.IONTRANSPORTERS else 1 for label in y_train]
 
         X_train = [np.array(x) for x in X_train]
+        # We take the mean of the representation for each protein
+        X_train = [np.mean(x, axis=0) for x in X_train]
+        
         y_train = np.array(y_train)
 
         # We print the information about the dataset
