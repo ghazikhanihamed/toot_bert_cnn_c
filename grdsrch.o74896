@@ -1,0 +1,169 @@
+Number of representations:  230
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Performing grid search for model:  svm
+Performing grid search for model:  rf
+Performing grid search for model:  knn
+Performing grid search for model:  lr
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_sag.py:354: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  ConvergenceWarning,
+Traceback (most recent call last):
+  File "gridsearch.py", line 238, in <module>
+    model1.fit(x_train, y_train)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/svm/_base.py", line 196, in fit
+    accept_large_sparse=False,
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/base.py", line 581, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/utils/validation.py", line 976, in check_X_y
+    estimator=estimator,
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/utils/validation.py", line 773, in check_array
+    "if it contains a single sample.".format(array)
+ValueError: Expected 2D array, got 1D array instead:
+array=[0.00383377 0.00687408 0.00466537 0.00279045 0.00447464 0.00416565
+ 0.00383568 0.00214767 0.00699234 0.00376892 0.00575638 0.00388336
+ 0.00362015 0.00370598 0.00346375 0.00598526 0.00527573 0.00296593
+ 0.00756454 0.00357628 0.00249863 0.00711823 0.00572205 0.00259018
+ 0.00482178 0.00444794 0.0043602  0.00618744 0.00508881 0.00267792
+ 0.00329208 0.00314331 0.00775146 0.00308228 0.0045929  0.00641632
+ 0.00092602 0.00411224 0.00448227 0.00777435 0.00269699 0.002882
+ 0.0044632  0.0034523  0.00792694 0.00274658 0.00693893 0.00814056
+ 0.00459671 0.00350571 0.00566864 0.00521088 0.00455093 0.00299072
+ 0.00504684 0.00468445 0.00312042 0.0051384  0.00203896 0.00318718
+ 0.00383759 0.00235748 0.00382805 0.00350189 0.00352287 0.0025692
+ 0.00502396 0.00300407 0.00557709 0.00344467 0.00594711 0.00429153
+ 0.00438309 0.00489807 0.00297356 0.004879   0.00723267 0.00243378
+ 0.00386238 0.00275993 0.00771332 0.00439453 0.00747299 0.00535965
+ 0.00737762 0.00522995 0.0046463  0.00149345 0.00649643 0.00510788
+ 0.00078249 0.0049057  0.0041008  0.00478745 0.00388908 0.00398254
+ 0.00447083 0.00342751 0.00606918 0.0052948  0.00440216 0.00293159
+ 0.00224876 0.00382233 0.00251007 0.00458527 0.00237656 0.00329018
+ 0.00473785 0.00232887 0.00312233 0.00559235 0.00797272 0.00489044
+ 0.00405121 0.00458145 0.00504303 0.00393677 0.00396729 0.00219345
+ 0.00473022 0.00270271 0.00836945 0.00255394 0.00384903 0.00450516
+ 0.00317955 0.00357437 0.00293159 0.00646973 0.00382614 0.00651932
+ 0.00253868 0.00521851 0.00804901 0.00474167 0.00601578 0.00595093
+ 0.00575638 0.00730133 0.00522995 0.00250053 0.00381279 0.00758362
+ 0.00361824 0.00788879 0.00797272 0.00189114 0.00390053 0.00809479
+ 0.00747299 0.00538254 0.00352478 0.00637817 0.00704956 0.0034771
+ 0.00454712 0.00551605 0.00505066 0.00249863 0.00410461 0.00174236
+ 0.00341415 0.00724792 0.00411606 0.00466156 0.00735474 0.008255
+ 0.00370789 0.00519562 0.00426865 0.00362015 0.00494385 0.00746918
+ 0.00458527 0.00759125 0.00720215 0.00611877 0.00431061 0.00385857
+ 0.00381088 0.00457764 0.00827789 0.00473022 0.00675583 0.00544357
+ 0.00383759 0.00324249 0.00548935 0.00230026 0.00490189 0.00380898
+ 0.00411606 0.00375557 0.00239372 0.00356293 0.00277519 0.00357056
+ 0.00507736 0.00370789 0.0038662  0.00537872 0.00567627 0.00511169
+ 0.00560379 0.00475693 0.00508881 0.00227165 0.00432205 0.00540161
+ 0.00497055 0.00195503 0.00296402 0.0053978  0.00433731 0.00669479
+ 0.00313759 0.00439835 0.00308228 0.00603104 0.00714111 0.0052948
+ 0.00599289 0.00754166 0.00636673 0.00395203 0.00463104 0.00349045
+ 0.00502777 0.00829315 0.00762177 0.00080538 0.00140095 0.00774765
+ 0.00267792 0.00336266 0.00343704 0.0045166  0.00487137 0.00600815
+ 0.00803375 0.00444031 0.0059967  0.0039978  0.00537872 0.00564575
+ 0.00390625 0.00275803 0.00738144 0.00049639 0.00445557 0.00363731
+ 0.00167084 0.00452805 0.00528717 0.00296783 0.00718307 0.00455475
+ 0.00670624 0.00683212 0.00306511 0.00614548 0.00672531 0.00374222
+ 0.0030899  0.00453568 0.00328255 0.00457764 0.00374985 0.00627518
+ 0.00635147 0.00345993 0.00557327 0.00561905 0.00403976 0.00483704
+ 0.00526428 0.0045166  0.00508118 0.00379562 0.00758362 0.00408936
+ 0.00304031 0.00458908 0.00336456 0.00495529 0.00468826 0.00266266
+ 0.00298691 0.00444412 0.00574493 0.00345039 0.00534439 0.00561905
+ 0.00811768 0.00332832 0.00298119 0.00785065 0.00176716 0.00225449
+ 0.00325012 0.00465775 0.00398636 0.00288391 0.00502396 0.00254822
+ 0.00299454 0.00632095 0.00629425 0.00404358 0.00257111 0.0068779
+ 0.0033989  0.00391388 0.00299072 0.00421524 0.00510788 0.00695419
+ 0.00443649 0.00349045 0.00475311 0.00191307 0.00375938 0.003685
+ 0.00549316 0.00759125 0.00405121 0.00711823 0.00466537 0.00702286
+ 0.00495911 0.00793457 0.00598145 0.00625229 0.00521088 0.00707245
+ 0.00463867 0.00415039 0.00386429 0.00411987 0.00383186 0.00461578
+ 0.0047493  0.0044136  0.00503922 0.00485229 0.00430298 0.00379562
+ 0.00428772 0.00483704 0.00356865 0.00679779 0.00268745 0.00284195
+ 0.00806427 0.00477219 0.0029335  0.00232887 0.00468445 0.00568771
+ 0.00637436 0.0027771  0.00702286 0.00405884 0.00450897 0.00495911
+ 0.00405502 0.00354385 0.00301552 0.00587845 0.00286865 0.00618362
+ 0.00621796 0.00489044 0.00828552 0.0044632  0.0075264  0.0031414
+ 0.00395966 0.00517273 0.00333595 0.00325012 0.00390244 0.00331879
+ 0.00164413 0.00363541 0.00468445 0.00536346 0.00435638 0.0074234
+ 0.00338745 0.00507736 0.00814819 0.00487518 0.00429153 0.00593948
+ 0.00565338 0.004776   0.00397491 0.00082779 0.00276375 0.00808716
+ 0.00683212 0.00566864 0.00502777 0.00559998 0.00365639 0.00395584
+ 0.0039711  0.00635147 0.00404739 0.00560379 0.00344849 0.00321579
+ 0.00486755 0.00409698].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.

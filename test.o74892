@@ -1,0 +1,81 @@
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py:818: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG,
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py:818: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG,
+Number of representations:  230
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Number of samples:  521
+Number of labels:  521
+Number of different labels:  2
+Accuracy:  0.9142857142857143
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_iontransporters
+Dataset type:  N/A
+Dataset number:  N/A
+Representation type:  finetuned
+Representer model:  ProtBERT
+Number of samples:  522
+Number of labels:  522
+Number of different labels:  2
+Accuracy:  0.8761904761904762
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  8
+Representation type:  frozen
+Representer model:  ProtBERT
+Number of samples:  521
+Number of labels:  521
+Number of different labels:  2
+Accuracy:  0.8
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  3
+Representation type:  finetuned
+Representer model:  ESM-1b
+Number of samples:  521
+Number of labels:  521
+Number of different labels:  2
+Accuracy:  0.9047619047619048
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  iontransporters_membraneproteins
+Dataset type:  balanced
+Dataset number:  6
+Representation type:  frozen
+Representer model:  ESM-1b
+Number of samples:  561
+Number of labels:  561
+Number of different labels:  1
+Traceback (most recent call last):
+  File "test_datasets.py", line 132, in <module>
+    lr.fit(x_train, y_train)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/sklearn/linear_model/_logistic.py", line 1558, in fit
+    % classes_[0]
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: 0

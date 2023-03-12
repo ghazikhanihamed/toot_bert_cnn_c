@@ -7,7 +7,6 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 import numpy as np
 import os
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.neural_network import MLPClassifier
 
 
 from sklearn.svm import SVC
@@ -143,7 +142,6 @@ for representation in representations:
         rf_model = RandomForestClassifier(random_state=settings.SEED)
         knn_model = KNeighborsClassifier()
         lr_model = LogisticRegression(random_state=settings.SEED)
-        mlp_model = MLPClassifier(random_state=settings.SEED)
 
         #  Define the parameter grids for each model
         svm_param_grid = {
@@ -170,18 +168,12 @@ for representation in representations:
             'solver': ['liblinear', 'saga']
         }
 
-        mlp_param_grid = {
-            'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 100)],
-            'activation': ['relu', 'tanh', 'logistic'],
-            'alpha': [0.0001, 0.001, 0.01]
-        }
 
         models = {
             'svm': (svm_model, svm_param_grid),
             'rf': (rf_model, rf_param_grid),
             'knn': (knn_model, knn_param_grid),
-            'lr': (lr_model, lr_param_grid),
-            'mlp': (mlp_model, mlp_param_grid)
+            'lr': (lr_model, lr_param_grid)
         }
 
         scores = {
@@ -202,7 +194,7 @@ for representation in representations:
             # We perform the grid search
             grid_search = GridSearchCV(model, param_grid, cv=skf, scoring=scores,
                                        return_train_score=True, n_jobs=5, refit="MCC", error_score='raise')
-            grid_search.fit(x_train, y_train)
+            grid_search.fit(X_train, y_train)
 
             # We save the best parameters
             best_params[name] = grid_search.best_params_
