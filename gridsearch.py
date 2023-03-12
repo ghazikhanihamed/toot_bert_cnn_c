@@ -1,3 +1,7 @@
+import warnings
+warnings.filterwarnings("ignore")
+
+
 import sklearn
 import random
 from scipy.stats import fisher_exact
@@ -229,23 +233,11 @@ for representation in representations:
                 if i == j:
                     p_values[i, j] = 1
                 else:
-                    x_train = np.array([np.mean(representation, axis=0)
-                                       for representation in train_data])
-                    y_train = np.array(train_labels)
-                    x_val = np.array([np.mean(representation, axis=0)
-                                     for representation in val_data])
-                    y_val = np.array(val_labels)
-                    model1.fit(x_train, y_train)
-                    y_pred1 = model1.predict(x_val)
+                    model1.fit(train_data, train_labels)
+                    y_pred1 = model1.predict(val_data)
 
-                    x_train = np.array([np.mean(representation, axis=0)
-                                       for representation in train_data])
-                    y_train = np.array(train_labels)
-                    x_val = np.array([np.mean(representation, axis=0)
-                                     for representation in val_data])
-                    y_val = np.array(val_labels)
-                    model2.fit(x_train, y_train)
-                    y_pred2 = model2.predict(x_val)
+                    model2.fit(train_data, train_labels)
+                    y_pred2 = model2.predict(val_data)
 
                     table = [[np.sum((y_pred1 == 0) & (y_pred2 == 0)), np.sum((y_pred1 == 0) & (y_pred2 == 1))],
                              [np.sum((y_pred1 == 1) & (y_pred2 == 0)), np.sum((y_pred1 == 1) & (y_pred2 == 1))]]
