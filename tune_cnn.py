@@ -93,10 +93,10 @@ def objective(trial):
     out_channel = trial.suggest_categorical(
         "out_channels", [[64, 32], [64, 32, 16], [64, 32, 16, 8]])
     dropout = trial.suggest_float(
-        "dropout_prob", 0.2, 0.5)         # Dropout for FC1 layer
+        "dropout_prob", 0.2, 0.5)
 
     # Generate the model
-    model = CNN(trial, kernel_size, out_channel, dropout).to(device)
+    model = CNN(trial, kernel_size, out_channel, dropout, input_dim).to(device)
 
     # Generate the optimizers
     optimizer_name = trial.suggest_categorical(
@@ -263,6 +263,8 @@ for representation in representations:
 
         X_train = [np.array(x) for x in X_train]
         y_train = np.array(y_train)
+
+        input_dim = X_train[0].shape[1]
 
         x_train, x_test, y_train, y_test = train_test_split(
             X_train, y_train, test_size=0.2, random_state=settings.SEED, stratify=y_train)
