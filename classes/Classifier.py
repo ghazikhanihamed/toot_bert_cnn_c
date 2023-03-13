@@ -13,9 +13,10 @@ from torch.functional import F
 
 
 class CNN(nn.Module):
-    def __init__(self, kernel_sizes=[3, 5, 7], out_channels=[512, 256, 128, 64, 32], input_size=1024, output_size=2, dropout_prob=0.2):
+    def __init__(self, trial, kernel_sizes, out_channels, dropout_prob, input_size):
         super(CNN, self).__init__()
 
+        output_size = 2
         # Define the input channel
         input_channel = 1
 
