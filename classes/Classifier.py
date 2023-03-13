@@ -13,7 +13,7 @@ from torch.functional import F
 
 
 class CNN(nn.Module):
-    def __init__(self, kernel_sizes=[3, 5, 7], out_channels=[512, 256, 128, 64, 32], input_size=1024, output_size=2, dropout_prob=0.3):
+    def __init__(self, kernel_sizes=[3, 5, 7], out_channels=[512, 256, 128, 64, 32], input_size=1024, output_size=2, dropout_prob=0.2):
         super(CNN, self).__init__()
 
         # Define the input channel
@@ -51,5 +51,7 @@ class CNN(nn.Module):
 
         # Fully connected layer
         x = self.fc1(x)
+
+        x = F.softmax(x, dim=1)
 
         return x

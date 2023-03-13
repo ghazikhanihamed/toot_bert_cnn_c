@@ -1,10 +1,16 @@
 import torch
+from skorch import NeuralNetClassifier
+from classes.PLMDataset import SliceDatasetX
+from classes.PLMDataset import GridDataset
 import h5py
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold
 from sklearn.linear_model import LogisticRegression
 from settings import settings
 from sklearn.svm import SVC
+import torch.optim as optim
+import torch.nn as nn
+from classes.Classifier import CNN
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 import os
@@ -22,7 +28,12 @@ warnings.filterwarnings("ignore")
 # We set the random seed for reproducibility
 random.seed(settings.SEED)
 np.random.seed(settings.SEED)
+torch.manual_seed(settings.SEED)
+torch.cuda.manual_seed(settings.SEED)
 sklearn.utils.check_random_state(settings.SEED)
+
+# Check if CUDA is available
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 n_splits = 5
 skf = StratifiedKFold(n_splits=n_splits, shuffle=True,
@@ -130,7 +141,7 @@ for representation in representations:
             y_train = [1 if label ==
                        settings.IONTRANSPORTERS else 0 for label in y_train]
 
-        X_train = [np.mean(np.array(x), axis=0) for x in X_train]
+        X_train = [np.array(x) for x in X_train]
 
         y_train = np.array(y_train)
 
@@ -140,6 +151,22 @@ for representation in representations:
         knn_model = KNeighborsClassifier()
         lr_model = LogisticRegression(random_state=settings.SEED)
         mlp_model = MLPClassifier(random_state=settings.SEED)
+
+        # We take the dimension of the representation
+        input_dim = X_train[0].shape[1]
+
+        # Create the neural net classifier with scorch
+        cnn = NeuralNetClassifier(
+            module=CNN,
+            max_epochs=20,
+            criterion=nn.CrossEntropyLoss,
+            optimizer=optim.Adam,
+            verbose=0,
+            batch_size=1,
+            device=device,
+            module__input_size=input_dim,
+            train_split=None
+        )
 
         #  Define the parameter grids for each model
         svm_param_grid = {
@@ -172,7 +199,14 @@ for representation in representations:
             'solver': ['adam', 'sgd']
         }
 
+        cnn_param_grid = {
+            'module__kernel_sizes': [[3, 5, 7], [3, 5], [3, 7], [5, 7]],
+            'module__out_channels': [[64, 32], [64, 32, 16], [64, 32, 16, 8]],
+            'lr': [0.001, 0.0001, 0.00001, 0.000001]
+        }
+
         models = {
+            'cnn': (cnn, cnn_param_grid),
             'svm': (svm_model, svm_param_grid),
             'rf': (rf_model, rf_param_grid),
             'knn': (knn_model, knn_param_grid),
@@ -197,27 +231,100 @@ for representation in representations:
 
             # We perform the grid search
             grid_search = GridSearchCV(model, param_grid, cv=skf, scoring=scores,
-                                       return_train_score=True, n_jobs=10, refit="MCC", error_score='raise')
-            grid_search.fit(X_train, y_train)
+                                       return_train_score=True, n_jobs=5, refit="MCC", error_score='raise')
 
-            # We save the best parameters
-            best_params[name] = grid_search.best_params_
+            if name != "cnn":
+                # Take the mean of each representation
+                X_train = [np.mean(x, axis=0) for x in X_train]
+                grid_search.fit(X_train, y_train)
 
-            # We save the best model
-            best_models[name] = grid_search.best_estimator_
+                # We save the best parameters
+                best_params[name] = grid_search.best_params_
 
-            # We save the results of the grid search in a csv file
-            results = pd.DataFrame(grid_search.cv_results_)
-            results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + name + "_" + dataset_name + "_" +
-                           dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv", index=False)
+                # We save the best model
+                best_models[name] = grid_search.best_estimator_
 
-            # We save a table of results for each model as rows and the different metrics as columns. Each metric has two columns which are train (mean +- std) and test (mean +- std) scores
-            results_dict[name] = {
-                "Sensitivity": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Sensitivity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Sensitivity"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Sensitivity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Sensitivity"][grid_search.best_index_], 2) * 100)},
-                "Specificity": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Specificity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Specificity"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Specificity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Specificity"][grid_search.best_index_], 2) * 100)},
-                "Accuracy": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Accuracy"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Accuracy"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Accuracy"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Accuracy"][grid_search.best_index_], 2) * 100)},
-                "MCC": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_MCC"][grid_search.best_index_], 2)) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_MCC"][grid_search.best_index_], 2)), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_MCC"][grid_search.best_index_], 2)) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_MCC"][grid_search.best_index_], 2))}
-            }
+                # We save the results of the grid search in a csv file
+                results = pd.DataFrame(grid_search.cv_results_)
+                results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + name + "_" + dataset_name + "_" +
+                               dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv", index=False)
+                
+                # We save a table of results for each model as rows and the different metrics as columns. Each metric has two columns which are train (mean +- std) and test (mean +- std) scores
+                results_dict[name] = {
+                    "Sensitivity": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Sensitivity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Sensitivity"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Sensitivity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Sensitivity"][grid_search.best_index_], 2) * 100)},
+                    "Specificity": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Specificity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Specificity"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Specificity"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Specificity"][grid_search.best_index_], 2) * 100)},
+                    "Accuracy": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_Accuracy"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_Accuracy"][grid_search.best_index_], 2) * 100), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_Accuracy"][grid_search.best_index_], 2) * 100) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_Accuracy"][grid_search.best_index_], 2) * 100)},
+                    "MCC": {"Train": '{:.2f}'.format(round(grid_search.cv_results_["mean_train_MCC"][grid_search.best_index_], 2)) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_train_MCC"][grid_search.best_index_], 2)), "Val": '{:.2f}'.format(round(grid_search.cv_results_["mean_test_MCC"][grid_search.best_index_], 2)) + u"\u00B1" + '{:.2f}'.format(round(grid_search.cv_results_["std_test_MCC"][grid_search.best_index_], 2))}
+                }
+
+            else:
+                # We make grid search for the CNN without using scikit-learn grid search, but we make the same output as scikit-learn grid search
+                cnn_results = []
+                train_accuracy_list = []
+                test_accuracy_list = []
+                train_sensitivity_list = []
+                test_sensitivity_list = []
+                train_specificity_list = []
+                test_specificity_list = []
+                train_mcc_list = []
+                test_mcc_list = []
+                best_cnn_params = {}
+                best_cnn_mcc = -1
+
+
+                for fold, (train_index, test_index) in enumerate(skf.split(X_train, y_train)):
+
+                    X_train_fold, X_test_fold = X_train[train_index], X_train[test_index]
+                    y_train_fold, y_test_fold = y_train[train_index], y_train[test_index]
+
+                    for kernel_sizes in param_grid["module__kernel_sizes"]:
+                        for out_channels in param_grid["module__out_channels"]:
+                            for lr in param_grid["lr"]:
+                                # Create the neural net classifier with scorch
+                                cnn = NeuralNetClassifier(
+                                    module=CNN,
+                                    max_epochs=20,
+                                    criterion=nn.CrossEntropyLoss,
+                                    optimizer=optim.Adam,
+                                    verbose=0,
+                                    batch_size=1,
+                                    device=device,
+                                    module__input_size=input_dim,
+                                    train_split=None,
+                                    module__kernel_sizes=kernel_sizes,
+                                    module__out_channels=out_channels,
+                                    lr=lr
+                                )
+                                cnn.fit(X_train_fold, y_train_fold)
+                                train_preds = cnn.predict(X_train_fold)
+                                test_preds = cnn.predict(X_test_fold)
+
+                                train_accuracy_list.append(accuracy_score(y_train_fold, train_preds))
+                                test_accuracy_list.append(accuracy_score(y_test_fold, test_preds))
+                                train_sensitivity_list.append(recall_score(y_train_fold, train_preds, pos_label=1))
+                                test_sensitivity_list.append(recall_score(y_test_fold, test_preds, pos_label=1))
+                                train_specificity_list.append(recall_score(y_train_fold, train_preds, pos_label=0))
+                                test_specificity_list.append(recall_score(y_test_fold, test_preds, pos_label=0))
+                                train_mcc_list.append(matthews_corrcoef(y_train_fold, train_preds))
+                                test_mcc_list.append(matthews_corrcoef(y_test_fold, test_preds))
+
+                                cnn_results.append({'fold': fold,
+                                                    'parameters': {'module__kernel_sizes': kernel_sizes, 'module__out_channels': out_channels, 'lr': lr},
+                                                    'train_Accuracy': accuracy_score(y_train_fold, train_preds),
+                                                    'test_Accuracy': accuracy_score(y_test_fold, test_preds),
+                                                    'train_Sensitivity': recall_score(y_train_fold, train_preds, pos_label=1),
+                                                    'test_Sensitivity': recall_score(y_test_fold, test_preds, pos_label=1),
+                                                    'train_Specificity': recall_score(y_train_fold, train_preds, pos_label=0),
+                                                    'test_Specificity': recall_score(y_test_fold, test_preds, pos_label=0),
+                                                    'train_MCC': matthews_corrcoef(y_train_fold, train_preds),
+                                                    'test_MCC': matthews_corrcoef(y_test_fold, test_preds)})
+                                
+                                if matthews_corrcoef(y_test_fold, test_preds) > best_cnn_mcc:
+                                    best_cnn_mcc = matthews_corrcoef(y_test_fold, test_preds)
+                                    best_cnn_params = {'module__kernel_sizes': kernel_sizes, 'module__out_channels': out_channels, 'lr': lr}
+                                
+
+
 
         # We save the best parameters for each model in a csv file
         best_params_df = pd.DataFrame(best_params)
