@@ -1,0 +1,14 @@
+svm,rf,knn,lr,mlp
+10,,,10,
+0.1,,,,
+linear,,,,
+,,,,
+,5.0,,,
+,100.0,,,
+,,ball_tree,,
+,,5,,
+,,distance,,
+,,,l1,
+,,,liblinear,adam
+,,,,tanh
+,,,,"(512,)"

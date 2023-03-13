@@ -1,0 +1,73 @@
+[32m[I 2023-03-12 21:32:26,224][0m A new study created in memory with name: no-name-2dab7e4a-b96a-41ea-ab10-eeaa456eaedb[0m
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [64, 32] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [64, 32, 16] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [64, 32, 16, 8] which is of type list.
+  warnings.warn(message)
+[33m[W 2023-03-12 21:32:29,251][0m Trial 0 failed with parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [64, 32, 16, 8], 'dropout_prob': 0.32183493133273905, 'optimizer': 'Adam', 'lr': 1.981643528531612e-05} because of the following error: RuntimeError('Input type (c10::Half) and bias type (float) should be the same').[0m
+Traceback (most recent call last):
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "tune_cnn.py", line 110, in objective
+    train(model, optimizer)  # Train the model
+  File "tune_cnn.py", line 36, in train
+    output = network(data.to(device))
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/extension/toot_bert_cnn_c/classes/Classifier.py", line 42, in forward
+    x = [F.relu(conv(x)).squeeze(3) for conv in self.conv_layers]
+  File "/home/h_ghazik/extension/toot_bert_cnn_c/classes/Classifier.py", line 42, in <listcomp>
+    x = [F.relu(conv(x)).squeeze(3) for conv in self.conv_layers]
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 460, in _conv_forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Input type (c10::Half) and bias type (float) should be the same
+[33m[W 2023-03-12 21:32:29,256][0m Trial 0 failed with value None.[0m
+Number of representations:  230
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Traceback (most recent call last):
+  File "tune_cnn.py", line 283, in <module>
+    study.optimize(objective, n_trials=number_of_trials)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/study.py", line 434, in optimize
+    show_progress_bar=show_progress_bar,
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 76, in _optimize
+    progress_bar=progress_bar,
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "tune_cnn.py", line 110, in objective
+    train(model, optimizer)  # Train the model
+  File "tune_cnn.py", line 36, in train
+    output = network(data.to(device))
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/extension/toot_bert_cnn_c/classes/Classifier.py", line 42, in forward
+    x = [F.relu(conv(x)).squeeze(3) for conv in self.conv_layers]
+  File "/home/h_ghazik/extension/toot_bert_cnn_c/classes/Classifier.py", line 42, in <listcomp>
+    x = [F.relu(conv(x)).squeeze(3) for conv in self.conv_layers]
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 460, in _conv_forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Input type (c10::Half) and bias type (float) should be the same

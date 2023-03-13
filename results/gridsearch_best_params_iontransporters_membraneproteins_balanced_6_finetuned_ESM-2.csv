@@ -1,0 +1,14 @@
+svm,rf,knn,lr,mlp
+1,,,10,
+0.1,,,,
+linear,,,,
+,,,,
+,10.0,,,
+,200.0,,,
+,,ball_tree,,
+,,3,,
+,,distance,,
+,,,l1,
+,,,saga,adam
+,,,,relu
+,,,,"(256,)"

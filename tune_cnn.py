@@ -261,7 +261,7 @@ for representation in representations:
             y_train = [1 if label ==
                        settings.IONTRANSPORTERS else 0 for label in y_train]
 
-        X_train = [np.array(x) for x in X_train]
+        X_train = [torch.tensor(representation, dtype=torch.float).to(device) for representation in X_train]
         y_train = np.array(y_train)
 
         input_dim = X_train[0].shape[1]

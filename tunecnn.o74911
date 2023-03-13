@@ -1,0 +1,45 @@
+[32m[I 2023-03-12 21:28:09,265][0m A new study created in memory with name: no-name-3d930596-3861-4932-96c2-05ed5348a1a8[0m
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [64, 32] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [64, 32, 16] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [64, 32, 16, 8] which is of type list.
+  warnings.warn(message)
+[33m[W 2023-03-12 21:28:09,269][0m Trial 0 failed with parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [64, 32], 'dropout_prob': 0.4384077463089799} because of the following error: TypeError("__init__() missing 1 required positional argument: 'input_size'").[0m
+Traceback (most recent call last):
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "tune_cnn.py", line 99, in objective
+    model = CNN(trial, kernel_size, out_channel, dropout).to(device)
+TypeError: __init__() missing 1 required positional argument: 'input_size'
+[33m[W 2023-03-12 21:28:09,271][0m Trial 0 failed with value None.[0m
+Number of representations:  230
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Traceback (most recent call last):
+  File "tune_cnn.py", line 281, in <module>
+    study.optimize(objective, n_trials=number_of_trials)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/study.py", line 434, in optimize
+    show_progress_bar=show_progress_bar,
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 76, in _optimize
+    progress_bar=progress_bar,
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/h_ghazik/python_path_gpu/lib/python3.7/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+  File "tune_cnn.py", line 99, in objective
+    model = CNN(trial, kernel_size, out_channel, dropout).to(device)
+TypeError: __init__() missing 1 required positional argument: 'input_size'
