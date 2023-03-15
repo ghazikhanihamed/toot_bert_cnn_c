@@ -13,6 +13,7 @@ FINETUNED_RESULTS_PATH = "./finetuned_results"
 FINETUNED_MODELS_PATH = "./finetuned_models/"
 REPRESENTATIONS_PATH = "./representations/"
 REPRESENTATIONS_FILTERED_PATH = REPRESENTATIONS_PATH + "representations_filtered/"
+LATEX_PATH = "./latex/"
 FROZEN = "frozen"
 FINETUNED = "finetuned"
 MAX_LENGTH_FINETUNED = 1024
