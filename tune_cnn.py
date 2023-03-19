@@ -16,16 +16,9 @@ from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
 import h5py
 from sklearn.model_selection import train_test_split
 import pandas as pd
-from optuna.integration import TorchDistributedTrial
-from optuna.samplers import TPESampler
-
-assert torch.cuda.is_available()
-n_gpus = torch.cuda.device_count()
-print(f"Number of GPUs available: {n_gpus}")
-assert n_gpus > 1
 
 
-def train(network, optimizer, device):
+def train(network, optimizer):
     """
     Trains the model on the training data.
 
@@ -47,7 +40,7 @@ def train(network, optimizer, device):
         optimizer.step()                                      # Update weights
 
 
-def validate(network, device):
+def validate(network):
     """
     Tests the model on the validation set and computes the MCC.
 
@@ -101,8 +94,6 @@ def objective(trial):
     Returns:
         - mcc (float): The validation MCC. Parameter to be maximized.
     """
-    gpu_id = trial.number % n_gpus  # Assign a GPU to this trial
-    device = torch.device(f"cuda:{gpu_id}")
     # Define range of values to be tested for the hyperparameters
     kernel_size = trial.suggest_categorical(
         "kernel_sizes", [[3, 5, 7], [3, 5], [5, 7], [7]])
@@ -122,20 +113,15 @@ def objective(trial):
     # Training of the model
     try:
         for epoch in range(n_epochs):
-            train(model, optimizer, device)  # Train the model
+            train(model, optimizer)  # Train the model
             # Evaluate the model on the validation set
-            _, _, _, mcc = validate(model, device)
+            _, _, _, mcc = validate(model)
 
             # For pruning (stops trial early if not promising)
             trial.report(mcc, epoch)
             # Handle pruning based on the intermediate value.
             if trial.should_prune():
                 raise optuna.exceptions.TrialPruned()
-
-            # Early stopping condition
-            if mcc == 1.0:
-                print(f"Early stopping: Maximum MCC reached ({mcc})")
-                break
 
     except RuntimeError as e:
         if str(e) == "Encountered zero total variance in all trees.":
@@ -279,14 +265,14 @@ for representation in representations:
             device) for representation in X_train]
         Y_train = np.array(y_train)
 
-        # # We select randomly stratified half of the samples for fast training
-        # X_train_half, _, y_train_half, _ = train_test_split(
-        #     X_train, Y_train, test_size=0.5, random_state=settings.SEED, stratify=y_train)
+        # We select randomly stratified half of the samples for fast training
+        X_train_half, _, y_train_half, _ = train_test_split(
+            X_train, Y_train, test_size=0.5, random_state=settings.SEED, stratify=y_train)
 
-        input_dim = X_train[0].shape[1]
+        input_dim = X_train_half[0].shape[1]
 
         x_train, x_test, y_train, y_test = train_test_split(
-            X_train, Y_train, test_size=0.2, random_state=settings.SEED, stratify=Y_train)
+            X_train_half, y_train_half, test_size=0.2, random_state=settings.SEED, stratify=Y_train)
 
         train_dataset = GridDataset(x_train, y_train)
         test_dataset = GridDataset(x_test, y_test)
