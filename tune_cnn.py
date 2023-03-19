@@ -130,7 +130,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 n_epochs = 10                         # Number of training epochs
 batch_size_train = 1                 # Batch size for training data
 batch_size_test = 1                # Batch size for testing data
-number_of_trials = 100                # Number of Optuna trials
+number_of_trials = 50                # Number of Optuna trials
 # Limit number of observations for faster computation
 limit_obs = True
 
@@ -315,7 +315,7 @@ for representation in representations:
         df.to_csv('optuna_results.csv', index=False)  # Save to csv file
 
         # Display results in a dataframe
-        print("\nOverall Results (ordered by accuracy):\n {}".format(df))
+        print("\nOverall Results (ordered by MCC):\n {}".format(df))
 
         # Find the most important hyperparameters
         most_important_parameters = optuna.importance.get_param_importances(
