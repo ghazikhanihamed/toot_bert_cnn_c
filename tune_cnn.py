@@ -298,12 +298,9 @@ for representation in representations:
             test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
 
         # Create an Optuna study to maximize test MCC
-        # Create a sampler and a study
-        sampler = TPESampler()
-        study = optuna.create_study(direction="maximize", sampler=sampler)
+        study = optuna.create_study(direction="maximize")
         # Run the optimization process using multiple GPUs
-        study.optimize(lambda trial: TorchDistributedTrial(
-            objective)(trial), n_trials=number_of_trials)
+        study.optimize(objective, n_trials=number_of_trials)
 
         # -------------------------------------------------------------------------
         # Results
