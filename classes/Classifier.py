@@ -1,19 +1,10 @@
-
-
 import torch
 import torch.nn as nn
-import torch.optim as optim
-import numpy as np
-from sklearn.model_selection import GridSearchCV
-from skorch import NeuralNetClassifier
-from sklearn.metrics import make_scorer, matthews_corrcoef
 from torch.functional import F
 
 # Define the CNN model
-
-
 class CNN(nn.Module):
-    def __init__(self, trial, kernel_sizes, out_channels, dropout_prob, input_size):
+    def __init__(self, kernel_sizes, out_channels, dropout_prob, input_size):
         super(CNN, self).__init__()
 
         output_size = 2
@@ -53,6 +44,4 @@ class CNN(nn.Module):
         # Fully connected layer
         x = self.fc1(x)
 
-        x = F.softmax(x, dim=1)
-
-        return x
+        return F.log_softmax(x, dim=1)
