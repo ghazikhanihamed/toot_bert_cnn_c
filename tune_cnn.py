@@ -280,7 +280,7 @@ for representation in representations:
         input_dim = X_train_half[0].shape[1]
 
         x_train, x_test, y_train, y_test = train_test_split(
-            X_train_half, y_train_half, test_size=0.2, random_state=settings.SEED, stratify=Y_train)
+            X_train_half, y_train_half, test_size=0.2, random_state=settings.SEED, stratify=y_train_half)
 
         train_dataset = GridDataset(x_train, y_train)
         test_dataset = GridDataset(x_test, y_test)
