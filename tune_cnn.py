@@ -265,9 +265,17 @@ for representation in representations:
             device) for representation in X_train]
         Y_train = np.array(y_train)
 
+        # We check the number of X_train and Y_train
+        print("Number of X_train: ", len(X_train))
+        print("Number of Y_train: ", len(Y_train))
+
         # We select randomly stratified half of the samples for fast training
         X_train_half, _, y_train_half, _ = train_test_split(
             X_train, Y_train, test_size=0.5, random_state=settings.SEED, stratify=y_train)
+        
+        # We check the number of X_train and Y_train
+        print("Number of X_train_half: ", len(X_train_half))
+        print("Number of Y_train_half: ", len(y_train_half))
 
         input_dim = X_train_half[0].shape[1]
 
