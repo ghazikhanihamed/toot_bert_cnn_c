@@ -16,8 +16,19 @@ from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
 import h5py
 from sklearn.model_selection import train_test_split
 import pandas as pd
-from optuna.samplers import TPESampler
-from optuna.pruners import MedianPruner
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+
+
+def custom_print(*args, **kwargs):
+    message = ' '.join([str(arg) for arg in args])
+    logging.info(message)
+
+
+print = custom_print
 
 
 def train(network, optimizer):
@@ -98,7 +109,7 @@ def objective(trial):
     """
     # Define range of values to be tested for the hyperparameters
     kernel_size = trial.suggest_categorical(
-        "kernel_sizes", [[3, 5, 7]])
+        "kernel_sizes", [[3, 5, 7], [3, 7, 9], [5, 7], [7, 7, 7]])
     out_channel = trial.suggest_categorical(
         "out_channels", [[128, 64, 32]])
     dropout = trial.suggest_float("dropout_prob", 0.2, 0.5)
@@ -108,7 +119,7 @@ def objective(trial):
 
     # Generate the optimizers
     optimizer_name = trial.suggest_categorical(
-        "optimizer", ["Adam"])
+        "optimizer", ["Adam", "RMSprop", "SGD"])
     lr = trial.suggest_float("lr", 1e-6, 1e-2, log=True)
     optimizer = getattr(optim, optimizer_name)(model.parameters(), lr=lr)
 
@@ -168,6 +179,23 @@ skf = StratifiedKFold(n_splits=n_splits, shuffle=True,
 # we make a list of only h5 files that contains only train in the representations folder
 representations = [representation for representation in os.listdir(
     settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation]
+
+# Among representations with name iontransporters_membraneproteins_imbalanced we need to keep only one of them
+rep_iontransporters_membraneproteins_imbalanced = [
+    representation for representation in representations if "iontransporters_membraneproteins_imbalanced" in representation][0]
+# We do the same for ionchannels_membraneproteins_imbalanced
+rep_ionchannels_membraneproteins_imbalanced = [
+    representation for representation in representations if "ionchannels_membraneproteins_imbalanced" in representation][0]
+rep_iontransporters_membraneproteins_balanced = [
+    representation for representation in representations if "iontransporters_membraneproteins_balanced" in representation][0]
+rep_ionchannels_membraneproteins_balanced = [
+    representation for representation in representations if "ionchannels_membraneproteins_balanced" in representation][0]
+rep_ionchannels_iontransporters = [
+    representation for representation in representations if "ionchannels_iontransporters" in representation][0]
+
+# Now we put all of them in the representations list
+representations = [rep_iontransporters_membraneproteins_imbalanced, rep_ionchannels_membraneproteins_imbalanced,
+                   rep_iontransporters_membraneproteins_balanced, rep_ionchannels_membraneproteins_balanced, rep_ionchannels_iontransporters]
 
 print("Number of representations: ", len(representations))
 
@@ -271,18 +299,18 @@ for representation in representations:
         print("Number of X_train: ", len(X_train))
         print("Number of Y_train: ", len(Y_train))
 
-        # We select randomly stratified half of the samples for fast training
-        X_train_half, _, y_train_half, _ = train_test_split(
-            X_train, Y_train, test_size=0.5, random_state=settings.SEED, stratify=y_train)
-        
-        # We check the number of X_train and Y_train
-        print("Number of X_train_half: ", len(X_train_half))
-        print("Number of Y_train_half: ", len(y_train_half))
+        # # We select randomly stratified half of the samples for fast training
+        # X_train_half, _, y_train_half, _ = train_test_split(
+        #     X_train, Y_train, test_size=0.5, random_state=settings.SEED, stratify=y_train)
 
-        input_dim = X_train_half[0].shape[1]
+        # # We check the number of X_train and Y_train
+        # print("Number of X_train_half: ", len(X_train_half))
+        # print("Number of Y_train_half: ", len(y_train_half))
+
+        input_dim = X_train[0].shape[1]
 
         x_train, x_test, y_train, y_test = train_test_split(
-            X_train_half, y_train_half, test_size=0.2, random_state=settings.SEED, stratify=y_train_half)
+            X_train, Y_train, test_size=0.2, random_state=settings.SEED, stratify=Y_train)
 
         train_dataset = GridDataset(x_train, y_train)
         test_dataset = GridDataset(x_test, y_test)
@@ -294,9 +322,7 @@ for representation in representations:
             test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
 
         # Create an Optuna study to maximize test MCC
-        sampler = TPESampler()
-        pruner = MedianPruner()
-        study = optuna.create_study(direction="maximize", sampler=sampler, pruner=pruner)
+        study = optuna.create_study(direction="maximize")
         # Run the optimization process using multiple GPUs
         study.optimize(objective, n_trials=number_of_trials)
 
@@ -384,8 +410,8 @@ for representation in representations:
             # Training of the model
             for epoch in range(n_epochs):
                 train(model, optimizer)  # Train the model
-                # Evaluate the model on the validation set
-                sensitivity, specificity, accuracy, mcc = validate(model)
+            # Evaluate the model on the validation set
+            sensitivity, specificity, accuracy, mcc = validate(model)
 
             result_folds_dict[fold] = [sensitivity, specificity, accuracy, mcc]
 
