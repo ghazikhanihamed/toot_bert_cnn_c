@@ -16,6 +16,8 @@ from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
 import h5py
 from sklearn.model_selection import train_test_split
 import pandas as pd
+from optuna.samplers import TPESampler
+from optuna.pruners import MedianPruner
 
 
 def train(network, optimizer):
@@ -96,17 +98,17 @@ def objective(trial):
     """
     # Define range of values to be tested for the hyperparameters
     kernel_size = trial.suggest_categorical(
-        "kernel_sizes", [[3, 5, 7], [3, 5], [5, 7], [7]])
+        "kernel_sizes", [[3, 5, 7]])
     out_channel = trial.suggest_categorical(
-        "out_channels", [[64, 32], [128, 64, 32]])
-    dropout = trial.suggest_float("dropout_prob", 0.2, 0.6)
+        "out_channels", [[128, 64, 32]])
+    dropout = trial.suggest_float("dropout_prob", 0.2, 0.5)
 
     # Generate the model
     model = CNN(kernel_size, out_channel, dropout, input_dim).to(device)
 
     # Generate the optimizers
     optimizer_name = trial.suggest_categorical(
-        "optimizer", ["Adam", "RMSprop", "SGD"])
+        "optimizer", ["Adam"])
     lr = trial.suggest_float("lr", 1e-6, 1e-2, log=True)
     optimizer = getattr(optim, optimizer_name)(model.parameters(), lr=lr)
 
@@ -292,7 +294,9 @@ for representation in representations:
             test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
 
         # Create an Optuna study to maximize test MCC
-        study = optuna.create_study(direction="maximize")
+        sampler = TPESampler()
+        pruner = MedianPruner()
+        study = optuna.create_study(direction="maximize", sampler=sampler, pruner=pruner)
         # Run the optimization process using multiple GPUs
         study.optimize(objective, n_trials=number_of_trials)
 

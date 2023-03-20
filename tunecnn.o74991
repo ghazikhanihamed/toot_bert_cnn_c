@@ -1,0 +1,24 @@
+Number of representations:  230
+--------------------------------------------------
+--------------------------------------------------
+Dataset name:  ionchannels_membraneproteins
+Dataset type:  balanced
+Dataset number:  10
+Representation type:  finetuned
+Representer model:  ESM-1b
+Number of X_train:  521
+Number of Y_train:  521
+Number of X_train_half:  260
+Number of Y_train_half:  260
+Traceback (most recent call last):
+  File "tune_cnn.py", line 283, in <module>
+    X_train_half, y_train_half, test_size=0.2, random_state=settings.SEED, stratify=Y_train)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/sklearn/model_selection/_split.py", line 2441, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/sklearn/model_selection/_split.py", line 1599, in split
+    X, y, groups = indexable(X, y, groups)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/sklearn/utils/validation.py", line 378, in indexable
+    check_consistent_length(*result)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/sklearn/utils/validation.py", line 334, in check_consistent_length
+    % [int(l) for l in lengths]
+ValueError: Found input variables with inconsistent numbers of samples: [260, 521]
