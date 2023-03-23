@@ -1,17 +1,14 @@
-#!/encs/bin/tcsh
+#!/bin/bash -l
 
-#$ -N plm_frzn
+#$ -N fullfrzn
 #$ -cwd
 #$ -m bea
-#$ -l gpu=2
+#$ -l m_mem_free=64G,g=1
 
-setenv TMPDIR /nfs/speed-scratch/h_ghazik/tmp
-setenv TRANSFORMERS_CACHE /nfs/speed-scratch/h_ghazik/tmp
+export TMPDIR=~/tmp
+export TRANSFORMERS_CACHE=~/tmp
+source ~/python_venv/bin/activate
 
-module load pytorch/1.10.0/GPU/default
-
-source /nfs/speed-scratch/h_ghazik/python_gpu_path/bin/activate.csh
-
-python save_frozen_representations.py
+python save_representations_frozen_full.py
 
 deactivate

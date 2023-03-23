@@ -67,7 +67,9 @@ for rep in settings.REPRESENTATIONS:
             inputs = tokenizer(sequence, add_special_tokens=False, return_tensors="pt")
         else:
             inputs = tokenizer(sequence, add_special_tokens=False, return_tensors="pt", truncation=True, max_length=1024)
-        
+
+        inputs = inputs.to(device)        
+
         # Obtain frozen representations
         with torch.no_grad():
             outputs = model(**inputs)
