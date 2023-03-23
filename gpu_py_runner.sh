@@ -3,7 +3,7 @@
 #$ -N tunecnn
 #$ -cwd
 #$ -m bea
-#$ -l m_mem_free=64G,g=1
+#$ -l m_mem_free=128G,g=1
 
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp

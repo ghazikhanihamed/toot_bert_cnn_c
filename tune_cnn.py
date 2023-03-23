@@ -181,8 +181,8 @@ representations = [representation for representation in os.listdir(
     settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation]
 
 # Among representations with name iontransporters_membraneproteins_imbalanced we need to keep only one of them
-rep_iontransporters_membraneproteins_imbalanced = [
-    representation for representation in representations if "iontransporters_membraneproteins_imbalanced" in representation][0]
+#rep_iontransporters_membraneproteins_imbalanced = [
+#    representation for representation in representations if "iontransporters_membraneproteins_imbalanced" in representation][0]
 # We do the same for ionchannels_membraneproteins_imbalanced
 rep_ionchannels_membraneproteins_imbalanced = [
     representation for representation in representations if "ionchannels_membraneproteins_imbalanced" in representation][0]
@@ -194,7 +194,7 @@ rep_ionchannels_iontransporters = [
     representation for representation in representations if "ionchannels_iontransporters" in representation][0]
 
 # Now we put all of them in the representations list
-representations = [rep_iontransporters_membraneproteins_imbalanced, rep_ionchannels_membraneproteins_imbalanced,
+representations = [rep_ionchannels_membraneproteins_imbalanced,
                    rep_iontransporters_membraneproteins_balanced, rep_ionchannels_membraneproteins_balanced, rep_ionchannels_iontransporters]
 
 print("Number of representations: ", len(representations))
@@ -291,8 +291,7 @@ for representation in representations:
             y_train = [1 if label ==
                        settings.IONTRANSPORTERS else 0 for label in y_train]
 
-        X_train = [torch.tensor(representation, dtype=torch.float).to(
-            device) for representation in X_train]
+        X_train = [torch.tensor(representation, dtype=torch.float) for representation in X_train]
         Y_train = np.array(y_train)
 
         # We check the number of X_train and Y_train

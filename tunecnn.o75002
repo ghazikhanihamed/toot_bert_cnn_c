@@ -1,0 +1,1163 @@
+INFO:root:Number of representations:  4
+INFO:root:--------------------------------------------------
+INFO:root:--------------------------------------------------
+INFO:root:Dataset name:  ionchannels_membraneproteins
+INFO:root:Dataset type:  imbalanced
+INFO:root:Dataset number:  N/A
+INFO:root:Representation type:  frozen
+INFO:root:Representer model:  ESM-2_15B
+INFO:root:Number of X_train:  3654
+INFO:root:Number of Y_train:  3654
+[32m[I 2023-03-21 11:38:45,667][0m A new study created in memory with name: no-name-c39ae08f-e098-42bf-aa94-ab3046b7078c[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-21 14:18:38,163][0m Trial 0 finished with value: 0.7938191289732249 and parameters: {'kernel_sizes': [7, 7, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.21553172091514172, 'optimizer': 'RMSprop', 'lr': 0.0012275535869291484}. Best is trial 0 with value: 0.7938191289732249.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-21 15:51:00,373][0m Trial 1 finished with value: 0.9431480507868236 and parameters: {'kernel_sizes': [5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.26624992559465005, 'optimizer': 'RMSprop', 'lr': 0.008340551780956593}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-21 17:45:52,223][0m Trial 2 finished with value: 0.9195113961933634 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.35082082470920084, 'optimizer': 'SGD', 'lr': 0.0023843315561390276}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-21 20:26:16,171][0m Trial 3 finished with value: 0.8331300565079324 and parameters: {'kernel_sizes': [7, 7, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.4524071755086541, 'optimizer': 'Adam', 'lr': 1.6315682965408135e-06}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-21 22:51:10,059][0m Trial 4 finished with value: 0.8955081525902728 and parameters: {'kernel_sizes': [3, 7, 9], 'out_channels': [128, 64, 32], 'dropout_prob': 0.4878161254663087, 'optimizer': 'RMSprop', 'lr': 0.000348984087386731}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-21 23:02:45,556][0m Trial 5 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 00:58:52,062][0m Trial 6 finished with value: 0.9195113961933634 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.4743027147983925, 'optimizer': 'Adam', 'lr': 5.153204026574431e-05}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 01:13:23,980][0m Trial 7 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 01:45:29,267][0m Trial 8 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 01:54:44,109][0m Trial 9 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 02:03:57,321][0m Trial 10 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 03:59:12,252][0m Trial 11 finished with value: 0.9075995458818565 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.35818141916204893, 'optimizer': 'SGD', 'lr': 0.008803190968723324}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 04:08:25,616][0m Trial 12 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 04:19:55,112][0m Trial 13 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 04:29:08,045][0m Trial 14 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 04:40:40,332][0m Trial 15 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 04:49:52,688][0m Trial 16 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 05:18:58,263][0m Trial 17 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 05:30:27,180][0m Trial 18 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 05:49:00,010][0m Trial 19 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 06:00:28,531][0m Trial 20 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 06:12:04,002][0m Trial 21 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 08:07:44,804][0m Trial 22 finished with value: 0.9075711982983508 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.20305761013705506, 'optimizer': 'Adam', 'lr': 4.234248744286207e-05}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 08:19:18,367][0m Trial 23 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 08:30:52,293][0m Trial 24 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 08:40:05,476][0m Trial 25 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 08:54:39,765][0m Trial 26 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 09:10:35,816][0m Trial 27 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 09:22:07,168][0m Trial 28 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 09:38:11,348][0m Trial 29 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 09:47:26,042][0m Trial 30 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 11:42:25,341][0m Trial 31 finished with value: 0.8955081525902728 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.36041049579451273, 'optimizer': 'SGD', 'lr': 0.006418720565184585}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 11:53:53,004][0m Trial 32 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 12:05:20,719][0m Trial 33 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 12:16:49,545][0m Trial 34 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 12:28:24,102][0m Trial 35 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 12:42:56,199][0m Trial 36 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 15:22:39,201][0m Trial 37 finished with value: 0.9075995458818565 and parameters: {'kernel_sizes': [7, 7, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.40887016367275, 'optimizer': 'SGD', 'lr': 0.00540031169365073}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 15:34:10,954][0m Trial 38 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 15:43:25,621][0m Trial 39 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 18:07:55,037][0m Trial 40 finished with value: 0.9195113961933634 and parameters: {'kernel_sizes': [3, 7, 9], 'out_channels': [128, 64, 32], 'dropout_prob': 0.4222235781926271, 'optimizer': 'SGD', 'lr': 0.005824663883640873}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 18:22:21,815][0m Trial 41 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 18:36:47,765][0m Trial 42 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 18:51:14,264][0m Trial 43 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 19:05:43,164][0m Trial 44 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 19:14:55,857][0m Trial 45 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 19:30:56,022][0m Trial 46 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 19:42:27,035][0m Trial 47 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 19:56:55,286][0m Trial 48 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 20:06:09,596][0m Trial 49 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 20:17:38,203][0m Trial 50 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 20:33:36,123][0m Trial 51 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 20:49:34,077][0m Trial 52 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 21:05:30,716][0m Trial 53 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 21:21:26,845][0m Trial 54 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 21:32:59,833][0m Trial 55 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 21:48:57,146][0m Trial 56 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 21:58:11,513][0m Trial 57 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 22:09:45,447][0m Trial 58 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 22:24:14,890][0m Trial 59 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 22:35:46,186][0m Trial 60 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 22:47:20,465][0m Trial 61 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 22:58:55,936][0m Trial 62 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 23:10:29,207][0m Trial 63 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-22 23:22:02,529][0m Trial 64 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 00:54:42,579][0m Trial 65 finished with value: 0.9195113961933634 and parameters: {'kernel_sizes': [5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.25202369882740644, 'optimizer': 'Adam', 'lr': 4.9570655269382843e-05}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 01:03:57,175][0m Trial 66 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 01:13:10,183][0m Trial 67 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 01:22:21,704][0m Trial 68 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 01:31:36,237][0m Trial 69 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 01:40:49,076][0m Trial 70 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 01:52:22,399][0m Trial 71 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 03:47:59,310][0m Trial 72 finished with value: 0.9075995458818565 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.2005076900554565, 'optimizer': 'Adam', 'lr': 3.752363489919077e-05}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 03:59:34,107][0m Trial 73 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 04:15:39,363][0m Trial 74 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 04:30:12,203][0m Trial 75 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 04:39:23,354][0m Trial 76 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 04:50:55,625][0m Trial 77 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 05:02:24,010][0m Trial 78 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 05:16:54,531][0m Trial 79 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 05:26:05,370][0m Trial 80 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 05:37:38,610][0m Trial 81 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 05:49:13,322][0m Trial 82 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 06:00:45,873][0m Trial 83 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 06:12:19,676][0m Trial 84 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 06:28:21,930][0m Trial 85 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 06:39:51,033][0m Trial 86 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 06:51:20,580][0m Trial 87 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 07:05:53,938][0m Trial 88 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 07:21:56,456][0m Trial 89 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 08:53:56,403][0m Trial 90 finished with value: 0.9195113961933634 and parameters: {'kernel_sizes': [5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.2103511353122053, 'optimizer': 'SGD', 'lr': 0.007942474586358331}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 09:03:08,131][0m Trial 91 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 10:35:02,329][0m Trial 92 finished with value: 0.9075711982983508 and parameters: {'kernel_sizes': [5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.20781257990736385, 'optimizer': 'SGD', 'lr': 0.006265914578028693}. Best is trial 1 with value: 0.9431480507868236.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 10:44:14,342][0m Trial 93 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 10:53:26,566][0m Trial 94 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 11:04:55,215][0m Trial 95 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 11:14:05,871][0m Trial 96 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 11:25:39,380][0m Trial 97 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 11:40:08,448][0m Trial 98 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 7, 9] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [7, 7, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-23 11:49:21,674][0m Trial 99 pruned. [0m
+INFO:root:
+Study statistics: 
+INFO:root:  Number of finished trials:  100
+INFO:root:  Number of pruned trials:  85
+INFO:root:  Number of complete trials:  15
+INFO:root:Best trial:
+INFO:root:  Value:  0.9431480507868236
+INFO:root:  Params: 
+INFO:root:    kernel_sizes: [5, 7]
+INFO:root:    out_channels: [128, 64, 32]
+INFO:root:    dropout_prob: 0.26624992559465005
+INFO:root:    optimizer: RMSprop
+INFO:root:    lr: 0.008340551780956593
+INFO:root:
+Overall Results (ordered by MCC):
+     number     value  ...  params_optimizer params_out_channels
+0        0  0.793819  ...           RMSprop       [128, 64, 32]
+3        3  0.833130  ...              Adam       [128, 64, 32]
+4        4  0.895508  ...           RMSprop       [128, 64, 32]
+31      31  0.895508  ...               SGD       [128, 64, 32]
+22      22  0.907571  ...              Adam       [128, 64, 32]
+92      92  0.907571  ...               SGD       [128, 64, 32]
+11      11  0.907600  ...               SGD       [128, 64, 32]
+37      37  0.907600  ...               SGD       [128, 64, 32]
+72      72  0.907600  ...              Adam       [128, 64, 32]
+2        2  0.919511  ...               SGD       [128, 64, 32]
+6        6  0.919511  ...              Adam       [128, 64, 32]
+40      40  0.919511  ...               SGD       [128, 64, 32]
+65      65  0.919511  ...              Adam       [128, 64, 32]
+90      90  0.919511  ...               SGD       [128, 64, 32]
+1        1  0.943148  ...           RMSprop       [128, 64, 32]
+
+[15 rows x 7 columns]
+INFO:root:
+Most important hyperparameters:
+INFO:root:  kernel_sizes:   52.81%
+INFO:root:  optimizer:      22.62%
+INFO:root:  lr:             13.12%
+INFO:root:  dropout_prob:   11.45%
+INFO:root:  out_channels:   0.00%
+INFO:root:--------------------------------------------------------------------------------
+INFO:root:
+Applying 5-fold cross validation to the best model on the whole dataset...
+INFO:root:--------------------------------------------------------------------------------
+INFO:root:
+Fold 1
+INFO:root:
+Fold 2
+INFO:root:
+Fold 3
+INFO:root:
+Fold 4

@@ -1,0 +1,14 @@
+INFO:root:Number of representations:  4
+INFO:root:--------------------------------------------------
+INFO:root:--------------------------------------------------
+INFO:root:Dataset name:  ionchannels_membraneproteins
+INFO:root:Dataset type:  imbalanced
+INFO:root:Dataset number:  N/A
+INFO:root:Representation type:  frozen
+INFO:root:Representer model:  ESM-2_15B
+Traceback (most recent call last):
+  File "tune_cnn.py", line 295, in <module>
+    device) for representation in X_train]
+  File "tune_cnn.py", line 295, in <listcomp>
+    device) for representation in X_train]
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB (GPU 0; 31.75 GiB total capacity; 30.17 GiB already allocated; 1.50 MiB free; 30.95 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

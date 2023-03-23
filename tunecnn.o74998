@@ -3085,3 +3085,28 @@
 /home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
   warnings.warn(message)
 [32m[I 2023-03-20 09:25:10,708][0m Trial 15 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-20 09:34:25,429][0m Trial 16 finished with value: 0.7394738666465356 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.21232473288291484, 'optimizer': 'Adam', 'lr': 0.00021283947059035758}. Best is trial 7 with value: 0.8468812149338254.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-20 09:43:39,617][0m Trial 17 finished with value: 0.7746206829028982 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.47029440034556835, 'optimizer': 'Adam', 'lr': 6.945308600361942e-05}. Best is trial 7 with value: 0.8468812149338254.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-20 09:52:54,276][0m Trial 18 finished with value: 0.752772652709081 and parameters: {'kernel_sizes': [3, 5, 7], 'out_channels': [128, 64, 32], 'dropout_prob': 0.2797724962651465, 'optimizer': 'Adam', 'lr': 0.002117391200506525}. Best is trial 7 with value: 0.8468812149338254.[0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-20 09:53:49,794][0m Trial 19 pruned. [0m
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [3, 5, 7] which is of type list.
+  warnings.warn(message)
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/optuna/distributions.py:535: UserWarning: Choices for a categorical distribution should be a tuple of None, bool, int, float and str for persistent storage but contains [128, 64, 32] which is of type list.
+  warnings.warn(message)
+[32m[I 2023-03-20 09:57:31,594][0m Trial 20 pruned. [0m
