@@ -8,11 +8,9 @@
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp
 
-module load python/3.7.3/default
+source ~/python_venv/bin/activate
 
-source ~/python_path_gpu/bin/activate
-
-python save_finetuned_representations.py 
+python save_finetuned_models.py 
 
 deactivate
 
