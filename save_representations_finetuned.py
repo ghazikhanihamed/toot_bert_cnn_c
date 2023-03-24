@@ -43,7 +43,7 @@ for finetuned_model in finetuned_models:
             print("Using ", torch.cuda.device_count(), " GPUs.")
             model = torch.nn.DataParallel(model)
 
-    model.half()        
+    # model.half()        
     model.to(device)
     model = model.eval()
 
@@ -77,7 +77,7 @@ for finetuned_model in finetuned_models:
             representations.append((representation, label, id))
 
     # Save the frozen representations
-    with h5py.File(settings.FINETUNED_REPRESENTATIONS_PATH + "_" + finetuned_model + ".h5", "w") as f:
+    with h5py.File(settings.PLM_REPRESENTATIONS_PATH + "full" + "_" + finetuned_model + ".h5", "w") as f:
         for representation, label, id in representations:
             f.create_dataset(str(id), data=representation)
             f[str(id)].attrs["label"] = label
