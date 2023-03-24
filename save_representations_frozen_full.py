@@ -24,6 +24,7 @@ for rep in settings.REPRESENTATIONS:
         model = BertModel.from_pretrained(settings.PROTBERTBFD["model"])
         tokenizer = BertTokenizer.from_pretrained(settings.PROTBERTBFD["model"])
     elif rep["name"] == "ProtT5":
+        continue
         model = T5EncoderModel.from_pretrained(settings.PROTT5["model"])
         tokenizer = T5Tokenizer.from_pretrained(settings.PROTT5["model"])
     elif rep["name"] == "ESM-1b":

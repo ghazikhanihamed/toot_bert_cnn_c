@@ -7,7 +7,7 @@
 
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp
-source ~/python_venv/bin/activate
+source ~/python_venv2/bin/activate
 
 python save_representations_frozen_full.py
 

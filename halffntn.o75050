@@ -1,0 +1,32 @@
+Some weights of the model checkpoint at Rostlab/prot_bert were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at Rostlab/prot_bert and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Using cuda_amp half precision backend
+/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/optimization.py:310: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  FutureWarning,
+***** Running training *****
+  Num examples = 561
+  Num Epochs = 5
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 64
+  Gradient Accumulation steps = 64
+  Total optimization steps = 40
+  Number of trainable parameters = 419933186
+Dataset:  iontransporters_membraneproteins_balanced_train_4.csv
+Model:  ProtBERT
+--------------------------------------------------
+  0%|          | 0/40 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "save_finetuned_representations_half.py", line 50, in <module>
+    trainer.train()
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/trainer.py", line 1547, in train
+    ignore_keys_for_eval=ignore_keys_for_eval,
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/trainer.py", line 1824, in _inner_training_loop
+    self.scaler.unscale_(self.optimizer)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/cuda/amp/grad_scaler.py", line 282, in unscale_
+    optimizer_state["found_inf_per_device"] = self._unscale_grads_(optimizer, inv_scale, found_inf, False)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/cuda/amp/grad_scaler.py", line 210, in _unscale_grads_
+    raise ValueError("Attempting to unscale FP16 gradients.")
+ValueError: Attempting to unscale FP16 gradients.
+  0%|          | 0/40 [00:06<?, ?it/s]

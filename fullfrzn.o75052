@@ -1,0 +1,39 @@
+Some weights of the model checkpoint at Rostlab/prot_bert were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at Rostlab/prot_bert_bfd were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Model:  ProtBERT
+Using GPU
+Model:  ProtBERT-BFD
+Using GPU
+Downloading (…)ve/main/spiece.model:   0%|          | 0.00/238k [00:00<?, ?B/s]Downloading (…)ve/main/spiece.model: 100%|██████████| 238k/238k [00:00<00:00, 4.67MB/s]
+Downloading (…)cial_tokens_map.json:   0%|          | 0.00/1.79k [00:00<?, ?B/s]Downloading (…)cial_tokens_map.json: 100%|██████████| 1.79k/1.79k [00:00<00:00, 730kB/s]
+Downloading (…)okenizer_config.json:   0%|          | 0.00/25.0 [00:00<?, ?B/s]Downloading (…)okenizer_config.json: 100%|██████████| 25.0/25.0 [00:00<00:00, 10.5kB/s]
+Model:  ProtT5
+Using GPU
+Traceback (most recent call last):
+  File "save_representations_frozen_full.py", line 75, in <module>
+    outputs = model(**inputs)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/models/t5/modeling_t5.py", line 1868, in forward
+    return_dict=return_dict,
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/models/t5/modeling_t5.py", line 1066, in forward
+    output_attentions=output_attentions,
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/models/t5/modeling_t5.py", line 694, in forward
+    output_attentions=output_attentions,
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/models/t5/modeling_t5.py", line 600, in forward
+    output_attentions=output_attentions,
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/transformers/models/t5/modeling_t5.py", line 543, in forward
+    position_bias = position_bias + mask  # (batch_size, n_heads, seq_length, key_length)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 9.23 GiB (GPU 0; 31.75 GiB total capacity; 23.42 GiB already allocated; 3.72 GiB free; 27.07 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
