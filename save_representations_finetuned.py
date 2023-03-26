@@ -11,8 +11,10 @@ torch.cuda.empty_cache()
 # Load all the sequences
 sequences = pd.read_csv(settings.ALL_SEQUENCES_PATH)
 
-# We take all the folders in finetuned_models and not the files
-finetuned_models = [f for f in os.listdir(settings.FINETUNED_MODELS_PATH) if os.path.isdir(os.path.join(settings.FINETUNED_MODELS_PATH, f))]
+# We take all the folders in finetuned_models and not the files and contains "full" in the name
+finetuned_models = [f for f in os.listdir(settings.FINETUNED_MODELS_PATH) if os.path.isdir(os.path.join(settings.FINETUNED_MODELS_PATH, f)) and "full" in f]
+
+print("Number of finetuned models: ", len(finetuned_models))
 
 for finetuned_model in finetuned_models:
 
@@ -77,7 +79,7 @@ for finetuned_model in finetuned_models:
             representations.append((representation, label, id))
 
     # Save the frozen representations
-    with h5py.File(settings.PLM_REPRESENTATIONS_PATH + "full" + "_" + finetuned_model + ".h5", "w") as f:
+    with h5py.File(settings.FINETUNED_REPRESENTATIONS_PATH + "_" + "full" + "_" + finetuned_model + ".h5", "w") as f:
         for representation, label, id in representations:
             f.create_dataset(str(id), data=representation)
             f[str(id)].attrs["label"] = label
