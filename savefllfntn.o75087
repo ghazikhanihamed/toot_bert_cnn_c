@@ -1,0 +1,645 @@
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_4 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_10 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_1 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_1 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_imbalanced_train were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_imbalanced_train and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_4 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_4 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_1 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_1 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_8 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_9 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_9 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_4 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_4 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_2 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_2 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_2 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_2 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_imbalanced_train were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_6 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_6 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_iontransporters_train were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_9 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_9 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_iontransporters_train were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_6 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_6 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_imbalanced_train were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_imbalanced_train and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_imbalanced_train were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_imbalanced_train and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_4 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_9 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_9 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_9 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_10 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_7 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_1 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_1 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_5 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_5 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_3 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_3 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_5 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_3 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_8 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_imbalanced_train were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_6 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_8 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_4 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_4 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_5 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_3 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_1 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_7 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_7 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_6 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_7 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_7 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_8 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_8 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_2 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_1 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_8 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_9 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_7 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_4 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_iontransporters_train were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_iontransporters_train and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_9 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_6 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_8 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_8 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_10 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_10 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_2 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_iontransporters_train were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_iontransporters_train and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_9 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_9 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_4 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_10 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_6 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_5 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_5 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_3 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_5 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_5 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_5 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_2 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_2 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_1 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_1 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_3 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_1 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_10 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_10 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_5 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_5 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_8 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_8 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_5 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_1 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_10 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_balanced_train_7 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_6 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_6 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_2 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_2 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_2 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_ionchannels_membraneproteins_balanced_train_9 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_4 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_4 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_6 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_6 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_3 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_3 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_2 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_7 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_7 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_ionchannels_membraneproteins_imbalanced_train were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_3 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_3 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_7 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_ionchannels_membraneproteins_balanced_train_7 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_7 were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_3 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_3 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_imbalanced_train were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_imbalanced_train and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ProtBERT_full_iontransporters_membraneproteins_imbalanced_train were not used when initializing BertModel: ['classifier.weight', 'classifier.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_8 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_ionchannels_membraneproteins_balanced_train_8 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_10 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-2_full_iontransporters_membraneproteins_balanced_train_10 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_10 were not used when initializing EsmModel: ['classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+- This IS expected if you are initializing EsmModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing EsmModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models/ESM-1b_full_iontransporters_membraneproteins_balanced_train_10 and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Number of finetuned models:  92
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_iontransporters_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_iontransporters_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_iontransporters_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_iontransporters_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_5
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_1
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_ionchannels_membraneproteins_balanced_train_9
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_4
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_6
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_balanced_train_2
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_ionchannels_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_ionchannels_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT-BFD_full_iontransporters_membraneproteins_balanced_train_7
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_3
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ProtBERT_full_iontransporters_membraneproteins_imbalanced_train
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_ionchannels_membraneproteins_balanced_train_8
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-2_full_iontransporters_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
+Finetuned model:  ESM-1b_full_iontransporters_membraneproteins_balanced_train_10
+--------------------------------------------------
+Using GPU
