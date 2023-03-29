@@ -2,8 +2,8 @@ import os
 from settings import settings
 
 # We filter those files that contain "finetuned" and "full" and end with ".h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith(".h5") and "full" in f:
+for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH + "backup/"):
+    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH + "backup/", f)) and "finetuned" in f and f.endswith(".h5") and "full" in f:
         # If the file starts with "ionchannels_iontransporters" then we keep those files that parts 7 and 8 are "ionchannels" and "iontransporters" split by "_" and the rest cut in the backup folder
         if f.startswith("ionchannels_iontransporters"):
             if f.split("_")[7] == "ionchannels" and f.split("_")[8] == "iontransporters.h5":
