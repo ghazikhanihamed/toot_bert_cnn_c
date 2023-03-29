@@ -1,4 +1,3 @@
-import torch
 import h5py
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold
@@ -17,6 +16,19 @@ import random
 import sklearn
 import warnings
 warnings.filterwarnings("ignore")
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+
+
+def custom_print(*args, **kwargs):
+    message = ' '.join([str(arg) for arg in args])
+    logging.info(message)
+
+
+print = custom_print
 
 
 # We set the random seed for reproducibility
@@ -30,7 +42,7 @@ skf = StratifiedKFold(n_splits=n_splits, shuffle=True,
 
 # we make a list of only h5 files that contains only train in the representations folder
 representations = [representation for representation in os.listdir(
-    settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation]
+    settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation and "full" in representation]
 
 print("Number of representations: ", len(representations))
 
@@ -42,6 +54,7 @@ for representation in representations:
     dataset_number = "na"
     representation_type = ""
     representer_model = ""
+    precision_type = "half"
 
     information = representation.split("_")
     # We separate the information from the name of the representation
@@ -56,23 +69,33 @@ for representation in representations:
             # dataset_split = information[3] # train or test
             if dataset_type == "balanced":
                 dataset_number = information[4]  # 1-10
-                if len(information) == 8:
+                if len(information) == 9:
+                    if information[7] == "full":
+                        precision_type = information[7]
+                    else:
+                        representer_model = information[7] + "_" + information[8][:-3]
+                else:
                     representer_model = information[7][:-3]
-                else:
-                    representer_model = information[7] + \
-                        "_" + information[8][:-3]
             else:
-                if len(information) == 7:
-                    representer_model = information[6][:-3]
+                if len(information) == 8:
+                    if information[6] == "full":
+                        precision_type = information[6]
+                    else:
+                        representer_model = representer_model = information[6] + \
+                            "_" + information[7][:-3]
                 else:
-                    representer_model = information[6] + \
-                        "_" + information[7][:-3]
+                    representer_model = information[6][:-3]
+
         else:
             # dataset_split = information[2] # train or test
-            if len(information) == 6:
-                representer_model = information[5][:-3]
+            if len(information) == 7:
+                if information[5] == "full":
+                    precision_type = information[5]
+                else:
+                    representer_model = information[5] + "_" + information[6][:-3]
             else:
-                representer_model = information[5] + "_" + information[6][:-3]
+                representer_model = information[5][:-3]
+
     else:
         representation_type = "finetuned"
         if information[1] == "membraneproteins":
@@ -80,19 +103,25 @@ for representation in representations:
             # dataset_split = information[3] # train or test
             if dataset_type == "balanced":
                 dataset_number = information[4]  # 1-10
-                representer_model = information[7]
+                if len(information) == 12:
+                    precision_type = information[7]
+                    representer_model = information[8]
+                else:
+                    representer_model = information[7]
             else:
-                representer_model = information[6]
+                if len(information) == 11:
+                    precision_type = information[6]
+                    representer_model = information[7]
+                else:
+                    representer_model = information[6]
         else:
-            # dataset_split = information[2]
-            representer_model = information[5]
+            # dataset_split = information[2] # train or test
+            if information[5] == "full":
+                precision_type = information[5]
+                representer_model = information[6]
+            else:
+                representer_model = information[5]
 
-    # We check if the representation is already in the results folder and if it is, we skip it
-    csv_file = "gridsearch_results_" + dataset_name + "_" + dataset_type + "_" + \
-        dataset_number + "_" + representation_type + "_" + representer_model + ".csv"
-    if csv_file in os.listdir(settings.RESULTS_PATH):
-        print("Skipping: ", csv_file)
-        continue
 
     # Print the information
     print("-"*50)
@@ -105,6 +134,7 @@ for representation in representations:
         "Dataset number: ", "N/A")
     print("Representation type: ", representation_type)
     print("Representer model: ", representer_model)
+    print("Precision type: ", precision_type)
 
     # We open the h5 file
     with h5py.File(settings.REPRESENTATIONS_FILTERED_PATH + representation, "r") as f:
@@ -204,7 +234,7 @@ for representation in representations:
 
             # We perform the grid search
             grid_search = GridSearchCV(model, param_grid, cv=skf, scoring=scores,
-                                       return_train_score=True, n_jobs=10, refit="MCC", error_score='raise')
+                                       return_train_score=True, n_jobs=20, refit="MCC", error_score='raise')
             grid_search.fit(X_train, y_train)
 
             # We save the best parameters
@@ -216,7 +246,7 @@ for representation in representations:
             # We save the results of the grid search in a csv file
             results = pd.DataFrame(grid_search.cv_results_)
             results.to_csv(settings.RESULTS_PATH + "gridsearch_detail_results_" + name + "_" + dataset_name + "_" +
-                           dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv", index=False)
+                           dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv", index=False)
 
             # We save a table of results for each model as rows and the different metrics as columns. Each metric has two columns which are train (mean +- std) and test (mean +- std) scores
             results_dict[name] = {
@@ -229,7 +259,7 @@ for representation in representations:
         # We save the best parameters for each model in a csv file
         best_params_df = pd.DataFrame(best_params)
         best_params_df.to_csv(settings.RESULTS_PATH + "gridsearch_best_params_" + dataset_name + "_" + dataset_type +
-                              "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv", index=False)
+                              "_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv", index=False)
 
         # We apply Fisher's exact test to the best models and report the p-values in a matrix with rows and columns corresponding to the models
         train_data, val_data, train_labels, val_labels = train_test_split(
@@ -255,9 +285,9 @@ for representation in representations:
         p_values_df = pd.DataFrame(
             p_values, index=best_models.keys(), columns=best_models.keys())
         p_values_df.to_csv(settings.RESULTS_PATH + "gridsearch_pvalues_" + dataset_name + "_" + dataset_type +
-                           "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv")
+                           "_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv")
 
         # We save the results of the grid search in a csv file
         results_df = pd.DataFrame(results_dict)
         results_df.to_csv(settings.RESULTS_PATH + "gridsearch_results_" + dataset_name + "_" + dataset_type +
-                          "_" + dataset_number + "_" + representation_type + "_" + representer_model + ".csv")
+                          "_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv")
