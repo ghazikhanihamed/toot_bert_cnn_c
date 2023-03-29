@@ -1,35 +1,83 @@
 import os
 from settings import settings
 
-# We change the name of the files that contain "frozen" and end with ".h5_full.h5" to end with ".h5"
+# We filter those files that contain "finetuned" and "full" and end with ".h5"
 for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "frozen" in f and f.endswith(".h5_full.h5"):
-        os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-11] + ".h5")
+    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith(".h5") and "full" in f:
+        # If the file starts with "ionchannels_iontransporters" then we keep those files that parts 7 and 8 are "ionchannels" and "iontransporters" split by "_" and the rest cut in the backup folder
+        if f.startswith("ionchannels_iontransporters"):
+            if f.split("_")[7] == "ionchannels" and f.split("_")[8] == "iontransporters":
+                continue
+            else:
+                os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+        # If the file starts with "ionchannels_membraneproteins_balanced" then we keep those files that parts 9 and 10 and 11 are "ionchannels" and "membraneproteins" and "balanced" split by "_" and the rest cut in the backup folder
+        elif f.startswith("ionchannels_membraneproteins_balanced"):
+            if f.split("_")[9] == "ionchannels" and f.split("_")[10] == "membraneproteins":
+                if f.split("_")[11] == "balanced":
+                    continue
+                else:
+                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+            else:
+                os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+        # If the file starts with "ionchannels_membraneproteins_imbalanced" then we keep those files that parts 8 and 9 and 10 are "ionchannels" and "membraneproteins" and "imbalanced" split by "_" and the rest cut in the backup folder
+        elif f.startswith("ionchannels_membraneproteins_imbalanced"):
+            if f.split("_")[8] == "ionchannels" and f.split("_")[9] == "membraneproteins":
+                if f.split("_")[10] == "imbalanced":
+                    continue
+                else:
+                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+            else:
+                os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+        # If the file starts with "iontransporters_membraneproteins_balanced" then we keep those files that parts 9 and 10 and 11 are "iontransporters" and "membraneproteins" and "balanced" split by "_" and the rest cut in the backup folder
+        elif f.startswith("iontransporters_membraneproteins_balanced"):
+            if f.split("_")[9] == "iontransporters" and f.split("_")[10] == "membraneproteins":
+                if f.split("_")[11] == "balanced":
+                    continue
+                else:
+                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+            else:
+                os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+        # If the file starts with "iontransporters_membraneproteins_imbalanced" then we keep those files that parts 8 and 9 and 10 are "iontransporters" and "membraneproteins" and "imbalanced" split by "_" and the rest cut in the backup folder
+        elif f.startswith("iontransporters_membraneproteins_imbalanced"):
+            if f.split("_")[8] == "iontransporters" and f.split("_")[9] == "membraneproteins":
+                if f.split("_")[10] == "imbalanced":
+                    continue
+                else:
+                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+            else:
+                os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f)
+                
 
-# We change the name of the files that contain "finetuned" and end with "full" to file - "full" + "ionchannels_iontransporters.h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full"):
-        os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-4] + "ionchannels_iontransporters.h5")
 
-# We change the name of the files that contain "finetuned" and end with "full_ionchannels_membraneproteins" to file - "full" + "ionchannels_membraneproteins_balanced.h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_ionchannels_membraneproteins"):
-        os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-33] + "ionchannels_membraneproteins_balanced.h5")
+# # We change the name of the files that contain "frozen" and end with ".h5_full.h5" to end with ".h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "frozen" in f and f.endswith(".h5_full.h5"):
+#         os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-11] + ".h5")
 
-# We change the name of the files that contain "finetuned" and end with "full_ionchannels" to file - "full" + "ionchannels_membraneproteins_imbalanced.h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_ionchannels"):
-        os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-16] + "ionchannels_membraneproteins_imbalanced.h5")
+# # We change the name of the files that contain "finetuned" and end with "full" to file - "full" + "ionchannels_iontransporters.h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full"):
+#         os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-4] + "ionchannels_iontransporters.h5")
 
-# We change the name of the files that contain "finetuned" and end with "full_iontransporters_membraneproteins" to file - "full" + "iontransporters_membraneproteins_balanced.h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_iontransporters_membraneproteins"):
-        os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-37] + "iontransporters_membraneproteins_balanced.h5")
+# # We change the name of the files that contain "finetuned" and end with "full_ionchannels_membraneproteins" to file - "full" + "ionchannels_membraneproteins_balanced.h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_ionchannels_membraneproteins"):
+#         os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-33] + "ionchannels_membraneproteins_balanced.h5")
 
-# We change the name of the files that contain "finetuned" and end with "full_iontransporters" to file - "full" + "iontransporters_membraneproteins_imbalanced.h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_iontransporters"):
-        os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-20] + "iontransporters_membraneproteins_imbalanced.h5")
+# # We change the name of the files that contain "finetuned" and end with "full_ionchannels" to file - "full" + "ionchannels_membraneproteins_imbalanced.h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_ionchannels"):
+#         os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-16] + "ionchannels_membraneproteins_imbalanced.h5")
+
+# # We change the name of the files that contain "finetuned" and end with "full_iontransporters_membraneproteins" to file - "full" + "iontransporters_membraneproteins_balanced.h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_iontransporters_membraneproteins"):
+#         os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-37] + "iontransporters_membraneproteins_balanced.h5")
+
+# # We change the name of the files that contain "finetuned" and end with "full_iontransporters" to file - "full" + "iontransporters_membraneproteins_imbalanced.h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH, f)) and "finetuned" in f and f.endswith("full_iontransporters"):
+#         os.rename(settings.REPRESENTATIONS_FILTERED_PATH + f, settings.REPRESENTATIONS_FILTERED_PATH + f[:-20] + "iontransporters_membraneproteins_imbalanced.h5")
 
 
 # We filter those files that contain "finetuned" and "full" and delete those files that first part of the name split by "_" is different from the 
