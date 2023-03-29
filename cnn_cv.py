@@ -328,7 +328,7 @@ for representation in representations:
 
             # We create the dataloaders
             train_loader = DataLoader(
-                train_dataset, batch_size=settings.BATCH_SIZE, shuffle=True, sampler=train_sampler)
+                train_dataset, batch_size=settings.BATCH_SIZE, sampler=train_sampler)
             validation_loader = DataLoader(
                 test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
 

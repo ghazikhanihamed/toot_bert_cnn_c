@@ -1,16 +1,16 @@
 #!/bin/bash -l
 
-#$ -N savefllfntn
+#$ -N cnncv
 #$ -cwd
 #$ -m bea
-#$ -l m_mem_free=64G,g=1
+#$ -l m_mem_free=32G,g=4
 
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp
 
 source ~/python_venv/bin/activate
 
-python save_representations_finetuned.py 
+python -m torch.distributed.launch --nproc_per_node=4 cnn_cv.py 
 
 deactivate
 
