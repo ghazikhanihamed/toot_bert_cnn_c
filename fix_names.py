@@ -1,56 +1,63 @@
 import os
 from settings import settings
 
-# We filter those files that contain "finetuned" and "full" and end with ".h5"
-for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH + "backup/"):
-    if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH + "backup/", f)) and "finetuned" in f and f.endswith(".h5") and "full" in f:
-        # If the file starts with "ionchannels_iontransporters" then we keep those files that parts 7 and 8 are "ionchannels" and "iontransporters" split by "_" and the rest cut in the backup folder
-        if f.startswith("ionchannels_iontransporters"):
-            if f.split("_")[7] == "ionchannels" and f.split("_")[8] == "iontransporters.h5":
-                # We copy the file from the backup folder to the filtered folder
-                os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
-            else:
-                continue
-        # If the file starts with "ionchannels_membraneproteins_balanced" then we keep those files that parts 9 and 10 and 11 are "ionchannels" and "membraneproteins" and "balanced" split by "_" and the rest cut in the backup folder
-        elif f.startswith("ionchannels_membraneproteins_balanced"):
-            if f.split("_")[9] == "ionchannels" and f.split("_")[10] == "membraneproteins":
-                if f.split("_")[11] == "balanced.h5":
-                    # We copy the file from the backup folder to the filtered folder
-                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
-                else:
-                    continue
-            else:
-                continue
-        # If the file starts with "ionchannels_membraneproteins_imbalanced" then we keep those files that parts 8 and 9 and 10 are "ionchannels" and "membraneproteins" and "imbalanced" split by "_" and the rest cut in the backup folder
-        elif f.startswith("ionchannels_membraneproteins_imbalanced"):
-            if f.split("_")[8] == "ionchannels" and f.split("_")[9] == "membraneproteins":
-                if f.split("_")[10] == "imbalanced.h5":
-                    # We copy the file from the backup folder to the filtered folder
-                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
-                else:
-                    continue
-            else:
-                continue
-        # If the file starts with "iontransporters_membraneproteins_balanced" then we keep those files that parts 9 and 10 and 11 are "iontransporters" and "membraneproteins" and "balanced" split by "_" and the rest cut in the backup folder
-        elif f.startswith("iontransporters_membraneproteins_balanced"):
-            if f.split("_")[9] == "iontransporters" and f.split("_")[10] == "membraneproteins":
-                if f.split("_")[11] == "balanced.h5":
-                    # We copy the file from the backup folder to the filtered folder
-                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
-                else:
-                    continue
-            else:
-                continue
-        # If the file starts with "iontransporters_membraneproteins_imbalanced" then we keep those files that parts 8 and 9 and 10 are "iontransporters" and "membraneproteins" and "imbalanced" split by "_" and the rest cut in the backup folder
-        elif f.startswith("iontransporters_membraneproteins_imbalanced"):
-            if f.split("_")[8] == "iontransporters" and f.split("_")[9] == "membraneproteins":
-                if f.split("_")[10] == "imbalanced.h5":
-                    # We copy the file from the backup folder to the filtered folder
-                    os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
-                else:
-                    continue
-            else:
-                continue
+# We remove all the files that ends with "__full.csv" in the results folder
+for f in os.listdir(settings.RESULTS_PATH):
+    if os.path.isfile(os.path.join(settings.RESULTS_PATH, f)) and f.endswith("__full.csv"):
+        os.remove(settings.RESULTS_PATH + f)
+
+
+
+# # We filter those files that contain "finetuned" and "full" and end with ".h5"
+# for f in os.listdir(settings.REPRESENTATIONS_FILTERED_PATH + "backup/"):
+#     if os.path.isfile(os.path.join(settings.REPRESENTATIONS_FILTERED_PATH + "backup/", f)) and "finetuned" in f and f.endswith(".h5") and "full" in f:
+#         # If the file starts with "ionchannels_iontransporters" then we keep those files that parts 7 and 8 are "ionchannels" and "iontransporters" split by "_" and the rest cut in the backup folder
+#         if f.startswith("ionchannels_iontransporters"):
+#             if f.split("_")[7] == "ionchannels" and f.split("_")[8] == "iontransporters.h5":
+#                 # We copy the file from the backup folder to the filtered folder
+#                 os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
+#             else:
+#                 continue
+#         # If the file starts with "ionchannels_membraneproteins_balanced" then we keep those files that parts 9 and 10 and 11 are "ionchannels" and "membraneproteins" and "balanced" split by "_" and the rest cut in the backup folder
+#         elif f.startswith("ionchannels_membraneproteins_balanced"):
+#             if f.split("_")[9] == "ionchannels" and f.split("_")[10] == "membraneproteins":
+#                 if f.split("_")[11] == "balanced.h5":
+#                     # We copy the file from the backup folder to the filtered folder
+#                     os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
+#                 else:
+#                     continue
+#             else:
+#                 continue
+#         # If the file starts with "ionchannels_membraneproteins_imbalanced" then we keep those files that parts 8 and 9 and 10 are "ionchannels" and "membraneproteins" and "imbalanced" split by "_" and the rest cut in the backup folder
+#         elif f.startswith("ionchannels_membraneproteins_imbalanced"):
+#             if f.split("_")[8] == "ionchannels" and f.split("_")[9] == "membraneproteins":
+#                 if f.split("_")[10] == "imbalanced.h5":
+#                     # We copy the file from the backup folder to the filtered folder
+#                     os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
+#                 else:
+#                     continue
+#             else:
+#                 continue
+#         # If the file starts with "iontransporters_membraneproteins_balanced" then we keep those files that parts 9 and 10 and 11 are "iontransporters" and "membraneproteins" and "balanced" split by "_" and the rest cut in the backup folder
+#         elif f.startswith("iontransporters_membraneproteins_balanced"):
+#             if f.split("_")[9] == "iontransporters" and f.split("_")[10] == "membraneproteins":
+#                 if f.split("_")[11] == "balanced.h5":
+#                     # We copy the file from the backup folder to the filtered folder
+#                     os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
+#                 else:
+#                     continue
+#             else:
+#                 continue
+#         # If the file starts with "iontransporters_membraneproteins_imbalanced" then we keep those files that parts 8 and 9 and 10 are "iontransporters" and "membraneproteins" and "imbalanced" split by "_" and the rest cut in the backup folder
+#         elif f.startswith("iontransporters_membraneproteins_imbalanced"):
+#             if f.split("_")[8] == "iontransporters" and f.split("_")[9] == "membraneproteins":
+#                 if f.split("_")[10] == "imbalanced.h5":
+#                     # We copy the file from the backup folder to the filtered folder
+#                     os.rename(settings.REPRESENTATIONS_FILTERED_PATH + "backup/" + f, settings.REPRESENTATIONS_FILTERED_PATH + f)
+#                 else:
+#                     continue
+#             else:
+#                 continue
 
 
 

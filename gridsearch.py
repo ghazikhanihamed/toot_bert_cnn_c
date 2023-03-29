@@ -1,3 +1,4 @@
+import logging
 import h5py
 import pandas as pd
 from sklearn.model_selection import StratifiedKFold
@@ -16,7 +17,6 @@ import random
 import sklearn
 import warnings
 warnings.filterwarnings("ignore")
-import logging
 
 logging.basicConfig(level=logging.INFO)
 logging.basicConfig(
@@ -72,16 +72,19 @@ for representation in representations:
                 if len(information) == 9:
                     if information[7] == "full":
                         precision_type = information[7]
+                        representer_model = information[8][:-3]
                     else:
-                        representer_model = information[7] + "_" + information[8][:-3]
+                        representer_model = information[7] + \
+                            "_" + information[8][:-3]
                 else:
                     representer_model = information[7][:-3]
             else:
                 if len(information) == 8:
                     if information[6] == "full":
                         precision_type = information[6]
+                        representer_model = information[7][:-3]
                     else:
-                        representer_model = representer_model = information[6] + \
+                        representer_model = information[6] + \
                             "_" + information[7][:-3]
                 else:
                     representer_model = information[6][:-3]
@@ -91,8 +94,10 @@ for representation in representations:
             if len(information) == 7:
                 if information[5] == "full":
                     precision_type = information[5]
+                    representer_model = information[6][:-3]
                 else:
-                    representer_model = information[5] + "_" + information[6][:-3]
+                    representer_model = information[5] + \
+                        "_" + information[6][:-3]
             else:
                 representer_model = information[5][:-3]
 
@@ -122,6 +127,11 @@ for representation in representations:
             else:
                 representer_model = information[5]
 
+    # We check if the file exists in the results folder and if it does we skip it
+    csv_file = settings.RESULTS_PATH + "gridsearch_results_" + dataset_name + "_" + dataset_type + "_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv"
+    if os.path.exists(csv_file):
+        print("Skipping ", csv_file)
+        continue
 
     # Print the information
     print("-"*50)
