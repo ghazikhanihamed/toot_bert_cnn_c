@@ -14,9 +14,6 @@ from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
 import h5py
 import pandas as pd
 import logging
-import torch.distributed as dist
-from torch.nn.parallel import DistributedDataParallel as DDP
-from torch.utils.data import DataLoader, DistributedSampler
 
 logging.basicConfig(level=logging.INFO)
 logging.basicConfig(
@@ -29,11 +26,6 @@ def custom_print(*args, **kwargs):
 
 
 print = custom_print
-
-# Initialize the distributed training environment
-torch.distributed.init_process_group(backend='nccl', init_method='env://')
-local_rank = torch.distributed.get_rank()
-torch.cuda.set_device(local_rank)
 
 
 def train(network, optimizer):
@@ -324,21 +316,15 @@ for representation in representations:
             train_dataset = GridDataset(x_train_fold, y_train_fold)
             test_dataset = GridDataset(x_test_fold, y_test_fold)
 
-            train_sampler = DistributedSampler(train_dataset)
-
             # We create the dataloaders
-            train_loader = DataLoader(
-                train_dataset, batch_size=settings.BATCH_SIZE, sampler=train_sampler)
-            validation_loader = DataLoader(
+            train_loader = torch.utils.data.DataLoader(
+                train_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
+            validation_loader = torch.utils.data.DataLoader(
                 test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
 
             # We create the CNN model with the best hyperparameters for each fold
             model = CNN(best_params['kernel_sizes'], best_params['out_channels'],
-                        best_params['dropout_prob'], input_dim)
-            model = model.to(local_rank)
-
-            model = DDP(model, device_ids=[
-                        local_rank], output_device=local_rank)
+                        best_params['dropout_prob'], input_dim).to(device)
 
             # We create the optimizer with the best hyperparameters for each fold
             optimizer_name = best_params['optimizer']
