@@ -87,6 +87,13 @@ for representation in representations:
             # dataset_split = information[2]
             representer_model = information[5]
 
+    # We check if the representation is already in the results folder and if it is, we skip it
+    csv_file = "gridsearch_results_" + dataset_name + "_" + dataset_type + "_" + \
+        dataset_number + "_" + representation_type + "_" + representer_model + ".csv"
+    if csv_file in os.listdir(settings.RESULTS_PATH):
+        print("Skipping: ", csv_file)
+        continue
+
     # Print the information
     print("-"*50)
     print("-"*50)
