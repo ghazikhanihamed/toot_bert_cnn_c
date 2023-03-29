@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-#$ -N mapfulltune
+#$ -N fixname
 #$ -cwd
 #$ -m bea
 #$ -l m_mem_free=32G,g=1
@@ -10,7 +10,7 @@ export TRANSFORMERS_CACHE=~/tmp
 
 source ~/python_venv/bin/activate
 
-python  map_representations_dataset_finetuned_full.py
+python fix_names.py
 
 deactivate
 
