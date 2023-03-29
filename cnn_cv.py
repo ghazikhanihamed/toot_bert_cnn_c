@@ -325,13 +325,12 @@ for representation in representations:
             test_dataset = GridDataset(x_test_fold, y_test_fold)
 
             train_sampler = DistributedSampler(train_dataset)
-            test_sampler = DistributedSampler(test_dataset)
 
             # We create the dataloaders
             train_loader = DataLoader(
                 train_dataset, batch_size=settings.BATCH_SIZE, shuffle=True, sampler=train_sampler)
             validation_loader = DataLoader(
-                test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True, sampler=test_sampler)
+                test_dataset, batch_size=settings.BATCH_SIZE, shuffle=True)
 
             # We create the CNN model with the best hyperparameters for each fold
             model = CNN(best_params['kernel_sizes'], best_params['out_channels'],
