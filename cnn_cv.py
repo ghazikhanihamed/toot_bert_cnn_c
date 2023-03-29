@@ -206,7 +206,7 @@ for representation in representations:
                 representer_model = information[5]
 
     # We check if the file exists in the results folder and if it does we skip it
-    csv_file = settings.RESULTS_PATH + "gridsearch_results_" + dataset_name + "_" + dataset_type + "_" + \
+    csv_file = settings.RESULTS_PATH + "CNN_CV_results_" + dataset_name + "_" + dataset_type + "_" + \
         dataset_number + "_" + representation_type + "_" + \
         representer_model + "_" + precision_type + ".csv"
     if os.path.exists(csv_file):
