@@ -1,16 +1,16 @@
 #!/bin/bash -l
 
-#$ -N tunecnn
+#$ -N mapfulltune
 #$ -cwd
 #$ -m bea
-#$ -l m_mem_free=128G,g=1
+#$ -l m_mem_free=32G,g=1
 
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp
 
 source ~/python_venv/bin/activate
 
-python tune_cnn.py
+python  map_representations_dataset_finetuned_full.py
 
 deactivate
 
