@@ -1,0 +1,14 @@
+svm,rf,knn,lr,mlp
+10,,,10,
+1,,,,
+rbf,,,,
+,,,,
+,5.0,,,
+,200.0,,,
+,,ball_tree,,
+,,3,,
+,,uniform,,
+,,,l1,
+,,,liblinear,adam
+,,,,relu
+,,,,"(512, 256, 64)"
