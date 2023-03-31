@@ -22,9 +22,11 @@ results_ionchannels_iontransporters = [
 
 
 representers = settings.REPRESENTATIONS
-types = [settings.FROZEN, settings.FINETUNED]
+representation_types = [settings.FROZEN, settings.FINETUNED]
+precision_types = ["half", "full"]
+dataset_types = ["imbalanced", "balanced"]
 
-representers_types = [f"{typ}_{rep['name']}" for rep in representers for typ in types if rep['name'] not in [settings.PROTT5['name'],
+representer_models = [f"{typ}_{rep['name']}" for rep in representers for typ in representation_types if rep['name'] not in [settings.PROTT5['name'],
                                                                                                              settings.ESM2_15B['name']]] + [f"{settings.FROZEN}_{settings.PROTT5['name']}", f"{settings.FROZEN}_{settings.ESM2_15B['name']}"]
 # --------------------- ionchannels_membraneproteins imbalanced ---------------------
 # -----------------------------------------------------------------------------------
@@ -33,7 +35,7 @@ representers_types = [f"{typ}_{rep['name']}" for rep in representers for typ in 
 results_ionchannels_membraneproteins_imbalanced = [
     f for f in results_ionchannels_membraneproteins if "imbalanced" in f]
 df_table_ionchannels_membraneproteins_imbalanced = pd.DataFrame()
-for rep_typ in representers_types:
+for rep_typ in representer_models:
     # Load csv file that ends with rep_typ.csv
     file = [f for f in results_ionchannels_membraneproteins_imbalanced if f.endswith(
         f"{rep_typ}.csv")][0]
@@ -88,7 +90,7 @@ df_table_ionchannels_membraneproteins_imbalanced.to_latex(
 results_ionchannels_membraneproteins_balanced = [
     f for f in results_ionchannels_membraneproteins if f.split("_")[4] == "balanced"]
 df_table_ionchannels_membraneproteins_balanced = pd.DataFrame()
-for rep_typ in representers_types:
+for rep_typ in representer_models:
     files = [f for f in results_ionchannels_membraneproteins_balanced if f.endswith(
         f"{rep_typ}.csv")]
     df_dict = {}
@@ -155,7 +157,7 @@ df_table_ionchannels_membraneproteins_balanced.to_latex(
 results_iontransporters_membraneproteins_balanced = [
     f for f in results_iontransporters_membraneproteins if f.split("_")[4] == "balanced"]
 df_table_iontransporters_membraneproteins_balanced = pd.DataFrame()
-for rep_typ in representers_types:
+for rep_typ in representer_models:
     files = [f for f in results_iontransporters_membraneproteins_balanced if f.endswith(
         f"{rep_typ}.csv")]
     df_dict = {}
@@ -223,7 +225,7 @@ df_table_iontransporters_membraneproteins_balanced.to_latex(
 results_iontransporters_membraneproteins_imbalanced = [
     f for f in results_iontransporters_membraneproteins if "imbalanced" in f]
 df_table_iontransporters_membraneproteins_imbalanced = pd.DataFrame()
-for rep_typ in representers_types:
+for rep_typ in representer_models:
     # Load csv file that ends with rep_typ.csv
     file = [f for f in results_iontransporters_membraneproteins_imbalanced if f.endswith(
         f"{rep_typ}.csv")][0]
@@ -271,7 +273,7 @@ df_table_iontransporters_membraneproteins_imbalanced.to_latex(
 
 # Table for ionchannels_iontransporters
 df_table_ionchannels_iontransporters = pd.DataFrame()
-for rep_typ in representers_types:
+for rep_typ in representer_models:
     # Load csv file that ends with rep_typ.csv
     file = [f for f in results_ionchannels_iontransporters if f.endswith(
         f"{rep_typ}.csv")][0]
