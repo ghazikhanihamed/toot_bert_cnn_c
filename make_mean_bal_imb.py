@@ -34,13 +34,19 @@ for representer in representers:
                 for task in tasks:
                     df_temp = df_balanced[(df_balanced["Representer"] == representer["name"]) & (df_balanced["Precision"] == precision) & (df_balanced["Classifier"] == classifier) & (df_balanced["Representation"] == representation_type) & (df_balanced["Task"] == task)]
                     if not df_temp.empty:
-                        # We split the mean and std of the MCC column by ±. Then we take the mean of the mean and std.
-                        mean = df_temp["MCC"].str.split("±").str[0].astype(float).mean()
-                        std = df_temp["MCC"].str.split("±").str[1].astype(float).mean()
-                        mean_balanced_results.append([task, "balanced", representation_type, representer["name"], precision, classifier, f"{mean:.2f}±{std:.2f}"])
+                        # We split the mean and std of the Sensitivity, Specificity, Accuracy, MCC by ± and take the mean of the mean and std
+                        mean_sensitivity = df_temp["Sensitivity"].str.split("±").str[0].astype(float).mean()
+                        std_sensitivity = df_temp["Sensitivity"].str.split("±").str[1].astype(float).mean()
+                        mean_specificity = df_temp["Specificity"].str.split("±").str[0].astype(float).mean()
+                        std_specificity = df_temp["Specificity"].str.split("±").str[1].astype(float).mean()
+                        mean_accuracy = df_temp["Accuracy"].str.split("±").str[0].astype(float).mean()
+                        std_accuracy = df_temp["Accuracy"].str.split("±").str[1].astype(float).mean()
+                        mean_mcc = df_temp["MCC"].str.split("±").str[0].astype(float).mean()
+                        std_mcc = df_temp["MCC"].str.split("±").str[1].astype(float).mean()
+                        mean_balanced_results.append([task, "balanced", representation_type, representer["name"], precision, classifier, f"{mean_sensitivity:.2f}±{std_sensitivity:.2f}", f"{mean_specificity:.2f}±{std_specificity:.2f}", f"{mean_accuracy:.2f}±{std_accuracy:.2f}", f"{mean_mcc:.2f}±{std_mcc:.2f}"])
 
 # We create the dataframe
-df_mean_balanced_results = pd.DataFrame(mean_balanced_results, columns=["Task", "Dataset", "Representation", "Representer", "Precision", "Classifier", "MCC"])
+df_mean_balanced_results = pd.DataFrame(mean_balanced_results, columns=["Task", "Dataset", "Representation", "Representer", "Precision", "Classifier", "Sensitivity", "Specificity", "Accuracy", "MCC"])
 
 # We merge the df_mean_balanced_results dataframe with the df_imbalanced dataframe
 df_mean_results = pd.concat([df_mean_balanced_results, df_imbalanced])
