@@ -7,25 +7,21 @@ df = pd.read_csv(os.path.join(settings.RESULTS_PATH, "mean_balanced_imbalanced_r
 
 # The dataframe has the following columns: "Task", "Dataset", "Representation", "Representer", "Precision", "Classifier", "MCC"
 
-# For the task "ionchannels_iontransporters", where the Dataset is imbalanced, we consider it as balanced.
-df.loc[(df["Task"] == "ionchannels_iontransporters"), "Dataset"] = "balanced"
 
 # We make a new dataframe out of the df dataframe, focusing on the Dataset column.
 # The new dataframe has the following columns: "Task", "Dataset", where we group by the representer under each category of "Task", "Dataset".
-# Then we take the best MCC value for each category of "Task", "Dataset". For the task "ionchannels_iontransporters", where the Dataset is na, we consider it as balanced.
+# Then we take the best MCC value for each category of "Task", "Dataset".
 
 representation_types = [settings.FROZEN, settings.FINETUNED]
 precision_types = ["half", "full"]
 representers = settings.REPRESENTATIONS
-tasks = settings.TASKS
+# tasks without ionchannels_iontransporters
+tasks = settings.TASKS[:-1]
 datasets = ["balanced", "imbalanced"]
 
 ds_best_mcc = []
 for task in tasks:
     for dataset in datasets:
-        if task == "ionchannels_iontransporters" and dataset == "imbalanced":
-            continue
-
         df_temp = df[(df["Task"] == task) & (df["Dataset"] == dataset)]
         if not df_temp.empty:
             for representer in representers:

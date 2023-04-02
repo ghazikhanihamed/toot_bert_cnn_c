@@ -60,30 +60,34 @@ for result in results:
     df = df.rename(columns={"index": "Model"})
 
     # We take the model and MCC column for MCC we take the value of the key "Val" with two separate columns
-    df_model_mcc = df[["Model", "MCC"]]
-    df_model_mcc["MCC"] = df_model_mcc["MCC"].apply(lambda x: eval(x)["Val"])
+    df_model = df[["Model", "Sensitivity", "Specificity", "Accuracy", "MCC"]]
+    # We take the value of the key "Val" for each row
+    df_model["Sensitivity"] = df_model["Sensitivity"].apply(lambda x: eval(x)["Val"])
+    df_model["Specificity"] = df_model["Specificity"].apply(lambda x: eval(x)["Val"])
+    df_model["Accuracy"] = df_model["Accuracy"].apply(lambda x: eval(x)["Val"])
+    df_model["MCC"] = df_model["MCC"].apply(lambda x: eval(x)["Val"])
 
     # We transpose the dataframe, so rows are the columns and columns are the rows
-    df_model_mcc = df_model_mcc.transpose()
+    df_model = df_model.transpose()
 
     # We rename the columns with the first row
-    df_model_mcc.columns = df_model_mcc.iloc[0]
+    df_model.columns = df_model.iloc[0]
     # We drop the first row
-    df_model_mcc = df_model_mcc.drop(df_model_mcc.index[0])
+    df_model = df_model.drop(df_model.index[0])
     # We reset the index
-    df_model_mcc = df_model_mcc.reset_index()
+    df_model = df_model.reset_index()
     # We remove Metric column
-    df_model_mcc = df_model_mcc.drop(columns=["Metric"])
+    df_model = df_model.drop(columns=["Metric"])
 
-    # For each classifier (columns of the df_model_mcc dataframe) we take the value of the MCC
-    for classifier in df_model_mcc.columns:
+    # For each classifier (columns of the df_model_mcc dataframe) we take the value of the Sensitivity, Specificity, Accuracy and MCC
+    for classifier in df_model.columns:
         df_results.append(
-            [task, dataset, dataset_number, representation, representer, precision, classifier, df_model_mcc[classifier][0]])
+            [task, dataset, dataset_number, representation, representer, precision, classifier, df_model[classifier][0], df_model[classifier][1], df_model[classifier][2], df_model[classifier][3]])
 
 
 # We create a dataframe with the results
 df = pd.DataFrame(df_results, columns=[
-    "Task", "Dataset", "Dataset_number", "Representation", "Representer", "Precision", "Classifier", "MCC"])
+    "Task", "Dataset", "Dataset_number", "Representation", "Representer", "Precision", "Classifier", "Sensitivity", "Specificity", "Accuracy", "MCC"])
 
 # We save the dataframe in a csv file
 df.to_csv(os.path.join(settings.RESULTS_PATH, "full_results.csv"), index=False)
