@@ -118,7 +118,7 @@ for i, bar in enumerate(ax.containers):
             p.set_x(p.get_x() - shift_width if i == 3 or i == 5 else p.get_x())
         elif p.get_x() in [2.2666666666666666, 5.266666666666667]:
             p.set_x(p.get_x() - shift_width*1.9 if i == 3 or i == 5 else p.get_x())
-            
+
 # Loop through each bar in the plot
 for p in ax.patches:
     # Get the bar's x and y coordinates and its height
@@ -126,7 +126,7 @@ for p in ax.patches:
     y = p.get_height()
     height = p.get_height()
     # Write the value of the bar on top of it
-    ax.text(x, y, f'{height:.2f}', ha='center', va='bottom', fontsize=7)
+    ax.text(x, y, f'{height:.2f}', ha='center', va='bottom', fontsize=5)
 
 # plt.show()
 # Save the plot

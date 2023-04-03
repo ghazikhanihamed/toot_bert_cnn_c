@@ -169,7 +169,7 @@ for p in ax.patches:
     y = p.get_height()
     height = p.get_height()
     # Write the value of the bar on top of it
-    ax.text(x, y, f'{height:.2f}', ha='center', va='bottom', fontsize=7)
+    ax.text(x, y, f'{height:.2f}', ha='center', va='bottom', fontsize=5)
 
 # plt.show()
 # Save the plot
