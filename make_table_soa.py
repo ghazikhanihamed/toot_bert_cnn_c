@@ -44,51 +44,8 @@ for task in tasks:
 
         df_best_mcc = df_temp.loc[best_mcc_id]
         ds_best_mcc.append(df_three_best_mcc)
-        # ds_best_mcc.append(df_best_mcc)
 
 df_table = pd.concat(ds_best_mcc)
-
-# We extract the best params for each classifier from results folder
-# The params files are structured as follows: "gridsearch_best_params_" + dataset_name + "_" + dataset_type +"_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv"
-
-# We take the best params of the best MCC for each task in df_table
-# We will use the best params to train the models and test them on the test set
-
-# We create a new dataframe with the best params for each task
-# ds_best_params = {}
-# for row in df_table.itertuples():
-#     task = row.Task
-#     dataset = row.Dataset
-#     representer = row.Representer
-#     representation = row.Representation
-#     precision = row.Precision
-#     prec = "_" + precision if precision == "full" else ""
-#     params = pd.read_csv(os.path.join(settings.RESULTS_PATH, "gridsearch_best_params_" + task +
-#                          "_" + dataset + "_" + "na" + "_" + representation + "_" + representer + prec + ".csv"))
-#     if task not in ds_best_params:
-#         ds_best_params[task] = [params]
-#     else:
-#         ds_best_params[task].append(params)
-
-
-# #  Define the parameter grids for each model
-# svm_param_grid = {
-#     'C': [0.1, 1, 10, 100],
-#     'gamma': [0.1, 1, 10],
-#     'kernel': ['linear', 'rbf', 'sigmoid']
-# }
-
-# lr_param_grid = {
-#     'penalty': ['l1', 'l2'],
-#     'C': [0.1, 1, 10, 100],
-#     'solver': ['liblinear', 'saga']
-# }
-
-# mlp_param_grid = {
-#     'hidden_layer_sizes': [(512, 256, 64), (512,), (256,)],
-#     'activation': ['relu', 'tanh'],
-#     'solver': ['adam', 'sgd']
-# }
 
 # For each task, we find the three train and test sets from REPRESENTATIONS_FILTERED_PATH with the information in df_table, then we train the models based on the best params and test them on the test set
 # we make a list of only h5 files that contains only train in the representations folder
