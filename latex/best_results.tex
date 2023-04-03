@@ -1,0 +1,15 @@
+\begin{tabular}{lcccccc}
+\toprule
+ \textbf{Task} &    \textbf{Dataset} & \textbf{Representation} & \textbf{Representer} & \textbf{Precision} & \textbf{Classifier} &       \textbf{MCC} \\
+\midrule
+IC-MP & imbalanced &      finetuned &      ESM-1b &      half &         LR & 1.00±0.00 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &      half &       FFNN & 1.00±0.01 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &      half &        SVM & 0.99±0.01 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &      full &        SVM & 1.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &      full &         LR & 1.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &      full &       FFNN & 1.00±0.01 \\
+IC-IT &         na &         frozen &       ESM-2 &      full &       FFNN & 0.88±0.05 \\
+IC-IT &         na &         frozen &   ESM-2\_15B &      half &        SVM & 0.88±0.03 \\
+IC-IT &         na &      finetuned &      ESM-1b &      half &         LR & 0.88±0.04 \\
+\bottomrule
+\end{tabular}
