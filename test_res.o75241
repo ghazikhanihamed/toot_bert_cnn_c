@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "make_table_soa.py", line 219, in <module>
+    svm_model = svm.SVC(**svm_param_grid)
+AttributeError: 'SVC' object has no attribute 'SVC'

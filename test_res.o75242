@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "make_table_soa.py", line 216, in <module>
+    svm_model.fit(X_train, y_train)
+  File "/home/h_ghazik/python_venv/lib/python3.7/site-packages/sklearn/svm/_base.py", line 245, in fit
+    "'auto'. Got '{}' instead.".format(self.gamma)
+ValueError: When 'gamma' is a string, it should be either 'scale' or 'auto'. Got '0.1' instead.

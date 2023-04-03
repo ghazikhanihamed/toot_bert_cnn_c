@@ -48,10 +48,6 @@ for task in tasks:
 
 df_table = pd.concat(ds_best_mcc)
 
-lr = LogisticRegression(random_state=settings.SEED)
-svm = SVC(random_state=settings.SEED)
-ffnn = MLPClassifier(random_state=settings.SEED)
-
 # We extract the best params for each classifier from results folder
 # The params files are structured as follows: "gridsearch_best_params_" + dataset_name + "_" + dataset_type +"_" + dataset_number + "_" + representation_type + "_" + representer_model + "_" + precision_type + ".csv"
 
@@ -217,7 +213,7 @@ for row in df_table.itertuples():
             y_test = np.array(y_test)
 
         # We train the SVM model
-        svm_model = svm.SVC(**svm_param_grid)
+        svm_model = SVC(**svm_param_grid)
         svm_model.fit(X_train, y_train)
 
         # We train the Logistic Regression model
