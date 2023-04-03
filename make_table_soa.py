@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import LogisticRegression
+import h5py
+from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
 
 import numpy as np
 import random
@@ -56,38 +58,205 @@ ffnn = MLPClassifier(random_state=settings.SEED)
 # We will use the best params to train the models and test them on the test set
 
 # We create a new dataframe with the best params for each task
-ds_best_params = {}
+# ds_best_params = {}
+# for row in df_table.itertuples():
+#     task = row.Task
+#     dataset = row.Dataset
+#     representer = row.Representer
+#     representation = row.Representation
+#     precision = row.Precision
+#     prec = "_" + precision if precision == "full" else ""
+#     params = pd.read_csv(os.path.join(settings.RESULTS_PATH, "gridsearch_best_params_" + task +
+#                          "_" + dataset + "_" + "na" + "_" + representation + "_" + representer + prec + ".csv"))
+#     if task not in ds_best_params:
+#         ds_best_params[task] = [params]
+#     else:
+#         ds_best_params[task].append(params)
+
+
+# #  Define the parameter grids for each model
+# svm_param_grid = {
+#     'C': [0.1, 1, 10, 100],
+#     'gamma': [0.1, 1, 10],
+#     'kernel': ['linear', 'rbf', 'sigmoid']
+# }
+
+# lr_param_grid = {
+#     'penalty': ['l1', 'l2'],
+#     'C': [0.1, 1, 10, 100],
+#     'solver': ['liblinear', 'saga']
+# }
+
+# mlp_param_grid = {
+#     'hidden_layer_sizes': [(512, 256, 64), (512,), (256,)],
+#     'activation': ['relu', 'tanh'],
+#     'solver': ['adam', 'sgd']
+# }
+
+# For each task, we find the three train and test sets from REPRESENTATIONS_FILTERED_PATH with the information in df_table, then we train the models based on the best params and test them on the test set
+# we make a list of only h5 files that contains only train in the representations folder
+results_list = []
 for row in df_table.itertuples():
     task = row.Task
     dataset = row.Dataset
     representer = row.Representer
-    representation = row.Representation
+    representation_type = row.Representation
     precision = row.Precision
-    prec = "_" + precision if precision=="full" else ""
-    params = pd.read_csv(os.path.join(settings.RESULTS_PATH, "gridsearch_best_params_" + task + "_" + dataset + "_" + "na" + "_" + representation + "_" + representer + prec + ".csv"))
-    if task not in ds_best_params:
-        ds_best_params[task] = [params]
+    prec = "_" + precision if precision == "full" else ""
+
+    params = pd.read_csv(os.path.join(settings.RESULTS_PATH, "gridsearch_best_params_" + task +
+                         "_" + dataset + "_" + "na" + "_" + representation_type + "_" + representer + prec + ".csv"))
+    if precision == "full":
+        representations_train = [representation for representation in os.listdir(
+            settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation
+            and task in representation and dataset in representation and representer in representation and representation_type in representation
+            and precision in representation]
+        representations_test = [representation for representation in os.listdir(
+            settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "test" in representation
+            and task in representation and dataset in representation and representer in representation and representation_type in representation
+            and precision in representation]
     else:
-        ds_best_params[task].append(params)
+        representations_train = [representation for representation in os.listdir(
+            settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "train" in representation
+            and task in representation and dataset in representation and representer in representation and representation_type in representation]
+        representations_test = [representation for representation in os.listdir(
+            settings.REPRESENTATIONS_FILTERED_PATH) if representation.endswith(".h5") and "test" in representation
+            and task in representation and dataset in representation and representer in representation and representation_type in representation]
 
+    # We take the best params for the dataset
+    svm_param_grid = {
+        'C': params["svm"][0],
+        'gamma': params["svm"][1],
+        'kernel': params["svm"][2],
+        'random_state': settings.SEED
+    }
 
-#  Define the parameter grids for each model
-svm_param_grid = {
-    'C': [0.1, 1, 10, 100],
-    'gamma': [0.1, 1, 10],
-    'kernel': ['linear', 'rbf', 'sigmoid']
-}
+    lr_param_grid = {
+        'penalty': params["lr"][9],
+        'C': params["lr"][0],
+        'solver': params["lr"][10],
+        'random_state': settings.SEED
+    }
 
-lr_param_grid = {
-    'penalty': ['l1', 'l2'],
-    'C': [0.1, 1, 10, 100],
-    'solver': ['liblinear', 'saga']
-}
+    mlp_param_grid = {
+        'hidden_layer_sizes': params["mlp"][12],
+        'activation': params["mlp"][11],
+        'solver': params["mlp"][10],
+        'random_state': settings.SEED
+    }
 
-mlp_param_grid = {
-    'hidden_layer_sizes': [(512, 256, 64), (512,), (256,)],
-    'activation': ['relu', 'tanh'],
-    'solver': ['adam', 'sgd']
-}
+    # We train the models with the best params and test them on the test set
+    for representation_train, representation_test in zip(representations_train, representations_test):
+        with h5py.File(settings.REPRESENTATIONS_FILTERED_PATH + representation_train, "r") as f:
+            # We put the id, representation and label together in a list. The saved data is : (str(csv_id), data=representation), [str(csv_id)].attrs["label"] = label. And the representation is a numpy array
+            train_data = [(id, representation, label) for id, representation in zip(
+                f.keys(), f.values()) for label in f[id].attrs.values()]
 
-# For each task, we find the three train and test sets from REPRESENTATIONS_FILTERED_PATH with the information in df_table, then we train the models based on the best params and test them on the test set
+            # We convert the representations to a numpy array
+            for i in range(len(train_data)):
+                train_data[i] = (train_data[i][0], np.array(
+                    train_data[i][1]), train_data[i][2])
+
+            X_train = []
+            y_train = []
+            # We separate the id, representation and label in different lists
+            for id, rep, label in train_data:
+                X_train.append(rep)
+                y_train.append(label)
+
+            if task == "ionchannels_membraneproteins":
+                # We convert labels to 0 and 1. 0 for ionchannels and 1 for membraneproteins
+                y_train = [1 if label ==
+                        settings.IONCHANNELS else 0 for label in y_train]
+            elif task == "ionchannels_iontransporters":
+                # We convert labels to 0 and 1. 0 for ionchannels and 1 for iontransporters
+                y_train = [1 if label ==
+                        settings.IONCHANNELS else 0 for label in y_train]
+            elif task == "iontransporters_membraneproteins":
+                # We convert labels to 0 and 1. 0 for iontransporters and 1 for membraneproteins
+                y_train = [1 if label ==
+                        settings.IONTRANSPORTERS else 0 for label in y_train]
+
+            X_train = [np.mean(np.array(x), axis=0) for x in X_train]
+
+            y_train = np.array(y_train)
+
+        with h5py.File(settings.REPRESENTATIONS_FILTERED_PATH + representation_test, "r") as f:
+            # We put the id, representation and label together in a list. The saved data is : (str(csv_id), data=representation), [str(csv_id)].attrs["label"] = label. And the representation is a numpy array
+            test_data = [(id, representation, label) for id, representation in zip(
+                f.keys(), f.values()) for label in f[id].attrs.values()]
+
+            # We convert the representations to a numpy array
+            for i in range(len(test_data)):
+                test_data[i] = (test_data[i][0], np.array(
+                    test_data[i][1]), test_data[i][2])
+
+            X_test = []
+            y_test = []
+            # We separate the id, representation and label in different lists
+            for id, rep, label in test_data:
+                X_test.append(rep)
+                y_test.append(label)
+
+            if task == "ionchannels_membraneproteins":
+                # We convert labels to 0 and 1. 0 for ionchannels and 1 for membraneproteins
+                y_test = [1 if label ==
+                        settings.IONCHANNELS else 0 for label in y_test]
+            elif task == "ionchannels_iontransporters":
+                # We convert labels to 0 and 1. 0 for ionchannels and 1 for iontransporters
+                y_test = [1 if label ==
+                        settings.IONCHANNELS else 0 for label in y_test]
+            elif task == "iontransporters_membraneproteins":
+                # We convert labels to 0 and 1. 0 for iontransporters and 1 for membraneproteins
+                y_test = [1 if label ==
+                        settings.IONTRANSPORTERS else 0 for label in y_test]
+
+            X_test = [np.mean(np.array(x), axis=0) for x in X_test]
+
+            y_test = np.array(y_test)
+
+        # We train the SVM model
+        svm_model = svm.SVC(**svm_param_grid)
+        svm_model.fit(X_train, y_train)
+
+        # We train the Logistic Regression model
+        lr_model = LogisticRegression(**lr_param_grid)
+        lr_model.fit(X_train, y_train)
+
+        # We train the MLP model
+        mlp_model = MLPClassifier(**mlp_param_grid)
+        mlp_model.fit(X_train, y_train)
+
+        # We predict the labels for the test set
+        svm_predictions = svm_model.predict(X_test)
+        lr_predictions = lr_model.predict(X_test)
+        mlp_predictions = mlp_model.predict(X_test)
+
+        # We compute the accuracy for the test set
+        svm_accuracy = accuracy_score(y_test, svm_predictions)
+        lr_accuracy = accuracy_score(y_test, lr_predictions)
+        mlp_accuracy = accuracy_score(y_test, mlp_predictions)
+
+        # We compute the mcc score for the test set
+        svm_mcc = matthews_corrcoef(y_test, svm_predictions)
+        lr_mcc = matthews_corrcoef(y_test, lr_predictions)
+        mlp_mcc = matthews_corrcoef(y_test, mlp_predictions)
+
+        # We compute the sensitivity for the test set
+        svm_sensitivity = recall_score(y_test, svm_predictions, pos_label=1)
+        lr_sensitivity = recall_score(y_test, lr_predictions, pos_label=1)
+        mlp_sensitivity = recall_score(y_test, mlp_predictions, pos_label=1)
+
+        # We compute the specificity for the test set
+        svm_specificity = recall_score(y_test, svm_predictions, pos_label=0)
+        lr_specificity = recall_score(y_test, lr_predictions, pos_label=0)
+        mlp_specificity = recall_score(y_test, mlp_predictions, pos_label=0)
+
+        # We save the results in the results list, for each task, dataset and representation, representer, precision, classifier, sensitivity, specificity accuracy, mcc
+        results_list.append([task, dataset, representation_type, representation_test, "SVM", svm_sensitivity, svm_specificity, svm_accuracy, svm_mcc])
+        results_list.append([task, dataset, representation_type, representation_test, "LR", lr_sensitivity, lr_specificity, lr_accuracy, lr_mcc])
+        results_list.append([task, dataset, representation_type, representation_test, "FFNN", mlp_sensitivity, mlp_specificity, mlp_accuracy, mlp_mcc])
+
+# We save the results in a csv file
+results_df = pd.DataFrame(results_list, columns=["Task", "Dataset", "Representation", "Representer", "Classifier", "Sensitivity", "Specificity", "Accuracy", "MCC"])
+results_df.to_csv(settings.RESULTS_PATH + "results_best_test.csv", index=False)
