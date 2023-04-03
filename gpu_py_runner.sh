@@ -1,16 +1,16 @@
 #!/bin/bash -l
 
-#$ -N fixname
+#$ -N test_res
 #$ -cwd
 #$ -m bea
-#$ -l m_mem_free=32G,g=1
+#$ -l m_mem_free=11G,g=1
 
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp
 
 source ~/python_venv/bin/activate
 
-python fix_names.py
+python make_table_soa.py
 
 deactivate
 
