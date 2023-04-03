@@ -207,10 +207,10 @@ for row in df_table.itertuples():
         mlp_specificity = recall_score(y_test, mlp_predictions, pos_label=0)
 
         # We save the results in the results list, for each task, dataset and representation, representer, precision, classifier, sensitivity, specificity accuracy, mcc
-        results_list.append([task, dataset, representation_type, representation_test, "SVM", svm_sensitivity, svm_specificity, svm_accuracy, svm_mcc])
-        results_list.append([task, dataset, representation_type, representation_test, "LR", lr_sensitivity, lr_specificity, lr_accuracy, lr_mcc])
-        results_list.append([task, dataset, representation_type, representation_test, "FFNN", mlp_sensitivity, mlp_specificity, mlp_accuracy, mlp_mcc])
+        results_list.append([task, dataset, representation_type, representer, precision, "SVM", svm_sensitivity, svm_specificity, svm_accuracy, svm_mcc])
+        results_list.append([task, dataset, representation_type, representer, precision, "LR", lr_sensitivity, lr_specificity, lr_accuracy, lr_mcc])
+        results_list.append([task, dataset, representation_type, representer, precision, "FFNN", mlp_sensitivity, mlp_specificity, mlp_accuracy, mlp_mcc])
 
 # We save the results in a csv file
-results_df = pd.DataFrame(results_list, columns=["Task", "Dataset", "Representation", "Representer", "Classifier", "Sensitivity", "Specificity", "Accuracy", "MCC"])
+results_df = pd.DataFrame(results_list, columns=["Task", "Dataset", "Representation", "Representer", "Precision", "Classifier", "Sensitivity", "Specificity", "Accuracy", "MCC"])
 results_df.to_csv(settings.RESULTS_PATH + "results_best_test.csv", index=False)
