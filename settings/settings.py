@@ -32,7 +32,8 @@ IONCHANNELS_IONTRANSPORTERS = "ionchannels_iontransporters"
 IONTRANSPORTERS_MEMBRANEPROTEINS = "iontransporters_membraneproteins"
 IONTRANSPORTERS_MEMBRANEPROTEINS_BALANCED = "iontransporters_membraneproteins_balanced"
 IONTRANSPORTERS_MEMBRANEPROTEINS_IMBALANCED = "iontransporters_membraneproteins_imbalanced"
-TASKS = ["ionchannels_membraneproteins", "iontransporters_membraneproteins", "ionchannels_iontransporters"]
+TASKS = ["ionchannels_membraneproteins",
+         "iontransporters_membraneproteins", "ionchannels_iontransporters"]
 PROTBERT = {"name": "ProtBERT", "model": "Rostlab/prot_bert"}
 PROTBERTBFD = {"name": "ProtBERT-BFD", "model": "Rostlab/prot_bert_bfd"}
 PROTT5 = {"name": "ProtT5", "model": "Rostlab/prot_t5_xl_half_uniref50-enc"}
@@ -40,3 +41,6 @@ ESM1B = {"name": "ESM-1b", "model": "facebook/esm1b_t33_650M_UR50S"}
 ESM2 = {"name": "ESM-2", "model": "facebook/esm2_t33_650M_UR50D"}
 ESM2_15B = {"name": "ESM-2_15B", "model": "facebook/esm2_t48_15B_UR50D"}
 REPRESENTATIONS = [PROTBERT, PROTBERTBFD, PROTT5, ESM1B, ESM2, ESM2_15B]
+# IC-MP: Ion Channels vs. Membrane Proteins/ IT-MP: Ion Transporters vs. Membrane Proteins/ IC-IT: Ion Channels vs. Ion Transporters
+TASKS_SHORT = {"ionchannels_membraneproteins": "IC-MP",
+               "iontransporters_membraneproteins": "IT-MP", "ionchannels_iontransporters": "IC-IT"}
