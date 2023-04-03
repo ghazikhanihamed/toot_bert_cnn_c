@@ -9,6 +9,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import LogisticRegression
 import h5py
 from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
+import ast
 
 import numpy as np
 import random
@@ -125,21 +126,21 @@ for row in df_table.itertuples():
 
     # We take the best params for the dataset
     svm_param_grid = {
-        'C': params["svm"][0],
-        'gamma': params["svm"][1],
+        'C': params["svm"][0].astype(float),
+        'gamma': params["svm"][1].astype(float),
         'kernel': params["svm"][2],
         'random_state': settings.SEED
     }
 
     lr_param_grid = {
         'penalty': params["lr"][9],
-        'C': params["lr"][0],
+        'C': params["lr"][0].astype(float),
         'solver': params["lr"][10],
         'random_state': settings.SEED
     }
 
     mlp_param_grid = {
-        'hidden_layer_sizes': params["mlp"][12],
+        'hidden_layer_sizes': ast.literal_eval(params["mlp"][12]),
         'activation': params["mlp"][11],
         'solver': params["mlp"][10],
         'random_state': settings.SEED
