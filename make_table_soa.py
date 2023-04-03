@@ -79,15 +79,15 @@ for row in df_table.itertuples():
 
     # We take the best params for the dataset
     svm_param_grid = {
-        'C': params["svm"][0].astype(float),
-        'gamma': params["svm"][1].astype(float),
+        'C': float(params["svm"][0]),
+        'gamma': float(params["svm"][1]),
         'kernel': params["svm"][2],
         'random_state': settings.SEED
     }
 
     lr_param_grid = {
         'penalty': params["lr"][9],
-        'C': params["lr"][0].astype(float),
+        'C': float(params["lr"][0]),
         'solver': params["lr"][10],
         'random_state': settings.SEED
     }
