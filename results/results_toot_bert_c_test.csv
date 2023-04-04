@@ -1,0 +1,3 @@
+Task,Dataset,Representation,Representer,Precision,Classifier,Sensitivity,Specificity,Accuracy,MCC
+ionchannels_iontransporters,imbalanced,finetuned,ProtBERT-BFD,half,LR,0.7666666666666667,0.9285714285714286,0.8538461538461538,0.7098385355916377
+iontransporters_membraneproteins,imbalanced,finetuned,ProtBERT-BFD,half,LR,0.5857142857142857,0.9847058823529412,0.9543478260869566,0.6434244043901179
