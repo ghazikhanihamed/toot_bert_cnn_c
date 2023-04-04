@@ -1,0 +1,54 @@
+\begin{tabular}{lcccccccc}
+\toprule
+ \textbf{Representer} & \textbf{Representation} & \textbf{Precision} &    \textbf{Dataset} &       \textbf{SVM} &        \textbf{RF} &       \textbf{kNN} &        \textbf{LR} &      \textbf{FFNN} \\
+\midrule
+      ESM-1b &      finetuned &      full & imbalanced & 1.00±0.00 & 0.99±0.01 & 0.99±0.01 & 1.00±0.00 & 1.00±0.01 \\
+      ESM-1b &      finetuned &      full &   balanced & 0.82±0.04 & 0.75±0.05 & 0.70±0.05 & 0.80±0.05 & 0.80±0.06 \\
+      ESM-1b &      finetuned &      half & imbalanced & 0.99±0.01 & 0.98±0.01 & 0.99±0.01 & 1.00±0.00 & 1.00±0.00 \\
+      ESM-1b &      finetuned &      half &   balanced & 0.82±0.04 & 0.75±0.05 & 0.69±0.05 & 0.80±0.05 & 0.80±0.06 \\
+      ESM-1b &         frozen &      full & imbalanced & 0.77±0.04 & 0.42±0.10 & 0.74±0.02 & 0.77±0.03 & 0.79±0.03 \\
+      ESM-1b &         frozen &      full &   balanced & 0.81±0.04 & 0.74±0.06 & 0.69±0.06 & 0.80±0.05 & 0.80±0.05 \\
+      ESM-1b &         frozen &      half & imbalanced & 0.77±0.04 & 0.45±0.03 & 0.74±0.02 & 0.78±0.04 & 0.79±0.03 \\
+      ESM-1b &         frozen &      half &   balanced & 0.81±0.04 & 0.74±0.06 & 0.69±0.05 & 0.80±0.05 & 0.80±0.05 \\
+       ESM-2 &      finetuned &      full & imbalanced & 0.95±0.01 & 0.86±0.04 & 0.90±0.03 & 0.95±0.02 & 0.94±0.02 \\
+       ESM-2 &      finetuned &      full &   balanced & 0.80±0.04 & 0.72±0.06 & 0.62±0.07 & 0.80±0.04 & 0.80±0.06 \\
+       ESM-2 &      finetuned &      half & imbalanced & 0.94±0.03 & 0.88±0.04 & 0.87±0.03 & 0.93±0.03 & 0.93±0.03 \\
+       ESM-2 &      finetuned &      half &   balanced & 0.79±0.04 & 0.72±0.06 & 0.62±0.07 & 0.80±0.04 & 0.79±0.06 \\
+       ESM-2 &         frozen &      full & imbalanced & 0.77±0.04 & 0.44±0.07 & 0.65±0.03 & 0.75±0.04 & 0.76±0.04 \\
+       ESM-2 &         frozen &      full &   balanced & 0.79±0.05 & 0.72±0.05 & 0.63±0.07 & 0.80±0.04 & 0.80±0.06 \\
+       ESM-2 &         frozen &      half & imbalanced & 0.77±0.04 & 0.43±0.07 & 0.65±0.03 & 0.74±0.05 & 0.76±0.03 \\
+       ESM-2 &         frozen &      half &   balanced & 0.79±0.04 & 0.72±0.05 & 0.63±0.07 & 0.79±0.04 & 0.80±0.06 \\
+ProtBERT-BFD &      finetuned &      full & imbalanced & 0.92±0.03 & 0.92±0.03 & 0.92±0.02 & 0.92±0.02 & 0.92±0.02 \\
+ProtBERT-BFD &      finetuned &      full &   balanced & 0.73±0.06 & 0.66±0.08 & 0.61±0.07 & 0.73±0.06 & 0.73±0.06 \\
+ProtBERT-BFD &      finetuned &      half & imbalanced & 0.90±0.02 & 0.90±0.01 & 0.88±0.01 & 0.90±0.01 & 0.90±0.01 \\
+ProtBERT-BFD &      finetuned &      half &   balanced & 0.73±0.05 & 0.66±0.08 & 0.61±0.07 & 0.73±0.06 & 0.73±0.06 \\
+ProtBERT-BFD &         frozen &      full & imbalanced & 0.74±0.04 & 0.41±0.03 & 0.62±0.06 & 0.71±0.02 & 0.75±0.01 \\
+ProtBERT-BFD &         frozen &      full &   balanced & 0.73±0.06 & 0.65±0.08 & 0.60±0.07 & 0.72±0.06 & 0.73±0.06 \\
+ProtBERT-BFD &         frozen &      half & imbalanced & 0.74±0.04 & 0.43±0.05 & 0.62±0.06 & 0.72±0.01 & 0.75±0.02 \\
+ProtBERT-BFD &         frozen &      half &   balanced & 0.73±0.05 & 0.65±0.09 & 0.60±0.07 & 0.73±0.07 & 0.73±0.06 \\
+    ProtBERT &      finetuned &      full & imbalanced & 0.89±0.04 & 0.81±0.03 & 0.86±0.04 & 0.89±0.03 & 0.88±0.03 \\
+    ProtBERT &      finetuned &      full &   balanced & 0.74±0.04 & 0.66±0.06 & 0.57±0.07 & 0.75±0.05 & 0.75±0.05 \\
+    ProtBERT &      finetuned &      half & imbalanced & 0.87±0.03 & 0.76±0.02 & 0.81±0.04 & 0.87±0.04 & 0.87±0.03 \\
+    ProtBERT &      finetuned &      half &   balanced & 0.74±0.05 & 0.66±0.07 & 0.57±0.07 & 0.74±0.04 & 0.75±0.05 \\
+    ProtBERT &         frozen &      full & imbalanced & 0.72±0.04 & 0.22±0.07 & 0.51±0.06 & 0.68±0.03 & 0.71±0.04 \\
+    ProtBERT &         frozen &      full &   balanced & 0.73±0.05 & 0.65±0.07 & 0.56±0.06 & 0.74±0.05 & 0.75±0.06 \\
+    ProtBERT &         frozen &      half & imbalanced & 0.72±0.04 & 0.23±0.05 & 0.52±0.05 & 0.68±0.03 & 0.71±0.03 \\
+    ProtBERT &         frozen &      half &   balanced & 0.73±0.05 & 0.65±0.07 & 0.56±0.06 & 0.74±0.05 & 0.75±0.06 \\
+      ProtT5 &      finetuned &      full & imbalanced &         - &         - &         - &         - &         - \\
+      ProtT5 &      finetuned &      full &   balanced &         - &         - &         - &         - &         - \\
+      ProtT5 &      finetuned &      half & imbalanced &         - &         - &         - &         - &         - \\
+      ProtT5 &      finetuned &      half &   balanced &         - &         - &         - &         - &         - \\
+      ProtT5 &         frozen &      full & imbalanced &         - &         - &         - &         - &         - \\
+      ProtT5 &         frozen &      full &   balanced &         - &         - &         - &         - &         - \\
+      ProtT5 &         frozen &      half & imbalanced & 0.80±0.01 & 0.42±0.05 & 0.73±0.03 & 0.79±0.02 & 0.79±0.04 \\
+      ProtT5 &         frozen &      half &   balanced & 0.83±0.05 & 0.76±0.05 & 0.66±0.06 & 0.82±0.04 & 0.82±0.05 \\
+   ESM-2\_15B &      finetuned &      full & imbalanced &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &      finetuned &      full &   balanced &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &      finetuned &      half & imbalanced &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &      finetuned &      half &   balanced &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &         frozen &      full & imbalanced &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &         frozen &      full &   balanced &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &         frozen &      half & imbalanced & 0.78±0.03 & 0.27±0.03 & 0.66±0.06 & 0.80±0.03 & 0.79±0.02 \\
+   ESM-2\_15B &         frozen &      half &   balanced & 0.82±0.05 & 0.72±0.06 & 0.53±0.06 & 0.81±0.06 & 0.81±0.06 \\
+\bottomrule
+\end{tabular}

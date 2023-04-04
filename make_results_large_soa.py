@@ -29,31 +29,12 @@ df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
 
 tasks = settings.TASKS
 
-ds_best_mcc = []
-for task in tasks:
-    df_temp = df[df["Task"] == task]
-    if not df_temp.empty:
-        # We take the first three rows of the df_temp2 sorted by MCC value split by "±" and take the first element
-        three_best_mcc = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).nlargest(20).index.tolist()
-        df_three_best_mcc = df_temp.loc[three_best_mcc]
-
-        # We take the best MCC value for each category of "Task", "Dataset" and "Representer"
-        best_mcc_id = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).idxmax()
-
-        df_best_mcc = df_temp.loc[best_mcc_id]
-        ds_best_mcc.append(df_three_best_mcc)
-
-df_table = pd.concat(ds_best_mcc)
-
 # For each task, we find the three train and test sets from REPRESENTATIONS_FILTERED_PATH with the information in df_table, then we train the models based on the best params and test them on the test set
 # we make a list of only h5 files that contains only train in the representations folder
 results_list = []
 config = []
-for row in df_table.itertuples():
-    task = row.Task
-    dataset = row.Dataset
+for task in tasks:
+    dataset = "imbalanced" if task == settings.IONCHANNELS_MEMBRANEPROTEINS or settings.IONTRANSPORTERS_MEMBRANEPROTEINS else "na"
     representer = row.Representer
     representation_type = row.Representation
     precision = row.Precision
