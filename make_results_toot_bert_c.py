@@ -20,38 +20,13 @@ random.seed(settings.SEED)
 np.random.seed(settings.SEED)
 sklearn.utils.check_random_state(settings.SEED)
 
-# We read the csv file of the full results
-df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
-                 "mean_balanced_imbalanced_results.csv"))
 
-# The dataframe has the following columns: "Task", "Dataset", "Representation", "Representer", "Precision", "Classifier",
-# We will find the best MCC for each task
-
-tasks = settings.TASKS
-
-ds_best_mcc = []
-for task in tasks:
-    df_temp = df[df["Task"] == task]
-    if not df_temp.empty:
-        # We take the first three rows of the df_temp2 sorted by MCC value split by "±" and take the first element
-        three_best_mcc = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).nlargest(20).index.tolist()
-        df_three_best_mcc = df_temp.loc[three_best_mcc]
-
-        # We take the best MCC value for each category of "Task", "Dataset" and "Representer"
-        best_mcc_id = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).idxmax()
-
-        df_best_mcc = df_temp.loc[best_mcc_id]
-        ds_best_mcc.append(df_three_best_mcc)
-
-df_table = pd.concat(ds_best_mcc)
 
 # For each task, we find the three train and test sets from REPRESENTATIONS_FILTERED_PATH with the information in df_table, then we train the models based on the best params and test them on the test set
 # we make a list of only h5 files that contains only train in the representations folder
 results_list = []
 accpeted_config = [[settings.IONCHANNELS_IONTRANSPORTERS, "imbalanced", "half", settings.FINETUNED, "ProtBERT-BFD"],
-                   [settings.IONCHANNELS_MEMBRANEPROTEINS, "na", "half", settings.FINETUNED, "ProtBERT-BFD"]]
+                   [settings.IONTRANSPORTERS_MEMBRANEPROTEINS, "imbalanced", "half", settings.FINETUNED, "ProtBERT-BFD"]]
 for task, dataset, precision, representation_type, representer in accpeted_config:
     if task == settings.IONCHANNELS_IONTRANSPORTERS:
         if representation_type == settings.FINETUNED and precision == "full":
@@ -87,11 +62,6 @@ for task, dataset, precision, representation_type, representer in accpeted_confi
             # The file name is : ionchannels_membraneproteins_imbalanced_train_frozen_representations_ProtBERT-BFD.h5
             representation_train = f"{task}_{dataset}_train_{representation_type}_representations_{representer}.h5"
             representation_test = f"{task}_{dataset}_test_{representation_type}_representations_{representer}.h5"
-
-
-    lr_param_grid = {
-        'random_state': 1
-    }
 
     # We train the models with the best params and test them on the test set
     with h5py.File(settings.REPRESENTATIONS_FILTERED_PATH + representation_train, "r") as f:
@@ -163,7 +133,7 @@ for task, dataset, precision, representation_type, representer in accpeted_confi
         y_test = np.array(y_test)
 
     # We train the Logistic Regression model
-    lr_model = LogisticRegression(**lr_param_grid)
+    lr_model = LogisticRegression(random_state=1)
     lr_model.fit(X_train, y_train)
 
     # We predict the labels for the test set
