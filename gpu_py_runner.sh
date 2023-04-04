@@ -10,7 +10,7 @@ export TRANSFORMERS_CACHE=~/tmp
 
 source ~/python_venv/bin/activate
 
-python make_table_soa.py
+python make_results_soa.py
 
 deactivate
 
