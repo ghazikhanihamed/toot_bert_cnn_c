@@ -4459,3 +4459,59 @@ Applying 5-fold cross validation to the best model on the whole dataset...
 INFO:root:--------------------------------------------------------------------------------
 INFO:root:
 Fold 1
+INFO:root:
+Fold 2
+INFO:root:
+Fold 3
+INFO:root:
+Fold 4
+INFO:root:
+Fold 5
+INFO:root:--------------------------------------------------
+INFO:root:--------------------------------------------------
+INFO:root:Dataset name:  iontransporters_membraneproteins
+INFO:root:Dataset type:  balanced
+INFO:root:Dataset number:  3
+INFO:root:Representation type:  frozen
+INFO:root:Representer model:  ESM-2
+INFO:root:Precision type:  full
+INFO:root:Number of X_train:  561
+INFO:root:Number of Y_train:  561
+INFO:root:--------------------------------------------------------------------------------
+INFO:root:
+Applying 5-fold cross validation to the best model on the whole dataset...
+INFO:root:--------------------------------------------------------------------------------
+INFO:root:
+Fold 1
+INFO:root:
+Fold 2
+INFO:root:
+Fold 3
+INFO:root:
+Fold 4
+INFO:root:
+Fold 5
+INFO:root:--------------------------------------------------
+INFO:root:--------------------------------------------------
+INFO:root:Dataset name:  ionchannels_membraneproteins
+INFO:root:Dataset type:  balanced
+INFO:root:Dataset number:  2
+INFO:root:Representation type:  frozen
+INFO:root:Representer model:  ProtBERT
+INFO:root:Precision type:  half
+INFO:root:Number of X_train:  521
+INFO:root:Number of Y_train:  521
+INFO:root:--------------------------------------------------------------------------------
+INFO:root:
+Applying 5-fold cross validation to the best model on the whole dataset...
+INFO:root:--------------------------------------------------------------------------------
+INFO:root:
+Fold 1
+INFO:root:
+Fold 2
+INFO:root:
+Fold 3
+INFO:root:
+Fold 4
+INFO:root:
+Fold 5
