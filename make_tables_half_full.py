@@ -98,17 +98,59 @@ sns.set_style("whitegrid")
 sns.set_context("paper", font_scale=1.5)
 sns.set_palette("colorblind")
 
-task_precisions = df_table_melted['Task-Precision'].unique()
-plms = df_table_melted['PLM'].unique()
+plt.figure(figsize=(12, 6))
+
+# Add new column 'Precision' and fill it with 'half' or 'full'
+df_table_melted['Precision'] = df_table_melted['Task-Precision'].apply(lambda x: 'full' if 'full' in x else 'half')
+
+# Group by PLM and Precision, and take the mean and average the error
+df_grouped = df_table_melted.groupby(['PLM', 'Precision']).agg({'Mean': 'mean', 'Error': 'mean'}).reset_index()
+
+# Create line plot with markers and error bars
+sns.set(style="whitegrid")
+plt.figure(figsize=(12, 6))
+
+plms = df_grouped['PLM'].unique()
+precisions = df_grouped['Precision'].unique()
+
+markers = ['o', 'v', 's', 'D', 'P', 'X']
 
 x = np.arange(len(plms))
 width = 0.35
 
-for i, task_precision in enumerate(task_precisions):
-    y = df_table_melted.loc[df_table_melted["Task-Precision"] == task_precision, "Mean"].values
-    error = df_table_melted.loc[df_table_melted["Task-Precision"] == task_precision, "Error"].values
+for i, precision in enumerate(precisions):
+    precision_data = df_grouped[df_grouped["Precision"] == precision]
+    plt.bar(x + (i - 0.5) * width, precision_data["Mean"], width, yerr=precision_data["Error"], capsize=3, label=f'{precision} precision')
+
+plt.ylabel('MCC')
+plt.xticks(x, plms)
+plt.legend()
+
+plt.tight_layout()
+# Save the plot
+plt.savefig(os.path.join(settings.LATEX_PATH,
+                         "mean_half_full_results_bar.png"), dpi=300, bbox_inches='tight')
+
+
+
+# Group by PLM and Precision, and take the mean and average the error
+df_grouped = df_table_melted.groupby(['PLM', 'Task-Precision']).agg({'Mean': 'mean', 'Error': 'mean'}).reset_index()
+
+# Create grouped bar plot with error bars
+sns.set(style="whitegrid")
+plt.figure(figsize=(12, 6))
+
+precisions = ['full', 'half']
+plms = df_grouped['PLM'].unique()
+
+x = np.arange(len(plms))
+width = 0.35
+
+for i, precision in enumerate(precisions):
+    y = df_grouped[df_grouped["Task-Precision"].str.contains(precision)].groupby('PLM')['Mean'].mean().values
+    error = df_grouped[df_grouped["Task-Precision"].str.contains(precision)].groupby('PLM')['Error'].mean().values
     offset = -width / 2 if i % 2 == 0 else width / 2
-    plt.bar(x + offset, y, width, label=task_precision, yerr=error, capsize=3)
+    plt.bar(x + offset, y, width, label=f'{precision} precision', yerr=error, capsize=3)
     plt.errorbar(x + offset, y, yerr=error, fmt="none", capsize=3, elinewidth=1.5, ecolor=sns.color_palette("colorblind")[i % 2])
 
 plt.xticks(x, plms, rotation=45)
@@ -116,7 +158,13 @@ plt.ylabel('MCC')
 plt.legend()
 
 plt.tight_layout()
-plt.show()
+# plt.show()
+
+# Save the plot
+plt.savefig(os.path.join(settings.LATEX_PATH,
+                         "mean_half_full_results_bar.png"), dpi=300, bbox_inches='tight')
+
+plt.close()
 
 
 df_table_melted['MCC_numeric'] = df_table_melted['MCC'].apply(

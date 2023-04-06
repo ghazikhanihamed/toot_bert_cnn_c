@@ -111,7 +111,7 @@ df_table_melted = df_table.melt(
 df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True).astype(float)
 
 sns.set_style("whitegrid")
-sns.set_context("paper", font_scale=1)
+sns.set_context("paper", font_scale=1.5)
 sns.set_palette("colorblind")
 
 # Group the data by PLM and Task-Dataset, calculate the mean and standard deviation of MCC
@@ -133,14 +133,39 @@ for i, p in enumerate(barplot.patches):
     plt.errorbar(x, y, yerr=err, capsize=3, elinewidth=1.5, color='black', ls='none')
 
 # The legend with title "Dataset"
-plt.legend(title='Dataset', loc='upper right')
+plt.legend(title='Dataset', loc='lower right')
 
+def show_values_on_bars(axs):
+    def _show_on_single_plot(ax):
+        for p in ax.patches:
+            _x = p.get_x() + p.get_width() / 2
+            _y = p.get_y() + p.get_height()
+            value = f'{p.get_height():.2f}'
+            ax.text(_x, _y - 0.1, value, ha="center")
+
+    if isinstance(axs, np.ndarray):
+        for idx, ax in np.ndenumerate(axs):
+            _show_on_single_plot(ax)
+    else:
+        _show_on_single_plot(axs)
+
+# Add MCC values on top of each bar
+show_values_on_bars(barplot)
+
+# Calculate delta and display between the bars
+delta = final_data.pivot_table(index='PLM', columns='Balance', values='Mean').reset_index()
+delta['Delta'] = delta['Imbalanced'] - delta['Balanced']
+
+for index, row in delta.iterrows():
+    x = row.name + 0.25
+    y = max(row['Balanced'], row['Imbalanced'])
+    delta_value = row['Delta']
+    plt.text(x - 0.25, y + 0.02, f'Δ={delta_value:.2f}', ha="center", fontsize=12, color='red', fontweight='bold')
 
 plt.ylabel('Mean MCC')
-# plt.show()
 # Save the plot to a file
 plt.savefig(os.path.join(settings.LATEX_PATH,
-            "mean_balanced_imbalanced_results_bar_plot.png"), dpi=300, bbox_inches='tight')
+            "mean_balanced_imbalanced_results_bar_plot_delta.png"), dpi=300, bbox_inches='tight')
 
 plt.close()
 
