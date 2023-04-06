@@ -3,6 +3,26 @@ import os
 from settings import settings
 import numpy as np
 
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Example data
+datasets = ['Dataset 1', 'Dataset 2', 'Dataset 3']
+mean_values = [0.8, 0.85, 0.9]
+std_devs = [0.05, 0.03, 0.04]
+
+# Create a bar plot with error bars
+fig, ax = plt.subplots()
+x_pos = np.arange(len(datasets))
+ax.bar(x_pos, mean_values, yerr=std_devs, align='center', alpha=0.5, ecolor='black', capsize=10)
+ax.set_ylabel('Performance')
+ax.set_xticks(x_pos)
+ax.set_xticklabels(datasets)
+ax.set_title('Model Performance with Error Bars')
+
+# Display the plot
+plt.show()
+
 
 # We load the results
 df = pd.read_csv(os.path.join(settings.RESULTS_PATH + "results_toot_bert_c_test.csv"))

@@ -46,7 +46,8 @@ for task in tasks:
                         [representer["name"], settings.TASKS_SHORT[task], precision, best_mcc])
 
 # We create the dataframe with columns "PLM", "IC-MP Balanced", "IC-MP Imbalanced", "IT-MP Balanced, "IT-MP Imbalanced"
-df_table = pd.DataFrame(ds_best_mcc, columns=["PLM", "Task", "Precision", "MCC"])
+df_table = pd.DataFrame(ds_best_mcc, columns=[
+                        "PLM", "Task", "Precision", "MCC"])
 # Create a new column 'Task-Precision' by combining 'Task' and 'Precision' columns
 df_table['Task-Precision'] = df_table['Task'] + ' ' + df_table['Precision']
 
@@ -88,6 +89,36 @@ with open(os.path.join(settings.LATEX_PATH, "mean_half_full_results.tex"), 'w') 
 df_table_melted = df_table.melt(
     id_vars='PLM', var_name='Task-Precision', value_name='MCC')
 
+df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True)
+df_table_melted['Mean'] = pd.to_numeric(df_table_melted['Mean'], errors='coerce')
+df_table_melted['Error'] = pd.to_numeric(df_table_melted['Error'], errors='coerce')
+
+# Set the style and context
+sns.set_style("whitegrid")
+sns.set_context("paper", font_scale=1.5)
+sns.set_palette("colorblind")
+
+task_precisions = df_table_melted['Task-Precision'].unique()
+plms = df_table_melted['PLM'].unique()
+
+x = np.arange(len(plms))
+width = 0.35
+
+for i, task_precision in enumerate(task_precisions):
+    y = df_table_melted.loc[df_table_melted["Task-Precision"] == task_precision, "Mean"].values
+    error = df_table_melted.loc[df_table_melted["Task-Precision"] == task_precision, "Error"].values
+    offset = -width / 2 if i % 2 == 0 else width / 2
+    plt.bar(x + offset, y, width, label=task_precision, yerr=error, capsize=3)
+    plt.errorbar(x + offset, y, yerr=error, fmt="none", capsize=3, elinewidth=1.5, ecolor=sns.color_palette("colorblind")[i % 2])
+
+plt.xticks(x, plms, rotation=45)
+plt.ylabel('MCC')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+
 df_table_melted['MCC_numeric'] = df_table_melted['MCC'].apply(
     lambda x: float(x.split('±')[0]) if x != '-' else np.nan)
 
@@ -114,10 +145,12 @@ plt.ylim(0.4)
 shift_width = 0.15
 for i, bar in enumerate(ax.containers):
     for p in bar.patches:
-        if p.get_x() in [ax.get_xticks()[5], ax.get_xticks()[2]]:#, ax.get_xticks()[2.26], ax.get_xticks()[5.26]]:  # Indices for ProtT5 and ESM-2_15B
+        # , ax.get_xticks()[2.26], ax.get_xticks()[5.26]]:  # Indices for ProtT5 and ESM-2_15B
+        if p.get_x() in [ax.get_xticks()[5], ax.get_xticks()[2]]:
             p.set_x(p.get_x() - shift_width if i == 3 or i == 5 else p.get_x())
         elif p.get_x() in [2.2666666666666666, 5.266666666666667]:
-            p.set_x(p.get_x() - shift_width*1.9 if i == 3 or i == 5 else p.get_x())
+            p.set_x(p.get_x() - shift_width*1.9 if i ==
+                    3 or i == 5 else p.get_x())
 
 # Loop through each bar in the plot
 for p in ax.patches:
@@ -140,7 +173,8 @@ df_pivot = df_table_melted.pivot('PLM', 'Task-Precision', 'MCC_numeric')
 
 # Create the heatmap using Seaborn
 plt.figure(figsize=(12, 4))
-ax1 = sns.heatmap(df_pivot, annot=True, cmap="coolwarm", xticklabels=True, cbar=True)
+ax1 = sns.heatmap(df_pivot, annot=True, cmap="coolwarm",
+                  xticklabels=True, cbar=True)
 
 ax1.set_xlabel('')
 ax1.set_ylabel('')
@@ -150,4 +184,4 @@ ax1.set_ylabel('')
 
 # Save the plot
 plt.savefig(os.path.join(settings.LATEX_PATH,
-                            "mean_half_full_results_heatmap.png"), dpi=300, bbox_inches='tight')
+                         "mean_half_full_results_heatmap.png"), dpi=300, bbox_inches='tight')

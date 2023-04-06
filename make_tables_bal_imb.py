@@ -3,6 +3,7 @@ import os
 from settings import settings
 import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
 
 # We read the csv file of the full results
 df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
@@ -83,6 +84,65 @@ with open(os.path.join(settings.LATEX_PATH, "mean_balanced_imbalanced_results.te
 # Melt the DataFrame to 'long' format for easier plotting with Seaborn
 df_table_melted = df_table.melt(
     id_vars='PLM', var_name='Task-Dataset', value_name='MCC')
+
+# # Split the MCC column into two separate columns for mean and std deviation
+# df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True).astype(float)
+
+# # Create a new column to represent dataset balance status
+# df_table_melted['Balance'] = df_table_melted['Task-Dataset'].apply(lambda x: 'Imbalanced' if 'imbalanced' in x else 'Balanced')
+
+# # Create the scatter plot with unique symbols/colors per PLM and error bars
+# plt.figure(figsize=(12, 6))
+# sns.scatterplot(data=df_table_melted, x='Balance', y='Mean', hue='PLM', style='PLM', s=100)
+
+# # Add error bars to the scatter plot
+# for index, row in df_table_melted.iterrows():
+#     plt.errorbar(x=row['Balance'], y=row['Mean'], yerr=row['Error'], fmt='none', capsize=5, color='black', alpha=0.6)
+
+# # plt.title('Scatter Plot with Error Bars for PLMs and Dataset Balance')
+# plt.ylabel('MCC')
+# plt.savefig(os.path.join(settings.LATEX_PATH,
+#             "mean_balanced_imbalanced_results_line_scatter.png"), dpi=300, bbox_inches='tight')
+
+# plt.close()
+
+
+# Split the MCC column into two separate columns for mean and std deviation
+df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True).astype(float)
+
+sns.set_style("whitegrid")
+sns.set_context("paper", font_scale=1)
+sns.set_palette("colorblind")
+
+# Group the data by PLM and Task-Dataset, calculate the mean and standard deviation of MCC
+grouped_data = df_table_melted.groupby(['PLM', 'Task-Dataset']).agg({'Mean': 'mean', 'Error': 'mean'}).reset_index()
+
+# Further aggregate the data by PLM and balance status (balanced or imbalanced)
+grouped_data['Balance'] = grouped_data['Task-Dataset'].apply(lambda x: 'Imbalanced' if 'imbalanced' in x else 'Balanced')
+final_data = grouped_data.groupby(['PLM', 'Balance']).agg({'Mean': 'mean', 'Error': 'mean'}).reset_index()
+
+# Create the bar plot
+plt.figure(figsize=(15, 6))
+barplot = sns.barplot(data=final_data, x='PLM', y='Mean', hue='Balance', capsize=0.1, ci=None)
+
+# Add error bars
+for i, p in enumerate(barplot.patches):
+    x = p.get_x() + p.get_width() / 2
+    y = p.get_height()
+    err = final_data.loc[i, 'Error']
+    plt.errorbar(x, y, yerr=err, capsize=3, elinewidth=1.5, color='black', ls='none')
+
+# The legend with title "Dataset"
+plt.legend(title='Dataset', loc='upper right')
+
+
+plt.ylabel('Mean MCC')
+# plt.show()
+# Save the plot to a file
+plt.savefig(os.path.join(settings.LATEX_PATH,
+            "mean_balanced_imbalanced_results_bar_plot.png"), dpi=300, bbox_inches='tight')
+
+plt.close()
 
 df_table_melted['MCC'] = df_table_melted['MCC'].apply(
     lambda x: float(x.split('±')[0]))

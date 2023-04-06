@@ -92,8 +92,73 @@ with open(os.path.join(settings.LATEX_PATH, "mean_balanced_imbalanced_results.te
 df_table_melted = df_table.melt(
     id_vars='PLM', var_name='Task-Representation', value_name='MCC')
 
+df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True)
+df_table_melted['Mean'] = pd.to_numeric(df_table_melted['Mean'], errors='coerce')
+df_table_melted['Error'] = pd.to_numeric(df_table_melted['Error'], errors='coerce')
+
+# Set the style and context
+sns.set_style("whitegrid")
+sns.set_context("paper", font_scale=1.5)
+sns.set_palette("colorblind")
+
+# Create a new column 'Type' based on the Task-Representation column
+df_table_melted['Type'] = df_table_melted['Task-Representation'].apply(lambda x: 'Finetuned' if 'finetuned' in x else 'Frozen')
+
+# Create the point plot
+plt.figure(figsize=(15, 6))
+pointplot = sns.pointplot(data=df_table_melted, x='PLM', y='Mean', hue='Type', palette="colorblind", dodge=True, markers=["o", "x"], linestyles=["-", "--"])
+
+# Add error bars
+for i, point in enumerate(pointplot.collections):
+    # Calculate the vertical offset for the error bar
+    offset = (i % 2) * 0.15 - 0.075
+    # Get the coordinates of the point
+    x, y = point.get_offsets().T
+    # Get the error value
+    error = df_table_melted.loc[(df_table_melted["PLM"] == pointplot.get_xticklabels()[i // 2].get_text()) & (df_table_melted['Type'] == ('Finetuned' if i % 2 == 0 else 'Frozen')), "Error"].values
+    # If there are no missing values, plot the error bars
+    if len(error) == len(y):
+        plt.errorbar(x + offset, y, yerr=error, fmt="none", capsize=3, elinewidth=1.5, ecolor=sns.color_palette("colorblind")[i // 2])
+
+# The legend with title "Dataset"
+plt.legend(title='Representation', loc='upper right')
+
+
+plt.ylabel('Mean MCC')        
+
+plt.savefig(os.path.join(settings.LATEX_PATH,
+                         "mean_frozen_finetuned_results_line.png"), dpi=300, bbox_inches='tight')
+
+plt.close()
+
 df_table_melted['MCC_numeric'] = df_table_melted['MCC'].apply(
     lambda x: float(x.split('±')[0]) if x != '-' else np.nan)
+
+# Split the MCC column into two separate columns for mean and std deviation
+df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True)
+df_table_melted['Mean'] = pd.to_numeric(df_table_melted['Mean'], errors='coerce')
+df_table_melted['Error'] = pd.to_numeric(df_table_melted['Error'], errors='coerce')
+
+# Set the style and context
+sns.set_style("whitegrid")
+sns.set_context("paper", font_scale=1.5)
+sns.set_palette("colorblind")
+
+# Create the point plot
+plt.figure(figsize=(15, 6))
+pointplot = sns.pointplot(data=df_table_melted, x='PLM', y='Mean', hue='Type', ci=None, markers=["o", "x"], linestyles=["-", "--"], dodge=True)
+
+# Add error bars
+for i, (x, y, err) in enumerate(zip(df_table_melted['PLM'].cat.codes, df_table_melted['Mean'], df_table_melted['Error'])):
+    if i % 2 == 0:
+        offset = -0.15
+    else:
+        offset = 0.15
+    if pd.notna(y) and pd.notna(err):
+        plt.errorbar(x + offset, y, yerr=err, capsize=3, elinewidth=1.5, color=sns.color_palette("colorblind")[i % 2], ls='none')
+
+plt.ylabel('Mean MCC')
+plt.show()
 
 df_table_melted['Type'] = df_table_melted['Task-Representation'].apply(lambda x: 'Frozen' if 'frozen' in x else 'Finetuned')
 
