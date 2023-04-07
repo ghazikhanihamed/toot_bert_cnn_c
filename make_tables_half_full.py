@@ -5,6 +5,22 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+def show_values_on_bars(axs):
+    def _show_on_single_plot(ax):
+        for p in ax.patches:
+            _x = p.get_x() + p.get_width() / 2
+            _y = p.get_y() + p.get_height()
+            value = f'{p.get_height():.2f}'
+            ax.text(_x, _y - 0.1, value, ha="center")
+
+    if isinstance(axs, np.ndarray):
+        for idx, ax in np.ndenumerate(axs):
+            _show_on_single_plot(ax)
+    else:
+        _show_on_single_plot(axs)
+
+
 # We read the csv file of the full results
 df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
                  "mean_balanced_imbalanced_results.csv"))
@@ -92,6 +108,52 @@ df_table_melted = df_table.melt(
 df_table_melted[['Mean', 'Error']] = df_table_melted['MCC'].str.split('±', expand=True)
 df_table_melted['Mean'] = pd.to_numeric(df_table_melted['Mean'], errors='coerce')
 df_table_melted['Error'] = pd.to_numeric(df_table_melted['Error'], errors='coerce')
+
+# Filter rows without NaN values
+df_table_melted_filtered = df_table_melted.dropna()
+
+# Create a new column "Data Type" with values "Balanced" or "Imbalanced" based on "Task-Representation"
+df_table_melted_filtered["Data Type"] = df_table_melted_filtered["Task-Precision"].apply(lambda x: "Half" if "half" in x else "Full")
+
+# Set seaborn style
+sns.set_theme(style="whitegrid")
+
+# Create the bar plot
+plt.figure(figsize=(12, 6))
+ax = sns.barplot(x="PLM", y="Mean", hue="Data Type", data=df_table_melted_filtered, capsize=0.1, ci=None)
+
+# Add error bars
+bars = ax.containers
+for i, bar in enumerate(bars[0].get_children() + bars[1].get_children()):
+    x = bar.get_x() + bar.get_width() / 2
+    y = bar.get_height()
+    error = df_table_melted_filtered.iloc[i]["Error"]
+    ax.errorbar(x, y, yerr=error, fmt="none", capsize=5, c="black", elinewidth=1)
+
+show_values_on_bars(ax)
+
+# Calculate delta and display between the bars
+delta = df_table_melted_filtered.pivot_table(index='PLM', columns='Data Type', values='Mean').reset_index()
+delta['Delta'] = delta['Full'] - delta['Half']
+
+for index, row in delta.iterrows():
+    x = row.name + 0.25
+    y = max(row['Full'], row['Half'])
+    delta_value = row['Delta']
+    plt.text(x - 0.25, y + 0.02, f'Δ={delta_value:.2f}', ha="center", fontsize=12, color='red', fontweight='bold')
+
+# Set axis labels
+ax.set(xlabel='PLMs', ylabel='Mean MCC')
+
+# Customize legend
+ax.legend(title="Data Type", loc="lower right")
+
+plt.savefig(os.path.join(settings.LATEX_PATH,
+                         "mean_half_full_results_bar_error_delta.png"), dpi=300, bbox_inches='tight')
+
+plt.close()
+
+
 
 # Set the style and context
 sns.set_style("whitegrid")

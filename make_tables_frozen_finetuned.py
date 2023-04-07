@@ -115,43 +115,47 @@ df_table_melted['Mean'] = pd.to_numeric(
 df_table_melted['Error'] = pd.to_numeric(
     df_table_melted['Error'], errors='coerce')
 
-df_table_melted['Type'] = df_table_melted['Task-Representation'].apply(lambda x: 'Finetuned' if 'finetuned' in x else 'Frozen')
+# Filter rows without NaN values
+df_table_melted_filtered = df_table_melted.dropna()
 
-# Set the style and context
-sns.set_style("whitegrid")
-sns.set_context("paper", font_scale=1.5)
-sns.set_palette("colorblind")
+# Create a new column "Data Type" with values "Balanced" or "Imbalanced" based on "Task-Representation"
+df_table_melted_filtered["Data Type"] = df_table_melted_filtered["Task-Representation"].apply(lambda x: "Frozen" if "frozen" in x else "Fine-tuned")
+
+# Set seaborn style
+sns.set_theme(style="whitegrid")
 
 # Create the bar plot
-plt.figure(figsize=(15, 6))
-barplot = sns.barplot(data=df_table_melted, x='PLM', y='Mean', hue='Type', capsize=0.1, ci=None)
+plt.figure(figsize=(12, 6))
+ax = sns.barplot(x="PLM", y="Mean", hue="Data Type", data=df_table_melted_filtered, capsize=0.1, ci=None)
 
 # Add error bars
-num_plms = len(df_table_melted['PLM'].unique())
-num_types = len(df_table_melted['Type'].unique())
+bars = ax.containers
+for i, bar in enumerate(bars[0].get_children() + bars[1].get_children()):
+    x = bar.get_x() + bar.get_width() / 2
+    y = bar.get_height()
+    error = df_table_melted_filtered.iloc[i]["Error"]
+    ax.errorbar(x, y, yerr=error, fmt="none", capsize=5, c="black", elinewidth=1)
 
-for index, row in df_table_melted.iterrows():
-    plm_index = df_table_melted['PLM'].unique().tolist().index(row['PLM'])
-    type_index = 0 if row['Type'] == 'Finetuned' else 1
-    
-    bar_index = plm_index * num_types + type_index
-    p = barplot.patches[bar_index]
-    
-    x = p.get_x() + p.get_width() / 2
-    y = p.get_height()
-    err = row['Error']
-    
-    if not np.isnan(y):
-        plt.errorbar(x, y, yerr=err, capsize=3, elinewidth=1.5, color='black', ls='none')
+show_values_on_bars(ax)
 
-# The legend with title "Representation"
-plt.legend(title='Representation', loc='lower right')
+# Calculate delta and display between the bars
+delta = df_table_melted_filtered.pivot_table(index='PLM', columns='Data Type', values='Mean').reset_index()
+delta['Delta'] = delta['Fine-tuned'] - delta['Frozen']
 
-plt.ylabel('Mean MCC')
-plt.show()
+for index, row in delta.iterrows():
+    x = row.name + 0.25
+    y = max(row['Fine-tuned'], row['Frozen'])
+    delta_value = row['Delta']
+    plt.text(x - 0.25, y + 0.02, f'Δ={delta_value:.2f}', ha="center", fontsize=12, color='red', fontweight='bold')
+
+# Set axis labels
+ax.set(xlabel='PLMs', ylabel='Mean MCC')
+
+# Customize legend
+ax.legend(title="Data Type", loc="lower right")
 
 plt.savefig(os.path.join(settings.LATEX_PATH,
-                         "mean_frozen_finetuned_results_line.png"), dpi=300, bbox_inches='tight')
+                         "mean_frozen_finetuned_results_bar_error_delta.png"), dpi=300, bbox_inches='tight')
 
 plt.close()
 
