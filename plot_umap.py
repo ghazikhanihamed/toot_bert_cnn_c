@@ -91,19 +91,19 @@ for dataset in datasets:
             # We convert labels to 0 and 1. 0 for ionchannels and 1 for membraneproteins
             y_train = [1 if label ==
                        settings.IONCHANNELS else 0 for label in y_train]
-            label_dict = {0: settings.IONCHANNELS,
-                          1: settings.MEMBRANEPROTEINS}
+            label_dict = {1: settings.IONCHANNELS,
+                          0: settings.MEMBRANEPROTEINS}
         elif dataset_name == "ionchannels_iontransporters":
             # We convert labels to 0 and 1. 0 for ionchannels and 1 for iontransporters
             y_train = [1 if label ==
                        settings.IONCHANNELS else 0 for label in y_train]
-            label_dict = {0: settings.IONCHANNELS, 1: settings.IONTRANSPORTERS}
+            label_dict = {1: settings.IONCHANNELS, 0: settings.IONTRANSPORTERS}
         elif dataset_name == "iontransporters_membraneproteins":
             # We convert labels to 0 and 1. 0 for iontransporters and 1 for membraneproteins
             y_train = [1 if label ==
                        settings.IONTRANSPORTERS else 0 for label in y_train]
-            label_dict = {0: settings.IONTRANSPORTERS,
-                          1: settings.MEMBRANEPROTEINS}
+            label_dict = {1: settings.IONTRANSPORTERS,
+                          0: settings.MEMBRANEPROTEINS}
 
         # We make a pandas dataframe with the id, representation and label columns
         df = pd.DataFrame(
