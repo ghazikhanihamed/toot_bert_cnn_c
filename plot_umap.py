@@ -53,4 +53,4 @@ with h5py.File(settings.REPRESENTATIONS_FILTERED_PATH + representation, "r") as 
         {"id": ids, "representation": X_train, "label": y_train})
 
     # We plot the umap
-    plot_umap_datasets([df], label_dict=label_dict)
+    plot_umap_datasets([df], label_dict=label_dict, task=dataset_name)

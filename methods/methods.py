@@ -6,22 +6,17 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import matplotlib.patches as mpatches
+import seaborn as sns
 
 
-def plot_umap_datasets(datasets, label_dict, title='UMAP Plots', figsize=(15, 5)):
-    """
-    Takes a list of pandas DataFrames, each with columns 'id', 'representation', and 'label', and
-    produces UMAP plots of each dataset as subplots for comparison.
+def plot_umap_datasets(datasets, label_dict, task='ionchannels_membraneproteins', figsize=(10, 5)):
+    # Define the color mapping dictionary for the three tasks
+    task_color_mapping = {
+        'ionchannels_membraneproteins': sns.color_palette('dark', len(label_dict)),
+        'iontransporters_membraneproteins': sns.color_palette('husl', len(label_dict)),
+        'ionchannels_iontransporters': sns.color_palette('pastel', len(label_dict)),
+    }
 
-    Args:
-        datasets (list): List of pandas DataFrames with columns 'id', 'representation', and 'label'.
-        label_dict (dict): Dictionary with integer keys and string values representing labels.
-        title (str, optional): Title for the entire plot. Default is 'UMAP Plots'.
-        figsize (tuple, optional): Figure size in inches. Default is (15, 5).
-
-    Returns:
-        None
-    """
     n_datasets = len(datasets)
     fig, axes = plt.subplots(1, n_datasets, figsize=figsize, sharey=True)
 
@@ -29,43 +24,35 @@ def plot_umap_datasets(datasets, label_dict, title='UMAP Plots', figsize=(15, 5)
         axes = [axes]
 
     for i, dataset in enumerate(datasets):
-        # Convert 'representation' to a homogeneous 2D array
         representation_array = np.vstack(dataset['representation'].tolist())
 
-        # Use UMAP for dimensionality reduction
         reducer = umap.UMAP()
         embeddings = reducer.fit_transform(representation_array)
 
-        # Encode labels as integers
         encoded_labels = dataset['label'].values
 
-        # Get unique labels and their corresponding colors
         unique_encoded_labels = np.unique(encoded_labels)
         unique_labels = [label_dict[encoded_label]
                          for encoded_label in unique_encoded_labels]
-        colors = plt.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
+        # Assign the same colors for each task using the color mapping dictionary
+        colors = task_color_mapping[task]
 
-        # Plot the embeddings with different colors for each unique label
         for label, encoded_label, color in zip(unique_labels, unique_encoded_labels, colors):
             indices = encoded_labels == encoded_label
             axes[i].scatter(embeddings[indices, 0], embeddings[indices, 1], c=[
                             color], label=label, s=5, alpha=0.7)
 
-        axes[i].set_title(f'Dataset {i+1}')
-        axes[i].set_xlabel('UMAP 1')
+        axes[i].set_title('')
+        axes[i].set_xlabel('')
         if i == 0:
-            axes[i].set_ylabel('UMAP 2')
+            axes[i].set_ylabel('')
 
-    # Create a legend using unique labels and their corresponding colors
     patches = [mpatches.Patch(color=color, label=label)
                for label, color in zip(unique_labels, colors)]
-    fig.legend(handles=patches, loc='upper right',
-               bbox_to_anchor=(1.1, 1), title='Labels')
+    # Adjust legend positioning to place it inside the box
+    axes[-1].legend(handles=patches, loc='lower right')
 
-    # Set the main title and adjust the layout
-    fig.suptitle(title)
-    fig.tight_layout(rect=[0, 0, 1, 0.95])
-
+    fig.tight_layout()
     plt.show()
 
 
