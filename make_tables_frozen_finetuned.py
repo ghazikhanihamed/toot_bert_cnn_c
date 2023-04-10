@@ -5,6 +5,22 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+def show_values_on_bars(axs):
+    def _show_on_single_plot(ax):
+        for p in ax.patches:
+            _x = p.get_x() + p.get_width() / 2
+            _y = p.get_y() + p.get_height()
+            value = f'{p.get_height():.2f}'
+            ax.text(_x, _y - 0.1, value, ha="center")
+
+    if isinstance(axs, np.ndarray):
+        for idx, ax in np.ndenumerate(axs):
+            _show_on_single_plot(ax)
+    else:
+        _show_on_single_plot(axs)
+
+
 # We read the csv file of the full results
 df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
                  "mean_balanced_imbalanced_results.csv"))
@@ -92,10 +108,93 @@ with open(os.path.join(settings.LATEX_PATH, "mean_balanced_imbalanced_results.te
 df_table_melted = df_table.melt(
     id_vars='PLM', var_name='Task-Representation', value_name='MCC')
 
+df_table_melted[['Mean', 'Error']
+                ] = df_table_melted['MCC'].str.split('±', expand=True)
+df_table_melted['Mean'] = pd.to_numeric(
+    df_table_melted['Mean'], errors='coerce')
+df_table_melted['Error'] = pd.to_numeric(
+    df_table_melted['Error'], errors='coerce')
+
+# Filter rows without NaN values
+df_table_melted_filtered = df_table_melted.dropna()
+
+# Create a new column "Data Type" with values "Balanced" or "Imbalanced" based on "Task-Representation"
+df_table_melted_filtered["Data Type"] = df_table_melted_filtered["Task-Representation"].apply(lambda x: "Frozen" if "frozen" in x else "Fine-tuned")
+
+# Set seaborn style
+sns.set_theme(style="whitegrid")
+
+# Create the bar plot
+plt.figure(figsize=(12, 6))
+ax = sns.barplot(x="PLM", y="Mean", hue="Data Type", data=df_table_melted_filtered, capsize=0.1, ci=None)
+
+# Add error bars
+bars = ax.containers
+for i, bar in enumerate(bars[0].get_children() + bars[1].get_children()):
+    x = bar.get_x() + bar.get_width() / 2
+    y = bar.get_height()
+    error = df_table_melted_filtered.iloc[i]["Error"]
+    ax.errorbar(x, y, yerr=error, fmt="none", capsize=5, c="black", elinewidth=1)
+
+show_values_on_bars(ax)
+
+# Calculate delta and display between the bars
+delta = df_table_melted_filtered.pivot_table(index='PLM', columns='Data Type', values='Mean').reset_index()
+delta['Delta'] = delta['Fine-tuned'] - delta['Frozen']
+
+for index, row in delta.iterrows():
+    x = row.name + 0.25
+    y = max(row['Fine-tuned'], row['Frozen'])
+    delta_value = row['Delta']
+    plt.text(x - 0.25, y + 0.02, f'Δ={delta_value:.2f}', ha="center", fontsize=12, color='red', fontweight='bold')
+
+# Set axis labels
+ax.set(xlabel='PLMs', ylabel='Mean MCC')
+
+# Customize legend
+ax.legend(title="Data Type", loc="lower right")
+
+plt.savefig(os.path.join(settings.LATEX_PATH,
+                         "mean_frozen_finetuned_results_bar_error_delta.png"), dpi=300, bbox_inches='tight')
+
+plt.close()
+
 df_table_melted['MCC_numeric'] = df_table_melted['MCC'].apply(
     lambda x: float(x.split('±')[0]) if x != '-' else np.nan)
 
-df_table_melted['Type'] = df_table_melted['Task-Representation'].apply(lambda x: 'Frozen' if 'frozen' in x else 'Finetuned')
+# Split the MCC column into two separate columns for mean and std deviation
+df_table_melted[['Mean', 'Error']
+                ] = df_table_melted['MCC'].str.split('±', expand=True)
+df_table_melted['Mean'] = pd.to_numeric(
+    df_table_melted['Mean'], errors='coerce')
+df_table_melted['Error'] = pd.to_numeric(
+    df_table_melted['Error'], errors='coerce')
+
+# Set the style and context
+sns.set_style("whitegrid")
+sns.set_context("paper", font_scale=1.5)
+sns.set_palette("colorblind")
+
+# Create the point plot
+plt.figure(figsize=(15, 6))
+pointplot = sns.pointplot(data=df_table_melted, x='PLM', y='Mean', hue='Type', ci=None, markers=[
+                          "o", "x"], linestyles=["-", "--"], dodge=True)
+
+# Add error bars
+for i, (x, y, err) in enumerate(zip(df_table_melted['PLM'].cat.codes, df_table_melted['Mean'], df_table_melted['Error'])):
+    if i % 2 == 0:
+        offset = -0.15
+    else:
+        offset = 0.15
+    if pd.notna(y) and pd.notna(err):
+        plt.errorbar(x + offset, y, yerr=err, capsize=3, elinewidth=1.5,
+                     color=sns.color_palette("colorblind")[i % 2], ls='none')
+
+plt.ylabel('Mean MCC')
+plt.show()
+
+df_table_melted['Type'] = df_table_melted['Task-Representation'].apply(
+    lambda x: 'Frozen' if 'frozen' in x else 'Finetuned')
 
 # Group by PLM and Type, then compute the mean of MCC_numeric
 df_mean = df_table_melted.groupby(['PLM', 'Type']).mean().reset_index()
@@ -119,8 +218,10 @@ plt.ylim(0.4)
 shift_width = 0.17
 for i, bar in enumerate(ax.containers):
     for p in bar.patches:
-        if p.get_x() in [ax.get_xticks()[5], ax.get_xticks()[2]]:  # Indices for ProtT5 and ESM-2_15B
-            p.set_x(p.get_x() - shift_width if i == 0 else p.get_x() - shift_width)
+        # Indices for ProtT5 and ESM-2_15B
+        if p.get_x() in [ax.get_xticks()[5], ax.get_xticks()[2]]:
+            p.set_x(p.get_x() - shift_width if i ==
+                    0 else p.get_x() - shift_width)
 
 # Loop through each bar in the plot
 for p in ax.patches:
@@ -157,10 +258,12 @@ plt.ylim(0.4)
 shift_width = 0.15
 for i, bar in enumerate(ax.containers):
     for p in bar.patches:
-        if p.get_x() in [ax.get_xticks()[5], ax.get_xticks()[2]]:#, ax.get_xticks()[2.26], ax.get_xticks()[5.26]]:  # Indices for ProtT5 and ESM-2_15B
+        # , ax.get_xticks()[2.26], ax.get_xticks()[5.26]]:  # Indices for ProtT5 and ESM-2_15B
+        if p.get_x() in [ax.get_xticks()[5], ax.get_xticks()[2]]:
             p.set_x(p.get_x() - shift_width if i == 3 or i == 5 else p.get_x())
         elif p.get_x() in [2.2666666666666666, 5.266666666666667]:
-            p.set_x(p.get_x() - shift_width*1.9 if i == 3 or i == 5 else p.get_x())
+            p.set_x(p.get_x() - shift_width*1.9 if i ==
+                    3 or i == 5 else p.get_x())
 
 # Loop through each bar in the plot
 for p in ax.patches:
@@ -183,7 +286,8 @@ df_pivot = df_table_melted.pivot('PLM', 'Task-Representation', 'MCC_numeric')
 
 # Create the heatmap using Seaborn
 plt.figure(figsize=(12, 4))
-ax1 = sns.heatmap(df_pivot, annot=True, cmap="coolwarm", xticklabels=True, cbar=True)
+ax1 = sns.heatmap(df_pivot, annot=True, cmap="coolwarm",
+                  xticklabels=True, cbar=True)
 
 ax1.set_xlabel('')
 ax1.set_ylabel('')
@@ -193,6 +297,6 @@ ax1.set_ylabel('')
 
 # Save the plot
 plt.savefig(os.path.join(settings.LATEX_PATH,
-                            "mean_frozen_finetuned_results_heatmap.png"), dpi=300, bbox_inches='tight')
+                         "mean_frozen_finetuned_results_heatmap.png"), dpi=300, bbox_inches='tight')
 
 plt.close()
