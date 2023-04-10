@@ -111,4 +111,4 @@ for dataset in datasets:
 
         # We plot the umap
         plot_umap_datasets([df], label_dict=label_dict, task=dataset_name,
-                           filename=dataset_name.split(".")[0] + "_umap.png")
+                           filename=dataset.split(".")[0] + "_umap.png")

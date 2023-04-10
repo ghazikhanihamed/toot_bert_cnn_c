@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "plot_umap.py", line 95, in <module>
+    1: settings.MEMBRANEPROTEINS}
+AttributeError: module 'settings.settings' has no attribute 'MEMBRANEPROTEINS'
