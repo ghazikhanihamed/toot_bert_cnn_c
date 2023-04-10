@@ -2,14 +2,12 @@
 import umap
 import matplotlib.pyplot as plt
 from settings import settings
-import pandas as pd
 import numpy as np
-from sklearn.preprocessing import LabelEncoder
 import matplotlib.patches as mpatches
 import seaborn as sns
 
 
-def plot_umap_datasets(datasets, label_dict, task='ionchannels_membraneproteins', figsize=(10, 5)):
+def plot_umap_datasets(datasets, label_dict, task, filename, figsize=(10, 5)):
     # Define the color mapping dictionary for the three tasks
     task_color_mapping = {
         'ionchannels_membraneproteins': sns.color_palette('dark', len(label_dict)),
@@ -53,7 +51,7 @@ def plot_umap_datasets(datasets, label_dict, task='ionchannels_membraneproteins'
     axes[-1].legend(handles=patches, loc='lower right')
 
     fig.tight_layout()
-    plt.show()
+    fig.savefig(settings.PLOT_PATH + filename, dpi=300, bbox_inches='tight')
 
 
 def train(model, train_dataloader, optimizer, criterion, device, task):
