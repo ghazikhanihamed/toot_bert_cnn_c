@@ -1,0 +1,4 @@
+Task,Dataset,Representation,Representer,Precision,Classifier,Sensitivity,Specificity,Accuracy,MCC
+ionchannels_membraneproteins,imbalanced,finetuned,ESM-1b,half,CNN,0.7666666666666667,0.9976470588235294,0.9824175824175824,0.8485598813776427
+iontransporters_membraneproteins,imbalanced,finetuned,ESM-1b,full,CNN,0.6714285714285714,0.9823529411764705,0.9586956521739131,0.6914354303648239
+ionchannels_iontransporters,na,frozen,ESM-2_15B,half,CNN,0.85,1.0,0.9307692307692308,0.8678505383774474
