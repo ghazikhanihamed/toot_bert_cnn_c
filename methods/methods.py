@@ -8,11 +8,11 @@ import seaborn as sns
 
 
 def plot_umap_datasets(datasets, label_dict, task, filename, figsize=(10, 5)):
-    # Define the color mapping dictionary for the three tasks
+    # Define the color mapping dictionary for the three tasks with specific HEX colors
     task_color_mapping = {
-        'ionchannels_membraneproteins': sns.color_palette('dark', len(label_dict)),
-        'iontransporters_membraneproteins': sns.color_palette('husl', len(label_dict)),
-        'ionchannels_iontransporters': sns.color_palette('pastel', len(label_dict)),
+        'ionchannels_membraneproteins': ['#f1a340', '#998ec3'],
+        'iontransporters_membraneproteins': ['#ef8a62', '#999999'],
+        'ionchannels_iontransporters': ['#d8b365', '#5ab4ac'],
     }
 
     n_datasets = len(datasets)
