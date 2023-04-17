@@ -44,3 +44,12 @@ REPRESENTATIONS = [PROTBERT, PROTBERTBFD, PROTT5, ESM1B, ESM2, ESM2_15B]
 # IC-MP: Ion Channels vs. Membrane Proteins/ IT-MP: Ion Transporters vs. Membrane Proteins/ IC-IT: Ion Channels vs. Ion Transporters
 TASKS_SHORT = {"ionchannels_membraneproteins": "IC-MP",
                "iontransporters_membraneproteins": "IT-MP", "ionchannels_iontransporters": "IC-IT"}
+PLM_PARAM_SIZE = {"ProtBERT": "ProtBERT(420M)",
+                  "ProtBERT-BFD": "ProtBERT-BFD(420M)",
+                  "ProtT5": "ProtT5(3B)",
+                  "ESM-1b": "ESM-1b(650M)",
+                  "ESM-2": "ESM-2(650M)",
+                  "ESM-2_15B": "ESM-2(15B)"}
+PLM_ORDER = ["ProtBERT(420M)", "ProtBERT-BFD(420M)", "ESM-1b(650M)", "ESM-2(650M)", "ProtT5(3B)", "ESM-2(15B)"]
+PLM_ORDER_SHORT = ["ProtBERT", "ProtBERT-BFD", "ESM-1b", "ESM-2", "ProtT5", "ESM-2_15B"]
+PLM_ORDER_FINETUNED = ["ProtBERT(420M)", "ProtBERT-BFD(420M)", "ESM-1b(650M)", "ESM-2(650M)"]
