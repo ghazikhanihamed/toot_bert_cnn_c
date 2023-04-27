@@ -224,6 +224,16 @@ finetuned_df = df[df['Representation'] == 'finetuned']
 mean_mcc = finetuned_df.groupby(['plm_size', 'Dataset'])['MCC_mean'].mean().reset_index()
 std_mcc = df.groupby(['plm_size', 'Dataset'])['MCC_std'].mean().reset_index()
 
+df['plm_size'] = mean_mcc['plm_size'].astype('category')
+df['Dataset'] = mean_mcc['Dataset'].astype('category')
+
+diff_mcc = mean_mcc.pivot_table(values='MCC_mean', index='plm_size', columns='Dataset').reset_index()
+diff_mcc['MCC_diff'] = diff_mcc['imbalanced'] - diff_mcc['balanced']
+
+average_mcc_diff = diff_mcc['MCC_diff'].mean()
+
+print(f"Average MCC difference: {average_mcc_diff}")
+
 # delta_mcc = mean_mcc[mean_mcc['Dataset'] == 'imbalanced']['MCC_mean'] - mean_mcc[mean_mcc['Dataset'] == 'balanced']['MCC_mean']
 delta_mcc = mean_mcc[mean_mcc['Dataset'] == 'imbalanced'][['plm_size', 'MCC_mean']].reset_index(drop=True)
 frozen_mcc_values = mean_mcc[mean_mcc['Dataset'] == 'balanced'][['plm_size', 'MCC_mean']].reset_index(drop=True)
@@ -282,6 +292,18 @@ frozen_df = df[df['Representation'] == 'frozen']
 mean_mcc = frozen_df.groupby(['plm_size', 'Dataset'])['MCC_mean'].mean().reset_index()
 std_mcc = df.groupby(['plm_size', 'Dataset'])['MCC_std'].mean().reset_index()
 
+df['plm_size'] = mean_mcc['plm_size'].astype('category')
+df['Dataset'] = mean_mcc['Dataset'].astype('category')
+
+diff_mcc = mean_mcc.pivot_table(values='MCC_mean', index='plm_size', columns='Dataset').reset_index()
+diff_mcc['MCC_diff'] = diff_mcc['balanced'] - diff_mcc['imbalanced']
+
+average_mcc_diff = diff_mcc['MCC_diff'].mean()
+
+print(f"Average MCC difference: {average_mcc_diff}")
+
+
+
 # delta_mcc = mean_mcc[mean_mcc['Dataset'] == 'imbalanced']['MCC_mean'] - mean_mcc[mean_mcc['Dataset'] == 'balanced']['MCC_mean']
 delta_mcc = mean_mcc[mean_mcc['Dataset'] == 'balanced'][['plm_size', 'MCC_mean']].reset_index(drop=True)
 frozen_mcc_values = mean_mcc[mean_mcc['Dataset'] == 'imbalanced'][['plm_size', 'MCC_mean']].reset_index(drop=True)
@@ -314,7 +336,7 @@ plt.ylabel("MCC")
 plt.xticks(fontsize=9)
 
 # Add legend
-plt.legend(title="Dataset")
+plt.legend(title="Dataset", loc='lower left')
 
 # Add error bars
 for i, p in enumerate(barplot.patches):
@@ -327,6 +349,9 @@ for i, p in enumerate(barplot.patches):
 show_values_on_bars(barplot)
 
 show_delta_on_bars(barplot, delta_mcc_sorted['MCC_mean'].values)
+
+# y limit to 1
+plt.ylim(0, 1)
 
 # Display the plot
 # plt.show()
