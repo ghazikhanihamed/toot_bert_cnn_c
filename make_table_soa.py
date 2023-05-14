@@ -18,9 +18,9 @@ data = [
     ['TooT-BERT-C', 'IC-MP', 'ProtBERT-BFD', 'LR', 98.24, 0.85],
     ['TooT-BERT-C', 'IT-MP', 'ProtBERT-BFD', 'LR', 95.43, 0.64],
     ['TooT-BERT-C', 'IC-IT', 'ProtBERT-BFD', 'LR', 85.38, 0.71],
-    ['Proposed', 'IC-MP', 'ESM-1b', 'LR', 98.24, 0.85],
-    ['Proposed', 'IT-MP', 'ESM-1b', 'LR', 95.98, 0.69],
-    ['Proposed', 'IC-IT', 'ESM-2', 'CNN', 93.85, 0.87]
+    ['Proposed method', 'IC-MP', 'ESM-1b', 'LR', 98.24, 0.85],
+    ['Proposed method', 'IT-MP', 'ESM-1b', 'LR', 95.98, 0.69],
+    ['Proposed method', 'IC-IT', 'ESM-2', 'CNN', 93.85, 0.87]
 ]
 
 columns = ['Project', 'Task', 'Encoder', 'Classifier', 'Accuracy', 'MCC']
@@ -76,7 +76,8 @@ plt.axhline(y=mfps_cnn_mcc, linestyle='--', color='gray')
 # Add vertical line to separate MFPS_CNN and TooT-BERT-C
 plt.axvline(x=1.6, linestyle=':', color='black')
 
-plt.xticks(range(len(df["Project"].unique())), df["Project"].unique())
+# We make the xticks in the middle of the bars
+plt.xticks(np.arange(0.1, len(df["Project"].unique()) + 0.1, 1), df["Project"].unique())
 plt.ylabel("MCC")
 
 # Create a custom legend
@@ -95,7 +96,7 @@ for p in ax.patches:
 
 plt.tight_layout()
 plt.savefig(os.path.join(settings.LATEX_PATH, "independent_soa_cnn.png"), bbox_inches='tight', dpi=300)
-
+plt.close()
 
 # We load the results
 df = pd.read_csv(os.path.join(settings.RESULTS_PATH + "results_best_test.csv"))
