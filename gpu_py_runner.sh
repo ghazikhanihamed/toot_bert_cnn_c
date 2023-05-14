@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-#$ -N plot_rep
+#$ -N trad_top
 #$ -cwd
 #$ -m bea
 #$ -l m_mem_free=32G,g=1
@@ -10,7 +10,7 @@ export TRANSFORMERS_CACHE=~/tmp
 
 source ~/python_venv/bin/activate
 
-python plot_umap.py
+python make_results_soa.py
 
 deactivate
 

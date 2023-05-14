@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "make_results_soa.py", line 139, in <module>
+    'max_depth': params["rf"][3] if params["rf"][3] == None else int(params["rf"][3]),
+ValueError: cannot convert float NaN to integer

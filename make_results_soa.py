@@ -69,11 +69,11 @@ for row in df_table.itertuples():
     classifier = row.Classifier
 
     # We check if the config exists in the list
-    if [task, dataset, representation_type, representer, precision] in config:
-        continue
-    else:
-        config.append(
-            [task, dataset, representation_type, representer, precision])
+    #if [task, dataset, representation_type, representer, precision] in config:
+    #    continue
+    #else:
+    #    config.append(
+    #        [task, dataset, representation_type, representer, precision])
 
     params = pd.read_csv(os.path.join(settings.RESULTS_PATH, "gridsearch_best_params_" + task +
                          "_" + dataset + "_" + "na" + "_" + representation_type + "_" + representer + prec + ".csv"))
@@ -136,7 +136,7 @@ for row in df_table.itertuples():
 
     rf_param_grid = {
         'n_estimators': int(params["rf"][5]),
-        'max_depth': params["rf"][3] if params["rf"][3] == None else int(params["rf"][3]),
+        'max_depth': int(params["rf"][3]) if pd.notnull(params["rf"][3]) else None,
         'min_samples_split': int(params["rf"][4]),
         'random_state': settings.SEED
     }
