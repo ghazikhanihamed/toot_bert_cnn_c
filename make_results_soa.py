@@ -3,10 +3,13 @@ import os
 from settings import settings
 import seaborn as sns
 import matplotlib.pyplot as plt
-# import svm, ffnn and lr
+# import svm, ffnn and lr, knn, rf
 from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+
 import h5py
 from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
 import ast
@@ -33,18 +36,23 @@ ds_best_mcc = []
 for task in tasks:
     df_temp = df[df["Task"] == task]
     if not df_temp.empty:
-        # We take the first three rows of the df_temp2 sorted by MCC value split by "±" and take the first element
-        three_best_mcc = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).nlargest(20).index.tolist()
-        df_three_best_mcc = df_temp.loc[three_best_mcc]
+        # for each classifier, we find the best MCC
+        for classifier in df_temp["Classifier"].unique():
+            df_temp_classifier = df_temp[df_temp["Classifier"] == classifier]
+            
+            # Best top 1 MCC from df_temp_classifier    
+            best_mcc = df_temp_classifier["MCC"].max()
 
-        # We take the best MCC value for each category of "Task", "Dataset" and "Representer"
-        best_mcc_id = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).idxmax()
+            # We find the row with the best MCC and select only the first row
+            df_temp_best_mcc = df_temp_classifier[df_temp_classifier["MCC"] == best_mcc].iloc[0]
 
-        df_best_mcc = df_temp.loc[best_mcc_id]
-        ds_best_mcc.append(df_three_best_mcc)
+            # we make the df_temp_best_mcc a dataframe with one row
+            df_temp_best_mcc = pd.DataFrame(df_temp_best_mcc).transpose()
 
+            # We append the row with the best MCC to the list
+            ds_best_mcc.append(df_temp_best_mcc)
+
+# We create a dataframe from ds_best_mcc
 df_table = pd.concat(ds_best_mcc)
 
 # For each task, we find the three train and test sets from REPRESENTATIONS_FILTERED_PATH with the information in df_table, then we train the models based on the best params and test them on the test set
@@ -58,6 +66,7 @@ for row in df_table.itertuples():
     representation_type = row.Representation
     precision = row.Precision
     prec = "_" + precision if precision == "full" else ""
+    classifier = row.Classifier
 
     # We check if the config exists in the list
     if [task, dataset, representation_type, representer, precision] in config:
@@ -123,6 +132,19 @@ for row in df_table.itertuples():
         'activation': params["mlp"][11],
         'solver': params["mlp"][10],
         'random_state': settings.SEED
+    }
+
+    rf_param_grid = {
+        'n_estimators': int(params["rf"][5]),
+        'max_depth': params["rf"][3] if params["rf"][3] == None else int(params["rf"][3]),
+        'min_samples_split': int(params["rf"][4]),
+        'random_state': settings.SEED
+    }
+
+    knn_param_grid = {
+        'n_neighbors': int(params["knn"][7]),
+        'weights': params["knn"][8],
+        'algorithm': params["knn"][6]
     }
 
     # We train the models with the best params and test them on the test set
@@ -194,52 +216,51 @@ for row in df_table.itertuples():
 
         y_test = np.array(y_test)
 
-    # We train the SVM model
-    svm_model = SVC(**svm_param_grid)
-    svm_model.fit(X_train, y_train)
+    if classifier == "RF":
+        rf_model = RandomForestClassifier(**rf_param_grid)
+        rf_model.fit(X_train, y_train)
+        rf_predictions = rf_model.predict(X_test)
+        accuracy = accuracy_score(y_test, rf_predictions)
+        mcc = matthews_corrcoef(y_test, rf_predictions)
+        sensitivity = recall_score(y_test, rf_predictions, pos_label=1)
+        specificity = recall_score(y_test, rf_predictions, pos_label=0)
+    elif classifier == "kNN":
+        knn_model = KNeighborsClassifier(**knn_param_grid)
+        knn_model.fit(X_train, y_train)
+        knn_predictions = knn_model.predict(X_test)
+        accuracy = accuracy_score(y_test, knn_predictions)
+        mcc = matthews_corrcoef(y_test, knn_predictions)
+        sensitivity = recall_score(y_test, knn_predictions, pos_label=1)
+        specificity = recall_score(y_test, knn_predictions, pos_label=0)
+    elif classifier == "SVM":
+        svm_model = SVC(**svm_param_grid)
+        svm_model.fit(X_train, y_train)
+        svm_predictions = svm_model.predict(X_test)
+        accuracy = accuracy_score(y_test, svm_predictions)
+        mcc = matthews_corrcoef(y_test, svm_predictions)
+        sensitivity = recall_score(y_test, svm_predictions, pos_label=1)
+        specificity = recall_score(y_test, svm_predictions, pos_label=0)
+    elif classifier == "LR":
+        lr_model = LogisticRegression(**lr_param_grid)
+        lr_model.fit(X_train, y_train)
+        lr_predictions = lr_model.predict(X_test)
+        accuracy = accuracy_score(y_test, lr_predictions)
+        mcc = matthews_corrcoef(y_test, lr_predictions)
+        sensitivity = recall_score(y_test, lr_predictions, pos_label=1)
+        specificity = recall_score(y_test, lr_predictions, pos_label=0)
+    elif classifier == "FFNN":
+        mlp_model = MLPClassifier(**mlp_param_grid)
+        mlp_model.fit(X_train, y_train)
+        mlp_predictions = mlp_model.predict(X_test)
+        accuracy = accuracy_score(y_test, mlp_predictions)
+        mcc = matthews_corrcoef(y_test, mlp_predictions)
+        sensitivity = recall_score(y_test, mlp_predictions, pos_label=1)
+        specificity = recall_score(y_test, mlp_predictions, pos_label=0)
 
-    # We train the Logistic Regression model
-    lr_model = LogisticRegression(**lr_param_grid)
-    lr_model.fit(X_train, y_train)
-
-    # We train the MLP model
-    mlp_model = MLPClassifier(**mlp_param_grid)
-    mlp_model.fit(X_train, y_train)
-
-    # We predict the labels for the test set
-    svm_predictions = svm_model.predict(X_test)
-    lr_predictions = lr_model.predict(X_test)
-    mlp_predictions = mlp_model.predict(X_test)
-
-    # We compute the accuracy for the test set
-    svm_accuracy = accuracy_score(y_test, svm_predictions)
-    lr_accuracy = accuracy_score(y_test, lr_predictions)
-    mlp_accuracy = accuracy_score(y_test, mlp_predictions)
-
-    # We compute the mcc score for the test set
-    svm_mcc = matthews_corrcoef(y_test, svm_predictions)
-    lr_mcc = matthews_corrcoef(y_test, lr_predictions)
-    mlp_mcc = matthews_corrcoef(y_test, mlp_predictions)
-
-    # We compute the sensitivity for the test set
-    svm_sensitivity = recall_score(y_test, svm_predictions, pos_label=1)
-    lr_sensitivity = recall_score(y_test, lr_predictions, pos_label=1)
-    mlp_sensitivity = recall_score(y_test, mlp_predictions, pos_label=1)
-
-    # We compute the specificity for the test set
-    svm_specificity = recall_score(y_test, svm_predictions, pos_label=0)
-    lr_specificity = recall_score(y_test, lr_predictions, pos_label=0)
-    mlp_specificity = recall_score(y_test, mlp_predictions, pos_label=0)
-
-    # We save the results in the results list, for each task, dataset and representation, representer, precision, classifier, sensitivity, specificity accuracy, mcc
-    results_list.append([task, dataset, representation_type, representer, precision,
-                        "SVM", svm_sensitivity, svm_specificity, svm_accuracy, svm_mcc])
-    results_list.append([task, dataset, representation_type, representer,
-                        precision, "LR", lr_sensitivity, lr_specificity, lr_accuracy, lr_mcc])
-    results_list.append([task, dataset, representation_type, representer, precision,
-                        "FFNN", mlp_sensitivity, mlp_specificity, mlp_accuracy, mlp_mcc])
+    # We save the results in the results list, for each task, dataset and representation, representer, precision, classifier, mcc, accuracy, sensitivity, specificity
+    results_list.append([task, dataset, representation_type, representer, precision, classifier, mcc, accuracy, sensitivity, specificity])
 
 # We save the results in a csv file
 results_df = pd.DataFrame(results_list, columns=["Task", "Dataset", "Representation",
-                          "Representer", "Precision", "Classifier", "Sensitivity", "Specificity", "Accuracy", "MCC"])
-results_df.to_csv(settings.RESULTS_PATH + "results_best_test.csv", index=False)
+                          "Representer", "Precision", "Classifier", "MCC", "Accuracy", "Sensitivity", "Specificity"])
+results_df.to_csv(settings.RESULTS_PATH + "results_best_test_trad.csv", index=False)

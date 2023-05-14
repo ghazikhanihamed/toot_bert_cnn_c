@@ -17,35 +17,43 @@ ds_best_mcc = []
 for task in tasks:
     df_temp = df[df["Task"] == task]
     if not df_temp.empty:
-        # We take the first three rows of the df_temp2 sorted by MCC value split by "±" and take the first element
-        three_best_mcc = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).nlargest(3).index.tolist()
-        df_three_best_mcc = df_temp.loc[three_best_mcc]
+        # for each classifier, we find the best MCC
+        for classifier in df_temp["Classifier"].unique():
+            df_temp_classifier = df_temp[df_temp["Classifier"] == classifier]
+            
+            # Best top 1 MCC from df_temp_classifier    
+            best_mcc = df_temp_classifier["MCC"].max()
 
-        # We take the best MCC value for each category of "Task", "Dataset" and "Representer"
-        best_mcc_id = df_temp["MCC"].str.split(
-            "±").str[0].astype(float).idxmax()
+            # We find the row with the best MCC and select only the first row
+            df_temp_best_mcc = df_temp_classifier[df_temp_classifier["MCC"] == best_mcc].iloc[0]
 
-        df_best_mcc = df_temp.loc[best_mcc_id]
-        ds_best_mcc.append(df_three_best_mcc)
-        # ds_best_mcc.append(df_best_mcc)
+            # we make the df_temp_best_mcc a dataframe with one row
+            df_temp_best_mcc = pd.DataFrame(df_temp_best_mcc).transpose()
 
+            # We append the row with the best MCC to the list
+            ds_best_mcc.append(df_temp_best_mcc)
+
+# We create a dataframe from ds_best_mcc
 df_table = pd.concat(ds_best_mcc)
 
 # We create a dataframe from df_table with short names of the tasks, datasets and representations, representer, precision,  classifier, and MCC
 df_table_short = df_table.copy()
 df_table_short["Task"] = df_table_short["Task"].map(settings.TASKS_SHORT)
-df_table_short["Dataset"] = df_table_short["Dataset"]
-df_table_short["Representation"] = df_table_short["Representation"]
-df_table_short["Representer"] = df_table_short["Representer"]
-df_table_short["Precision"] = df_table_short["Precision"]
-df_table_short["Classifier"] = df_table_short["Classifier"]
-df_table_short["MCC"] = df_table_short["MCC"]
 
-# We don't need the sensitivity, specificity, and accuracy columns
-df_table_short = df_table_short.drop(
-    columns=["Sensitivity", "Specificity", "Accuracy"])
+# df_table_short["mean_mcc"] = df_table_short["MCC"].str.split("±").str[0].astype(float)
 
+# # Order df_table_short first by Tast and then by "mean_mcc"
+# df_table_short = df_table_short.sort_values(["Task", "mean_mcc"], ascending=[False, False])
+
+# we change the order of the columns
+df_table_short = df_table_short[["Task", "Dataset", "Representation",
+                                    "Representer", "Classifier", "MCC", "Accuracy", "Sensitivity", "Specificity"]]
+
+# We change the names of the columns of Accuracy, Sensitivity, Specificity to Acc, Sen, Spc
+df_table_short = df_table_short.rename(columns={"Accuracy": "Acc", "Sensitivity": "Sen", "Specificity": "Spc"})
+
+# We replace the 'na' values with a dash of the Dataset column
+df_table_short = df_table_short.replace({'Dataset': {'na': '-'}})
 
 # We make a latex table out of the df_table_short dataframe
 # We create a latex table from the dataframe with the header boldface
@@ -57,5 +65,5 @@ for col in df_table_short.columns:
     latex_table = latex_table.replace(col, '\\textbf{' + col + '}')
 
 # Save the modified LaTeX table to a file
-with open(os.path.join(settings.LATEX_PATH, "best_results.tex"), 'w') as f:
+with open(os.path.join(settings.LATEX_PATH, "best_results_cnn.tex"), 'w') as f:
     f.write(latex_table)

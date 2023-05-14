@@ -1,0 +1,24 @@
+\begin{tabular}{lcccccccc}
+\toprule
+ \textbf{Task} &    \textbf{Dataset} & \textbf{Representation} & \textbf{Representer} & \textbf{Classifier} &       \textbf{MCC} &         \textbf{Acc} &         \textbf{Sen} &         \textbf{Spc} \\
+\midrule
+IC-MP & imbalanced &      finetuned &      ESM-1b &        SVM & 0.99±0.01 & 100.00±0.00 &  99.00±2.00 & 100.00±0.00 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &         RF & 0.98±0.01 & 100.00±0.00 &  98.00±2.00 & 100.00±0.00 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &        kNN & 0.99±0.01 & 100.00±0.00 &  98.00±2.00 & 100.00±0.00 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &         LR & 1.00±0.00 & 100.00±0.00 & 100.00±1.00 & 100.00±0.00 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &       FFNN & 1.00±0.01 & 100.00±0.00 & 100.00±1.00 & 100.00±0.00 \\
+IC-MP & imbalanced &      finetuned &      ESM-1b &        CNN & 0.99±0.01 & 100.00±0.00 & 100.00±1.00 & 100.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &        SVM & 1.00±0.00 & 100.00±0.00 & 100.00±1.00 & 100.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &         RF & 0.99±0.01 & 100.00±0.00 &  99.00±1.00 & 100.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &        kNN & 0.99±0.01 & 100.00±0.00 &  99.00±1.00 & 100.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &         LR & 1.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &       FFNN & 1.00±0.01 & 100.00±0.00 &  99.00±1.00 & 100.00±0.00 \\
+IT-MP & imbalanced &      finetuned &      ESM-1b &        CNN & 0.99±0.01 & 100.00±0.00 &  99.00±1.00 & 100.00±0.00 \\
+IC-IT &          - &         frozen &   ESM-2\_15B &        SVM & 0.88±0.03 &  94.00±1.00 &  92.00±2.00 &  95.00±3.00 \\
+IC-IT &          - &      finetuned &      ESM-1b &         RF & 0.84±0.03 &  92.00±2.00 &  88.00±6.00 &  95.00±3.00 \\
+IC-IT &          - &         frozen &      ProtT5 &        kNN & 0.81±0.03 &  90.00±2.00 &  94.00±1.00 &  87.00±4.00 \\
+IC-IT &          - &      finetuned &      ESM-1b &         LR & 0.88±0.05 &  94.00±2.00 &  95.00±2.00 &  93.00±4.00 \\
+IC-IT &          - &         frozen &       ESM-2 &       FFNN & 0.88±0.05 &  94.00±2.00 &  93.00±3.00 &  95.00±3.00 \\
+IC-IT &          - &      finetuned &       ESM-2 &        CNN & 0.89±0.03 &  94.00±1.00 &  92.00±2.00 &  96.00±2.00 \\
+\bottomrule
+\end{tabular}

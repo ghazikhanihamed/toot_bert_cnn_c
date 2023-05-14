@@ -10,8 +10,8 @@ df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
 tasks = settings.TASKS
 
 for task in tasks:
-    if task == settings.IONCHANNELS_MEMBRANEPROTEINS or task == settings.IONTRANSPORTERS_MEMBRANEPROTEINS:
-        continue
+    # if task == settings.IONCHANNELS_MEMBRANEPROTEINS or task == settings.IONTRANSPORTERS_MEMBRANEPROTEINS:
+    #     continue
     df_temp = df[df["Task"] == task]
     # Order by MCC
     df_temp = df_temp.sort_values(by=["MCC"], ascending=False)
@@ -43,7 +43,7 @@ for task in tasks:
                 new_df = new_df.append(row, ignore_index=True)
 
     # re-order the columns
-    new_df = new_df[['Representer', 'Representation', 'Precision', 'SVM', 'RF', 'kNN', 'LR', 'FFNN']]
+    new_df = new_df[['Representer', 'Representation', 'Precision', 'CNN', 'SVM', 'RF', 'kNN', 'LR', 'FFNN']]
 
     # We replace the NaN values with a dash
     new_df = new_df.fillna('-')
