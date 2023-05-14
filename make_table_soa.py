@@ -18,9 +18,9 @@ data = [
     ['TooT-BERT-C', 'IC-MP', 'ProtBERT-BFD', 'LR', 98.24, 0.85],
     ['TooT-BERT-C', 'IT-MP', 'ProtBERT-BFD', 'LR', 95.43, 0.64],
     ['TooT-BERT-C', 'IC-IT', 'ProtBERT-BFD', 'LR', 85.38, 0.71],
-    ['Proposed', 'IC-MP', 'ESM-1b', 'SVM', 98.24, 0.85],
+    ['Proposed', 'IC-MP', 'ESM-1b', 'LR', 98.24, 0.85],
     ['Proposed', 'IT-MP', 'ESM-1b', 'LR', 95.98, 0.69],
-    ['Proposed', 'IC-IT', 'ESM-2_15B', 'SVM', 93.85, 0.88]
+    ['Proposed', 'IC-IT', 'ESM-2', 'CNN', 93.85, 0.87]
 ]
 
 columns = ['Project', 'Task', 'Encoder', 'Classifier', 'Accuracy', 'MCC']
@@ -48,7 +48,7 @@ def custom_barplot(data, x, y, hue, palette, highlight_index):
             color = palette[i]
 
             # If the project is the "Proposed" project, increase the alpha value
-            alpha = 1.0 if j == highlight_index else 0.6
+            alpha = 1.0 if j == highlight_index else 0.8
 
             ax.bar(
                 x=j + i / (len(unique_hue) + 1),
@@ -94,7 +94,7 @@ for p in ax.patches:
     ax.text(x, y, f'{height:.2f}', ha='center', va='bottom', fontsize=12)
 
 plt.tight_layout()
-plt.savefig(os.path.join(settings.LATEX_PATH, "independent_soa.png"), bbox_inches='tight', dpi=300)
+plt.savefig(os.path.join(settings.LATEX_PATH, "independent_soa_cnn.png"), bbox_inches='tight', dpi=300)
 
 
 # We load the results
