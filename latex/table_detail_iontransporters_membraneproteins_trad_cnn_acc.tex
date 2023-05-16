@@ -1,0 +1,54 @@
+\begin{tabular}{lccccccccc}
+\toprule
+ \textbf{Representer} & \textbf{Representation} &    \textbf{Dataset} & \textbf{Precision} &         \textbf{CNN} &         \textbf{SVM} &          \textbf{RF} &         \textbf{kNN} &          \textbf{LR} &        \textbf{FFNN} \\
+\midrule
+ProtBERT-BFD &      finetuned & imbalanced &      full &  99.00±0.00 &  99.00±0.00 &  99.00±0.00 &  99.00±0.00 &  99.00±0.00 &  99.00±0.00 \\
+ProtBERT-BFD &      finetuned &   balanced &      full &  87.70±2.90 &  86.70±3.00 &  82.80±4.00 &  80.60±3.30 &  86.40±3.10 &  86.30±3.00 \\
+ProtBERT-BFD &      finetuned & imbalanced &      half &  98.00±0.00 &  99.00±0.00 &  99.00±0.00 &  98.00±0.00 &  99.00±0.00 &  99.00±0.00 \\
+ProtBERT-BFD &      finetuned &   balanced &      half &  87.60±2.80 &  86.40±2.90 &  82.60±3.90 &  80.10±3.20 &  86.20±3.20 &  86.30±2.90 \\
+ProtBERT-BFD &         frozen & imbalanced &      full &  97.00±0.00 &  96.00±0.00 &  94.00±0.00 &  95.00±1.00 &  96.00±0.00 &  97.00±0.00 \\
+ProtBERT-BFD &         frozen &   balanced &      full &  87.40±3.10 &  86.30±2.70 &  82.50±3.90 &  79.90±3.40 &  86.30±3.20 &  86.40±2.90 \\
+ProtBERT-BFD &         frozen & imbalanced &      half &  96.00±0.00 &  97.00±0.00 &  94.00±0.00 &  95.00±1.00 &  96.00±0.00 &  97.00±0.00 \\
+ProtBERT-BFD &         frozen &   balanced &      half &  87.50±2.90 &  86.40±2.60 &  82.10±4.40 &  79.70±3.30 &  86.40±3.30 &  86.30±2.90 \\
+       ESM-2 &      finetuned & imbalanced &      full & 100.00±0.00 &  99.00±0.00 &  98.00±0.00 &  99.00±0.00 &  99.00±0.00 &  99.00±0.00 \\
+       ESM-2 &      finetuned &   balanced &      full &  91.11±1.78 &  89.60±2.20 &  85.80±2.70 &  80.60±3.70 &  89.80±1.90 &  89.90±2.80 \\
+       ESM-2 &      finetuned & imbalanced &      half & 100.00±0.00 &  99.00±0.00 &  98.00±0.00 &  98.00±1.00 &  99.00±0.00 &  99.00±0.00 \\
+       ESM-2 &      finetuned &   balanced &      half &  91.30±2.00 &  89.40±2.20 &  85.60±2.90 &  80.60±3.50 &  89.70±1.90 &  89.70±2.80 \\
+       ESM-2 &         frozen & imbalanced &      full &  97.00±0.00 &  97.00±0.00 &  94.00±1.00 &  95.00±0.00 &  97.00±1.00 &  97.00±1.00 \\
+       ESM-2 &         frozen &   balanced &      full &  91.20±1.70 &  89.30±2.40 &  85.70±2.50 &  80.80±3.40 &  89.60±2.00 &  89.70±3.00 \\
+       ESM-2 &         frozen & imbalanced &      half &  97.00±0.00 &  97.00±0.00 &  94.00±0.00 &  95.00±0.00 &  97.00±1.00 &  97.00±0.00 \\
+       ESM-2 &         frozen &   balanced &      half &  91.10±1.90 &  89.40±2.30 &  85.70±2.60 &  80.70±3.40 &  89.50±2.00 &  89.70±2.70 \\
+    ProtBERT &      finetuned & imbalanced &      full &  99.00±0.00 &  98.00±0.00 &  98.00±0.00 &  98.00±0.00 &  98.00±0.00 &  98.00±0.00 \\
+    ProtBERT &      finetuned &   balanced &      full &  88.20±1.90 &  86.90±2.30 &  82.80±3.10 &  77.90±3.30 &  87.50±2.70 &  87.50±2.30 \\
+    ProtBERT &      finetuned & imbalanced &      half &  98.00±0.00 &  98.00±0.00 &  97.00±0.00 &  97.00±0.00 &  98.00±1.00 &  98.00±0.00 \\
+    ProtBERT &      finetuned &   balanced &      half &  88.20±2.10 &  86.90±2.20 &  82.90±3.40 &  78.00±3.30 &  87.10±2.10 &  87.60±2.30 \\
+    ProtBERT &         frozen & imbalanced &      full &  96.00±1.00 &  96.00±0.00 &  93.00±0.00 &  94.00±1.00 &  96.00±0.00 &  96.00±0.00 \\
+    ProtBERT &         frozen &   balanced &      full &  88.10±2.00 &  86.50±2.60 &  82.30±3.50 &  77.50±3.20 &  87.10±2.40 &  87.20±2.80 \\
+    ProtBERT &         frozen & imbalanced &      half &  96.00±0.00 &  96.00±0.00 &  93.00±0.00 &  94.00±1.00 &  96.00±0.00 &  96.00±0.00 \\
+    ProtBERT &         frozen &   balanced &      half &  88.20±1.70 &  86.50±2.50 &  82.30±3.80 &  77.30±2.90 &  87.10±2.30 &  87.20±2.80 \\
+      ESM-1b &      finetuned & imbalanced &      full & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 \\
+      ESM-1b &      finetuned &   balanced &      full &  90.80±2.20 &  90.70±2.10 &  87.40±2.50 &  84.50±2.90 &  90.00±2.60 &  89.90±2.90 \\
+      ESM-1b &      finetuned & imbalanced &      half & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 & 100.00±0.00 \\
+      ESM-1b &      finetuned &   balanced &      half &  90.80±1.90 &  90.80±2.10 &  87.60±2.40 &  84.50±2.80 &  90.10±2.60 &  90.10±3.00 \\
+      ESM-1b &         frozen & imbalanced &      full &  96.00±1.00 &  97.00±0.00 &  94.00±1.00 &  96.00±0.00 &  97.00±0.00 &  97.00±0.00 \\
+      ESM-1b &         frozen &   balanced &      full &  90.90±2.10 &  90.40±2.10 &  87.00±2.70 &  84.20±2.90 &  89.90±2.70 &  90.00±2.40 \\
+      ESM-1b &         frozen & imbalanced &      half &  97.00±0.00 &  97.00±0.00 &  94.00±0.00 &  96.00±0.00 &  97.00±0.00 &  97.00±0.00 \\
+      ESM-1b &         frozen &   balanced &      half &  90.56±2.67 &  90.40±2.20 &  86.90±3.10 &  84.20±2.80 &  89.90±2.60 &  90.00±2.80 \\
+   ESM-2\_15B &      finetuned & imbalanced &      full &           - &           - &           - &           - &           - &           - \\
+   ESM-2\_15B &      finetuned &   balanced &      full &           - &           - &           - &           - &           - &           - \\
+   ESM-2\_15B &      finetuned & imbalanced &      half &           - &           - &           - &           - &           - &           - \\
+   ESM-2\_15B &      finetuned &   balanced &      half &           - &           - &           - &           - &           - &           - \\
+   ESM-2\_15B &         frozen & imbalanced &      full &           - &           - &           - &           - &           - &           - \\
+   ESM-2\_15B &         frozen &   balanced &      full &           - &           - &           - &           - &           - &           - \\
+   ESM-2\_15B &         frozen & imbalanced &      half &  97.00±0.00 &  97.00±0.00 &  93.00±0.00 &  95.00±1.00 &  97.00±0.00 &  97.00±0.00 \\
+   ESM-2\_15B &         frozen &   balanced &      half &  90.80±2.10 &  90.70±2.70 &  86.00±2.70 &  74.00±3.30 &  91.00±2.80 &  90.50±2.90 \\
+      ProtT5 &      finetuned & imbalanced &      full &           - &           - &           - &           - &           - &           - \\
+      ProtT5 &      finetuned &   balanced &      full &           - &           - &           - &           - &           - &           - \\
+      ProtT5 &      finetuned & imbalanced &      half &           - &           - &           - &           - &           - &           - \\
+      ProtT5 &      finetuned &   balanced &      half &           - &           - &           - &           - &           - &           - \\
+      ProtT5 &         frozen & imbalanced &      full &           - &           - &           - &           - &           - &           - \\
+      ProtT5 &         frozen &   balanced &      full &           - &           - &           - &           - &           - &           - \\
+      ProtT5 &         frozen & imbalanced &      half &  97.00±0.00 &  97.00±0.00 &  94.00±0.00 &  96.00±0.00 &  97.00±0.00 &  97.00±0.00 \\
+      ProtT5 &         frozen &   balanced &      half &  91.80±1.70 &  91.70±2.40 &  88.00±2.30 &  82.40±2.70 &  90.80±2.00 &  90.70±2.50 \\
+\bottomrule
+\end{tabular}

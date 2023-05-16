@@ -10,8 +10,8 @@ df = pd.read_csv(os.path.join(settings.RESULTS_PATH,
 tasks = settings.TASKS
 
 for task in tasks:
-    # if task == settings.IONCHANNELS_MEMBRANEPROTEINS or task == settings.IONTRANSPORTERS_MEMBRANEPROTEINS:
-    #     continue
+    if task == settings.IONCHANNELS_MEMBRANEPROTEINS or task == settings.IONTRANSPORTERS_MEMBRANEPROTEINS:
+        continue
     df_temp = df[df["Task"] == task]
     # Order by MCC
     df_temp = df_temp.sort_values(by=["MCC"], ascending=False)
@@ -21,6 +21,7 @@ for task in tasks:
     representations = df_temp['Representation'].unique()
     precisions = df_temp['Precision'].unique()
     classifiers = df_temp['Classifier'].unique()
+    # datasets = df_temp['Dataset'].unique()
 
     # create an empty dataframe to store the data
     new_df = pd.DataFrame()
@@ -29,13 +30,16 @@ for task in tasks:
     for representer in representers:
         for representation in representations:
             for precision in precisions:
+                # for dataset in datasets:
                 row = {
                     'Representer': representer,
                     'Representation': representation,
-                    'Precision': precision
+                    'Precision': precision,
+                    # 'Dataset': dataset,
                 }
                 for classifier in classifiers:
-                    match = df_temp.loc[(df_temp['Representer']==representer) & (df_temp['Representation']==representation) & (df_temp['Precision']==precision) & (df_temp['Classifier']==classifier)]
+                    match = df_temp.loc[(df_temp['Representer']==representer) & (df_temp['Representation']==representation) & (df_temp['Precision']==precision) & (df_temp['Classifier']==classifier)] 
+                                        # & (df_temp['Dataset']==dataset)]
                     if len(match) > 0:
                         row[classifier] = match['MCC'].values[0]
                     else:
@@ -44,9 +48,14 @@ for task in tasks:
 
     # re-order the columns
     new_df = new_df[['Representer', 'Representation', 'Precision', 'CNN', 'SVM', 'RF', 'kNN', 'LR', 'FFNN']]
+    # new_df = new_df[['Representer', 'Representation', 'Dataset', 'Precision', 'CNN', 'SVM', 'RF', 'kNN', 'LR', 'FFNN']]
+
 
     # We replace the NaN values with a dash
     new_df = new_df.fillna('-')
+
+    # replace na to dash
+    new_df = new_df.replace(float('nan'), '-')
 
     # We create a latex table from the dataframe with the header boldface
     latex_table = new_df.to_latex(
@@ -57,6 +66,6 @@ for task in tasks:
         latex_table = latex_table.replace(col, '\\textbf{' + col + '}')
 
     # Save the modified LaTeX table to a file
-    with open(os.path.join(settings.LATEX_PATH, "table_detail_" + task + "_trad_cnn.tex"), "w") as f:
+    with open(os.path.join(settings.LATEX_PATH, "table_detail_" + task + "_trad_cnn_mcc.tex"), "w") as f:
         f.write(latex_table)
 

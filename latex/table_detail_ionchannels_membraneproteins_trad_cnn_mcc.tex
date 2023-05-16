@@ -1,0 +1,54 @@
+\begin{tabular}{lccccccccc}
+\toprule
+ \textbf{Representer} & \textbf{Representation} &    \textbf{Dataset} & \textbf{Precision} &       \textbf{CNN} &       \textbf{SVM} &        \textbf{RF} &       \textbf{kNN} &        \textbf{LR} &      \textbf{FFNN} \\
+\midrule
+      ESM-1b &      finetuned & imbalanced &      half & 0.99±0.01 & 0.99±0.01 & 0.98±0.01 & 0.99±0.01 & 1.00±0.00 & 1.00±0.01 \\
+      ESM-1b &      finetuned &   balanced &      half & 0.82±0.07 & 0.85±0.04 & 0.77±0.05 & 0.66±0.05 & 0.84±0.04 & 0.83±0.04 \\
+      ESM-1b &      finetuned & imbalanced &      full & 0.99±0.01 & 0.99±0.01 & 0.97±0.01 & 0.98±0.01 & 0.99±0.01 & 0.99±0.01 \\
+      ESM-1b &      finetuned &   balanced &      full & 0.83±0.04 & 0.85±0.04 & 0.77±0.05 & 0.66±0.05 & 0.84±0.04 & 0.83±0.04 \\
+      ESM-1b &         frozen & imbalanced &      half & 0.83±0.07 & 0.88±0.03 & 0.58±0.03 & 0.78±0.03 & 0.83±0.04 & 0.85±0.04 \\
+      ESM-1b &         frozen &   balanced &      half & 0.81±0.07 & 0.85±0.04 & 0.78±0.05 & 0.65±0.05 & 0.84±0.04 & 0.84±0.04 \\
+      ESM-1b &         frozen & imbalanced &      full & 0.87±0.04 & 0.88±0.03 & 0.59±0.04 & 0.78±0.03 & 0.83±0.04 & 0.85±0.04 \\
+      ESM-1b &         frozen &   balanced &      full & 0.82±0.04 & 0.85±0.04 & 0.78±0.05 & 0.65±0.05 & 0.84±0.04 & 0.84±0.04 \\
+       ESM-2 &      finetuned & imbalanced &      half & 0.97±0.02 & 0.95±0.03 & 0.90±0.01 & 0.90±0.03 & 0.95±0.02 & 0.95±0.02 \\
+       ESM-2 &      finetuned &   balanced &      half & 0.84±0.05 & 0.85±0.04 & 0.76±0.05 & 0.64±0.05 & 0.83±0.04 & 0.84±0.04 \\
+       ESM-2 &      finetuned & imbalanced &      full & 0.97±0.01 & 0.95±0.01 & 0.91±0.02 & 0.90±0.02 & 0.95±0.02 & 0.95±0.03 \\
+       ESM-2 &      finetuned &   balanced &      full & 0.84±0.05 & 0.84±0.03 & 0.77±0.06 & 0.64±0.05 & 0.83±0.04 & 0.84±0.04 \\
+       ESM-2 &         frozen & imbalanced &      half & 0.88±0.05 & 0.88±0.03 & 0.51±0.05 & 0.75±0.05 & 0.87±0.04 & 0.86±0.04 \\
+       ESM-2 &         frozen &   balanced &      half & 0.83±0.06 & 0.85±0.04 & 0.76±0.06 & 0.64±0.06 & 0.84±0.04 & 0.84±0.04 \\
+       ESM-2 &         frozen & imbalanced &      full & 0.87±0.05 & 0.88±0.03 & 0.52±0.06 & 0.75±0.05 & 0.87±0.04 & 0.86±0.04 \\
+       ESM-2 &         frozen &   balanced &      full & 0.84±0.05 & 0.85±0.04 & 0.77±0.06 & 0.63±0.06 & 0.84±0.04 & 0.84±0.04 \\
+   ESM-2\_15B &      finetuned & imbalanced &      half &         - &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &      finetuned &   balanced &      half &         - &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &      finetuned & imbalanced &      full &         - &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &      finetuned &   balanced &      full &         - &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &         frozen & imbalanced &      half & 0.88±0.03 & 0.88±0.05 & 0.40±0.03 & 0.72±0.03 & 0.89±0.03 & 0.88±0.03 \\
+   ESM-2\_15B &         frozen &   balanced &      half & 0.85±0.04 & 0.86±0.04 & 0.80±0.05 & 0.47±0.06 & 0.87±0.04 & 0.87±0.04 \\
+   ESM-2\_15B &         frozen & imbalanced &      full &         - &         - &         - &         - &         - &         - \\
+   ESM-2\_15B &         frozen &   balanced &      full &         - &         - &         - &         - &         - &         - \\
+    ProtBERT &      finetuned & imbalanced &      half & 0.87±0.02 & 0.86±0.03 & 0.73±0.02 & 0.79±0.03 & 0.83±0.03 & 0.84±0.03 \\
+    ProtBERT &      finetuned &   balanced &      half & 0.75±0.06 & 0.76±0.06 & 0.73±0.06 & 0.51±0.07 & 0.75±0.06 & 0.75±0.05 \\
+    ProtBERT &      finetuned & imbalanced &      full & 0.88±0.05 & 0.88±0.04 & 0.80±0.06 & 0.84±0.04 & 0.85±0.05 & 0.87±0.05 \\
+    ProtBERT &      finetuned &   balanced &      full & 0.74±0.07 & 0.76±0.06 & 0.72±0.05 & 0.50±0.08 & 0.74±0.06 & 0.75±0.05 \\
+    ProtBERT &         frozen & imbalanced &      half & 0.81±0.02 & 0.78±0.03 & 0.31±0.05 & 0.54±0.05 & 0.79±0.03 & 0.79±0.03 \\
+    ProtBERT &         frozen &   balanced &      half & 0.75±0.08 & 0.75±0.06 & 0.72±0.05 & 0.49±0.08 & 0.73±0.07 & 0.75±0.05 \\
+    ProtBERT &         frozen & imbalanced &      full & 0.81±0.05 & 0.78±0.03 & 0.30±0.04 & 0.54±0.06 & 0.79±0.03 & 0.78±0.04 \\
+    ProtBERT &         frozen &   balanced &      full & 0.75±0.06 & 0.76±0.06 & 0.73±0.06 & 0.49±0.08 & 0.74±0.07 & 0.75±0.05 \\
+      ProtT5 &      finetuned & imbalanced &      half &         - &         - &         - &         - &         - &         - \\
+      ProtT5 &      finetuned &   balanced &      half &         - &         - &         - &         - &         - &         - \\
+      ProtT5 &      finetuned & imbalanced &      full &         - &         - &         - &         - &         - &         - \\
+      ProtT5 &      finetuned &   balanced &      full &         - &         - &         - &         - &         - &         - \\
+      ProtT5 &         frozen & imbalanced &      half & 0.87±0.05 & 0.86±0.03 & 0.54±0.07 & 0.76±0.06 & 0.82±0.04 & 0.84±0.03 \\
+      ProtT5 &         frozen &   balanced &      half & 0.83±0.06 & 0.84±0.04 & 0.78±0.05 & 0.64±0.06 & 0.82±0.04 & 0.82±0.05 \\
+      ProtT5 &         frozen & imbalanced &      full &         - &         - &         - &         - &         - &         - \\
+      ProtT5 &         frozen &   balanced &      full &         - &         - &         - &         - &         - &         - \\
+ProtBERT-BFD &      finetuned & imbalanced &      half & 0.82±0.02 & 0.87±0.04 & 0.86±0.03 & 0.84±0.03 & 0.86±0.04 & 0.85±0.04 \\
+ProtBERT-BFD &      finetuned &   balanced &      half & 0.76±0.08 & 0.77±0.05 & 0.72±0.05 & 0.60±0.05 & 0.75±0.08 & 0.76±0.05 \\
+ProtBERT-BFD &      finetuned & imbalanced &      full & 0.82±0.03 & 0.83±0.03 & 0.82±0.05 & 0.81±0.04 & 0.83±0.04 & 0.82±0.04 \\
+ProtBERT-BFD &      finetuned &   balanced &      full & 0.77±0.07 & 0.77±0.04 & 0.73±0.06 & 0.59±0.06 & 0.75±0.07 & 0.76±0.06 \\
+ProtBERT-BFD &         frozen & imbalanced &      half & 0.78±0.05 & 0.75±0.04 & 0.34±0.04 & 0.63±0.03 & 0.72±0.03 & 0.74±0.03 \\
+ProtBERT-BFD &         frozen &   balanced &      half & 0.76±0.07 & 0.77±0.04 & 0.73±0.06 & 0.58±0.07 & 0.73±0.07 & 0.75±0.06 \\
+ProtBERT-BFD &         frozen & imbalanced &      full & 0.80±0.04 & 0.75±0.04 & 0.33±0.07 & 0.63±0.03 & 0.72±0.03 & 0.74±0.01 \\
+ProtBERT-BFD &         frozen &   balanced &      full & 0.74±0.07 & 0.77±0.04 & 0.72±0.06 & 0.58±0.06 & 0.73±0.07 & 0.75±0.06 \\
+\bottomrule
+\end{tabular}
