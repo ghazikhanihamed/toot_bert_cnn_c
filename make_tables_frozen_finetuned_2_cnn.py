@@ -68,6 +68,8 @@ def extract_mean(value):
 def extract_std(value):
     return float(value.split("±")[1])
     
+pd.set_option('display.float_format', '{:.2e}'.format)
+
 representation_types = [FROZEN, FINETUNED]
 precision_types = ["half", "full"]
 representers = REPRESENTATIONS
@@ -89,6 +91,28 @@ df["plm_size"] = df["Representer"].apply(lambda x: PLM_PARAM_SIZE[x])
 df['task_short'] = df['Task'].apply(lambda x: TASKS_SHORT[x])
 
 # --------------------------------------------- TASKS
+
+pvalue_dict = {}
+# For each task, calculate the differences
+for task in df['task_short'].unique():
+    # Get balanced and imbalanced rows for this task
+    frozen_rows = df[(df['task_short'] == task) &
+                       (df['Representation'] == 'frozen')]
+    finetuned_rows = df[(df['task_short'] == task) &
+                         (df['Representation'] == 'finetuned')]
+    
+    # We filter the rows of frozen_rows to only keep the rows that have a finetuned counterpart
+    frozen_rows = frozen_rows[frozen_rows['Representer'].isin(finetuned_rows['Representer'])]
+
+    # Ensure the rows are in the same order
+    frozen_rows = frozen_rows.sort_index()
+    finetuned_rows = finetuned_rows.sort_index()
+
+    
+    # Conduct paired t-test
+    _, p_value = stats.ttest_rel(
+        frozen_rows['MCC_mean'], finetuned_rows['MCC_mean'])
+    pvalue_dict[task] = p_value
 
 # Group by Task and Dataset, and calculate the mean MCC
 mean_mcc = df.groupby(['task_short', 'Representation'])['MCC_mean'].mean().reset_index()
@@ -125,8 +149,11 @@ df_metrics['Specificity'] = df_metrics['Specificity_mean'].map('{:.2f}'.format) 
 df_metrics = df_metrics[['task_short', 'Representation', 'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
 df_metrics = df_metrics.rename(columns={'task_short': 'Task'})
 
+# Add p-values
+df_metrics['P-value'] = df_metrics['Task'].apply(lambda x: pvalue_dict[x]).map('{:.2e}'.format)
+
 # Generate LaTeX table
-latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lccccc')
+latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_frozen_finetuned_results_task_cnn.tex"), "w") as f:
@@ -170,6 +197,27 @@ plt.close()
 
 # ---------------------------------------------
 
+pvalue_dict = {}
+# For each task, calculate the differences
+for classifier in df['Classifier'].unique():
+    # Get balanced and imbalanced rows for this task
+    frozen_rows = df[(df['Classifier'] == classifier) &
+                       (df['Representation'] == 'frozen')]
+    finetuned_rows = df[(df['Classifier'] == classifier) &
+                         (df['Representation'] == 'finetuned')]
+    
+        # We filter the rows of frozen_rows to only keep the rows that have a finetuned counterpart
+    frozen_rows = frozen_rows[frozen_rows['Representer'].isin(finetuned_rows['Representer'])]
+
+    # Ensure the rows are in the same order
+    frozen_rows = frozen_rows.sort_index()
+    finetuned_rows = finetuned_rows.sort_index()
+
+    # Conduct paired t-test
+    _, p_value = stats.ttest_rel(
+        frozen_rows['MCC_mean'], finetuned_rows['MCC_mean'])
+    pvalue_dict[classifier] = p_value
+
 # Group by Classifier and Representation, and calculate the mean MCC
 mean_mcc = df.groupby(['Classifier', 'Representation'])['MCC_mean'].mean().reset_index()
 std_mcc = df.groupby(['Classifier', 'Representation'])['MCC_std'].mean().reset_index()
@@ -204,8 +252,11 @@ df_metrics['Specificity'] = df_metrics['Specificity_mean'].map('{:.2f}'.format) 
 # Select final columns for the table
 df_metrics = df_metrics[['Classifier', 'Representation', 'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
 
+# Add p-values
+df_metrics['P-value'] = df_metrics['Classifier'].map(pvalue_dict).map('{:.2e}'.format)
+
 # Generate LaTeX table
-latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lccccc')
+latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_frozen_finetuned_results_classifier_cnn.tex"), "w") as f:
@@ -250,6 +301,26 @@ show_delta_on_bars(barplot, delta_mcc)
 plt.savefig(os.path.join(LATEX_PATH, "mean_frozen_finetuned_results_classifier_cnn.png"), bbox_inches='tight', dpi=300)
 plt.close()
 
+pvalue_dict = {}
+# For each task, calculate the differences
+for plm_size in df['plm_size'].unique():
+    # Get balanced and imbalanced rows for this task
+    frozen_rows = df[(df['plm_size'] == plm_size) &
+                       (df['Representation'] == 'frozen')]
+    finetuned_rows = df[(df['plm_size'] == plm_size) &
+                         (df['Representation'] == 'finetuned')]
+    
+    # We filter the rows of frozen_rows to only keep the rows that have a finetuned counterpart
+    frozen_rows = frozen_rows[frozen_rows['Representer'].isin(finetuned_rows['Representer'])]
+
+    # Ensure the rows are in the same order
+    frozen_rows = frozen_rows.sort_index()
+    finetuned_rows = finetuned_rows.sort_index()
+
+    # Conduct paired t-test
+    _, p_value = stats.ttest_rel(
+        frozen_rows['MCC_mean'], finetuned_rows['MCC_mean'])
+    pvalue_dict[plm_size] = p_value
 
 # Group by Representer and Dataset, and calculate the mean MCC
 mean_mcc = df.groupby(['plm_size', 'Representation'])['MCC_mean'].mean().reset_index()
@@ -286,8 +357,14 @@ df_metrics['Specificity'] = df_metrics['Specificity_mean'].map('{:.2f}'.format) 
 df_metrics = df_metrics[['plm_size', 'Representation', 'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
 df_metrics = df_metrics.sort_values(by=['plm_size'], ascending=True)
 
+# Rename column plm_size to PLM
+df_metrics = df_metrics.rename(columns={'plm_size': 'PLM'})
+
+# Add p-values
+df_metrics['P-value'] = df_metrics['PLM'].map(pvalue_dict).map('{:.2e}'.format)
+
 # Generate LaTeX table
-latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lccccc')
+latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_frozen_finetuned_results_plm_cnn.tex"), "w") as f:
