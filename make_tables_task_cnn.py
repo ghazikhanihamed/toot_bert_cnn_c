@@ -118,6 +118,30 @@ df['task_short'] = df['Task'].apply(lambda x: TASKS_SHORT[x])
 
 # --------------------------------------------- Representer
 
+# We will compute the p-value for each task between the different representers
+pvalue_dict = {}
+for task in df['task_short'].unique():
+    protbert = df[(df['task_short'] == task) & (df['Representer'] == 'ProtBERT')]
+    protbert_bfd = df[(df['task_short'] == task) & (df['Representer'] == 'ProtBERT-BFD')]
+    prott5 = df[(df['task_short'] == task) & (df['Representer'] == 'ProtT5')]
+    esm1b = df[(df['task_short'] == task) & (df['Representer'] == 'ESM-1b')]
+    esm2 = df[(df['task_short'] == task) & (df['Representer'] == 'ESM-2')]
+    esm2_15b = df[(df['task_short'] == task) & (df['Representer'] == 'ESM-2_15B')]
+
+    # Ensure the rows are in the same order
+    protbert = protbert.sort_index()
+    protbert_bfd = protbert_bfd.sort_index()
+    prott5 = prott5.sort_index()
+    esm1b = esm1b.sort_index()
+    esm2 = esm2.sort_index()
+    esm2_15b = esm2_15b.sort_index()
+
+
+    # Compute the p-value
+    _, p_val = stats.f_oneway(protbert['MCC_mean'], protbert_bfd['MCC_mean'], prott5['MCC_mean'], esm1b['MCC_mean'], esm2['MCC_mean'], esm2_15b['MCC_mean'])
+    pvalue_dict[task] = p_val
+
+
 # Group by Task and Dataset, and calculate the mean MCC
 mean_mcc = df.groupby(['task_short', 'plm_size'])[
     'MCC_mean'].mean().reset_index()
@@ -182,16 +206,43 @@ sorted_df = df_metrics.sort_values(by=['Task', 'Size'])
 # Remove the 'Size' column if not needed anymore
 df_metrics = sorted_df.drop('Size', axis=1)
 
+# Add the p-values to the table
+df_metrics['P-value'] = df_metrics['Task'].map(pvalue_dict).map('{:.2e}'.format)
 
 # Generate LaTeX table
 latex_table = df_metrics.to_latex(
-    index=False, float_format="%.2f", escape=False, column_format='lccccc')
+    index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_task_plm_results_cnn.tex"), "w") as f:
     f.write(latex_table)
 
 # --------------------------------------------- Classifier
+
+# Compute the p-value for each task between the classifiers
+pvalue_dict = {}
+for task in df['task_short'].unique():
+    svm = df[(df['task_short'] == task) & (df['Classifier'] == 'SVM')]
+    rf = df[(df['task_short'] == task) & (df['Classifier'] == 'RF')]
+    lr = df[(df['task_short'] == task) & (df['Classifier'] == 'LR')]
+    ffnn = df[(df['task_short'] == task) & (df['Classifier'] == 'FFNN')]
+    cnn = df[(df['task_short'] == task) & (df['Classifier'] == 'CNN')]
+    knn = df[(df['task_short'] == task) & (df['Classifier'] == 'kNN')]
+
+    # Ensure the rows are in the same order
+    svm = svm.sort_index()
+    rf = rf.sort_index()
+    lr = lr.sort_index()
+    ffnn = ffnn.sort_index()
+    cnn = cnn.sort_index()
+    knn = knn.sort_index()
+
+    # Compute the p-value for each task between the classifiers
+    _, p_val = stats.f_oneway(svm['MCC_mean'], rf['MCC_mean'], lr['MCC_mean'], ffnn['MCC_mean'], cnn['MCC_mean'], knn['MCC_mean'])
+
+    # Add the p-value to the dictionary
+    pvalue_dict[task] = p_val
+
 
 # Group by Task and Classifier, and calculate the mean MCC
 mean_mcc = df.groupby(['task_short', 'Classifier'])[
@@ -251,9 +302,12 @@ df_metrics['Classifier'] = pd.Categorical(df_metrics['Classifier'], categories=c
 # Sort the dataframe by 'Task' and 'Classifier'
 df_metrics = df_metrics.sort_values(by=['Task', 'Classifier'])
 
+# Add the p-values to the table
+df_metrics['P-value'] = df_metrics['Task'].map(pvalue_dict).map('{:.2e}'.format)
+
 # Generate LaTeX table
 latex_table = df_metrics.to_latex(
-    index=False, float_format="%.2f", escape=False, column_format='lccccc')
+    index=False, float_format="%.2f", escape=False, column_format='lccccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_task_classifier_results_cnn.tex"), "w") as f:
