@@ -293,6 +293,11 @@ df_metrics = df_metrics[['task_short', 'Classifier',
                          'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
 df_metrics = df_metrics.rename(columns={'task_short': 'Task'})
 
+# We change the order of the tasks as IC-MP, IT-MP, and IC-IT
+df_metrics['Task'] = df_metrics['Task'].astype(
+    'category').cat.reorder_categories(['IC-MP', 'IT-MP', 'IC-IT'], ordered=True)
+df_metrics = df_metrics.sort_values('Task')
+
 # Define the custom sorting order for the 'Classifier' column
 custom_order = ['LR', 'kNN', 'RF', 'SVM', 'FFNN', 'CNN']
 
