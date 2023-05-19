@@ -143,32 +143,32 @@ for task in df['task_short'].unique():
 
 
 # Group by Task and Dataset, and calculate the mean MCC
-mean_mcc = df.groupby(['task_short', 'plm_size'])[
+mean_mcc = df.groupby(['task_short', 'Representer'])[
     'MCC_mean'].mean().reset_index()
-std_mcc = df.groupby(['task_short', 'plm_size'])['MCC_std'].mean().reset_index()
+std_mcc = df.groupby(['task_short', 'Representer'])['MCC_std'].mean().reset_index()
 
-mean_accuracy = df.groupby(['task_short', 'plm_size'])[
+mean_accuracy = df.groupby(['task_short', 'Representer'])[
     'Accuracy_mean'].mean().reset_index()
-std_accuracy = df.groupby(['task_short', 'plm_size'])[
+std_accuracy = df.groupby(['task_short', 'Representer'])[
     'Accuracy_std'].mean().reset_index()
 
-mean_sensitivity = df.groupby(['task_short', 'plm_size'])[
+mean_sensitivity = df.groupby(['task_short', 'Representer'])[
     'Sensitivity_mean'].mean().reset_index()
-std_sensitivity = df.groupby(['task_short', 'plm_size'])[
+std_sensitivity = df.groupby(['task_short', 'Representer'])[
     'Sensitivity_std'].mean().reset_index()
 
-mean_specificity = df.groupby(['task_short', 'plm_size'])[
+mean_specificity = df.groupby(['task_short', 'Representer'])[
     'Specificity_mean'].mean().reset_index()
-std_specificity = df.groupby(['task_short', 'plm_size'])[
+std_specificity = df.groupby(['task_short', 'Representer'])[
     'Specificity_std'].mean().reset_index()
 
 # Merge the mean and std dataframes for each metric
-mcc = pd.merge(mean_mcc, std_mcc, on=['task_short', 'plm_size'])
-accuracy = pd.merge(mean_accuracy, std_accuracy, on=['task_short', 'plm_size'])
+mcc = pd.merge(mean_mcc, std_mcc, on=['task_short', 'Representer'])
+accuracy = pd.merge(mean_accuracy, std_accuracy, on=['task_short', 'Representer'])
 sensitivity = pd.merge(mean_sensitivity, std_sensitivity,
-                       on=['task_short', 'plm_size'])
+                       on=['task_short', 'Representer'])
 specificity = pd.merge(mean_specificity, std_specificity,
-                       on=['task_short', 'plm_size'])
+                       on=['task_short', 'Representer'])
 
 # Merge all metric dataframes
 df_metrics = pd.concat([mcc, accuracy, sensitivity, specificity], axis=1)
@@ -187,24 +187,24 @@ df_metrics['Specificity'] = df_metrics['Specificity_mean'].map(
     '{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
 
 # Select final columns for the table
-df_metrics = df_metrics[['task_short', 'plm_size',
+df_metrics = df_metrics[['task_short', 'Representer',
                          'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
 # Rename columns: Task, PLM, MCC, Accuracy, Sensitivity, Specificity
-df_metrics = df_metrics.rename(columns={'task_short': 'Task', 'plm_size': 'PLM'})
+df_metrics = df_metrics.rename(columns={'task_short': 'Task', 'Representer': 'PLM'})
 
 # We change the order of the tasks as IC-MP, IT-MP, and IC-IT
 df_metrics['Task'] = df_metrics['Task'].astype(
     'category').cat.reorder_categories(['IC-MP', 'IT-MP', 'IC-IT'], ordered=True)
 df_metrics = df_metrics.sort_values('Task')
 
-# Apply the function to create a new 'Size' column
-df_metrics['Size'] = df_metrics['PLM'].apply(extract_size)
+# Define the custom sorting order for the 'Classifier' column
+custom_order = ['ProtBERT', 'ProtBERT-BFD', 'ESM-1b', 'ESM-2', 'ProtT5', 'ESM-2_15B']
 
-# Sort the dataframe by 'Size' column while maintaining the order of the 'Task' column
-sorted_df = df_metrics.sort_values(by=['Task', 'Size'])
+# Convert the 'Classifier' column to categorical data with the custom order
+df_metrics['PLM'] = pd.Categorical(df_metrics['PLM'], categories=custom_order, ordered=True)
 
-# Remove the 'Size' column if not needed anymore
-df_metrics = sorted_df.drop('Size', axis=1)
+# Sort the dataframe by 'Task' and 'Classifier'
+df_metrics = df_metrics.sort_values(by=['Task', 'PLM'])
 
 # Add the p-values to the table
 df_metrics['P-value'] = df_metrics['Task'].map(pvalue_dict).map('{:.2e}'.format)
@@ -299,7 +299,7 @@ df_metrics['Task'] = df_metrics['Task'].astype(
 df_metrics = df_metrics.sort_values('Task')
 
 # Define the custom sorting order for the 'Classifier' column
-custom_order = ['LR', 'kNN', 'RF', 'SVM', 'FFNN', 'CNN']
+custom_order = ['LR', 'kNN', 'SVM', 'RF', 'FFNN', 'CNN']
 
 # Convert the 'Classifier' column to categorical data with the custom order
 df_metrics['Classifier'] = pd.Categorical(df_metrics['Classifier'], categories=custom_order, ordered=True)
