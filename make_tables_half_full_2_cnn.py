@@ -14,12 +14,17 @@ from settings.settings import (
     PLM_PARAM_SIZE,
     LATEX_PATH,
     PLM_ORDER,
-    PLM_ORDER_FINETUNED
+    PLM_ORDER_FINETUNED,
+    PLM_ORDER_SHORT,
+    CLASSIFIER_ORDER,
+    PLM_ORDER_FINETUNED_SHORT
 )
 
 DATASETS = ["balanced", "imbalanced"]
 
 # Define a function to compute the p-value
+
+
 def compute_p_value(mean1, std1, n1, mean2, std2, n2):
     se1 = std1 / np.sqrt(n1)
     se2 = std2 / np.sqrt(n2)
@@ -28,6 +33,7 @@ def compute_p_value(mean1, std1, n1, mean2, std2, n2):
     df = n1 + n2 - 2
     p = 2 * (1 - stats.t.cdf(abs(t_stat), df))
     return p
+
 
 def show_values_on_bars(axs):
     def _show_on_single_plot(ax):
@@ -43,18 +49,23 @@ def show_values_on_bars(axs):
     else:
         _show_on_single_plot(axs)
 
+
 def show_delta_on_bars(axs, delta_values):
     def _show_on_single_plot(ax):
         half_bar_count = len(ax.patches) // 2
         for i in range(half_bar_count):
             p1 = ax.patches[i]
             p2 = ax.patches[i + half_bar_count]
-            _x = (p1.get_x() + p1.get_width() / 2 + p2.get_x() + p2.get_width() / 2) / 2
+            _x = (p1.get_x() + p1.get_width() / 2 +
+                  p2.get_x() + p2.get_width() / 2) / 2
             _y = max(p1.get_height(), p2.get_height()) + 0.02
             if np.isnan(_y):
                 continue
+            if i > len(delta_values) - 1:
+                continue
             value = f'{delta_values[i]:.2f}'
-            ax.text(_x, _y + 0.03, f'Δ = {value}', ha="center", fontsize=11, color='red')
+            ax.text(_x, _y + 0.03, f'Δ = {value}',
+                    ha="center", fontsize=11, color='red')
 
     if isinstance(axs, np.ndarray):
         for idx, ax in np.ndenumerate(axs):
@@ -62,14 +73,17 @@ def show_delta_on_bars(axs, delta_values):
     else:
         _show_on_single_plot(axs)
 
+
 def extract_mean(value):
     return float(value.split("±")[0])
+
 
 def extract_std(value):
     return float(value.split("±")[1])
 
+
 pd.set_option('display.float_format', '{:.2e}'.format)
-    
+
 representation_types = [FROZEN, FINETUNED]
 precision_types = ["half", "full"]
 representers = REPRESENTATIONS
@@ -77,7 +91,8 @@ tasks = TASKS
 datasets = ["balanced", "imbalanced"]
 
 # We read the csv file of the full results
-df = pd.read_csv(os.path.join(RESULTS_PATH, "mean_balanced_imbalanced_results_trad_cnn.csv"))
+df = pd.read_csv(os.path.join(
+    RESULTS_PATH, "mean_balanced_imbalanced_results_trad_cnn.csv"))
 
 df['MCC_mean'] = df['MCC'].apply(extract_mean)
 df['MCC_std'] = df['MCC'].apply(extract_std)
@@ -97,12 +112,13 @@ pvalue_dict = {}
 for task in df['task_short'].unique():
     # Get balanced and imbalanced rows for this task
     half_rows = df[(df['task_short'] == task) &
-                       (df['Precision'] == 'half')]
+                   (df['Precision'] == 'half')]
     full_rows = df[(df['task_short'] == task) &
-                         (df['Precision'] == 'full')]
-    
+                   (df['Precision'] == 'full')]
+
     # We filter the half rows to only keep the ones with the full representation on Representer
-    half_rows = half_rows[half_rows['Representer'].isin(full_rows['Representer'])]
+    half_rows = half_rows[half_rows['Representer'].isin(
+        full_rows['Representer'])]
 
     # Ensure the rows are in the same order
     half_rows = half_rows.sort_index()
@@ -114,51 +130,90 @@ for task in df['task_short'].unique():
     pvalue_dict[task] = p_value
 
 # Group by Task and Dataset, and calculate the mean MCC
-mean_mcc = df.groupby(['task_short', 'Precision'])['MCC_mean'].mean().reset_index()
-std_mcc = df.groupby(['task_short', 'Precision'])['MCC_std'].mean().reset_index()
+mean_mcc = df.groupby(['task_short', 'Precision'])[
+    'MCC_mean'].mean().reset_index()
+std_mcc = df.groupby(['task_short', 'Precision'])[
+    'MCC_std'].mean().reset_index()
 
-mean_accuracy = df.groupby(['task_short', 'Precision'])['Accuracy_mean'].mean().reset_index()
-std_accuracy = df.groupby(['task_short', 'Precision'])['Accuracy_std'].mean().reset_index()
+# -------------------------- Sorting: mean_mcc for plotting: Task, Precision
+# We change the order of mean_mcc as IC-MP, IT-MP, and IC-IT
+mean_mcc['task_short'] = mean_mcc['task_short'].astype(
+    'category').cat.reorder_categories(['IC-MP', 'IT-MP', 'IC-IT'], ordered=True)
+mean_mcc = mean_mcc.sort_values('task_short')
+mean_mcc['Precision'] = pd.Categorical(
+    mean_mcc['Precision'], categories=precision_types, ordered=True)
+mean_mcc = mean_mcc.sort_values(by=['task_short', 'Precision'])
+# --------------------------
 
-mean_sensitivity = df.groupby(['task_short', 'Precision'])['Sensitivity_mean'].mean().reset_index()
-std_sensitivity = df.groupby(['task_short', 'Precision'])['Sensitivity_std'].mean().reset_index()
+mean_accuracy = df.groupby(['task_short', 'Precision'])[
+    'Accuracy_mean'].mean().reset_index()
+std_accuracy = df.groupby(['task_short', 'Precision'])[
+    'Accuracy_std'].mean().reset_index()
 
-mean_specificity = df.groupby(['task_short', 'Precision'])['Specificity_mean'].mean().reset_index()
-std_specificity = df.groupby(['task_short', 'Precision'])['Specificity_std'].mean().reset_index()
+mean_sensitivity = df.groupby(['task_short', 'Precision'])[
+    'Sensitivity_mean'].mean().reset_index()
+std_sensitivity = df.groupby(['task_short', 'Precision'])[
+    'Sensitivity_std'].mean().reset_index()
+
+mean_specificity = df.groupby(['task_short', 'Precision'])[
+    'Specificity_mean'].mean().reset_index()
+std_specificity = df.groupby(['task_short', 'Precision'])[
+    'Specificity_std'].mean().reset_index()
 
 # Merge the mean and std dataframes for each metric
 mcc = pd.merge(mean_mcc, std_mcc, on=['task_short', 'Precision'])
-accuracy = pd.merge(mean_accuracy, std_accuracy, on=['task_short', 'Precision'])
-sensitivity = pd.merge(mean_sensitivity, std_sensitivity, on=['task_short', 'Precision'])
-specificity = pd.merge(mean_specificity, std_specificity, on=['task_short', 'Precision'])
+accuracy = pd.merge(mean_accuracy, std_accuracy,
+                    on=['task_short', 'Precision'])
+sensitivity = pd.merge(mean_sensitivity, std_sensitivity,
+                       on=['task_short', 'Precision'])
+specificity = pd.merge(mean_specificity, std_specificity,
+                       on=['task_short', 'Precision'])
 
 # Merge all metric dataframes
 df_metrics = pd.concat([mcc, accuracy, sensitivity, specificity], axis=1)
 
 # Remove duplicate columns
-df_metrics = df_metrics.loc[:,~df_metrics.columns.duplicated()]
+df_metrics = df_metrics.loc[:, ~df_metrics.columns.duplicated()]
 
 # Create a new column for each metric as mean±std
-df_metrics['MCC'] = df_metrics['MCC_mean'].map('{:.2f}'.format) + '±' + df_metrics['MCC_std'].map('{:.2f}'.format)
-df_metrics['Accuracy'] = df_metrics['Accuracy_mean'].map('{:.2f}'.format) + '±' + df_metrics['Accuracy_std'].map('{:.2f}'.format)
-df_metrics['Sensitivity'] = df_metrics['Sensitivity_mean'].map('{:.2f}'.format) + '±' + df_metrics['Sensitivity_std'].map('{:.2f}'.format)
-df_metrics['Specificity'] = df_metrics['Specificity_mean'].map('{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
+df_metrics['MCC'] = df_metrics['MCC_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['MCC_std'].map('{:.2f}'.format)
+df_metrics['Accuracy'] = df_metrics['Accuracy_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Accuracy_std'].map('{:.2f}'.format)
+df_metrics['Sensitivity'] = df_metrics['Sensitivity_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Sensitivity_std'].map('{:.2f}'.format)
+df_metrics['Specificity'] = df_metrics['Specificity_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
 
 # Select final columns for the table
-df_metrics = df_metrics[['task_short', 'Precision', 'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
+df_metrics = df_metrics[['task_short', 'Precision',
+                         'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
 df_metrics = df_metrics.rename(columns={'task_short': 'Task'})
 
+# Sorting df_metrics for latex table: Task, Precision ----------------------------------
+df_metrics['Task'] = df_metrics['Task'].astype(
+    'category').cat.reorder_categories(['IC-MP', 'IT-MP', 'IC-IT'], ordered=True)
+df_metrics = df_metrics.sort_values('Task')
+df_metrics['Precision'] = pd.Categorical(
+    df_metrics['Precision'], categories=precision_types, ordered=True)
+# Sort the dataframe by 'Task' and 'Precision'
+df_metrics = df_metrics.sort_values(by=['Task', 'Precision'])
+# ---------------------------------------------------------
+
 # Add p-values
-df_metrics['P-value'] = df_metrics['Task'].apply(lambda x: pvalue_dict[x]).map('{:.2e}'.format)
+df_metrics['P-value'] = df_metrics['Task'].apply(
+    lambda x: pvalue_dict[x]).map('{:.2e}'.format)
 
 # Generate LaTeX table
-latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lcccccc')
+latex_table = df_metrics.to_latex(
+    index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_half_full_results_task_cnn.tex"), "w") as f:
     f.write(latex_table)
 
-delta_mcc = mean_mcc[mean_mcc['Precision'] == 'full']['MCC_mean'].values - mean_mcc[mean_mcc['Precision'] == 'half']['MCC_mean'].values
+delta_mcc = mean_mcc[mean_mcc['Precision'] == 'full']['MCC_mean'].values - \
+    mean_mcc[mean_mcc['Precision'] == 'half']['MCC_mean'].values
 
 # Create the bar plot
 plt.figure(figsize=(10, 4))
@@ -183,7 +238,8 @@ for i, p in enumerate(barplot.patches):
     x = p.get_x() + p.get_width() / 2
     y = p.get_height()
     err = std_mcc.loc[i, 'MCC_std']
-    plt.errorbar(x, y, yerr=err, capsize=3, elinewidth=1.5, color='black', ls='none')
+    plt.errorbar(x, y, yerr=err, capsize=3,
+                 elinewidth=1.5, color='black', ls='none')
 
 # Add MCC values on top of each bar
 show_values_on_bars(barplot)
@@ -191,7 +247,8 @@ show_values_on_bars(barplot)
 show_delta_on_bars(barplot, delta_mcc)
 # Display the plot
 # plt.show()
-plt.savefig(os.path.join(LATEX_PATH, "mean_half_full_results_task_cnn.png"), bbox_inches='tight', dpi=300)
+plt.savefig(os.path.join(
+    LATEX_PATH, "mean_half_full_results_task_cnn.png"), bbox_inches='tight', dpi=300)
 plt.close()
 
 # ---------------------------------------------
@@ -201,12 +258,13 @@ pvalue_dict = {}
 for classifier in df['Classifier'].unique():
     # Get balanced and imbalanced rows for this task
     half_rows = df[(df['Classifier'] == classifier) &
-                       (df['Precision'] == 'half')]
+                   (df['Precision'] == 'half')]
     full_rows = df[(df['Classifier'] == classifier) &
-                         (df['Precision'] == 'full')]
-    
-    # We filter the half rows to only keep the ones with the full representation on Representer
-    half_rows = half_rows[half_rows['Representer'].isin(full_rows['Representer'])]
+                   (df['Precision'] == 'full')]
+
+    # We filter the half rows to only keep the ones with the full Precision on Representer
+    half_rows = half_rows[half_rows['Representer'].isin(
+        full_rows['Representer'])]
 
     # Ensure the rows are in the same order
     half_rows = half_rows.sort_index()
@@ -218,51 +276,89 @@ for classifier in df['Classifier'].unique():
     pvalue_dict[classifier] = p_value
 
 # Group by Classifier and Precision, and calculate the mean MCC
-mean_mcc = df.groupby(['Classifier', 'Precision'])['MCC_mean'].mean().reset_index()
-std_mcc = df.groupby(['Classifier', 'Precision'])['MCC_std'].mean().reset_index()
+mean_mcc = df.groupby(['Classifier', 'Precision'])[
+    'MCC_mean'].mean().reset_index()
+std_mcc = df.groupby(['Classifier', 'Precision'])[
+    'MCC_std'].mean().reset_index()
 
-mean_accuracy = df.groupby(['Classifier', 'Precision'])['Accuracy_mean'].mean().reset_index()
-std_accuracy = df.groupby(['Classifier', 'Precision'])['Accuracy_std'].mean().reset_index()
+# Sorting mean_mcc for plotting: Classifier, Precision ----------------------------------
+mean_mcc['Classifier'] = mean_mcc['Classifier'].astype(
+    'category').cat.reorder_categories(CLASSIFIER_ORDER, ordered=True)
+mean_mcc = mean_mcc.sort_values('Classifier')
+mean_mcc['Precision'] = pd.Categorical(
+    mean_mcc['Precision'], categories=precision_types, ordered=True)
+# Sort the dataframe by 'Classifier' and 'Precision'
+mean_mcc = mean_mcc.sort_values(by=['Classifier', 'Precision'])
+# ---------------------------------------------------------
 
-mean_sensitivity = df.groupby(['Classifier', 'Precision'])['Sensitivity_mean'].mean().reset_index()
-std_sensitivity = df.groupby(['Classifier', 'Precision'])['Sensitivity_std'].mean().reset_index()
+mean_accuracy = df.groupby(['Classifier', 'Precision'])[
+    'Accuracy_mean'].mean().reset_index()
+std_accuracy = df.groupby(['Classifier', 'Precision'])[
+    'Accuracy_std'].mean().reset_index()
 
-mean_specificity = df.groupby(['Classifier', 'Precision'])['Specificity_mean'].mean().reset_index()
-std_specificity = df.groupby(['Classifier', 'Precision'])['Specificity_std'].mean().reset_index()
+mean_sensitivity = df.groupby(['Classifier', 'Precision'])[
+    'Sensitivity_mean'].mean().reset_index()
+std_sensitivity = df.groupby(['Classifier', 'Precision'])[
+    'Sensitivity_std'].mean().reset_index()
+
+mean_specificity = df.groupby(['Classifier', 'Precision'])[
+    'Specificity_mean'].mean().reset_index()
+std_specificity = df.groupby(['Classifier', 'Precision'])[
+    'Specificity_std'].mean().reset_index()
 
 # Merge the mean and std dataframes for each metric
 mcc = pd.merge(mean_mcc, std_mcc, on=['Classifier', 'Precision'])
-accuracy = pd.merge(mean_accuracy, std_accuracy, on=['Classifier', 'Precision'])
-sensitivity = pd.merge(mean_sensitivity, std_sensitivity, on=['Classifier', 'Precision'])
-specificity = pd.merge(mean_specificity, std_specificity, on=['Classifier', 'Precision'])
+accuracy = pd.merge(mean_accuracy, std_accuracy,
+                    on=['Classifier', 'Precision'])
+sensitivity = pd.merge(mean_sensitivity, std_sensitivity,
+                       on=['Classifier', 'Precision'])
+specificity = pd.merge(mean_specificity, std_specificity,
+                       on=['Classifier', 'Precision'])
 
 # Merge all metric dataframes
 df_metrics = pd.concat([mcc, accuracy, sensitivity, specificity], axis=1)
 
 # Remove duplicate columns
-df_metrics = df_metrics.loc[:,~df_metrics.columns.duplicated()]
+df_metrics = df_metrics.loc[:, ~df_metrics.columns.duplicated()]
 
 # Create a new column for each metric as mean±std
-df_metrics['MCC'] = df_metrics['MCC_mean'].map('{:.2f}'.format) + '±' + df_metrics['MCC_std'].map('{:.2f}'.format)
-df_metrics['Accuracy'] = df_metrics['Accuracy_mean'].map('{:.2f}'.format) + '±' + df_metrics['Accuracy_std'].map('{:.2f}'.format)
-df_metrics['Sensitivity'] = df_metrics['Sensitivity_mean'].map('{:.2f}'.format) + '±' + df_metrics['Sensitivity_std'].map('{:.2f}'.format)
-df_metrics['Specificity'] = df_metrics['Specificity_mean'].map('{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
+df_metrics['MCC'] = df_metrics['MCC_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['MCC_std'].map('{:.2f}'.format)
+df_metrics['Accuracy'] = df_metrics['Accuracy_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Accuracy_std'].map('{:.2f}'.format)
+df_metrics['Sensitivity'] = df_metrics['Sensitivity_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Sensitivity_std'].map('{:.2f}'.format)
+df_metrics['Specificity'] = df_metrics['Specificity_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
 
 # Select final columns for the table
-df_metrics = df_metrics[['Classifier', 'Precision', 'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
+df_metrics = df_metrics[['Classifier', 'Precision',
+                         'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
+
+# Sorting df_metrics for latex table: Classifier, Precision ----------------------------------
+df_metrics['Classifier'] = df_metrics['Classifier'].astype(
+    'category').cat.reorder_categories(CLASSIFIER_ORDER, ordered=True)
+df_metrics = df_metrics.sort_values('Classifier')
+df_metrics['Precision'] = pd.Categorical(df_metrics['Precision'], categories=precision_types, ordered=True)
+# Sort the dataframe by 'Classifier' and 'Precision'
+df_metrics = df_metrics.sort_values(by=['Classifier', 'Precision'])
+# ---------------------------------------------------------
 
 # Add p-values
-df_metrics['p-value'] = df_metrics['Classifier'].map(pvalue_dict).map('{:.2e}'.format)
+df_metrics['p-value'] = df_metrics['Classifier'].map(
+    pvalue_dict).map('{:.2e}'.format)
 
 # Generate LaTeX table
-latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lcccccc')
+latex_table = df_metrics.to_latex(
+    index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_half_full_results_classifier_cnn.tex"), "w") as f:
     f.write(latex_table)
 
 
-delta_mcc = mean_mcc[mean_mcc['Precision'] == 'full']['MCC_mean'].values - mean_mcc[mean_mcc['Precision'] == 'half']['MCC_mean'].values
+delta_mcc = mean_mcc[mean_mcc['Precision'] == 'full']['MCC_mean'].values - \
+    mean_mcc[mean_mcc['Precision'] == 'half']['MCC_mean'].values
 
 
 # Create the bar plot
@@ -288,7 +384,8 @@ for i, p in enumerate(barplot.patches):
     x = p.get_x() + p.get_width() / 2
     y = p.get_height()
     err = std_mcc.loc[i, 'MCC_std']
-    plt.errorbar(x, y, yerr=err, capsize=3, elinewidth=1.5, color='black', ls='none')
+    plt.errorbar(x, y, yerr=err, capsize=3,
+                 elinewidth=1.5, color='black', ls='none')
 
 # Add Sensitivity values on top of each bar
 show_values_on_bars(barplot)
@@ -297,21 +394,23 @@ show_delta_on_bars(barplot, delta_mcc)
 
 # Display the plot
 # plt.show()
-plt.savefig(os.path.join(LATEX_PATH, "mean_half_full_results_classifier_cnn.png"), bbox_inches='tight', dpi=300)
+plt.savefig(os.path.join(
+    LATEX_PATH, "mean_half_full_results_classifier_cnn.png"), bbox_inches='tight', dpi=300)
 plt.close()
 
 
 pvalue_dict = {}
 # For each task, calculate the differences
-for plm_size in df['plm_size'].unique():
+for Representer in df['Representer'].unique():
     # Get balanced and imbalanced rows for this task
-    half_rows = df[(df['plm_size'] == plm_size) &
-                       (df['Precision'] == 'half')]
-    full_rows = df[(df['plm_size'] == plm_size) &
-                         (df['Precision'] == 'full')]
-    
+    half_rows = df[(df['Representer'] == Representer) &
+                   (df['Precision'] == 'half')]
+    full_rows = df[(df['Representer'] == Representer) &
+                   (df['Precision'] == 'full')]
+
     # We filter the half rows to only keep the ones with the full representation on Representer
-    half_rows = half_rows[half_rows['Representer'].isin(full_rows['Representer'])]
+    half_rows = half_rows[half_rows['Representer'].isin(
+        full_rows['Representer'])]
 
     # Ensure the rows are in the same order
     half_rows = half_rows.sort_index()
@@ -320,62 +419,101 @@ for plm_size in df['plm_size'].unique():
     # Conduct paired t-test
     _, p_value = stats.ttest_rel(
         half_rows['MCC_mean'], full_rows['MCC_mean'])
-    pvalue_dict[plm_size] = p_value
+    pvalue_dict[Representer] = p_value
 
 # Group by Representer and Dataset, and calculate the mean MCC
-mean_mcc = df.groupby(['plm_size', 'Precision'])['MCC_mean'].mean().reset_index()
-std_mcc = df.groupby(['plm_size', 'Precision'])['MCC_std'].mean().reset_index()
+mean_mcc = df.groupby(['Representer', 'Precision'])[
+    'MCC_mean'].mean().reset_index()
+std_mcc = df.groupby(['Representer', 'Precision'])['MCC_std'].mean().reset_index()
 
-mean_accuracy = df.groupby(['plm_size', 'Precision'])['Accuracy_mean'].mean().reset_index()
-std_accuracy = df.groupby(['plm_size', 'Precision'])['Accuracy_std'].mean().reset_index()
+# Sorting mean_mcc for plotting: Representer, Precision ----------------------------------
+mean_mcc['Representer'] = mean_mcc['Representer'].astype(
+    'category').cat.reorder_categories(PLM_ORDER_SHORT, ordered=True)
+mean_mcc = mean_mcc.sort_values('Representer')
+mean_mcc['Precision'] = pd.Categorical(mean_mcc['Precision'], categories=precision_types, ordered=True)
+# Sort the dataframe by 'Representer' and 'Precision'
+mean_mcc = mean_mcc.sort_values(by=['Representer', 'Precision'])
+# ---------------------------------------------------------
 
-mean_sensitivity = df.groupby(['plm_size', 'Precision'])['Sensitivity_mean'].mean().reset_index()
-std_sensitivity = df.groupby(['plm_size', 'Precision'])['Sensitivity_std'].mean().reset_index()
+mean_accuracy = df.groupby(['Representer', 'Precision'])[
+    'Accuracy_mean'].mean().reset_index()
+std_accuracy = df.groupby(['Representer', 'Precision'])[
+    'Accuracy_std'].mean().reset_index()
 
-mean_specificity = df.groupby(['plm_size', 'Precision'])['Specificity_mean'].mean().reset_index()
-std_specificity = df.groupby(['plm_size', 'Precision'])['Specificity_std'].mean().reset_index()
+mean_sensitivity = df.groupby(['Representer', 'Precision'])[
+    'Sensitivity_mean'].mean().reset_index()
+std_sensitivity = df.groupby(['Representer', 'Precision'])[
+    'Sensitivity_std'].mean().reset_index()
+
+mean_specificity = df.groupby(['Representer', 'Precision'])[
+    'Specificity_mean'].mean().reset_index()
+std_specificity = df.groupby(['Representer', 'Precision'])[
+    'Specificity_std'].mean().reset_index()
 
 # Merge the mean and std dataframes for each metric
-mcc = pd.merge(mean_mcc, std_mcc, on=['plm_size', 'Precision'])
-accuracy = pd.merge(mean_accuracy, std_accuracy, on=['plm_size', 'Precision'])
-sensitivity = pd.merge(mean_sensitivity, std_sensitivity, on=['plm_size', 'Precision'])
-specificity = pd.merge(mean_specificity, std_specificity, on=['plm_size', 'Precision'])
+mcc = pd.merge(mean_mcc, std_mcc, on=['Representer', 'Precision'])
+accuracy = pd.merge(mean_accuracy, std_accuracy, on=['Representer', 'Precision'])
+sensitivity = pd.merge(mean_sensitivity, std_sensitivity,
+                       on=['Representer', 'Precision'])
+specificity = pd.merge(mean_specificity, std_specificity,
+                       on=['Representer', 'Precision'])
 
 # Merge all metric dataframes
 df_metrics = pd.concat([mcc, accuracy, sensitivity, specificity], axis=1)
 
 # Remove duplicate columns
-df_metrics = df_metrics.loc[:,~df_metrics.columns.duplicated()]
+df_metrics = df_metrics.loc[:, ~df_metrics.columns.duplicated()]
 
 # Create a new column for each metric as mean±std
-df_metrics['MCC'] = df_metrics['MCC_mean'].map('{:.2f}'.format) + '±' + df_metrics['MCC_std'].map('{:.2f}'.format)
-df_metrics['Accuracy'] = df_metrics['Accuracy_mean'].map('{:.2f}'.format) + '±' + df_metrics['Accuracy_std'].map('{:.2f}'.format)
-df_metrics['Sensitivity'] = df_metrics['Sensitivity_mean'].map('{:.2f}'.format) + '±' + df_metrics['Sensitivity_std'].map('{:.2f}'.format)
-df_metrics['Specificity'] = df_metrics['Specificity_mean'].map('{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
+df_metrics['MCC'] = df_metrics['MCC_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['MCC_std'].map('{:.2f}'.format)
+df_metrics['Accuracy'] = df_metrics['Accuracy_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Accuracy_std'].map('{:.2f}'.format)
+df_metrics['Sensitivity'] = df_metrics['Sensitivity_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Sensitivity_std'].map('{:.2f}'.format)
+df_metrics['Specificity'] = df_metrics['Specificity_mean'].map(
+    '{:.2f}'.format) + '±' + df_metrics['Specificity_std'].map('{:.2f}'.format)
 
 # Select final columns for the table
-df_metrics = df_metrics[['plm_size', 'Precision', 'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
-df_metrics = df_metrics.sort_values(by=['plm_size'], ascending=True)
+df_metrics = df_metrics[['Representer', 'Precision',
+                         'MCC', 'Accuracy', 'Sensitivity', 'Specificity']]
+df_metrics = df_metrics.sort_values(by=['Representer'], ascending=True)
+
+df_metrics = df_metrics.rename(columns={'Representer': 'PLM'})
+
+# Sorting df_metrics for latex table: PLM, Precision ----------------------------------
+df_metrics['PLM'] = df_metrics['PLM'].astype(
+    'category').cat.reorder_categories(PLM_ORDER_SHORT, ordered=True)
+df_metrics = df_metrics.sort_values('PLM')
+df_metrics['Precision'] = pd.Categorical(df_metrics['Precision'], categories=precision_types, ordered=True)
+# Sort the dataframe by 'PLM' and 'Precision'
+df_metrics = df_metrics.sort_values(by=['PLM', 'Precision'])
+# ---------------------------------------------------------
 
 # Add p-values
-df_metrics['P-value'] = df_metrics['plm_size'].map(pvalue_dict).map('{:.2e}'.format)
+df_metrics['P-value'] = df_metrics['PLM'].map(
+    pvalue_dict).map('{:.2e}'.format)
 
 # Generate LaTeX table
-latex_table = df_metrics.to_latex(index=False, float_format="%.2f", escape=False, column_format='lcccccc')
+latex_table = df_metrics.to_latex(
+    index=False, float_format="%.2f", escape=False, column_format='lcccccc')
 
 # save the table to a file
 with open(os.path.join(LATEX_PATH, "mean_half_full_results_plm_cnn.tex"), "w") as f:
     f.write(latex_table)
 
-delta_mcc = mean_mcc[mean_mcc['Precision'] == 'full'][['plm_size', 'MCC_mean']].reset_index(drop=True)
-frozen_mcc_values = mean_mcc[mean_mcc['Precision'] == 'half'][['plm_size', 'MCC_mean']].reset_index(drop=True)
-delta_mcc['MCC_mean'] = [finetuned - frozen_mcc_values.loc[frozen_mcc_values['plm_size'] == plm_size, 'MCC_mean'].values[0] 
-                         for plm_size, finetuned in zip(delta_mcc['plm_size'], delta_mcc['MCC_mean'])]
+delta_mcc = mean_mcc[mean_mcc['Precision'] == 'full'][[
+    'Representer', 'MCC_mean']].reset_index(drop=True)
+frozen_mcc_values = mean_mcc[mean_mcc['Precision'] == 'half'][[
+    'Representer', 'MCC_mean']].reset_index(drop=True)
+delta_mcc['MCC_mean'] = [finetuned - frozen_mcc_values.loc[frozen_mcc_values['Representer'] == Representer, 'MCC_mean'].values[0]
+                         for Representer, finetuned in zip(delta_mcc['Representer'], delta_mcc['MCC_mean'])]
 
-# We sort the values by plm_size the same as in PLM_ORDER_FINETUNED list
-delta_mcc['plm_size'] = pd.Categorical(delta_mcc['plm_size'], categories=PLM_ORDER_FINETUNED, ordered=True)
-# Sort delta_mcc based on the plm_size column with the specified order
-delta_mcc_sorted = delta_mcc.sort_values('plm_size')
+# We sort the values by Representer the same as in PLM_ORDER_FINETUNED list
+delta_mcc['Representer'] = pd.Categorical(
+    delta_mcc['Representer'], categories=PLM_ORDER_FINETUNED_SHORT, ordered=True)
+# Sort delta_mcc based on the Representer column with the specified order
+delta_mcc_sorted = delta_mcc.sort_values('Representer')
 # Reset the index of the sorted DataFrame
 delta_mcc_sorted.reset_index(drop=True, inplace=True)
 
@@ -383,13 +521,13 @@ delta_mcc_sorted.reset_index(drop=True, inplace=True)
 # Create the bar plot
 plt.figure(figsize=(10, 4))
 ax = barplot = sns.barplot(
-    x='plm_size',
+    x='Representer',
     y='MCC_mean',
     hue='Precision',
     data=mean_mcc,
     ci=None,
     palette="colorblind",
-    order=PLM_ORDER
+    order=PLM_ORDER_SHORT
 )
 
 # X and Y axis labels
@@ -414,13 +552,14 @@ for bar in bars[0].get_children() + bars[1].get_children():
     if np.isnan(y):
         continue
     error = std_mcc.iloc[i]["MCC_std"]
-    ax.errorbar(x, y, yerr=error, fmt="none", capsize=5, c="black", elinewidth=1)
+    ax.errorbar(x, y, yerr=error, fmt="none",
+                capsize=5, c="black", elinewidth=1)
     i += 1
 
 show_delta_on_bars(barplot, delta_mcc_sorted['MCC_mean'].values)
 
 # Display the plot
 # plt.show()
-plt.savefig(os.path.join(LATEX_PATH, "mean_half_full_results_plm_cnn.png"), bbox_inches='tight', dpi=300)
+plt.savefig(os.path.join(
+    LATEX_PATH, "mean_half_full_results_plm_cnn.png"), bbox_inches='tight', dpi=300)
 plt.close()
-
