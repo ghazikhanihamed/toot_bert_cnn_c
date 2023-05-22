@@ -18,9 +18,9 @@ data = [
     ['TooT-BERT-C', 'IC-MP', 'ProtBERT-BFD', 'LR', 98.24, 0.85],
     ['TooT-BERT-C', 'IT-MP', 'ProtBERT-BFD', 'LR', 95.43, 0.64],
     ['TooT-BERT-C', 'IC-IT', 'ProtBERT-BFD', 'LR', 85.38, 0.71],
-    ['Proposed method', 'IC-MP', 'ESM-1b', 'LR', 98.24, 0.85],
-    ['Proposed method', 'IT-MP', 'ESM-1b', 'LR', 95.98, 0.69],
-    ['Proposed method', 'IC-IT', 'ESM-2', 'CNN', 93.85, 0.87]
+    ['TooT-PLM-ionCT', 'IC-MP', 'ESM-1b', 'LR', 98.24, 0.85],
+    ['TooT-PLM-ionCT', 'IT-MP', 'ESM-1b', 'LR', 95.98, 0.69],
+    ['TooT-PLM-ionCT', 'IC-IT', 'ESM-2', 'CNN', 93.85, 0.87]
 ]
 
 columns = ['Project', 'Task', 'Encoder', 'Classifier', 'Accuracy', 'MCC']
