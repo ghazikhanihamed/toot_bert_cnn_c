@@ -79,9 +79,9 @@ PLM_ORDER_FINETUNED = [
 PLM_ORDER_FINETUNED_SHORT = ["ProtBERT", "ProtBERT-BFD", "ESM-1b", "ESM-2"]
 CLASSIFIER_ORDER = ["LR", "kNN", "SVM", "RF", "FFNN", "CNN"]
 
-IC_MP_Train_DATASET = "IC-MP_train.csv"
-IC_MP_Test_DATASET = "IC-MP_test.csv"
-IT_MP_Train_DATASET = "IT-MP_train.csv"
-IT_MP_Test_DATASET = "IT-MP_test.csv"
-IC_IT_Train_DATASET = "IC-IT_train.csv"
-IC_IT_Test_DATASET = "IC-IT_test.csv"
+IC_MP_Train_DATASET = "IC_MP_train.csv"
+IC_MP_Test_DATASET = "IC_MP_test.csv"
+IT_MP_Train_DATASET = "IT_MP_train.csv"
+IT_MP_Test_DATASET = "IT_MP_test.csv"
+IC_IT_Train_DATASET = "IC_IT_train.csv"
+IC_IT_Test_DATASET = "IC_IT_test.csv"
