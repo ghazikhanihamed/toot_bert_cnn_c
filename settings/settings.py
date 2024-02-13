@@ -32,9 +32,14 @@ IONCHANNELS_MEMBRANEPROTEINS_IMBALANCED = "ionchannels_membraneproteins_imbalanc
 IONCHANNELS_IONTRANSPORTERS = "ionchannels_iontransporters"
 IONTRANSPORTERS_MEMBRANEPROTEINS = "iontransporters_membraneproteins"
 IONTRANSPORTERS_MEMBRANEPROTEINS_BALANCED = "iontransporters_membraneproteins_balanced"
-IONTRANSPORTERS_MEMBRANEPROTEINS_IMBALANCED = "iontransporters_membraneproteins_imbalanced"
-TASKS = ["ionchannels_membraneproteins",
-         "iontransporters_membraneproteins", "ionchannels_iontransporters"]
+IONTRANSPORTERS_MEMBRANEPROTEINS_IMBALANCED = (
+    "iontransporters_membraneproteins_imbalanced"
+)
+TASKS = [
+    "ionchannels_membraneproteins",
+    "iontransporters_membraneproteins",
+    "ionchannels_iontransporters",
+]
 PROTBERT = {"name": "ProtBERT", "model": "Rostlab/prot_bert"}
 PROTBERTBFD = {"name": "ProtBERT-BFD", "model": "Rostlab/prot_bert_bfd"}
 PROTT5 = {"name": "ProtT5", "model": "Rostlab/prot_t5_xl_half_uniref50-enc"}
@@ -43,16 +48,40 @@ ESM2 = {"name": "ESM-2", "model": "facebook/esm2_t33_650M_UR50D"}
 ESM2_15B = {"name": "ESM-2_15B", "model": "facebook/esm2_t48_15B_UR50D"}
 REPRESENTATIONS = [PROTBERT, PROTBERTBFD, PROTT5, ESM1B, ESM2, ESM2_15B]
 # IC-MP: Ion Channels vs. Membrane Proteins/ IT-MP: Ion Transporters vs. Membrane Proteins/ IC-IT: Ion Channels vs. Ion Transporters
-TASKS_SHORT = {"ionchannels_membraneproteins": "IC-MP",
-               "iontransporters_membraneproteins": "IT-MP", "ionchannels_iontransporters": "IC-IT"}
-PLM_PARAM_SIZE = {"ProtBERT": "ProtBERT(420M)",
-                  "ProtBERT-BFD": "ProtBERT-BFD(420M)",
-                  "ProtT5": "ProtT5(3B)",
-                  "ESM-1b": "ESM-1b(650M)",
-                  "ESM-2": "ESM-2(650M)",
-                  "ESM-2_15B": "ESM-2(15B)"}
-PLM_ORDER = ["ProtBERT(420M)", "ProtBERT-BFD(420M)", "ESM-1b(650M)", "ESM-2(650M)", "ProtT5(3B)", "ESM-2(15B)"]
+TASKS_SHORT = {
+    "ionchannels_membraneproteins": "IC-MP",
+    "iontransporters_membraneproteins": "IT-MP",
+    "ionchannels_iontransporters": "IC-IT",
+}
+PLM_PARAM_SIZE = {
+    "ProtBERT": "ProtBERT(420M)",
+    "ProtBERT-BFD": "ProtBERT-BFD(420M)",
+    "ProtT5": "ProtT5(3B)",
+    "ESM-1b": "ESM-1b(650M)",
+    "ESM-2": "ESM-2(650M)",
+    "ESM-2_15B": "ESM-2(15B)",
+}
+PLM_ORDER = [
+    "ProtBERT(420M)",
+    "ProtBERT-BFD(420M)",
+    "ESM-1b(650M)",
+    "ESM-2(650M)",
+    "ProtT5(3B)",
+    "ESM-2(15B)",
+]
 PLM_ORDER_SHORT = ["ProtBERT", "ProtBERT-BFD", "ESM-1b", "ESM-2", "ProtT5", "ESM-2_15B"]
-PLM_ORDER_FINETUNED = ["ProtBERT(420M)", "ProtBERT-BFD(420M)", "ESM-1b(650M)", "ESM-2(650M)"]
+PLM_ORDER_FINETUNED = [
+    "ProtBERT(420M)",
+    "ProtBERT-BFD(420M)",
+    "ESM-1b(650M)",
+    "ESM-2(650M)",
+]
 PLM_ORDER_FINETUNED_SHORT = ["ProtBERT", "ProtBERT-BFD", "ESM-1b", "ESM-2"]
 CLASSIFIER_ORDER = ["LR", "kNN", "SVM", "RF", "FFNN", "CNN"]
+
+IC_MP_Train_DATASET = DATASET_PATH + "IC-MP_train.csv"
+IC_MP_Test_DATASET = DATASET_PATH + "IC-MP_test.csv"
+IT_MP_Train_DATASET = DATASET_PATH + "IT-MP_train.csv"
+IT_MP_Test_DATASET = DATASET_PATH + "IT-MP_test.csv"
+IC_IT_Train_DATASET = DATASET_PATH + "IC-IT_train.csv"
+IC_IT_Test_DATASET = DATASET_PATH + "IC-IT_test.csv"
