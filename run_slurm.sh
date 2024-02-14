@@ -2,7 +2,7 @@
 
 #SBATCH --account=h_ghazik
 #SBATCH --mem=64G
-#SBATCH -J rep_ex
+#SBATCH -J grid
 #SBATCH -o _%x%J.out
 #SBATCH --gpus=1
 
@@ -18,7 +18,7 @@ conda activate py39
 
 nvidia-smi
 
-python save_representations_finetuned_new.py
+python gridsearch_new.py
 
 conda deactivate
 module purge
