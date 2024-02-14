@@ -77,7 +77,7 @@ csv_files = {
 }
 
 # Define the tasks
-tasks = ["IC-MP", "IT-MP"]
+tasks = ["IC_MP", "IT_MP"]
 
 # Parameters for GridSearchCV
 param_grid = {
