@@ -1,0 +1,50 @@
+==========================================
+SLURM_JOB_ID = 8468
+SLURM_NODELIST = virya3
+==========================================
+Wed Feb 14 14:35:12 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.86.10              Driver Version: 535.86.10    CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-40GB          Off | 00000000:41:00.0 Off |                   On |
+| N/A   27C    P0              42W / 400W |     74MiB / 40960MiB |     N/A      Default |
+|                                         |                      |              Enabled |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| MIG devices:                                                                          |
++------------------+--------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                   Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                     BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                |        ECC|                       |
+|==================+================================+===========+=======================|
+|  0    1   0   0  |              37MiB / 19968MiB  | 42      0 |  3   0    2    0    0 |
+|                  |               0MiB / 32767MiB  |           |                       |
++------------------+--------------------------------+-----------+-----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-1b/IC-MP and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-1b/IT-MP and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-2/IC-IT and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Finetuned model:  IC-MP
+--------------------------------------------------
+Saved representations for task IC-MP.
+Finetuned model:  IT-MP
+--------------------------------------------------
+Saved representations for task IT-MP.
+Finetuned model:  IC-IT
+--------------------------------------------------
+Saved representations for task IC-IT.
