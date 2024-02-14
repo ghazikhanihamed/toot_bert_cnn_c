@@ -105,8 +105,8 @@ for task_name in tasks:
     test_df = pd.read_csv(f"{settings.DATASET_PATH}/{task_name}_test.csv")
 
     # Load representations and prepare data
-    X_train, y_train = load_data(train_df, task_name, settings)
-    X_test, y_test = load_data(test_df, task_name, settings)
+    X_train, y_train = load_data(train_df, task_name)
+    X_test, y_test = load_data(test_df, task_name)
 
     # 5-Fold Stratified Cross-Validation
     skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=settings.SEED)
@@ -127,9 +127,9 @@ for task_name in tasks:
     grid_search.fit(X_train, y_train)
 
     # Save best parameters and grid search details
-    save_best_params(grid_search, task_name, settings)
-    save_grid_search_details(grid_search, task_name, settings)
-    save_grid_search_summary(grid_search, task_name, settings)
+    save_best_params(grid_search, task_name)
+    save_grid_search_details(grid_search, task_name)
+    save_grid_search_summary(grid_search, task_name)
 
     # Test the best model on the test set and save results
     test_metrics = test_best_model(
