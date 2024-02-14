@@ -9,7 +9,10 @@ from settings import settings
 
 def load_data(df, representations_path):
     X, y = [], []
-    with h5py.File(representations_path, "r") as f:
+    with h5py.File(
+        f"{settings.REPRESENTATIONS_PATH}/{representations_path}_representations.h5",
+        "r",
+    ) as f:
         for seq_id in df["id"]:
             if str(seq_id) in f:
                 X.append(np.mean(f[str(seq_id)][()], axis=0))  # Average pooling
@@ -72,8 +75,8 @@ def test_best_model(model, X_test, y_test, task_name):
 
 # Define the tasks and corresponding CSV files
 csv_files = {
-    "IC-MP": "IC-MP_sequences.csv",
-    "IT-MP": "IT-MP_sequences.csv",
+    "IC_MP": "IC_MP_sequences.csv",
+    "IT_MP": "IT_MP_sequences.csv",
 }
 
 # Define the tasks
