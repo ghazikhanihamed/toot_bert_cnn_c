@@ -70,7 +70,7 @@ def test_best_model(model, X_test, y_test, task_name):
         "Accuracy": accuracy_score(y_test, y_pred),
         "MCC": matthews_corrcoef(y_test, y_pred),
     }
-    return pd.DataFrame([test_results])
+    return test_results
 
 
 # Define the tasks and corresponding CSV files
@@ -97,10 +97,8 @@ scoring = {
     "MCC": make_scorer(matthews_corrcoef),
 }
 
-# Initialize a DataFrame to store final test set results
-final_test_results = pd.DataFrame(
-    columns=["Task", "Sensitivity", "Specificity", "Accuracy", "MCC"]
-)
+# Initialize a list to store final test set results
+final_test_results_list = []
 
 for task_name in tasks:
     # Load the training and test sequences
@@ -134,11 +132,14 @@ for task_name in tasks:
     save_grid_search_details(grid_search, task_name)
     save_grid_search_summary(grid_search, task_name)
 
-    # Test the best model on the test set and save results
+    # Test the best model on the test set and accumulate results
     test_metrics = test_best_model(
         grid_search.best_estimator_, X_test, y_test, task_name
     )
-    final_test_results = final_test_results.append(test_metrics, ignore_index=True)
+    final_test_results_list.append(test_metrics)
+
+# Convert the accumulated results list to a DataFrame
+final_test_results = pd.DataFrame(final_test_results_list)
 
 # Save final test set results
 final_test_results.to_csv(
