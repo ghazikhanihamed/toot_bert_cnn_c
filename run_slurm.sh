@@ -2,7 +2,7 @@
 
 #SBATCH --account=h_ghazik
 #SBATCH --mem=64G
-#SBATCH -J finetune
+#SBATCH -J rep_ex
 #SBATCH -o _%x%J.out
 #SBATCH --gpus=1
 
@@ -18,7 +18,7 @@ conda activate py39
 
 nvidia-smi
 
-python save_finetuned_models_new.py
+python save_representations_finetuned_new.py
 
 conda deactivate
 module purge
