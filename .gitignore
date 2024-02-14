@@ -3,3 +3,5 @@ finetuned_models/
 *.zip
 representations/
 plm_representations/
+finetuned_results/
+wandb/
