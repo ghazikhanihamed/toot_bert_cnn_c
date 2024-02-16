@@ -5,3 +5,4 @@ representations/
 plm_representations/
 finetuned_results/
 wandb/
+.DS_Store
