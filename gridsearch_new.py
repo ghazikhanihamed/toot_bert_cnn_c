@@ -19,7 +19,7 @@ def load_data(df, representations_path):
                 X.append(np.mean(f[str(seq_id)][()], axis=0))  # Average pooling
                 y.append(f[str(seq_id)].attrs["label"])
     return np.array(X), np.array(
-        [1 if label == settings.MEMBRANE_PROTEINS else 0 for label in y]
+        [0 if label == settings.MEMBRANE_PROTEINS else 1 for label in y]
     )
 
 
