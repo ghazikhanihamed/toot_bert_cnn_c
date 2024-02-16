@@ -5,6 +5,7 @@ from sklearn.model_selection import StratifiedKFold, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score, make_scorer
 from settings import settings
+import joblib
 
 
 def load_data(df, representations_path):
@@ -22,8 +23,8 @@ def load_data(df, representations_path):
     )
 
 
-def save_best_params(best_params, task_name):
-    params_df = pd.DataFrame([best_params])
+def save_best_params(grid_search, task_name):
+    params_df = pd.DataFrame([grid_search.best_params_])
     params_df.to_csv(
         f"{settings.RESULTS_PATH}/{task_name}_best_params_new.csv", index=False
     )
@@ -132,10 +133,17 @@ for task_name in tasks:
     save_grid_search_details(grid_search, task_name)
     save_grid_search_summary(grid_search, task_name)
 
+    # Retrain best model on the entire training set
+    best_model = grid_search.best_estimator_
+    best_model.fit(X_train, y_train)  # Retraining on the entire training set
+
+    # Save the best model
+    model_filename = f"{settings.FINAL_MODELS_PATH}/final_model_{task_name}.joblib"
+    joblib.dump(best_model, model_filename)
+    print(f"Best Logistic Regression model saved to {model_filename}")
+
     # Test the best model on the test set and accumulate results
-    test_metrics = test_best_model(
-        grid_search.best_estimator_, X_test, y_test, task_name
-    )
+    test_metrics = test_best_model(best_model, X_test, y_test, task_name)
     final_test_results_list.append(test_metrics)
 
 # Convert the accumulated results list to a DataFrame
@@ -145,3 +153,9 @@ final_test_results = pd.DataFrame(final_test_results_list)
 final_test_results.to_csv(
     f"{settings.RESULTS_PATH}/final_test_results_new.csv", index=False
 )
+
+
+# To load the best model and make predictions, use the following code:
+# model_filename = f"{settings.FINAL_MODELS_PATH}/final_model_{task_name}.joblib"
+# best_model = joblib.load(model_filename)
+# y_pred = best_lr_model.predict(X_new)

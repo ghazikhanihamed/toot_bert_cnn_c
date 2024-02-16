@@ -85,3 +85,5 @@ IT_MP_Train_DATASET = "IT_MP_train.csv"
 IT_MP_Test_DATASET = "IT_MP_test.csv"
 IC_IT_Train_DATASET = "IC_IT_train.csv"
 IC_IT_Test_DATASET = "IC_IT_test.csv"
+
+FINAL_MODELS_PATH = "./final_models/"
