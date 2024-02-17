@@ -24,7 +24,7 @@ def load_data(df, representations_path):
 
 
 def save_best_params(grid_search, task_name):
-    params_df = pd.DataFrame(grid_search.best_params_)
+    params_df = pd.DataFrame(list(grid_search.best_params_.items()), columns=['Parameter', 'Value'])
     params_df.to_csv(
         f"{settings.RESULTS_PATH}/{task_name}_best_params_new.csv", index=False
     )

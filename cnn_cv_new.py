@@ -64,8 +64,8 @@ for task_name in tasks:
     train_df = pd.read_csv(f"{settings.DATASET_PATH}/{task_name}_train.csv")
     test_df = pd.read_csv(f"{settings.DATASET_PATH}/{task_name}_test.csv")
 
-    X_train, y_train = load_data(train_df, f"{task_name}_representations")
-    X_test, y_test = load_data(test_df, f"{task_name}_representations")
+    X_train, y_train = load_data(train_df, f"{task_name}_representations.h5")
+    X_test, y_test = load_data(test_df, f"{task_name}_representations.h5")
 
     input_dim = X_train[0].shape[1]
 
