@@ -93,6 +93,10 @@ for task_name in tasks:
         lr = cnn_params["lr"]
         optimizer = getattr(optim, optimizer_name)(model.parameters(), lr=lr)
         # Split data for this fold
+        train_ids = np.array(train_ids)
+        test_ids = np.array(test_ids)
+
+        # Split data for this fold
         X_train_fold, y_train_fold = X_train[train_ids], y_train[train_ids]
         X_val_fold, y_val_fold = X_train[test_ids], y_train[test_ids]
 
