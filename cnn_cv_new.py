@@ -13,14 +13,15 @@ from classes.PLMDataset import GridDataset
 # Function to load data
 def load_data(df, representations_path):
     X, y = [], []
-    with h5py.File(representations_path, "r") as f:
+    with h5py.File(f"{settings.REPRESENTATIONS_PATH}{representations_path}", "r") as f:
         for seq_id in df["id"]:
             if str(seq_id) in f:
-                X.append(np.mean(f[str(seq_id)][()], axis=0))  # Average pooling
+                # Append the representation as a PyTorch tensor
+                X.append(torch.tensor(f[str(seq_id)][()], dtype=torch.float))
                 y.append(f[str(seq_id)].attrs["label"])
-    return np.array(X), np.array(
-        [1 if label == settings.IONCHANNELS else 0 for label in y]
-    )
+    # Convert y labels to 0s and 1s
+    y = np.array([1 if label == settings.IONCHANNELS else 0 for label in y])
+    return X, y
 
 
 # Function to train the CNN model

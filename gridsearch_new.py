@@ -24,7 +24,9 @@ def load_data(df, representations_path):
 
 
 def save_best_params(grid_search, task_name):
-    params_df = pd.DataFrame(list(grid_search.best_params_.items()), columns=['Parameter', 'Value'])
+    params_df = pd.DataFrame(
+        list(grid_search.best_params_.items()), columns=["Parameter", "Value"]
+    )
     params_df.to_csv(
         f"{settings.RESULTS_PATH}/{task_name}_best_params_new.csv", index=False
     )
@@ -138,7 +140,7 @@ for task_name in tasks:
     best_model.fit(X_train, y_train)  # Retraining on the entire training set
 
     # Save the best model
-    model_filename = f"{settings.FINAL_MODELS_PATH}/final_model_{task_name}.joblib"
+    model_filename = f"{settings.FINAL_MODELS_PATH}final_model_{task_name}.joblib"
     joblib.dump(best_model, model_filename)
     print(f"Best Logistic Regression model saved to {model_filename}")
 
