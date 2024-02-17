@@ -92,13 +92,22 @@ for task_name in tasks:
         optimizer_name = cnn_params["optimizer"]
         lr = cnn_params["lr"]
         optimizer = getattr(optim, optimizer_name)(model.parameters(), lr=lr)
-        # Split data for this fold
+
+        # Convert train_ids and test_ids to arrays
         train_ids = np.array(train_ids)
         test_ids = np.array(test_ids)
 
         # Split data for this fold
-        X_train_fold, y_train_fold = X_train[train_ids], y_train[train_ids]
-        X_val_fold, y_val_fold = X_train[test_ids], y_train[test_ids]
+        X_train_fold = [X_train[i] for i in train_ids]
+        y_train_fold = [y_train[i] for i in train_ids]
+        X_val_fold = [X_train[i] for i in test_ids]
+        y_val_fold = [y_train[i] for i in test_ids]
+
+        # Convert lists to tensors
+        X_train_fold = [torch.tensor(x, dtype=torch.float) for x in X_train_fold]
+        y_train_fold = torch.tensor(y_train_fold, dtype=torch.long)
+        X_val_fold = [torch.tensor(x, dtype=torch.float) for x in X_val_fold]
+        y_val_fold = torch.tensor(y_val_fold, dtype=torch.long)
 
         train_dataset = GridDataset(X_train_fold, y_train_fold)
         train_loader = torch.utils.data.DataLoader(
