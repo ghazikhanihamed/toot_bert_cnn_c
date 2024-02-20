@@ -99,9 +99,10 @@ def test_best_model(model, X_test, y_test, task_name):
     return test_results
 
 
-def load_esm_model(model_info):
+def load_esm_model(model_info, device):
     model = EsmModel.from_pretrained(model_info["model"])
     tokenizer = EsmTokenizer.from_pretrained(model_info["model"], do_lower_case=False)
+    model.to(device)
     return model, tokenizer
 
 
@@ -132,7 +133,7 @@ for task_name in tasks:
     test_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_test.csv")
 
     model_info = settings.ESM1B
-    esm_model, tokenizer = load_esm_model(model_info)
+    esm_model, tokenizer = esm_model, tokenizer = load_esm_model(model_info, device)
 
     # Generate representations
     X_train, y_train = generate_representations(train_df, esm_model, tokenizer, device)
