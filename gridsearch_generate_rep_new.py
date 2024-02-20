@@ -91,8 +91,12 @@ def test_best_model(model, X_test, y_test, task_name):
     y_pred = model.predict(X_test)
     test_results = {
         "Task": task_name,
-        "Sensitivity": recall_score(y_test, y_pred, pos_label=1),
-        "Specificity": recall_score(y_test, y_pred, pos_label=0),
+        "Sensitivity": recall_score(
+            y_test,
+            y_pred,
+            pos_label="ionchannels" if task_name == "IC_MP" else "iontransporters",
+        ),
+        "Specificity": recall_score(y_test, y_pred, pos_label="membrane_proteins"),
         "Accuracy": accuracy_score(y_test, y_pred),
         "MCC": matthews_corrcoef(y_test, y_pred),
     }
@@ -116,18 +120,20 @@ param_grid = {
     "solver": ["liblinear", "saga"],
 }
 
-# Scoring metrics
-scoring = {
-    "Sensitivity": make_scorer(recall_score, pos_label=1),
-    "Specificity": make_scorer(recall_score, pos_label=0),
-    "Accuracy": make_scorer(accuracy_score),
-    "MCC": make_scorer(matthews_corrcoef),
-}
-
 # Initialize a list to store final test set results
 final_test_results_list = []
 
 for task_name in tasks:
+    # Scoring metrics
+    scoring = {
+        "Sensitivity": make_scorer(
+            recall_score,
+            pos_label="ionchannels" if task_name == "IC_MP" else "iontransporters",
+        ),
+        "Specificity": make_scorer(recall_score, pos_label="membrane_proteins"),
+        "Accuracy": make_scorer(accuracy_score),
+        "MCC": make_scorer(matthews_corrcoef),
+    }
     # Load the sequences
     train_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_train.csv")
     test_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_test.csv")
