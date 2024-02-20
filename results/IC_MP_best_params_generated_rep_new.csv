@@ -1,0 +1,4 @@
+Parameter,Value
+C,10
+penalty,l2
+solver,liblinear

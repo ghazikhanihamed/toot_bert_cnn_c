@@ -1,0 +1,64 @@
+Interactive jobs timeout is 24hrs
+==========================================
+SLURM_JOB_ID = 375
+SLURM_NODELIST = virya3
+==========================================
+Tue Feb 20 14:23:50 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.23.08              Driver Version: 545.23.08    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-40GB          Off | 00000000:81:00.0 Off |                   On |
+| N/A   24C    P0              42W / 400W |     74MiB / 40960MiB |     N/A      Default |
+|                                         |                      |              Enabled |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| MIG devices:                                                                          |
++------------------+--------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                   Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                     BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                |        ECC|                       |
+|==================+================================+===========+=======================|
+|  0    1   0   0  |              37MiB / 19968MiB  | 42      0 |  3   0    2    0    0 |
+|                  |               0MiB / 32767MiB  |           |                       |
++------------------+--------------------------------+-----------+-----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm1b_t33_650M_UR50S and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/h_ghazik/toot_bert_cnn_c/gridsearch_generate_rep_new.py", line 138, in <module>
+    X_train, y_train = generate_representations(train_df, esm_model, tokenizer, device)
+  File "/home/h_ghazik/toot_bert_cnn_c/gridsearch_generate_rep_new.py", line 38, in generate_representations
+    outputs = model(**inputs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/transformers/models/esm/modeling_esm.py", line 916, in forward
+    embedding_output = self.embeddings(
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/transformers/models/esm/modeling_esm.py", line 203, in forward
+    inputs_embeds = self.word_embeddings(input_ids)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/nn/functional.py", line 2233, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument index in method wrapper_CUDA__index_select)
