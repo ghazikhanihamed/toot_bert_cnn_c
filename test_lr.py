@@ -62,8 +62,8 @@ def load_esm_model(model_info):
 
 
 # Load models and tokenizer
-tasks = {"IC_MP": settings.ESM1B}
-task_name = "IC_MP"
+tasks = {"IT_MP": settings.ESM1B}
+task_name = "IT_MP"
 model_info = tasks[task_name]
 esm_model, tokenizer = load_esm_model(model_info)
 

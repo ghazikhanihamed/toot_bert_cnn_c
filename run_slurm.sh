@@ -2,7 +2,7 @@
 
 #SBATCH --account=h_ghazik
 #SBATCH --mem=64G
-#SBATCH -J cnncv
+#SBATCH -J testlr
 #SBATCH -o _%x%J.out
 #SBATCH --gpus=1
 
@@ -18,7 +18,7 @@ conda activate py39
 
 nvidia-smi
 
-python cnn_cv_new.py
+python test_lr.py
 
 conda deactivate
 module purge
