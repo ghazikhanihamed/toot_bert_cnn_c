@@ -1,38 +1,33 @@
-import pandas as pd
 import numpy as np
-import h5py
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report, confusion_matrix
 from settings import settings
 import torch
 from transformers import EsmModel, EsmTokenizer
-from joblib import dump
 from joblib import load
 
 
-# Function to load data
-def load_data(df, representations_path):
-    X, y = [], []
-    with h5py.File(
-        f"{settings.REPRESENTATIONS_PATH}/{representations_path}_representations.h5",
-        "r",
-    ) as f:
-        for seq_id in df["id"]:
-            X.append(np.mean(f[str(seq_id)][()], axis=0))
-            y.append(f[str(seq_id)].attrs["label"])
-    return np.array(X), np.array(
-        [0 if label == settings.MEMBRANE_PROTEINS else 1 for label in y]
-    )
+# # Function to load data
+# def load_data(df, representations_path):
+#     X, y = [], []
+#     with h5py.File(
+#         f"{settings.REPRESENTATIONS_PATH}/{representations_path}_representations.h5",
+#         "r",
+#     ) as f:
+#         for seq_id in df["id"]:
+#             X.append(np.mean(f[str(seq_id)][()], axis=0))
+#             y.append(f[str(seq_id)].attrs["label"])
+#     return np.array(X), np.array(
+#         [0 if label == settings.MEMBRANE_PROTEINS else 1 for label in y]
+#     )
 
 
-# Function to evaluate the model
-def evaluate_model(model, X, y, dataset_type="Test"):
-    y_pred = model.predict(X)
-    print(f"--- {dataset_type} Dataset Evaluation ---")
-    print("Classification Report:")
-    print(classification_report(y, y_pred))
-    print("Confusion Matrix:")
-    print(confusion_matrix(y, y_pred))
+# # Function to evaluate the model
+# def evaluate_model(model, X, y, dataset_type="Test"):
+#     y_pred = model.predict(X)
+#     print(f"--- {dataset_type} Dataset Evaluation ---")
+#     print("Classification Report:")
+#     print(classification_report(y, y_pred))
+#     print("Confusion Matrix:")
+#     print(confusion_matrix(y, y_pred))
 
 
 # Function for single sequence prediction
@@ -61,42 +56,42 @@ def load_esm_model(model_info):
     return model, tokenizer
 
 
-# Load models and tokenizer
-tasks = {"IT_MP": settings.ESM1B}
-task_name = "IT_MP"
+# # Load models and tokenizer
+tasks = {"IC_MP": settings.ESM1B}
+task_name = "IC_MP"
 model_info = tasks[task_name]
 esm_model, tokenizer = load_esm_model(model_info)
 
-# Load and prepare data
-train_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_train.csv")
-test_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_test.csv")
-X_train, y_train = load_data(train_df, task_name)
-X_test, y_test = load_data(test_df, task_name)
+# # Load and prepare data
+# train_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_train.csv")
+# test_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_test.csv")
+# X_train, y_train = load_data(train_df, task_name)
+# X_test, y_test = load_data(test_df, task_name)
 
-# Train LR model
-lr_model = LogisticRegression(
-    random_state=settings.SEED, C=10, penalty="l1", solver="liblinear"
-)
-lr_model.fit(X_train, y_train)
+# # Train LR model
+# lr_model = LogisticRegression(
+#     random_state=settings.SEED, C=10, penalty="l1", solver="liblinear"
+# )
+# lr_model.fit(X_train, y_train)
 
-# Save the model to a file
+# # Save the model to a file
 model_filename = f"final_lr_model{task_name}.joblib"
-dump(lr_model, model_filename)
-print(f"Model saved to {model_filename}")
+# dump(lr_model, model_filename)
+# print(f"Model saved to {model_filename}")
 
-# Evaluate model
-evaluate_model(lr_model, X_train, y_train, "Train")
-evaluate_model(lr_model, X_test, y_test, "Test")
+# # Evaluate model
+# evaluate_model(lr_model, X_train, y_train, "Train")
+# evaluate_model(lr_model, X_test, y_test, "Test")
 
-# delete the model
-del lr_model
+# # delete the model
+# del lr_model
 
 # Load the model from the file
 lr_model = load(model_filename)
 print("Model loaded successfully")
 
 # Example sequence for prediction
-sequence = "MVRCDRGLQMLLTTAGAFAAFSLMAIAIGTDYWLYSSAHICNGTNLTMDDGPPPRRARGDLTHSGLWRVCCIEGIYKGHCFRINHFPEDNDYDHDSSEYLLRIVRASSVFPILSTILLLLGGLCIGAGRIYSRKNNIVLSAGILFVAAGLSNIIGIIVYISSNTGDPSDKRDEDKKNHYNYGWSFYFGALSFIVAETVGVLAVNIYIEKNKELRFKTKREFLKASSSSPYSRMPSYRYRRRRSSSSRSTEASPSRDASPVGLKITGAIPMGELSMYTLSREPLKVTTAASYSPDQDAGFLQMHDFFQQDLKEGFHVSMLNRRTTPV"
+sequence = "MTRFMNSFAKQTLGYGNMATVEQESSAQAVDSHSNNTPKQAKGVLAEELKDALRFRDERVSIINAEPSSTLFVFWFVVSCYFPVITACLGPVANTISIACVVEKWRSLKNNSVVTNPRSNDTDVLMNQVKTVFDPPGIFAVNIISLVLGFTSNIILMLHFSKKLTYLKSQLINITGWTIAGGMLLVDVIVCSLNDMPSIYSKTIGFWFACISSGLYLVCTIILTIHFIGYKLGKYPPTFNLLPNERSIMAYTVLLSLWLIWGAGMFSGLLHITYGNALYFCTVSLLTVGLGDILPKSVGAKIMVLIFSLSGVVLMGLIVFMTRSIIQKSSGPIFFFHRVEKGRSKSWKHYMDSSKNLSEREAFDLMKCIRQTASRKQHWFSLSVTIAIFMAFWLLGALVFKFAENWSYFNCIYFCFLCLLTIGYGDYAPRTGAGRAFFVIWALGAVPLMGAILSTVGDLLFDISTSLDIKIGESFNNKVKSIVFNGRQRALSFMVNTGEIFEESDTADGDLEENTTSSQSSQISEFNDNNSEENDSGVTSPPASLQESFSSLSKASSPEGILPLEYVSSAEYALQDSGTCNLRNLQELLKAVKKLHRICLADKDYTLSFSDWSYIHKLHLRNITDIEEYTRGPEFWISPDTPLKFPLNEPHFAFMMLFKNIEELVGNLVEDEELYKVISKRKFLGEHRKTL"
 prediction, proba = predict_single_sequence(sequence, tokenizer, esm_model, lr_model)
 print(
     f"Prediction: {'Ion Channel' if prediction == 1 else 'Non-ionic Membrane Protein'}, Probabilities: {proba}"
