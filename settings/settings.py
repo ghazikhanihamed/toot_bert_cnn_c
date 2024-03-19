@@ -4,8 +4,8 @@ NUM_EPOCHS = 100
 DATASET_PATH = "./dataset/"
 PLOT_PATH = "./plots/"
 RESULTS_PATH = "./results/"
-# SEQUENCE_IDS_DICT_PATH = "./dataset/sequence_ids_dict.jsn"
-SEQUENCE_IDS_DICT_PATH = "./dataset/sequence_ids_dict_new.jsn"
+SEQUENCE_IDS_DICT_PATH = "./dataset/sequence_ids_dict.jsn"
+SEQUENCE_IDS_DICT_PATH_NEW = "./dataset/sequence_ids_dict_new.jsn"
 ALL_SEQUENCES_PATH = "./dataset/all_sequences_new.csv"
 FROZEN_REPRESENTATIONS_PATH = "./plm_representations/frozen_representations"
 FINETUNED_REPRESENTATIONS_PATH = "./plm_representations/finetuned_representations"
@@ -79,11 +79,21 @@ PLM_ORDER_FINETUNED = [
 PLM_ORDER_FINETUNED_SHORT = ["ProtBERT", "ProtBERT-BFD", "ESM-1b", "ESM-2"]
 CLASSIFIER_ORDER = ["LR", "kNN", "SVM", "RF", "FFNN", "CNN"]
 
+# Define the new datasets
 IC_MP_Train_DATASET = "IC_MP_train.csv"
 IC_MP_Test_DATASET = "IC_MP_test.csv"
 IT_MP_Train_DATASET = "IT_MP_train.csv"
 IT_MP_Test_DATASET = "IT_MP_test.csv"
 IC_IT_Train_DATASET = "IC_IT_train.csv"
 IC_IT_Test_DATASET = "IC_IT_test.csv"
+
+# Define the old datasets
+IC_MP_Train_DATASET_OLD = "ionchannels_membraneproteins_imbalanced_train.csv"
+IC_MP_Test_DATASET_OLD = "ionchannels_membraneproteins_imbalanced_test.csv"
+IT_MP_Train_DATASET_OLD = "iontransporters_membraneproteins_imbalanced_train.csv"
+IT_MP_Test_DATASET_OLD = "iontransporters_membraneproteins_imbalanced_test.csv"
+IC_IT_Train_DATASET_OLD = "ionchannels_iontransporters_train.csv"
+IC_IT_Test_DATASET_OLD = "ionchannels_iontransporters_test.csv"
+
 
 FINAL_MODELS_PATH = "./final_models/"
