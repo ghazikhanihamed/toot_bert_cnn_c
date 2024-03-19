@@ -33,18 +33,18 @@ class PLMDataset(Dataset):
             "MP": settings.MEMBRANE_PROTEINS,
         }
         # We extract the labels from the file name. The first and the second part split by _ are the labels based on the label encoder.
-        labels = [
-            label_encoder[dataset.split("_")[0]],
-            label_encoder[dataset.split("_")[1]],
-        ]
         # labels = [
-        #     dataset.split("_")[0],
-        #     (
-        #         dataset.split("_")[1]
-        #         if dataset.split("_")[1] != "membraneproteins"
-        #         else "membrane_proteins"
-        #     ),
+        #     label_encoder[dataset.split("_")[0]],
+        #     label_encoder[dataset.split("_")[1]],
         # ]
+        labels = [
+            dataset.split("_")[0],
+            (
+                dataset.split("_")[1]
+                if dataset.split("_")[1] != "membraneproteins"
+                else "membrane_proteins"
+            ),
+        ]
         df["labels"] = np.where(df["label"] == labels[0], 1, 0)
 
         seq = list(df["sequence"])
