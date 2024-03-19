@@ -32,6 +32,7 @@ def generate_representations(sequences_df, model, tokenizer, device):
         )
         inputs = tokenizer(
             sequence,
+            add_special_tokens=False,
             return_tensors="pt",
             padding="max_length",
             max_length=1024,
@@ -92,10 +93,10 @@ def test_classifier(model, X_test, y_test):
     return accuracy, mcc, sensitivity, specificity
 
 
-def load_esm_model_local(model_name, task):
-    model_path = f"{settings.FINETUNED_MODELS_PATH}{model_name}_old/{task}"
+def load_esm_model_local(model, task):
+    model_path = f"{settings.FINETUNED_MODELS_PATH}/{model['name']}_old/{task}"
     model = EsmModel.from_pretrained(model_path)
-    tokenizer = EsmTokenizer.from_pretrained(model_path)
+    tokenizer = EsmTokenizer.from_pretrained(model["model"], do_lower_case=False)
     return model, tokenizer
 
 
