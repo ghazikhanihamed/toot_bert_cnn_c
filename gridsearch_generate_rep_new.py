@@ -139,7 +139,7 @@ for task_name in tasks:
     test_df = pd.read_csv(f"{settings.DATASET_PATH}{task_name}_test.csv")
 
     model_info = settings.ESM1B
-    esm_model, tokenizer = esm_model, tokenizer = load_esm_model(model_info, device)
+    esm_model, tokenizer = load_esm_model(model_info, device)
 
     # Generate representations
     X_train, y_train = generate_representations(train_df, esm_model, tokenizer, device)
