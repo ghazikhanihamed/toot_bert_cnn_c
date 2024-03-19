@@ -93,10 +93,10 @@ def test_classifier(model, X_test, y_test):
     return accuracy, mcc, sensitivity, specificity
 
 
-def load_esm_model_local(model, task):
-    model_path = f"{settings.FINETUNED_MODELS_PATH}/{model['name']}_old/{task}"
+def load_esm_model_local(model_info, task):
+    model_path = f"{settings.FINETUNED_MODELS_PATH}/{model_info['name']}_old/{task}"
     model = EsmModel.from_pretrained(model_path)
-    tokenizer = EsmTokenizer.from_pretrained(model["model"], do_lower_case=False)
+    tokenizer = EsmTokenizer.from_pretrained(model_info["model"], do_lower_case=False)
     return model, tokenizer
 
 
