@@ -22,6 +22,7 @@ def ensure_dir(file_path):
 
 def generate_representations(sequences_df, model, tokenizer, device):
     representations, labels = [], []
+    model = model.to(device)
     for _, row in sequences_df.iterrows():
         sequence, label = row["sequence"], row["label"]
         sequence = (
@@ -34,11 +35,11 @@ def generate_representations(sequences_df, model, tokenizer, device):
             sequence,
             add_special_tokens=False,
             return_tensors="pt",
-            padding="max_length",
-            max_length=1024,
             truncation=True,
+            max_length=1024,
         )
         inputs = {k: v.to(device) for k, v in inputs.items()}
+
         with torch.no_grad():
             outputs = model(**inputs)
             representation = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
