@@ -125,10 +125,11 @@ def test_classifier(model, X_test, y_test):
     return accuracy, mcc, sensitivity, specificity
 
 
-def load_esm_model_local(model_info, task):
+def load_esm_model_local(model_info, task, device):
     model_path = f"{settings.FINETUNED_MODELS_PATH}/{model_info['name']}_old/{task}"
     model = EsmModel.from_pretrained(model_path)
     tokenizer = EsmTokenizer.from_pretrained(model_info["model"], do_lower_case=False)
+    model.to(device)
     return model, tokenizer
 
 
@@ -167,7 +168,7 @@ results = []
 for task in ["IC-MP", "IT-MP", "IC-IT"]:
     # Load training data
     train_df = pd.read_csv(f"./dataset/{datasets[task]}")
-    esm_model, esm_tokenizer = load_esm_model_local(tasks_model[task], task)
+    esm_model, esm_tokenizer = load_esm_model_local(tasks_model[task], task, device)
 
     if task in lr_params:
         # Generate representations for training data
