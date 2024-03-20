@@ -169,7 +169,7 @@ tasks_model = {"IC-MP": settings.ESM1B, "IT-MP": settings.ESM1B, "IC-IT": settin
 results = []
 
 # Main workflow
-for task in ["IC-MP", "IT-MP", "IC-IT"]:
+for task in ["IC-IT"]:  # ["IC-MP", "IT-MP", "IC-IT"]:
     # Load training data
     train_df = pd.read_csv(f"./dataset/{datasets[task]}")
     esm_model, esm_tokenizer = load_esm_model_local(tasks_model[task], task, device)
@@ -212,8 +212,8 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
         )
 
         cnn_model = CNN([3, 7, 9], [128, 64, 32], 0.27, X_train[0].shape[-1]).to(device)
-        X_train = torch.tensor(X_train, dtype=torch.float32)
-        y_train = torch.tensor(y_train, dtype=torch.long)
+        X_train = [torch.tensor(x, dtype=torch.float32) for x in X_train]
+        y_train = [torch.tensor(y, dtype=torch.long) for y in y_train]
         train_dataset = GridDataset(X_train, y_train)
         train_loader = torch.utils.data.DataLoader(
             train_dataset, batch_size=settings.BATCH_SIZE, shuffle=True
@@ -227,8 +227,8 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
         # Save the trained model
         torch.save(cnn_model.state_dict(), f"./trained_models/cnn_{task}_old.pt")
 
-        X_test = torch.tensor(X_test, dtype=torch.float32)
-        y_test = torch.tensor(y_test, dtype=torch.long)
+        X_test = [torch.tensor(x, dtype=torch.float32) for x in X_test]
+        y_test = [torch.tensor(y, dtype=torch.long) for y in y_test]
 
         # Create DataLoader for testing data
         test_dataset = GridDataset(X_test, y_test)
