@@ -20,9 +20,8 @@ def ensure_dir(file_path):
         os.makedirs(directory)
 
 
-def generate_representations(sequences_df, model, tokenizer, device):
+def generate_representations(sequences_df, model, tokenizer, device, task):
     representations, labels = [], []
-    model = model.to(device)
     for _, row in sequences_df.iterrows():
         sequence, label = row["sequence"], row["label"]
         sequence = (
@@ -39,13 +38,23 @@ def generate_representations(sequences_df, model, tokenizer, device):
             max_length=1024,
         )
         inputs = {k: v.to(device) for k, v in inputs.items()}
-
         with torch.no_grad():
             outputs = model(**inputs)
-            representation = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
+            representation = outputs.last_hidden_state[0].cpu()
             representations.append(representation)
             labels.append(label)
-    return np.array(representations), np.array(labels)
+
+    representations = torch.stack(representations).numpy()
+
+    # Convert labels to binary format based on the task
+    if task == "IC-MP":
+        binary_labels = np.array([1 if label == "IC" else 0 for label in labels])
+    elif task == "IT-MP":
+        binary_labels = np.array([1 if label == "IT" else 0 for label in labels])
+    elif task == "IC-IT":
+        binary_labels = np.array([1 if label == "IC" else 0 for label in labels])
+
+    return representations, binary_labels
 
 
 def test_cnn(model, test_loader, device):
@@ -140,13 +149,13 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
 
     # Generate representations for training data
     X_train, y_train = generate_representations(
-        train_df, esm_model, esm_tokenizer, device
+        train_df, esm_model, esm_tokenizer, device, task
     )
 
     # Load novel data for testing
     novel_sequences_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
     X_test, y_test = generate_representations(
-        novel_sequences_df, esm_model, esm_tokenizer, device
+        novel_sequences_df, esm_model, esm_tokenizer, device, task
     )
 
     if task in lr_params:
@@ -166,7 +175,9 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
         )
     else:
         # Train CNN
-        cnn_model = CNN([3, 7, 9], [128, 64, 32], 0.27, X_train.shape[1]).to(device)
+        cnn_model = CNN([3, 7, 9], [128, 64, 32], 0.27, X_train[0].shape[-1]).to(device)
+        X_train = torch.tensor(X_train, dtype=torch.float32)
+        y_train = torch.tensor(y_train, dtype=torch.long)
         train_dataset = GridDataset(X_train, y_train)
         train_loader = torch.utils.data.DataLoader(
             train_dataset, batch_size=settings.BATCH_SIZE, shuffle=True
