@@ -116,12 +116,16 @@ def train_classifier(model, X_train, y_train):
     model.fit(X_train, y_train)
 
 
-def test_classifier(model, X_test, y_test):
+def test_classifier(model, X_test, y_test, task):
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     mcc = matthews_corrcoef(y_test, y_pred)
-    sensitivity = recall_score(y_test, y_pred, pos_label=1)
-    specificity = recall_score(y_test, y_pred, pos_label=0)
+    sensitivity = recall_score(
+        y_test,
+        y_pred,
+        pos_label="ionchannels" if task == "IC-MP" else "iontransporters",
+    )
+    specificity = recall_score(y_test, y_pred, pos_label="membrane_proteins")
     return accuracy, mcc, sensitivity, specificity
 
 
@@ -193,7 +197,7 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
 
         # Test the model
         accuracy, mcc, sensitivity, specificity = test_classifier(
-            lr_model, X_test, y_test
+            lr_model, X_test, y_test, task
         )
     else:
         # Train CNN
