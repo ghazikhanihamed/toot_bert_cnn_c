@@ -3,9 +3,8 @@ import numpy as np
 import torch
 import joblib
 import os
-from torch import nn, optim
+from torch import nn
 from sklearn.metrics import matthews_corrcoef, accuracy_score, recall_score
-from sklearn.linear_model import LogisticRegression
 from settings import settings
 from classes.Classifier import CNN
 from classes.PLMDataset import GridDataset
@@ -100,22 +99,6 @@ def test_cnn(model, test_loader, device):
     return accuracy, mcc, sensitivity, specificity
 
 
-def train_cnn(network, train_loader, optimizer, device, epochs=10):
-    network.train()
-    for epoch in range(epochs):
-        for data, target in train_loader:
-            data, target = data.to(device), target.to(device)
-            optimizer.zero_grad()
-            output = network(data)
-            loss = nn.CrossEntropyLoss()(output, target)
-            loss.backward()
-            optimizer.step()
-
-
-def train_classifier(model, X_train, y_train):
-    model.fit(X_train, y_train)
-
-
 def test_classifier(model, X_test, y_test, task):
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
@@ -150,17 +133,10 @@ def append_results(task, model_type, accuracy, mcc, sensitivity, specificity):
     )
 
 
-# Task-specific settings for Logistic Regression
+# Task-specific settings for Logistic Regression, adjust as per your settings
 lr_params = {
     "IC-MP": {"C": 10, "penalty": "l2", "solver": "liblinear"},
     "IT-MP": {"C": 100, "penalty": "l2", "solver": "liblinear"},
-}
-
-# Datasets for training
-datasets = {
-    "IC-MP": settings.IC_MP_Train_DATASET_OLD,
-    "IT-MP": settings.IT_MP_Train_DATASET_OLD,
-    "IC-IT": settings.IC_IT_Train_DATASET_OLD,
 }
 
 # Task:model dictionary
@@ -170,70 +146,39 @@ results = []
 
 # Main workflow
 for task in ["IC-MP", "IT-MP", "IC-IT"]:
-    # Load training data
-    train_df = pd.read_csv(f"./dataset/{datasets[task]}")
+    test_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
     esm_model, esm_tokenizer = load_esm_model_local(tasks_model[task], task, device)
 
     if task in lr_params:
-        # Generate representations for training data
-        X_train, y_train = generate_representations_lr(
-            train_df, esm_model, esm_tokenizer, device
-        )
-
-        # Load novel data for testing
-        novel_sequences_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
+        # Generate representations for test data
         X_test, y_test = generate_representations_lr(
-            novel_sequences_df, esm_model, esm_tokenizer, device
+            test_df, esm_model, esm_tokenizer, device
         )
-        # Train Logistic Regression
-        lr_model = LogisticRegression(**lr_params[task])
-        train_classifier(lr_model, X_train, y_train)
 
-        # Ensure directory exists
-        ensure_dir(f"./trained_models/lr_{task}_old.joblib")
-
-        # Save the trained model
-        joblib.dump(lr_model, f"./trained_models/lr_{task}_old.joblib")
+        # Load the trained Logistic Regression model
+        lr_model = joblib.load(f"./trained_models/lr_{task}_old.joblib")
 
         # Test the model
         accuracy, mcc, sensitivity, specificity = test_classifier(
             lr_model, X_test, y_test, task
         )
     else:
-        # Train CNN
-        X_train, y_train = generate_representations_cnn(
-            train_df, esm_model, esm_tokenizer, device
-        )
-
-        # Load novel data for testing
-        novel_sequences_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
+        # Generate representations for test data
         X_test, y_test = generate_representations_cnn(
-            novel_sequences_df, esm_model, esm_tokenizer, device
+            test_df, esm_model, esm_tokenizer, device
         )
 
-        cnn_model = CNN([3, 7, 9], [128, 64, 32], 0.27, X_train[0].shape[-1]).to(device)
-        X_train = [torch.tensor(x, dtype=torch.float32) for x in X_train]
-        y_train = [torch.tensor(y, dtype=torch.long) for y in y_train]
-        train_dataset = GridDataset(X_train, y_train)
-        train_loader = torch.utils.data.DataLoader(
-            train_dataset, batch_size=settings.BATCH_SIZE, shuffle=True
-        )
-        optimizer = optim.RMSprop(cnn_model.parameters(), lr=0.00021)
-        train_cnn(cnn_model, train_loader, optimizer, device)
+        # Load the trained CNN model
+        cnn_model = CNN([3, 7, 9], [128, 64, 32], 0.27, X_test[0].shape[-1]).to(device)
+        cnn_model.load_state_dict(torch.load(f"./trained_models/cnn_{task}_old.pt"))
+        cnn_model.eval()
 
-        # Ensure directory exists
-        ensure_dir(f"./trained_models/cnn_{task}_old.pt")
-
-        # Save the trained model
-        torch.save(cnn_model.state_dict(), f"./trained_models/cnn_{task}_old.pt")
-
+        # Prepare DataLoader for the test set
         X_test = [torch.tensor(x, dtype=torch.float32) for x in X_test]
         y_test = [torch.tensor(y, dtype=torch.long) for y in y_test]
-
-        # Create DataLoader for testing data
         test_dataset = GridDataset(X_test, y_test)
         test_loader = torch.utils.data.DataLoader(
-            test_dataset, batch_size=32, shuffle=False
+            test_dataset, batch_size=settings.BATCH_SIZE, shuffle=False
         )
 
         # Test the model
