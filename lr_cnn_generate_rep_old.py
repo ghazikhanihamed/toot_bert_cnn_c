@@ -20,7 +20,7 @@ def ensure_dir(file_path):
         os.makedirs(directory)
 
 
-def generate_representations(sequences_df, model, tokenizer, device, task):
+def generate_representations_cnn(sequences_df, model, tokenizer, device):
     representations, labels = [], []
     for _, row in sequences_df.iterrows():
         sequence, label = row["sequence"], row["label"]
@@ -40,21 +40,43 @@ def generate_representations(sequences_df, model, tokenizer, device, task):
         inputs = {k: v.to(device) for k, v in inputs.items()}
         with torch.no_grad():
             outputs = model(**inputs)
-            representation = outputs.last_hidden_state[0].cpu()
+            representation = outputs.last_hidden_state[0].cpu().numpy()
+            representations.append(torch.tensor(representation, dtype=torch.float))
+            labels.append(label)
+    return representations, np.array(
+        [1 if label == settings.IONCHANNELS else 0 for label in labels]
+    )
+
+
+def generate_representations_lr(sequences_df, model, tokenizer, device):
+    representations, labels = [], []
+    for _, row in sequences_df.iterrows():
+        sequence, label = row["sequence"], row["label"]
+        # Process the sequence as needed, e.g., replacing special characters
+        sequence = (
+            sequence.replace("U", "X")
+            .replace("Z", "X")
+            .replace("O", "X")
+            .replace("B", "X")
+        )
+
+        # Tokenize and generate representations
+        inputs = tokenizer(
+            sequence,
+            add_special_tokens=False,
+            return_tensors="pt",
+            truncation=True,
+            max_length=1024,
+        )
+        inputs = {k: v.to(device) for k, v in inputs.items()}
+        with torch.no_grad():
+            outputs = model(**inputs)
+            representation = outputs.last_hidden_state[0].cpu().numpy()
+            # Average pooling
+            representation = np.mean(representation, axis=0)
             representations.append(representation)
             labels.append(label)
-
-    representations = torch.stack(representations).numpy()
-
-    # Convert labels to binary format based on the task
-    if task == "IC-MP":
-        binary_labels = np.array([1 if label == "IC" else 0 for label in labels])
-    elif task == "IT-MP":
-        binary_labels = np.array([1 if label == "IT" else 0 for label in labels])
-    elif task == "IC-IT":
-        binary_labels = np.array([1 if label == "IC" else 0 for label in labels])
-
-    return representations, binary_labels
+    return np.array(representations), np.array(labels)
 
 
 def test_cnn(model, test_loader, device):
@@ -147,18 +169,17 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
     train_df = pd.read_csv(f"./dataset/{datasets[task]}")
     esm_model, esm_tokenizer = load_esm_model_local(tasks_model[task], task)
 
-    # Generate representations for training data
-    X_train, y_train = generate_representations(
-        train_df, esm_model, esm_tokenizer, device, task
-    )
-
-    # Load novel data for testing
-    novel_sequences_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
-    X_test, y_test = generate_representations(
-        novel_sequences_df, esm_model, esm_tokenizer, device, task
-    )
-
     if task in lr_params:
+        # Generate representations for training data
+        X_train, y_train = generate_representations_lr(
+            train_df, esm_model, esm_tokenizer, device
+        )
+
+        # Load novel data for testing
+        novel_sequences_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
+        X_test, y_test = generate_representations_lr(
+            novel_sequences_df, esm_model, esm_tokenizer, device
+        )
         # Train Logistic Regression
         lr_model = LogisticRegression(**lr_params[task])
         train_classifier(lr_model, X_train, y_train)
@@ -175,6 +196,16 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
         )
     else:
         # Train CNN
+        X_train, y_train = generate_representations_cnn(
+            train_df, esm_model, esm_tokenizer, device
+        )
+
+        # Load novel data for testing
+        novel_sequences_df = pd.read_csv(f"./dataset/{task}_novel_sequences.csv")
+        X_test, y_test = generate_representations_cnn(
+            novel_sequences_df, esm_model, esm_tokenizer, device
+        )
+
         cnn_model = CNN([3, 7, 9], [128, 64, 32], 0.27, X_train[0].shape[-1]).to(device)
         X_train = torch.tensor(X_train, dtype=torch.float32)
         y_train = torch.tensor(y_train, dtype=torch.long)
@@ -190,6 +221,9 @@ for task in ["IC-MP", "IT-MP", "IC-IT"]:
 
         # Save the trained model
         torch.save(cnn_model.state_dict(), f"./trained_models/cnn_{task}_old.pt")
+
+        X_test = torch.tensor(X_test, dtype=torch.float32)
+        y_test = torch.tensor(y_test, dtype=torch.long)
 
         # Create DataLoader for testing data
         test_dataset = GridDataset(X_test, y_test)
