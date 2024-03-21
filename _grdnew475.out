@@ -1,0 +1,48 @@
+Interactive jobs timeout is 24hrs
+==========================================
+SLURM_JOB_ID = 475
+SLURM_NODELIST = virya3
+==========================================
+ERROR: Unable to locate a modulefile for 'anaconda/3.2023.03'
+Tue Mar 19 17:05:29 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.23.08              Driver Version: 545.23.08    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-40GB          Off | 00000000:81:00.0 Off |                   On |
+| N/A   39C    P0             138W / 400W |  15781MiB / 40960MiB |     N/A      Default |
+|                                         |                      |              Enabled |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| MIG devices:                                                                          |
++------------------+--------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                   Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                     BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                |        ECC|                       |
+|==================+================================+===========+=======================|
+|  0    2   0   0  |              37MiB / 19968MiB  | 42      0 |  3   0    2    0    0 |
+|                  |               0MiB / 32767MiB  |           |                       |
++------------------+--------------------------------+-----------+-----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Task: IC-MP
+Model: ESM-1b
+--------------------------------------------------
+Traceback (most recent call last):
+  File "/home/h_ghazik/toot_bert_cnn_c/save_finetuned_models_old.py", line 31, in <module>
+    train_dataset = PLMDataset(model_info, dataset, seqid_dict)
+  File "/home/h_ghazik/toot_bert_cnn_c/classes/PLMDataset.py", line 23, in __init__
+    self.seqs, self.labels = self.load_dataset(dataset)
+  File "/home/h_ghazik/toot_bert_cnn_c/classes/PLMDataset.py", line 37, in load_dataset
+    label_encoder[dataset.split("_")[0]],
+KeyError: 'ionchannels'

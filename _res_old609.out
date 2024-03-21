@@ -1,0 +1,64 @@
+==========================================
+SLURM_JOB_ID = 609
+SLURM_NODELIST = virya4
+==========================================
+ERROR: Unable to locate a modulefile for 'anaconda/3.2023.03'
+Wed Mar 20 21:32:23 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.23.08              Driver Version: 545.23.08    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-40GB          Off | 00000000:81:00.0 Off |                   On |
+| N/A   27C    P0              43W / 400W |     74MiB / 40960MiB |     N/A      Default |
+|                                         |                      |              Enabled |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| MIG devices:                                                                          |
++------------------+--------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                   Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                     BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                |        ECC|                       |
+|==================+================================+===========+=======================|
+|  0    2   0   0  |              37MiB / 19968MiB  | 42      0 |  3   0    2    0    0 |
+|                  |               0MiB / 32767MiB  |           |                       |
++------------------+--------------------------------+-----------+-----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-2_old/IC-IT and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/h_ghazik/toot_bert_cnn_c/lr_cnn_generate_rep_old.py:215: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_train = [torch.tensor(x, dtype=torch.float32) for x in X_train]
+/home/h_ghazik/toot_bert_cnn_c/lr_cnn_generate_rep_old.py:230: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_test = [torch.tensor(x, dtype=torch.float32) for x in X_test]
+Traceback (most recent call last):
+  File "/home/h_ghazik/toot_bert_cnn_c/lr_cnn_generate_rep_old.py", line 240, in <module>
+    accuracy, mcc, sensitivity, specificity = test_cnn(
+  File "/home/h_ghazik/toot_bert_cnn_c/lr_cnn_generate_rep_old.py", line 89, in test_cnn
+    for data, targets in test_loader:
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 674, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 265, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 142, in collate
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 142, in <listcomp>
+    return [collate(samples, collate_fn_map=collate_fn_map) for samples in transposed]  # Backwards compatibility.
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 119, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "/home/h_ghazik/.conda/envs/py39/lib/python3.9/site-packages/torch/utils/data/_utils/collate.py", line 162, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [389, 1280] at entry 0 and [250, 1280] at entry 1

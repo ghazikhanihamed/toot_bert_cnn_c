@@ -1,0 +1,45 @@
+==========================================
+SLURM_JOB_ID = 611
+SLURM_NODELIST = virya6
+==========================================
+ERROR: Unable to locate a modulefile for 'anaconda/3.2023.03'
+Wed Mar 20 17:50:24 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.23.08              Driver Version: 545.23.08    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off | 00000000:41:00.0 Off |                   On |
+| N/A   28C    P0              59W / 500W |     90MiB / 81920MiB |     N/A      Default |
+|                                         |                      |              Enabled |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| MIG devices:                                                                          |
++------------------+--------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                   Memory-Usage |        Vol|      Shared           |
+|      ID  ID  Dev |                     BAR1-Usage | SM     Unc| CE ENC DEC OFA JPG    |
+|                  |                                |        ECC|                       |
+|==================+================================+===========+=======================|
+|  0    6   0   0  |              12MiB / 19968MiB  | 14      0 |  1   0    1    0    0 |
+|                  |               0MiB / 32767MiB  |           |                       |
++------------------+--------------------------------+-----------+-----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-1b_old/IC-MP and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-1b_old/IT-MP and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of EsmModel were not initialized from the model checkpoint at ./finetuned_models//ESM-2_old/IC-IT and are newly initialized: ['esm.pooler.dense.weight', 'esm.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/h_ghazik/toot_bert_cnn_c/lr_cnn_generate_rep_old_test.py:177: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X_test = [torch.tensor(x, dtype=torch.float32) for x in X_test]
+Results saved to model_performance_results_old_novel.csv
