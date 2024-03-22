@@ -116,7 +116,14 @@ def test_classifier(model, X_test, y_test, task):
         pos_label="ionchannels" if task == "IC-MP" else "iontransporters",
     )
     specificity = recall_score(y_test, y_pred, pos_label="membrane_proteins")
-    TP, TN, FP, FN = confusion_matrix(y_test, y_pred, labels=[1, 0]).ravel()
+    TP, TN, FP, FN = confusion_matrix(
+        y_test,
+        y_pred,
+        labels=[
+            "ionchannels" if task == "IC-MP" else "iontransporters",
+            "membrane_proteins",
+        ],
+    ).ravel()
     return accuracy, mcc, sensitivity, specificity, TP, TN, FP, FN
 
 
