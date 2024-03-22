@@ -135,9 +135,14 @@ def load_esm_model_local(model_info, task, device):
     return model, tokenizer
 
 
-def append_results(task, model_type, metrics):
+def append_results(task, model_type, dataset_type, metrics):
     results.append(
-        {"Task": task, "Model": model_type, **metrics}  # Unpack metrics dictionary
+        {
+            "Task": task,
+            "Model": model_type,
+            "Dataset_Type": dataset_type,
+            **metrics,
+        }  # Unpack metrics dictionary
     )
 
 
@@ -200,14 +205,17 @@ for dataset_type in ["old", "new"]:
         append_results(
             task,
             "Logistic Regression" if task in lr_params else "CNN",
-            accuracy,
-            mcc,
-            sensitivity,
-            specificity,
-            TP,
-            TN,
-            FP,
-            FN,
+            dataset_type,
+            {
+                "Accuracy": accuracy,
+                "MCC": mcc,
+                "Sensitivity": sensitivity,
+                "Specificity": specificity,
+                "TP": TP,
+                "TN": TN,
+                "FP": FP,
+                "FN": FN,
+            },
         )
 
 # Convert results to DataFrame and save to CSV as before but include dataset_type in file name
