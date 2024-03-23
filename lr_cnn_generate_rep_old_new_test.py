@@ -221,6 +221,6 @@ for dataset_type in ["old", "new"]:
 # Convert results to DataFrame and save to CSV as before but include dataset_type in file name
 results_df = pd.DataFrame(results)
 new_folder = f"./model_performance_results_old_new"
-ensure_dir(f"{new_folder}")
-results_df.to_csv(f"{new_folder}/model_performance_results_old_new.csv", index=False)
+ensure_dir(new_folder)
+results_df.to_csv(f"./{new_folder}/model_performance_results_old_new.csv", index=False)
 print("Results saved to CSV.")
