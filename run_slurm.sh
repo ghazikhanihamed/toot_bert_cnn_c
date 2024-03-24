@@ -2,9 +2,11 @@
 
 #SBATCH --account=h_ghazik
 #SBATCH --mem=64G
-#SBATCH -J res_old
+#SBATCH -J oldnew
 #SBATCH -o _%x%J.out
 #SBATCH --gpus=1
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=hamed.ghazikhani@gmail.com
 
 export TMPDIR=~/tmp
 export TRANSFORMERS_CACHE=~/tmp
@@ -18,7 +20,7 @@ conda activate py39
 
 nvidia-smi
 
-python lr_cnn_generate_rep_old_test.py
+python lr_cnn_generate_rep_old_new_test.py
 
 conda deactivate
 module purge
