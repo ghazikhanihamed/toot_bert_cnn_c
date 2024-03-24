@@ -102,8 +102,8 @@ def test_cnn(model, test_loader, device):
     mcc = matthews_corrcoef(y_true, y_pred)
     sensitivity = recall_score(y_true, y_pred, pos_label=1)
     specificity = recall_score(y_true, y_pred, pos_label=0)
-    TP, TN, FP, FN = confusion_matrix(y_true, y_pred, labels=[1, 0]).ravel()
-    return accuracy, mcc, sensitivity, specificity, TP, TN, FP, FN
+    TP, FN, FP, TN = confusion_matrix(y_true, y_pred, labels=[1, 0]).ravel()
+    return accuracy, mcc, sensitivity, specificity, TP, FN, FP, TN
 
 
 def test_classifier(model, X_test, y_test, task):
@@ -116,7 +116,7 @@ def test_classifier(model, X_test, y_test, task):
         pos_label="ionchannels" if task == "IC-MP" else "iontransporters",
     )
     specificity = recall_score(y_test, y_pred, pos_label="membrane_proteins")
-    TP, TN, FP, FN = confusion_matrix(
+    TP, FN, FP, TN = confusion_matrix(
         y_test,
         y_pred,
         labels=[
@@ -124,7 +124,7 @@ def test_classifier(model, X_test, y_test, task):
             "membrane_proteins",
         ],
     ).ravel()
-    return accuracy, mcc, sensitivity, specificity, TP, TN, FP, FN
+    return accuracy, mcc, sensitivity, specificity, TP, FN, FP, TN
 
 
 def load_esm_model_local(model_info, task, device):
@@ -172,7 +172,7 @@ for dataset_type in ["old", "new"]:
             lr_model = joblib.load(f"./trained_models/lr_{task}_old.joblib")
 
             # Test the model
-            accuracy, mcc, sensitivity, specificity, TP, TN, FP, FN = test_classifier(
+            accuracy, mcc, sensitivity, specificity, TP, FN, FP, TN = test_classifier(
                 lr_model, X_test, y_test, task
             )
         else:
@@ -197,7 +197,7 @@ for dataset_type in ["old", "new"]:
             )
 
             # Test the model
-            accuracy, mcc, sensitivity, specificity, TP, TN, FP, FN = test_cnn(
+            accuracy, mcc, sensitivity, specificity, TP, FN, FP, TN = test_cnn(
                 cnn_model, test_loader, device
             )
 
@@ -212,9 +212,9 @@ for dataset_type in ["old", "new"]:
                 "Sensitivity": sensitivity,
                 "Specificity": specificity,
                 "TP": TP,
-                "TN": TN,
-                "FP": FP,
                 "FN": FN,
+                "FP": FP,
+                "TN": TN,
             },
         )
 
